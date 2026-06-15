@@ -218,6 +218,7 @@ export class SystemController extends BaseController {
   buildControlCapabilities(): Record<string, unknown> {
     const capabilities: Record<string, unknown> = {
       can_handle_can_use_tool: true,
+      can_handle_host_executed_shell_tool_result: true,
       can_handle_hook_callback: false,
       can_set_permission_mode:
         typeof this.context.config.setApprovalMode === 'function',

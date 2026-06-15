@@ -18,6 +18,7 @@ import type {
   WaitingToolCall,
   ToolExecuteConfirmationDetails,
   ToolMcpConfirmationDetails,
+  ToolResult,
   ApprovalMode,
 } from '@copilot-shell/core';
 import { InputFormat, ToolConfirmationOutcome } from '@copilot-shell/core';
@@ -447,6 +448,35 @@ export class PermissionController extends BaseController {
         await toolCall.confirmationDetails.onConfirm(
           ToolConfirmationOutcome.ProceedOnce,
         );
+      } else if (behavior === 'host_executed_shell') {
+        if (toolCall.request.name !== 'run_shell_command') {
+          await toolCall.confirmationDetails.onConfirm(
+            ToolConfirmationOutcome.Cancel,
+            {
+              cancelMessage:
+                'host_executed_shell is only valid for shell tool requests',
+            },
+          );
+          return;
+        }
+
+        const hostExecutedToolResult = parseHostExecutedShellResult(
+          payload['result'],
+        );
+        if (!hostExecutedToolResult) {
+          await toolCall.confirmationDetails.onConfirm(
+            ToolConfirmationOutcome.Cancel,
+            {
+              cancelMessage: 'Invalid host_executed_shell result payload',
+            },
+          );
+          return;
+        }
+
+        await toolCall.confirmationDetails.onConfirm(
+          ToolConfirmationOutcome.ProceedOnce,
+          { hostExecutedToolResult },
+        );
       } else {
         // Extract cancel message from response if available
         const cancelMessage =
@@ -493,4 +523,41 @@ export class PermissionController extends BaseController {
       this.pendingOutgoingRequests.delete(toolCall.request.callId);
     }
   }
+}
+
+function parseHostExecutedShellResult(value: unknown): ToolResult | null {
+  if (!isRecord(value)) {
+    return null;
+  }
+
+  const llmContent = value['llmContent'];
+  if (typeof llmContent !== 'string' && !Array.isArray(llmContent)) {
+    return null;
+  }
+
+  const returnDisplay = value['returnDisplay'];
+  const toolResult: ToolResult = {
+    llmContent,
+    returnDisplay:
+      returnDisplay === undefined
+        ? ''
+        : (returnDisplay as ToolResult['returnDisplay']),
+  };
+
+  const error = value['error'];
+  if (isRecord(error) && typeof error['message'] === 'string') {
+    toolResult.error = {
+      message: error['message'],
+      type:
+        typeof error['type'] === 'string'
+          ? (error['type'] as NonNullable<ToolResult['error']>['type'])
+          : undefined,
+    };
+  }
+
+  return toolResult;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
 }

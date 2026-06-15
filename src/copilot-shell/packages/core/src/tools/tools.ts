@@ -554,6 +554,8 @@ export interface ToolConfirmationPayload {
   newContent?: string;
   // used to provide custom cancellation message when outcome is Cancel
   cancelMessage?: string;
+  // used by control-protocol hosts that executed an approved shell command
+  hostExecutedToolResult?: ToolResult;
 }
 
 export interface ToolExecuteConfirmationDetails {

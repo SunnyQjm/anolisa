@@ -37,7 +37,14 @@ import {
   MockTool,
   MOCK_TOOL_SHOULD_CONFIRM_EXECUTE,
 } from '../test-utils/mock-tool.js';
+import { ChatRecordingService } from '../services/chatRecordingService.js';
+import {
+  SessionService,
+  buildApiHistoryFromConversation,
+} from '../services/sessionService.js';
+import * as nodeFs from 'node:fs';
 import * as fs from 'node:fs/promises';
+import * as os from 'node:os';
 import * as path from 'node:path';
 
 vi.mock('fs/promises', () => ({
@@ -810,6 +817,187 @@ describe('CoreToolScheduler with payload', () => {
     expect(mockTool.executeFn).toHaveBeenCalledWith({
       newContent: 'final version',
     });
+  });
+
+  it('uses host executed shell result without invoking local tool execute', async () => {
+    const execute = vi.fn().mockResolvedValue({
+      llmContent: 'local execute should not run',
+      returnDisplay: 'local execute should not run',
+    });
+    const shellTool = new MockTool({
+      name: 'run_shell_command',
+      shouldConfirmExecute: MOCK_TOOL_SHOULD_CONFIRM_EXECUTE,
+      execute,
+    });
+    const toolRegistry = {
+      getTool: () => shellTool,
+      getFunctionDeclarations: () => [],
+      tools: new Map(),
+      discovery: {},
+      registerTool: () => {},
+      getToolByName: () => shellTool,
+      getToolByDisplayName: () => shellTool,
+      getTools: () => [],
+      discoverTools: async () => {},
+      getAllTools: () => [],
+      getToolsByServer: () => [],
+    } as unknown as ToolRegistry;
+    const postToolUse = vi.fn().mockResolvedValue(undefined);
+    const hookSystem = {
+      firePreToolUseEvent: vi.fn().mockResolvedValue(undefined),
+      firePostToolUseEvent: postToolUse,
+    };
+    const projectDir = nodeFs.mkdtempSync(
+      path.join(os.tmpdir(), 'host-executed-recording-'),
+    );
+    const sessionId = '550e8400-e29b-41d4-a716-44665544abcd';
+    const onAllToolCallsComplete = vi.fn();
+    const onToolCallsUpdate = vi.fn();
+    const config = {
+      getSessionId: () => sessionId,
+      getCurrentRunId: () => 'test-run-host-executed',
+      getProjectRoot: () => projectDir,
+      getCliVersion: () => 'test-version',
+      getResumedSessionData: () => undefined,
+      getUsageStatisticsEnabled: () => true,
+      getDebugMode: () => false,
+      getApprovalMode: () => ApprovalMode.DEFAULT,
+      getAllowedTools: () => [],
+      getToolRegistry: () => toolRegistry,
+      getContentGeneratorConfig: () => ({
+        model: 'test-model',
+        authType: 'gemini',
+      }),
+      getShellExecutionConfig: () => ({
+        terminalWidth: 90,
+        terminalHeight: 30,
+      }),
+      storage: {
+        getProjectTempDir: () => '/tmp',
+        getProjectDir: () => projectDir,
+      },
+      getEnableToolOutputTruncation: () => false,
+      getTruncateToolOutputThreshold: () =>
+        DEFAULT_TRUNCATE_TOOL_OUTPUT_THRESHOLD,
+      getTruncateToolOutputLines: () => DEFAULT_TRUNCATE_TOOL_OUTPUT_LINES,
+      getUseSmartEdit: () => false,
+      getUseModelRouter: () => false,
+      getGeminiClient: () => null,
+      getChatRecordingService: () => undefined,
+      isInteractive: () => true,
+      getIdeMode: () => false,
+      getExperimentalZedIntegration: () => false,
+      getEnableHooks: () => true,
+      getHookSystem: () => hookSystem,
+    } as unknown as Config;
+    const chatRecordingService = new ChatRecordingService(config);
+
+    const scheduler = new CoreToolScheduler({
+      config,
+      onAllToolCallsComplete,
+      onToolCallsUpdate,
+      getPreferredEditor: () => 'vscode',
+      onEditorClose: vi.fn(),
+      chatRecordingService,
+    });
+
+    await scheduler.schedule(
+      [
+        {
+          callId: 'host-shell-1',
+          name: 'run_shell_command',
+          args: { command: 'df -h' },
+          isClientInitiated: false,
+          prompt_id: 'prompt-host-shell',
+        },
+      ],
+      new AbortController().signal,
+    );
+
+    const awaitingCall = (await waitForStatus(
+      onToolCallsUpdate,
+      'awaiting_approval',
+    )) as WaitingToolCall;
+    await awaitingCall.confirmationDetails.onConfirm(
+      ToolConfirmationOutcome.ProceedOnce,
+      {
+        hostExecutedToolResult: {
+          llmContent: 'command: df -h\nstatus: completed\nbounded_output:\nok',
+          returnDisplay: 'df -h completed',
+        },
+      },
+    );
+
+    await vi.waitFor(() => {
+      expect(onAllToolCallsComplete).toHaveBeenCalled();
+    });
+
+    expect(execute).not.toHaveBeenCalled();
+    expect(postToolUse).toHaveBeenCalledWith(
+      'run_shell_command',
+      { command: 'df -h' },
+      {
+        llmContent: 'command: df -h\nstatus: completed\nbounded_output:\nok',
+        returnDisplay: 'df -h completed',
+      },
+      undefined,
+      undefined,
+      'host-shell-1',
+    );
+    const completedCalls = onAllToolCallsComplete.mock
+      .calls[0][0] as ToolCall[];
+    expect(completedCalls[0].status).toBe('success');
+    const recordingPath = path.join(projectDir, 'chats', `${sessionId}.jsonl`);
+    const records = nodeFs
+      .readFileSync(recordingPath, 'utf8')
+      .trim()
+      .split('\n')
+      .map((line) => JSON.parse(line));
+    expect(records).toHaveLength(1);
+    expect(records[0]).toMatchObject({
+      type: 'tool_result',
+      toolCallResult: {
+        callId: 'host-shell-1',
+        status: 'success',
+        resultDisplay: 'df -h completed',
+      },
+    });
+    expect(JSON.stringify(records[0].message)).toContain('bounded_output');
+    expect(
+      JSON.stringify(
+        (completedCalls[0] as { response: { responseParts: unknown } }).response
+          .responseParts,
+      ),
+    ).toContain('bounded_output');
+
+    const sessionService = new SessionService(projectDir);
+    vi.spyOn(
+      sessionService as unknown as { getChatsDir: () => string },
+      'getChatsDir',
+    ).mockReturnValue(path.join(projectDir, 'chats'));
+    const loadedSession = await sessionService.loadSession(sessionId);
+    expect(loadedSession?.conversation.messages).toHaveLength(1);
+    expect(loadedSession?.conversation.messages[0]).toMatchObject({
+      type: 'tool_result',
+      toolCallResult: {
+        callId: 'host-shell-1',
+        status: 'success',
+      },
+    });
+    expect(loadedSession?.lastCompletedUuid).toBe(records[0].uuid);
+
+    const resumedApiHistory = buildApiHistoryFromConversation(
+      loadedSession!.conversation,
+    );
+    expect(resumedApiHistory).toHaveLength(1);
+    const functionResponse = resumedApiHistory[0].parts?.[0].functionResponse;
+    expect(functionResponse).toMatchObject({
+      name: 'run_shell_command',
+      id: 'host-shell-1',
+    });
+    expect(JSON.stringify(functionResponse?.response)).toContain(
+      'bounded_output',
+    );
   });
 });
 

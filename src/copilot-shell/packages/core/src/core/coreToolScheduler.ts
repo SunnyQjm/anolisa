@@ -375,6 +375,7 @@ interface CoreToolSchedulerOptions {
 export class CoreToolScheduler {
   private toolRegistry: ToolRegistry;
   private toolCalls: ToolCall[] = [];
+  private hostExecutedToolResults = new Map<string, ToolResult>();
   private outputUpdateHandler?: OutputUpdateHandler;
   private onAllToolCallsComplete?: AllToolCallsCompleteHandler;
   private onToolCallsUpdate?: ToolCallsUpdateHandler;
@@ -1200,6 +1201,14 @@ export class CoreToolScheduler {
 
     await originalOnConfirm(outcome, payload);
 
+    if (
+      payload?.hostExecutedToolResult &&
+      outcome === ToolConfirmationOutcome.ProceedOnce &&
+      toolCall?.request.name === ShellTool.Name
+    ) {
+      this.hostExecutedToolResults.set(callId, payload.hostExecutedToolResult);
+    }
+
     if (outcome === ToolConfirmationOutcome.ProceedAlways) {
       await this.autoApproveCompatiblePendingTools(signal, callId);
     }
@@ -1207,6 +1216,7 @@ export class CoreToolScheduler {
     this.setToolCallOutcome(callId, outcome);
 
     if (outcome === ToolConfirmationOutcome.Cancel || signal.aborted) {
+      this.hostExecutedToolResults.delete(callId);
       // Use custom cancel message from payload if provided, otherwise use default
       const cancelMessage =
         payload?.cancelMessage || 'User did not allow tool call';
@@ -1339,13 +1349,17 @@ export class CoreToolScheduler {
           : undefined;
 
         const shellExecutionConfig = this.config.getShellExecutionConfig();
+        const hostExecutedToolResult = this.hostExecutedToolResults.get(callId);
 
         // TODO: Refactor to remove special casing for ShellToolInvocation.
         // Introduce a generic callbacks object for the execute method to handle
         // things like `onPid` and `onLiveOutput`. This will make the scheduler
         // agnostic to the invocation type.
         let promise: Promise<ToolResult>;
-        if (invocation instanceof ShellToolInvocation) {
+        if (hostExecutedToolResult) {
+          this.hostExecutedToolResults.delete(callId);
+          promise = Promise.resolve(hostExecutedToolResult);
+        } else if (invocation instanceof ShellToolInvocation) {
           const setPidCallback = (pid: number) => {
             this.toolCalls = this.toolCalls.map((tc) =>
               tc.request.callId === callId && tc.status === 'executing'

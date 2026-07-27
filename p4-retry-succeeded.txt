@@ -1,0 +1,30 @@
+
+  ██████╗  ██████╗  ███████╗ ██╗  ██╗
+ ██╔════╝ ██╔═══██╗ ██╔════╝ ██║  ██║
+ ██║      ██║   ██║ ███████╗ ███████║
+ ██║      ██║   ██║ ╚════██║ ██╔══██║
+ ╚██████╗ ╚██████╔╝ ███████║ ██║  ██║
+  ╚═════╝  ╚═════╝  ╚══════╝ ╚═╝  ╚═╝
+
+╭ cosh-shell ──────────────────────────────────────────────────────────────────────────────────────╮
+│ Adapter: fake · Shell: bash · Approval: auto · Analysis: smart                                   │
+│ cwd: /                                                                                           │
+│ /help · /mode · /hooks                                                                           │
+│ 💡 Run "cosh-switch" to switch between cosh-ng and copilot-shell                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+bash-4.4# /mode analysis off
+╭ Analysis mode ───────────────────────────────────────────────────────────────────────────────────╮
+│ Unknown analysis mode: off                                                                       │
+│ Use /mode analysis smart|auto|manual.                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+bash-4.4# /mode analysis manual
+╭ Analysis mode ───────────────────────────────────────────────────────────────────────────────────╮
+│ Mode set to manual.                                                                              │
+│ Passive suggestions, failure insights, and automatic analysis are off; use slash commands to     │
+│ trigger analysis. Personalized prompt recommendations also pause; manage them with               │
+│ /recommendations.                                                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+bash-4.4#
+
+

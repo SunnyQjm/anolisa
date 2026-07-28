@@ -1,0 +1,16 @@
+627681f950cf662827d28026d1d05815ad3286e3
+ M src/cosh-ng/crates/cosh-shell/src/agent/approval_bridge.rs
+ M src/cosh-ng/crates/cosh-shell/src/tools/command_risk.rs
+ M src/cosh-ng/crates/cosh-shell/src/tools/command_risk_compound.rs
+ M src/cosh-ng/crates/cosh-shell/src/tools/command_risk_model.rs
+ M src/cosh-ng/crates/cosh-shell/src/tools/command_risk_tests.rs
+ M src/cosh-ng/crates/cosh-shell/src/ui/agent_render/approval_reason.rs
+
+running 3 tests
+test tools::command_risk_tests::compound_readonly_grant_preserves_aggregated_assessment_fields ... ok
+test tools::command_risk_tests::compound_readonly_auto_executes_fully_whitelisted_compounds ... ok
+test tools::command_risk_tests::compound_readonly_fails_closed_outside_the_eligible_envelope ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 2118 filtered out; finished in 0.00s
+
+CARGO_TEST_EXIT_CODE=0

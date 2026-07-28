@@ -1,0 +1,27 @@
+diff --git a/src/cosh-ng/crates/cosh-shell/src/tools/command_risk_tests.rs b/src/cosh-ng/crates/cosh-shell/src/tools/command_risk_tests.rs
+index 26093e43..cd009caf 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/tools/command_risk_tests.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/tools/command_risk_tests.rs
+@@ -750,3 +750,22 @@ fn adjacent_words_before_null_redirection_use_default_fd() {
+         parsed.stages
+     );
+ }
++
++#[test]
++fn probe_issue_1882_fully_readonly_compound_auto_executes() {
++    // Issue #1882 expectation: in auto mode a compound command whose
++    // every segment holds auto-allow evidence executes without AskUser.
++    let policy = AutoExecutionPolicy::current_runtime();
++    let compound = assess_shell_command(
++        "pwd && df -h",
++        policy.assessment_policy(AssessmentSource::ProviderShellTool),
++    );
++    assert_ne!(
++        policy.route(&compound),
++        AutoExecutionRoute::AskUser,
++        "execution={:?} auto_allow={:?} reasons={:?}",
++        compound.execution,
++        compound.auto_allow,
++        compound.reasons
++    );
++}

@@ -1,0 +1,18 @@
+╭ cosh-shell ──────────────────────────────────────────────────────────────────────────────────╮
+│ Adapter: cosh-core · Shell: bash · Approval: auto · Analysis: smart                          │
+│ cwd: /work/repo/src/cosh-ng                                                                  │
+│ /help · /mode · /hooks                                                                       │
+│ 💡 Run "cosh-switch" to switch between cosh-ng and copilot-shell                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+cosh-osc$ ?? Use the Bash tool to run exactly this one command without modifying or splitting it, th
+cosh-osc$ ?? Use the Bash tool to run exactly this one command without modifying or splitting it, th
+en stop: cd /tmp && rm -rf /tmp/cosh-1785-demo
+╭ Agent ───────────────────────────────────────────────────────────────────────────────────────╮
+│ Running the command as requested.                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+┌ Denied req-1 ────────────────────────────────────────────────────────────────────────────────┐
+│ Command: $ cd /tmp && rm -rf /tmp/cosh-1785-demo                                             │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+⠧ Thinking... running shell command: 1
+

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "case": {
+      "id": "CARD-026",
+      "logical_path": "specs/shell-e2e-validation/cases/interaction-cards.yaml",
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-1882-compound-readonly-route/specs/shell-e2e-validation/cases/interaction-cards.yaml",
+      "sha256": "0f4784ac05edccea0c21c07f59aa068d38a878bf3618d89bf0fdd265abec5d50",
+      "source": "canonical"
+    },
+    "execution": "ci",
+    "execution_evidence": "scripted-pty",
+    "exit_status": 0,
+    "failures": [],
+    "gate": "feature-acceptance",
+    "points": [
+      {
+        "acceptance_point_id": "auto-approved",
+        "case_id": "CARD-026",
+        "cast_offset_ms": 4776,
+        "layout_sensitive": "true",
+        "screen": "screens/auto-approved.webm",
+        "screen_sha256": "7a3bdcf157efd302482ec58f4d4fb958524edaf8bdea59ab76bece6728766ba7",
+        "screen_source": "cast-replay",
+        "screenshot": "screenshots/auto-approved.png",
+        "screenshot_sha256": "57bd3b89c810cabef074c600c799a3fc9130398c28173905a1b4eb1f5a2241f1",
+        "source_sha256": "f75c6bcf2953b2fb911da842b6082dee0dbe4be9c53220d98e63f8c920ece74b"
+      },
+      {
+        "acceptance_point_id": "compound-output",
+        "case_id": "CARD-026",
+        "cast_offset_ms": 9351,
+        "layout_sensitive": "false",
+        "screen": "",
+        "screen_sha256": "",
+        "screen_source": "",
+        "screenshot": "screenshots/compound-output.png",
+        "screenshot_sha256": "2bc79e5e151c4dc622b2fe2a2475816209e351c912a181cfd79405396cfec99c",
+        "source_sha256": "f75c6bcf2953b2fb911da842b6082dee0dbe4be9c53220d98e63f8c920ece74b"
+      }
+    ],
+    "provider_evidence": {},
+    "provider_lifecycle": {},
+    "quarantine_deleted": true
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-1882-compound-readonly-route/.cosh-lab/runs/20260729T102005Z-e4666bf5",
+    "schema_version": 1
+  },
+  "ok": true
+}

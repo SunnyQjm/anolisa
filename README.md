@@ -1,84 +1,62 @@
-# FAIL baseline — issue #1882 fully readonly compound cannot auto-execute
+# PR #1959 v2 evidence (argv executor rebuild)
 
-- Issue: https://github.com/alibaba/anolisa/issues/1882
-- Worktree: anolisa/.worktrees/cosh-1882-compound-readonly-route
-- Branch: fix/cosh-1882-compound-readonly-route
-- Base commit: 627681f950cf662827d28026d1d05815ad3286e3 (origin/main)
-- Date: 2026-07-28
+Evidence for the v2 rebuild of #1959 (issue #1882), after the R3 review
+veto retired the v1 handoff route. Head under test: `e791a9d5`
+(`fix/cosh-1882-compound-readonly-route` on top of `origin/main`
+`76fa95da`).
 
-## Reproduction command (transient probe, per isolation-baseline.md)
+## Environment
 
-Probe test `probe_issue_1882_fully_readonly_compound_auto_executes`
-appended to
-`src/cosh-ng/crates/cosh-shell/src/tools/command_risk_tests.rs`
-(patch: probe-patch.diff), then:
+- Backend: container `cosh-lab-arm64-1882` (alinux3
+  `sha256:4d5988ed…818d`, arm64, 4C/8G), env-up run
+  `20260728T050634Z-4262dee7` (retained-by-policy, cleaned up after the
+  runs).
+- Auth preflight (`env auth check`): `registry_ok=true`,
+  `resolved_provider=dashscope`, `model=qwen3.7-plus`,
+  `adapter_type=dashscope`, `effective_auth_required=false`,
+  private copy unchanged.
+- Binaries built in-container from the head tree:
+  - `cosh-shell` sha256 `77f2ae2ca7a67a2d03ee4ce8e9f6bd4e874244910b00d0c5dac978f71633ed43`
+  - `cosh-core`  sha256 `f6e5b0a16ef570e32ebffe2dfe1251cd9b1d469e795a73653bcea60019379233`
+- Runner: real cosh-core adapter + real provider, scripted PTY
+  (PTY 100x30, `COSH_SHELL_WIDTH=96`), approval mode `auto`,
+  `--gate feature-acceptance`, canonical cases from
+  `specs/shell-e2e-validation/cases/interaction-cards.yaml`.
 
-```
-cd anolisa/.worktrees/cosh-1882-compound-readonly-route/src/cosh-ng
-cargo test -p cosh-shell --lib probe_issue_1882
-```
+## Runs (all PASS, `gate evaluate --require acceptance` → Go)
 
-## Result: FAILED (exit code 101)
+| Case | Run | Scenario | Key frames |
+|---|---|---|---|
+| CARD-026 | `20260729T102005Z-e4666bf5` | `pwd && df -h` auto-executes, no approval card; aggregated output returned | auto-approved, compound-output |
+| CARD-027 | `20260729T102050Z-d89b0645` | newline-separated compound (v1 hang scenario) auto-executes under the executor, both segments run | auto-approved (card shows the two-line command), compound-output |
+| CARD-028 | `20260729T102133Z-5fd0c789` | custom `histchars='@^#'`: `echo @-1 && df -h` prints the literal `@-1` (no history expansion, no parsing layer) | auto-approved, compound-output (`@-1` literal) |
 
-```
-assertion `left != right` failed: execution=AskUser auto_allow=None
-reasons=["and-or-list-not-auto-executable", "bounded-readonly",
-"unknown-command", "safe-diagnostic-family"]
-  left: AskUser
- right: AskUser
-```
+Each run directory holds the sanitized cast, per-point PNG screenshots,
+a cast-replay WebM for the layout-sensitive `auto-approved` point, and
+`result.json` (`execution_evidence=scripted-pty`, `failures=[]`).
+`evidence verify` passed for all three runs; this bundle carries the
+same files (see `v2-evidence.sha256`).
 
-`pwd && df -h` under `AutoExecutionPolicy::current_runtime()` routes to
-`AskUser` with `auto_allow=None`, even though the per-segment reasons
-(`bounded-readonly` for `pwd`, `safe-diagnostic-family` for `df -h`)
-show every segment individually qualifies — segment evidence exists
-(#1785 / PR #1905) but no execution route can consume it for compounds.
+## Semantic deltas of the v2 route (recorded as-is)
 
-- Full output: probe-fail-output.txt (CARGO_TEST_EXIT_CODE=101 appended)
-- Probe patch: probe-patch.diff (probe reverted afterwards; worktree
-  restored clean at base commit — `git status --porcelain` empty)
+- Executor output is injected through the shell-tool result channel
+  (rendered inside the Agent card): auto-executed compounds do not
+  enter the terminal history and produce no direct terminal echo.
+- Tokens are passed verbatim to `execve` — no glob/tilde/history
+  expansion (`echo @-1` above; `ls ~` reports “No such file or
+  directory”; covered by unit test `executor_passes_tokens_verbatim`
+  and the integration control group
+  `shell_expands_globs_so_verbatim_token_assertions_are_not_vacuous`).
+- Connector semantics: `&&`/`||` short-circuit like a shell, exit code
+  is the last executed segment's; per-stage timeout and output
+  truncation match the single-command readonly pipeline.
 
 ## Notes
 
-- Enhancement issue (type:enhancement): baseline is the quantified
-  current behavior (unit-level route assertion), per skill S1 rule for
-  non-defect issues.
-- HEAD focused suite green before probing: `cargo test -p cosh-shell
-  --lib command_risk` → 21 passed (current behavior is test-anchored;
-  anchors at command_risk_tests.rs L222/L539 and route test L59 must be
-  re-anchored in S5, not treated as accidental breakage).
-
-## Real-PTY FAIL→PASS evidence (captured 2026-07-28, container cosh-lab-arm64-1882)
-
-Canonical cases CARD-026 / CARD-027
-(`specs/shell-e2e-validation/cases/interaction-cards.yaml`), real
-cosh-core adapter + real dashscope provider, scripted PTY
-(execution_evidence=scripted-pty; real-provider evidence class NOT
-claimed — registry `auth_source=null` cannot complete the trusted
-proof chain). PTY 100x30 per cast headers; auto approval mode.
-
-- FAIL side (base 627681f9 binary sha `f1598437…`): run
-  `20260728T061244Z-9e2d90a2`, CARD-026 runner failures
-  `missing: Auto-approved / unexpected: Allow once / case timed out`;
-  screenshot `fail-approval-card.png` (auto mode still shows
-  `Approval req-1 · Bash · low risk · $ pwd && df -h`; frame extracted
-  from truncated cast).
-- PASS side (fix binary sha `1a1d2e08…`, final with newline gate):
-  - CARD-026 run `20260728T083509Z-efbd1c89`, ok=true, evidence verify
-    ok; `pass-auto-approved-card.png` (Auto-approved card) +
-    `pass-compound-output.png` (compound executed, df output visible).
-  - CARD-027 run `20260728T083537Z-c7c6c5f6`, ok=true, evidence verify
-    ok; newline compound (`pwd\ndf -h`) fails closed to the approval
-    card (`pass-newline-failclosed-card.png`) and Deny receipt
-    (`pass-newline-deny-receipt.png`) — design R1 outcome.
-- Casts: `pass-transcript.cast` / `fail-transcript.cast` /
-  `newline-transcript.cast`; hashes in `pty-evidence.sha256`.
-- Aggregate gate: `gate evaluate` → **Go** (acceptance, arm64,
-  container, CARD-026 + CARD-027).
-- R1 finding: intermediate binary `92027e10…` (before the newline
-  gate) granted auto-approval to `pwd\ndf -h`, but
-  `ShellHandoffRequest::validate` rejects multiline commands and
-  `queue_approved_shell_handoff` drops the failure silently → provider
-  turn hangs (4 reproductions). Fixed by the newline eligibility gate;
-  the silent-drop defect itself is pre-existing (manual approval of
-  multiline commands hits it today) and is tracked separately.
+- Base-side (fail-closed card) evidence is unchanged from the v1
+  bundle on this branch (`fail-approval-card.png`,
+  `pass-newline-failclosed-card.png`); the v1 PASS-side assets are kept
+  for history and no longer describe the merged behavior.
+- The first CARD-026 attempt on 2026-07-29 stalled on a container NAT
+  outage (host network fine, container egress dead; Apple container
+  service restart fixed it) and was superseded by the run above.

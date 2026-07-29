@@ -1,0 +1,51 @@
+{
+  "data": {
+    "case": {
+      "id": "CARD-027",
+      "logical_path": "specs/shell-e2e-validation/cases/interaction-cards.yaml",
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-1882-compound-readonly-route/specs/shell-e2e-validation/cases/interaction-cards.yaml",
+      "sha256": "0f4784ac05edccea0c21c07f59aa068d38a878bf3618d89bf0fdd265abec5d50",
+      "source": "canonical"
+    },
+    "execution": "ci",
+    "execution_evidence": "scripted-pty",
+    "exit_status": 0,
+    "failures": [],
+    "gate": "feature-acceptance",
+    "points": [
+      {
+        "acceptance_point_id": "auto-approved",
+        "case_id": "CARD-027",
+        "cast_offset_ms": 5169,
+        "layout_sensitive": "true",
+        "screen": "screens/auto-approved.webm",
+        "screen_sha256": "85407114170663063611ce947d38d43c8520b4d4b4f02d6732ac86497463c594",
+        "screen_source": "cast-replay",
+        "screenshot": "screenshots/auto-approved.png",
+        "screenshot_sha256": "9ce0bc71bbfb44822387d2ccda6365c9932d17839ca8e405930ccc6eaca312ed",
+        "source_sha256": "345ec33f730116110f95fc1a6e25c90f78acff4913f1cc82842ee0fca59e8a53"
+      },
+      {
+        "acceptance_point_id": "compound-output",
+        "case_id": "CARD-027",
+        "cast_offset_ms": 10521,
+        "layout_sensitive": "false",
+        "screen": "",
+        "screen_sha256": "",
+        "screen_source": "",
+        "screenshot": "screenshots/compound-output.png",
+        "screenshot_sha256": "f4bc75923c08565e9e2283c09abbb181dd4799951827192211abc1b8397040be",
+        "source_sha256": "345ec33f730116110f95fc1a6e25c90f78acff4913f1cc82842ee0fca59e8a53"
+      }
+    ],
+    "provider_evidence": {},
+    "provider_lifecycle": {},
+    "quarantine_deleted": true
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-1882-compound-readonly-route/.cosh-lab/runs/20260729T102050Z-d89b0645",
+    "schema_version": 1
+  },
+  "ok": true
+}

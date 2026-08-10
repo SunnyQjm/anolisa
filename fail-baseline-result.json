@@ -1,0 +1,8 @@
+{
+ "binary": "target/debug/cosh-shell",
+ "enable_seen": true,
+ "disable_seen": false,
+ "sent_exit": true,
+ "child_status": 0,
+ "captured_bytes": 3104
+}

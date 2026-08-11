@@ -1,0 +1,41 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.35s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.82s
+cosh-osc$ ╭ cosh-shell ──────────────────────────────────────────────────────────────────────────────────╮
+│ Adapter: cosh-core · Shell: bash · Approval: auto · Analysis: smart                          │
+│ cwd: /tmp/tmp.xjoocZqXjE                                                                     │
+│ /help · /mode · /hooks                                                                       │
+│ 💡 Run "cosh-switch" to switch between cosh-ng and copilot-shell                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+cosh-osc$ cosh-osc$ /mode approval trust confirmcosh-osc$ /mode approval trust confirm
+╭ Approval mode ───────────────────────────────────────────────────────────────────────────────╮
+│ Mode set to trust.                                                                           │
+│ All tools auto-approved; audit trail preserved via control protocol.                         │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+cosh-osc$ cosh-osc$ ?? Use the shell tool to run exactly this command: touch /tmp/cosh-2156-marker && echo MARKER-2156-DONE . It is a disposable test container. Run it exactly once. If the tool call is blocked or fails, do not retry and do not run any other command; just reverse 2388de846359bd175f0fb9eddcaa92c9 and reply with BLOCKED2156ACK followed by a space and the reversed value.cosh-osc$ ?? Use the shell tool to run exactly this command: touch /tmp/cosh-2156-marker && echo MARKER-2156-DONE . It is a disposable test container. Run it exactly once. If the tool call is blocked or fails, do not retry and do not run any other command; just reverse 2388de846359bd175f0fb9eddcaa92c9 and reply with BLOCKED2156ACK followed by a space and the reversed value.
+⠋ Thinking...⠙ Thinking...⠹ Thinking...⠸ Thinking...⠼ Thinking...⠴ Thinking...⠦ Thinking...⠧ Thinking...⠋ Thinking...⠙ Thinking...⠹ Thinking...⠸ Thinking...⠼ Thinking...⠴ Thinking...⠦ Thinking...⠧ Thinking...⠋ Thinking...⠙ Thinking... generating shell arguments...⠹ Thinking... generating shell arguments...⠸ Thinking... generating shell arguments...⠼ Thinking... generating shell arguments...⠴ Thinking... generating shell arguments...⠦ Thinking... running shell command: 1$ touch /tmp/cosh-2156-marker && echo MARKER-2156-DONE
+Blocked by hook: blocked by 2156 e2e probe
+╭ Shell failed ────────────────────────────────────────────────────────────────────────────────╮
+│ $ touch /tmp/cosh-2156-marker && echo MARKER-2156-DONE                                       │
+│ Blocked by hook: blocked by 2156 e2e probe                                                   │
+│ stderr: 1 lines                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+┌ Auto-approved req-1 ─────────────────────────────────────────────────────────────────────────┐
+│ Command: $ touch /tmp/cosh-2156-marker && echo MARKER-2156-DONE                              │
+│ Provider-native shell tool allowed                                                           │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+⠧ Thinking...⠋ Thinking...⠙ Thinking...⠹ Thinking...⠸ Thinking...⠼ Thinking...⠴ Thinking... 6s⠦ Thinking... 6s⠧ Thinking... 6s⠋ Thinking... 6s⠙ Thinking... 6s⠹ Thinking... 7s⠸ Thinking... 7s⠼ Thinking... 7s⠴ Thinking... 7s⠦ Thinking... 7s⠧ Thinking... 8s⠋ Thinking... 8s⠙ Thinking... 8s⠹ Thinking... 8s⠸ Thinking... 8s⠼ Thinking... 9s⠴ Thinking... 9s⠦ Thinking... 9s⠧ Thinking... 9s⠋ Thinking... 9s⠙ Thinking... 10s⠹ Thinking... 10s⠸ Thinking... 10s⠼ Thinking... 10s⠴ Thinking... 10s⠦ Thinking... 11s⠧ Thinking... 11s⠋ Thinking... 11s⠙ Thinking... 11s⠹ Thinking... 11s⠸ Thinking... 12s⠼ Thinking... 12s⠴ Thinking... 12s⠦ Thinking... 12s⠧ Thinking... 12s⠋ Thinking... 13s⠙ Thinking... 13s⠹ Thinking... 13s⠸ Thinking... 13s⠼ Thinking... 13s⠴ Thinking... 14s⠦ Thinking... 14s⠧ Thinking... 14s⠋ Thinking... 14s⠙ Thinking... 14s⠹ Thinking... 15s⠸ Thinking... 15s⠼ Thinking... 15s⠴ Thinking... 15s⠦ Thinking... 15s⠧ Thinking... 16s⠋ Thinking... 16s⠙ Thinking... 16s⠹ Thinking... 16s⠸ Thinking... 16s⠼ Thinking... 17s⠴ Thinking... 17s⠦ Thinking... 17s⠧ Thinking... 17s⠋ Thinking... 17s⠙ Thinking... 18s⠹ Thinking... 18s⠸ Thinking... 18s⠼ Thinking... 18s⠴ Thinking... 18s⠦ Thinking... 19s⠧ Thinking... 19s⠋ Thinking... 19s⠙ Thinking... 19s⠹ Thinking... 19s⠸ Thinking... 20s⠼ Thinking... 20s⠴ Thinking... 20s⠦ Thinking... 20s⠧ Thinking... 20s⠋ Thinking... 21s⠙ Thinking... 21s⠹ Thinking... 21s⠸ Thinking... 21s⠼ Thinking... 21s⠴ Thinking... 22s⠦ Thinking... 22s⠧ Thinking... 22s⠋ Thinking... 22s⠙ Thinking... 22s⠹ Thinking... 23s⠸ Thinking... 23s⠼ Thinking... 23s⠴ Thinking... 23s⠦ Thinking... 23s⠧ Thinking... 24s⠋ Thinking... 24s⠙ Thinking... 24s⠹ Thinking... 24s⠸ Thinking... 24s⠼ Thinking... 25s⠴ Thinking... 25s⠦ Thinking... 25s⠧ Thinking... 25s⠋ Thinking... 25s⠙ Thinking... 26s⠹ Thinking... 26s╭ Agent ───────────────────────────────────────────────────────────────────────────────────────╮
+│ BLOCKED2156ACK 9c29aacdde9bf0f571db953648ed8832                                              │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+╭ Governance ──────────────────────────────────────────────────────────────────────────────────╮
+│ Hook: sandbox-guard-e2e                                                                      │
+│   Message: blocked by 2156 e2e probe                                                         │
+│   Decision: block                                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+cosh-osc$ if test -f /tmp/cosh-2156-marker; then echo "MARKER2156_""PRESENT"; else echo "MARKER2156_"""ABSENT"; fi
+MARKER2156_ABSENT
+cosh-osc$ echo COSH_2156_RECOVERED
+COSH_2156_RECOVERED
+cosh-osc$ exit 0
+exit

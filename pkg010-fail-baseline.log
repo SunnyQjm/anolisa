@@ -1,0 +1,9 @@
+spec=/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-2543-rpm-shells-scriptlet/src/cosh-ng/cosh-ng.spec.in
+base_commit=385a098b136b8fb3e2ddc414ae83e71258ab50bd
+spec_sha256=c36f1f4df83ae69030a41c0d34d450930f452cb19cbeae9626592e5c2bf77e83
+--- %preun presence check ---
+grep_rc=1
+--- scriptlet sections present ---
+28:%prep
+101:%post -p <lua>
+111:%postun -p <lua>

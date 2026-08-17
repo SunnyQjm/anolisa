@@ -1,0 +1,38 @@
+[0/6] [0s]
+[1/6] Fetching image [0s]
+[2/6] Unpacking image [0s]
+[3/6] Fetching kernel [0s]
+[4/6] Fetching init image [0s]
+[5/6] Unpacking init image [0s]
+[6/6] Starting container [0s]
+[6/6] Starting container [0s]
+== extracted %preun (expanded) ==
+if [ "$1" -eq 0 ]; then
+  if ! passwd_entries=$(getent passwd); then
+    echo "error: cannot uninstall cosh-ng: failed to enumerate passwd entries with getent." >&2
+    exit 1
+  fi
+  if [ -z "$passwd_entries" ]; then
+    echo "error: cannot uninstall cosh-ng: getent returned no passwd entries." >&2
+    exit 1
+  fi
+  if ! users=$(printf '%s\n' "$passwd_entries" | awk -F: '$7 == "/usr/bin/cosh" { print $1 }'); then
+    echo "error: cannot uninstall cosh-ng: failed to inspect passwd login shells." >&2
+    exit 1
+  fi
+  if [ -n "$users" ] && ! ( [ -x "/usr/bin/cosh" ] && rpm -q --qf '%{NAME}\\n' -f "/usr/bin/cosh" 2>/dev/null | awk '$0 == "copilot-shell" { found=1 } END { exit found ? 0 : 1 }' ); then
+    echo "error: cannot uninstall cosh-ng while users still use /usr/bin/cosh as their login shell:" >&2
+    printf '%s\n' "$users" >&2
+    exit 1
+  fi
+fi
+== case 1: erase with cosh login-shell user ==
+error: cannot uninstall cosh-ng while users still use /usr/bin/cosh as their login shell:
+coshuser
+rc=1 (expect 1)
+== case 2: upgrade ($1>=1) with same user ==
+rc=0 (expect 0)
+== case 3: erase without cosh users ==
+rc=0 (expect 0)
+VERDICT: PASS (preun blocks erase with cosh users, allows upgrade and clean erase)
+container_exit=0

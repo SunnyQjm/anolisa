@@ -1,0 +1,49 @@
+== protocol ==
+test session_management::session_management_reaps_descendant_that_inherits_output_pipes ... FAILED
+test session_management::session_management_timeout_kills_term_ignoring_process ... FAILED
+test result: FAILED. 67 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 29.16s
+== logic ==
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.13s
+== raw_cli ==
+test cancellation::raw_cli_ctrl_backslash_recovers_ignored_foreground_command ... FAILED
+test cosh_core::approval_modes::raw_cli_cosh_core_approval_mode_argv_maps_to_cosh_core_modes ... FAILED
+test external_hook::raw_cli_external_hook_executes_pinned_file_after_path_replacement ... FAILED
+test failed_command::raw_cli_natural_language_after_failure_does_not_bind_generic_failure ... FAILED
+test failed_command::raw_cli_natural_language_does_not_make_later_generic_failure_actionable ... FAILED
+test external_hook::raw_cli_external_hook_stdin_holder_is_killed ... FAILED
+test external_hook::raw_cli_external_hook_ignoring_large_stdin_respects_deadline ... FAILED
+test external_hook::raw_cli_external_hook_stdout_holder_is_killed ... FAILED
+test external_hook::raw_cli_external_hook_timeout_kills_grandchildren ... FAILED
+test failed_command::raw_cli_natural_language_omits_unbound_recent_failed_command_context ... FAILED
+test heavy::raw_cli_host_executed_fullscreen_timeout_defers_notice_until_exit_alt_screen ... FAILED
+test heavy::raw_cli_host_executed_password_prompt_timeout_defers_notice_until_prompt ... FAILED
+test passthrough::raw_cli_dash_c_passthrough_preserves_signal_exit_status ... FAILED
+test passthrough::raw_cli_double_dash_passthrough_preserves_signal_exit_status ... FAILED
+test passthrough::raw_cli_stdin_passthrough_preserves_signal_exit_status ... FAILED
+test prompt_replay::raw_cli_bash_bracketed_paste_empty_enter_within_delay_window_is_not_swallowed ... FAILED
+test prompt_replay::raw_cli_bash_ctrl_o_submission_with_typeahead_empty_enter_is_not_swallowed ... FAILED
+test prompt_replay::raw_cli_bash_bracketed_paste_empty_enter_after_slash_panel_repaints_prompt ... FAILED
+test prompt_replay::raw_cli_bash_typeahead_empty_enter_during_failing_command_survives_prompt_restore ... FAILED
+test prompt_replay::raw_cli_bash_recalled_slash_with_same_chunk_empty_enter_is_not_swallowed ... FAILED
+test prompt_replay::raw_cli_bash_slow_prompt_command_does_not_write_off_queued_enter ... FAILED
+test mode::raw_cli_pasted_trust_confirm_sets_trust_mode_after_enter ... FAILED
+test provider_handoff::send_to_shell::raw_cli_send_to_shell_command_triggers_trusted_project_hook ... FAILED
+test session::raw_cli_session_picker_cancel_keeps_shell_usable ... FAILED
+test session::raw_cli_session_picker_space_then_enter_confirms_and_deletes_without_resuming ... FAILED
+test session::raw_cli_session_new_detaches_active_without_deleting_or_forcing_resume ... FAILED
+test session::raw_cli_session_picker_navigates_selects_and_restores_prompt ... FAILED
+test session::raw_cli_session_status_shows_active_and_selected_ids ... FAILED
+test session::raw_cli_session_picker_keeps_list_workspace_for_validate_and_clear ... FAILED
+test startup::raw_cli_startup_health_context_is_not_attached_to_plain_agent_request ... FAILED
+test session::raw_cli_session_multi_clear_requires_confirmation_and_cancel_is_safe ... FAILED
+test result: FAILED. 416 passed; 31 failed; 1 ignored; 0 measured; 0 filtered out; finished in 355.38s
+== shell_host ==
+test heavy::raw_relay_host_shows_isolated_sudo_prompt_and_keeps_shell_usable ... FAILED
+test termios::cosh_owned_timeout_recovery_restores_pty_without_visible_command ... FAILED
+test termios::transparent_ctrl_backslash_is_not_synthesized_from_ctrl_c ... FAILED
+test result: FAILED. 150 passed; 3 failed; 1 ignored; 0 measured; 0 filtered out; finished in 267.76s
+== cosh-core bin ==
+test headless::tests::bare_reload_keeps_project_config_isolated ... FAILED
+test tool::atomic_file::tests::pre_commit_failure_keeps_target_and_cleans_unique_same_directory_temp ... FAILED
+test result: FAILED. 887 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.60s
+== SERIAL-DONE ==

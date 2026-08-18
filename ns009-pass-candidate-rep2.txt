@@ -1,0 +1,14 @@
+]1337;COSH;{"event":"precmd","token":"baseline-2539","session_id":"cosh-osc-240","timestamp_ms":1786949271000,"cwd":"/","command":"","status":0,"path":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","path_trusted":false,"generation":0}]1337;COSH;{"event":"prompt_ready","token":"baseline-2539","session_id":"cosh-osc-240","timestamp_ms":1786949271000,"cwd":"/","command":"","status":0,"path":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","path_trusted":false,"generation":0}cosh-osc$ for i in 1 2 3; do printf 'h%s
+> <t.txt" & done; wait; sort "/tmp/ns009-hist-out.txt"
+]1337;COSH;{"event":"preexec","token":"baseline-2539","session_id":"cosh-osc-240","timestamp_ms":1786949272000,"cwd":"/","command":"for i in 1 2 3; do printf 'h%s\n' \"$i\" >>\"/tmp/ns009-hist-out.txt\" & done; wait; sort \"/tmp/ns009-hist-out.txt\"","status":0,"path":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","path_trusted":true,"generation":1}[1] 291
+[2] 292
+[3] 293
+[1]   Done                    printf 'h%s
+' "$i" >> "/tmp/ns009-hist-out.txt"
+[2]-  Done                    printf 'h%s
+' "$i" >> "/tmp/ns009-hist-out.txt"
+h1
+h2
+h3
+]1337;COSH;{"event":"precmd","token":"baseline-2539","session_id":"cosh-osc-240","timestamp_ms":1786949272000,"cwd":"/","command":"","status":0,"path":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","path_trusted":false,"generation":1}]1337;COSH;{"event":"prompt_ready","token":"baseline-2539","session_id":"cosh-osc-240","timestamp_ms":1786949272000,"cwd":"/","command":"","status":0,"path":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","path_trusted":false,"generation":1}cosh-osc$ exit
+]1337;COSH;{"event":"preexec","token":"baseline-2539","session_id":"cosh-osc-240","timestamp_ms":1786949273000,"cwd":"/","command":"exit","status":0,"path":"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","path_trusted":true,"generation":2}exit

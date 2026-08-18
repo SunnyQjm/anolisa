@@ -1,0 +1,10 @@
+cosh-osc$ printf '%s%s\n' '__RDY_' 'A__'
+__RDY_A__
+printf '%s%s' '__CORE_PAYLOAD_' 'BEGIN__'; {
+cosh-osc$ printf '%s%s' '__CORE_PAYLOAD_' 'BEGIN__'; {
+>  set -e; false && printf bad; printf errexit-context
+> }; rc=$?; printf '%s%s:%s\n' '__CORE_PAYLOAD_' 'END__' "$rc"; printf '%s%s\n' '__CORE_' 'DONE__'
+__CORE_PAYLOAD_BEGIN__errexit-context__CORE_PAYLOAD_END__:0
+__CORE_DONE__
+cosh-osc$ exit
+exit

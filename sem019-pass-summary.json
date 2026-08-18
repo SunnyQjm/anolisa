@@ -1,0 +1,35 @@
+{
+ "baseline_established": false,
+ "payload_parity": true,
+ "oracle_exit_zero": true,
+ "candidate_exit_polluted": false,
+ "candidate": {
+  "label": "candidate",
+  "argv": [
+   "/bin/bash",
+   "--rcfile",
+   "/exp/impl-verify/rcfile-impl.sh",
+   "-i"
+  ],
+  "exit": {
+   "kind": "code",
+   "value": 0
+  },
+  "payload": "errexit-context",
+  "payload_rc": "0"
+ },
+ "oracle": {
+  "label": "oracle",
+  "argv": [
+   "/bin/bash",
+   "--norc",
+   "-i"
+  ],
+  "exit": {
+   "kind": "code",
+   "value": 0
+  },
+  "payload": "errexit-context",
+  "payload_rc": "0"
+ }
+}

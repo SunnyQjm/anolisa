@@ -1,0 +1,11 @@
+{
+  "label": "candidate",
+  "shell_cmd": "/cache/cargo-target-2540-wt/debug/cosh-shell raw cosh-core",
+  "ready_seen": true,
+  "payload_line": "declare -a PROMPT_COMMAND=([0]=\"printf p1\" [1]=\"printf p2\")",
+  "export_attr_kept": false,
+  "export_attr_lost": true,
+  "ps2_env_adopted_out_of_frame": true,
+  "child_exit_code": 0,
+  "status": "fail"
+}

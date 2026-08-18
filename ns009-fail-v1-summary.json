@@ -1,0 +1,200 @@
+{
+  "bash": "/bin/bash",
+  "reps": 10,
+  "candidate": [
+    {
+      "rep": 1,
+      "verdict": "PARTIAL",
+      "job_starts": [
+        "2",
+        "3"
+      ],
+      "transcript": "candidate-rep1.txt"
+    },
+    {
+      "rep": 2,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep2.txt"
+    },
+    {
+      "rep": 3,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep3.txt"
+    },
+    {
+      "rep": 4,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep4.txt"
+    },
+    {
+      "rep": 5,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep5.txt"
+    },
+    {
+      "rep": 6,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep6.txt"
+    },
+    {
+      "rep": 7,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep7.txt"
+    },
+    {
+      "rep": 8,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep8.txt"
+    },
+    {
+      "rep": 9,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep9.txt"
+    },
+    {
+      "rep": 10,
+      "verdict": "SERIALIZED",
+      "job_starts": [
+        "1",
+        "1"
+      ],
+      "transcript": "candidate-rep10.txt"
+    }
+  ],
+  "oracle": [
+    {
+      "rep": 1,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep1.txt"
+    },
+    {
+      "rep": 2,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep2.txt"
+    },
+    {
+      "rep": 3,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep3.txt"
+    },
+    {
+      "rep": 4,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep4.txt"
+    },
+    {
+      "rep": 5,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep5.txt"
+    },
+    {
+      "rep": 6,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep6.txt"
+    },
+    {
+      "rep": 7,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep7.txt"
+    },
+    {
+      "rep": 8,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep8.txt"
+    },
+    {
+      "rep": 9,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep9.txt"
+    },
+    {
+      "rep": 10,
+      "verdict": "CONCURRENT",
+      "job_starts": [
+        "1",
+        "2",
+        "3"
+      ],
+      "transcript": "oracle-rep10.txt"
+    }
+  ],
+  "candidate_repro_rate": "10/10",
+  "fail_baseline_established": true
+}

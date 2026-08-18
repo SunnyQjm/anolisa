@@ -1,0 +1,73 @@
+{
+ "s1_parity": true,
+ "s2_candidate_green": true,
+ "s2_parity": true,
+ "s3_parity": true,
+ "results": {
+  "s1_false_exit": {
+   "candidate": {
+    "exit": {
+     "kind": "code",
+     "value": 1
+    },
+    "hits": [
+     true
+    ]
+   },
+   "oracle": {
+    "exit": {
+     "kind": "code",
+     "value": 1
+    },
+    "hits": [
+     true
+    ]
+   }
+  },
+  "s2_vb4_prompt_chain": {
+   "candidate": {
+    "exit": {
+     "kind": "code",
+     "value": 0
+    },
+    "hits": [
+     true,
+     true,
+     true
+    ]
+   },
+   "oracle": {
+    "exit": {
+     "kind": "code",
+     "value": 0
+    },
+    "hits": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  "s3_unknown_cmd": {
+   "candidate": {
+    "exit": {
+     "kind": "code",
+     "value": 127
+    },
+    "hits": [
+     true
+    ]
+   },
+   "oracle": {
+    "exit": {
+     "kind": "code",
+     "value": 127
+    },
+    "hits": [
+     true
+    ]
+   }
+  }
+ },
+ "all_green": true
+}

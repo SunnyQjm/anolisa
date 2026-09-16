@@ -1,0 +1,71 @@
+version: 1
+suite: auth-provider-default-name
+defaults:
+  execution: ci
+  shell_mode: isolated
+  adapter: cosh-core
+  approval_mode: ask
+  analysis_mode: smart
+  render: terminal
+  timeout_ms: 30000
+  real_provider: false
+  command:
+    - bash
+    - -lc
+    - >-
+      auth_home=$(mktemp -d /tmp/cosh-auth-3278.XXXXXX) &&
+      trap 'rm -rf "$auth_home"' EXIT &&
+      env HOME="$auth_home" TERM=xterm-256color COSH_SHELL_WIDTH=92
+      COSH_SHELL_ISOLATED=1 COSH_SHELL_BOOTSTRAP_PATH=0
+      COSH_SHELL_HEALTH_SCAN=disabled COSH_RECOMMENDATIONS_ENABLED=0
+      COSH_SHELL_LANG=en COSH_SHELL_RAW_SHELL=bash
+      COSH_SHELL_DEFAULT_SHELL=bash LANG=C.UTF-8 LC_ALL=C.UTF-8
+      COSH_CORE_PATH="$CARGO_TARGET_DIR/debug/cosh-core"
+      "$CARGO_TARGET_DIR/debug/cosh-shell" raw cosh-core
+cases:
+  - id: AUTH-3278-FIRST-NAME
+    title: First provider uses its template name without a naming screen
+    tags: [auth, provider, issue-3278]
+    shell: bash
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 10000
+      - type: resize
+        rows: 30
+        cols: 100
+      - type: line
+        text: /auth
+      - type: wait_for
+        text: "Select your AI provider:"
+        timeout_ms: 10000
+      - type: key
+        name: enter
+      - type: wait_for
+        text: "Enter "
+        occurrence: "+1"
+        timeout_ms: 7000
+      - id: first-provider-field
+        type: wait_quiet
+        quiet_ms: 200
+        timeout_ms: 3000
+      - type: bytes
+        hex: "03"
+      - type: wait_for
+        text: "Auth cancelled"
+        timeout_ms: 5000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      contains:
+        - "Enter Access Key ID"
+        - "Auth cancelled"
+      not_contains:
+        - "Enter Provider ID"
+    evidence:
+      points:
+        - id: first-provider-field
+          trigger_event: first-provider-field
+          layout_sensitive: true
+          required_types: [screenshot]

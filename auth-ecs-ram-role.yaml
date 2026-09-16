@@ -1,0 +1,288 @@
+version: 1
+suite: auth-ecs-ram-role
+defaults:
+  execution: ci
+  shell_mode: isolated
+  adapter: cosh-core
+  render: terminal
+  terminal_rows: 45
+  terminal_cols: 100
+  timeout_ms: 230000
+  real_provider: false
+  command:
+    - bash
+    - -lc
+    - >-
+      auth_home=$(mktemp -d /tmp/cosh-ecs-auth.XXXXXX) &&
+      trap 'rm -rf "$auth_home"' EXIT &&
+      env HOME="$auth_home" TERM=xterm-256color COSH_SHELL_WIDTH=92
+      COSH_SHELL_ISOLATED=1 COSH_SHELL_BOOTSTRAP_PATH=0
+      COSH_SHELL_HEALTH_SCAN=disabled COSH_RECOMMENDATIONS_ENABLED=0
+      COSH_SHELL_LANG=en COSH_SHELL_RAW_SHELL=bash
+      COSH_SHELL_DEFAULT_SHELL=bash LANG=C.UTF-8 LC_ALL=C.UTF-8
+      COSH_CORE_PATH=/work/repo/src/cosh-ng/target/debug/cosh-core
+      /work/repo/src/cosh-ng/target/debug/cosh-shell raw cosh-core
+  input:
+    - type: wait_for
+      text: "cosh-osc$"
+      timeout_ms: 10000
+    - type: line
+      text: /auth
+    - type: wait_for
+      text: "Select your AI provider:"
+      timeout_ms: 10000
+    - type: key
+      name: enter
+    - id: first-screen
+      type: wait_quiet
+      quiet_ms: 200
+      timeout_ms: 5000
+    - type: key
+      name: ctrl-c
+    - type: wait_for
+      text: "cosh-osc$"
+      occurrence: "+1"
+      timeout_ms: 15000
+    - type: line
+      text: exit
+  expect:
+    status: 0
+    contains: ["Checking ECS RAM Role"]
+    not_contains: ["Enter Provider ID", "Enter Access Key ID"]
+  evidence:
+    points:
+      - id: first-screen
+        trigger_event: first-screen
+        layout_sensitive: true
+        required_types: [screenshot]
+cases:
+  - id: AUTH-ECS-FIRST-SCREEN-CURRENT
+    title: First ECS setup starts verification without a naming screen
+    tags: [auth, ecs, imdsv2, issue-3278]
+    shell: bash
+  - id: AUTH-ECS-FIRST-SCREEN-BASELINE
+    title: Unmodified baseline exposes the unwanted naming screen on the same ECS
+    tags: [auth, ecs, baseline, issue-3278]
+    shell: bash
+    command:
+      - bash
+      - -lc
+      - >-
+        auth_home=$(mktemp -d /tmp/cosh-ecs-baseline.XXXXXX) &&
+        trap 'rm -rf "$auth_home"' EXIT &&
+        env HOME="$auth_home" TERM=xterm-256color COSH_SHELL_WIDTH=92
+        COSH_SHELL_ISOLATED=1 COSH_SHELL_BOOTSTRAP_PATH=0
+        COSH_SHELL_HEALTH_SCAN=disabled COSH_RECOMMENDATIONS_ENABLED=0
+        COSH_SHELL_LANG=en COSH_SHELL_RAW_SHELL=bash
+        COSH_SHELL_DEFAULT_SHELL=bash LANG=C.UTF-8 LC_ALL=C.UTF-8
+        COSH_CORE_PATH=/work/baseline/src/cosh-ng/target/debug/cosh-core
+        /work/baseline/src/cosh-ng/target/debug/cosh-shell raw cosh-core
+  - id: AUTH-ECS-READY
+    title: Configured ECS role proceeds without a name or authorization screen
+    tags: [auth, ecs, imdsv2, issue-3278]
+    shell: bash
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 10000
+      - type: resize
+        rows: 45
+        cols: 100
+      - type: line
+        text: /auth
+      - type: wait_for
+        text: "Select your AI provider:"
+        timeout_ms: 10000
+      - type: key
+        name: enter
+      - id: saved
+        type: wait_for
+        text: "credentials saved."
+        timeout_ms: 20000
+      - type: line
+        text: "python3 -c 'import pathlib,tomllib; p=tomllib.loads((pathlib.Path.home()/\".copilot-shell/config.toml\").read_text()); assert p[\"ai\"][\"providers\"][\"aliyun\"][\"auth_source\"] == \"ecs_ram_role\"; print(\"AUTH-SAVED-CONFIG-VERIFIED\")'"
+      - id: config-verified
+        type: wait_for
+        text: "AUTH-SAVED-CONFIG-VERIFIED"
+        occurrence: 2
+        timeout_ms: 5000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      contains: ["Auth configured", "credentials saved."]
+      not_contains: ["Enter Provider ID", "Waiting for ECS RAM Role", "URL:", "Enter Access Key ID"]
+    evidence:
+      points:
+        - id: saved
+          trigger_event: saved
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: config-verified
+          trigger_event: config-verified
+          layout_sensitive: false
+          required_types: [screenshot]
+  - id: AUTH-ECS-WAIT-READY
+    title: An initially missing role becomes usable without confirmation input
+    tags: [auth, ecs, imdsv2, issue-3278]
+    shell: bash
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 10000
+      - type: resize
+        rows: 45
+        cols: 100
+      - type: line
+        text: /auth
+      - type: wait_for
+        text: "Select your AI provider:"
+        timeout_ms: 10000
+      - type: key
+        name: enter
+      - type: wait_for
+        text: "URL:"
+        timeout_ms: 15000
+      - id: waiting
+        type: wait_quiet
+        quiet_ms: 200
+        timeout_ms: 3000
+      - id: saved
+        type: wait_for
+        text: "credentials saved."
+        timeout_ms: 200000
+      - type: line
+        text: "python3 -c 'import pathlib,tomllib; p=tomllib.loads((pathlib.Path.home()/\".copilot-shell/config.toml\").read_text()); assert p[\"ai\"][\"providers\"][\"aliyun\"][\"auth_source\"] == \"ecs_ram_role\"; print(\"AUTH-SAVED-CONFIG-VERIFIED\")'"
+      - id: config-verified
+        type: wait_for
+        text: "AUTH-SAVED-CONFIG-VERIFIED"
+        occurrence: 2
+        timeout_ms: 5000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      contains: ["Waiting for ECS RAM Role", "Auth configured", "credentials saved."]
+      not_contains: ["Enter Provider ID", "I have authorized", "Enter Access Key ID"]
+    evidence:
+      points:
+        - id: waiting
+          trigger_event: waiting
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: saved
+          trigger_event: saved
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: config-verified
+          trigger_event: config-verified
+          layout_sensitive: false
+          required_types: [screenshot]
+  - id: AUTH-ECS-CANCEL
+    title: Cancelling a missing ECS role returns normal shell input
+    tags: [auth, ecs, cancellation, issue-3278]
+    shell: bash
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 10000
+      - type: resize
+        rows: 45
+        cols: 100
+      - type: line
+        text: /auth
+      - type: wait_for
+        text: "Select your AI provider:"
+        timeout_ms: 10000
+      - type: key
+        name: enter
+      - type: wait_for
+        text: "URL:"
+        timeout_ms: 15000
+      - id: waiting
+        type: wait_quiet
+        quiet_ms: 200
+        timeout_ms: 3000
+      - type: key
+        name: ctrl-c
+      - id: cancelled
+        type: wait_for
+        text: "Authentication skipped."
+        timeout_ms: 10000
+      - type: line
+        text: "printf 'AUTH-CANCEL-READY\\n'"
+      - id: shell-ready
+        type: wait_for
+        text: "AUTH-CANCEL-READY"
+        occurrence: 2
+        timeout_ms: 5000
+      - type: wait_for
+        text: "cosh-osc$"
+        occurrence: "+1"
+        timeout_ms: 5000
+      - type: line
+        text: "sleep 5; test \"$(ps -p \"$PPID\" -o comm=)\" = cosh-shell && ps -T -p \"$PPID\" -o tid=,comm= && ps --ppid \"$PPID\" -o args= && printf 'AUTH-RESOURCES-CHECKED\\n'"
+      - id: resources-released
+        type: wait_for
+        text: "AUTH-RESOURCES-CHECKED"
+        occurrence: 2
+        timeout_ms: 10000
+      - type: wait_for
+        text: "cosh-osc$"
+        occurrence: "+1"
+        timeout_ms: 5000
+      - type: line
+        text: /auth
+      - type: wait_for
+        text: "Select your AI provider:"
+        occurrence: "+1"
+        timeout_ms: 10000
+      - type: key
+        name: enter
+      - type: wait_for
+        text: "URL:"
+        occurrence: "+1"
+        timeout_ms: 10000
+      - id: restarted-waiting
+        type: wait_quiet
+        quiet_ms: 200
+        timeout_ms: 3000
+      - type: key
+        name: ctrl-c
+      - id: cancelled-again
+        type: wait_for
+        text: "Authentication skipped."
+        occurrence: 2
+        timeout_ms: 10000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      contains: ["Waiting for ECS RAM Role", "Auth cancelled", "AUTH-CANCEL-READY", "AUTH-RESOURCES-CHECKED"]
+      not_contains: ["credentials saved.", "I have authorized", "cosh-auth-ecs", "--registry", "<defunct>"]
+    evidence:
+      points:
+        - id: waiting
+          trigger_event: waiting
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: cancelled
+          trigger_event: cancelled
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: shell-ready
+          trigger_event: shell-ready
+          layout_sensitive: false
+          required_types: [screenshot]
+        - id: resources-released
+          trigger_event: resources-released
+          layout_sensitive: false
+          required_types: [screenshot]
+        - id: restarted-waiting
+          trigger_event: restarted-waiting
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: cancelled-again
+          trigger_event: cancelled-again
+          layout_sensitive: false
+          required_types: [screenshot]

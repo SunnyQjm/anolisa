@@ -1,0 +1,25 @@
+cosh-shell audit degraded; command execution continues: audit writer is unavailable
+cosh-osc$ 
+  ██████╗  ██████╗  ███████╗ ██╗  ██╗
+ ██╔════╝ ██╔═══██╗ ██╔════╝ ██║  ██║
+ ██║      ██║   ██║ ███████╗ ███████║
+ ██║      ██║   ██║ ╚════██║ ██╔══██║
+ ╚██████╗ ╚██████╔╝ ███████║ ██║  ██║
+  ╚═════╝  ╚═════╝  ╚══════╝ ╚═╝  ╚═╝
+
+╭ · cosh-shell ────────────────────────────────────────────────────────────────────────────────╮
+│ Adapter: fake · Shell: zsh · Approval: auto · Analysis: smart                                │
+│ cwd: /Users/quejianming/vscode/cosh-shell-dev                                                │
+│ /help · /mode · /hooks                                                                       │
+│ 💡 Run "cosh-switch" to switch between cosh-ng and copilot-shell                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+cosh-osc$ cosh-osc$ ?? stream multiline tool approvalcosh-osc$ ?? stream multiline tool approval
+⠋ Thinking...╭ Agent ───────────────────────────────────────────────────────────────────────────────────────╮
+│ Preparing a multiline streamed tool request before finishing.                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+⠙ Thinking... running shell command: 1┌ Deferred req-1 ──────────────────────────────────────────────────────────────────────────────┐
+│ Command: $ printf one                                                                        │
+│          printf two                                                                          │
+└──────────────────────────────────────────────────────────────────────────────────────────────┘
+cosh-osc$ eexit

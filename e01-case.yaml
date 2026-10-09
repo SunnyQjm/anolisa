@@ -1,0 +1,174 @@
+version: 1
+suite: e01-trust-key-pty
+defaults:
+  execution: ci
+  shell: bash
+  shell_mode: isolated
+  adapter: fake
+  approval_mode: auto
+  analysis_mode: smart
+  render: terminal
+  timeout_ms: 60000
+  real_provider: false
+  env:
+    TERM: xterm-256color
+    COSH_SHELL_ISOLATED: "1"
+    COSH_SHELL_APPROVAL_MODE: auto
+    COSH_SHELL_WIDTH: "96"
+    # Prepared before the run; see runbook. Holds
+    #   [shell]
+    #   trusted_commands = ["printf one printf two"]
+    # i.e. the SINGLE-LINE spelling of the command the fake adapter proposes.
+    HOME: /tmp/e01-pty-home
+
+cases:
+  # The fake adapter's `stream multiline tool approval` scenario proposes the
+  # Bash command "printf one\nprintf two" (a real newline, two commands).
+  # The preloaded trust key is the single-line spelling "printf one printf two".
+  #
+  # Pre-fix (origin/main): trust_key_from_command folds the newline, so both
+  # sides normalize to "printf one printf two", the trust key matches, the
+  # request takes the trusted branch in agent/approval_bridge.rs and is
+  # deferred/executed WITHOUT a card.
+  #
+  # Post-fix (#6787): the key keeps the command verbatim, the two spellings
+  # differ, no trust key matches, and — because a newline-separated compound
+  # fails closed to a card (issue #1882, see CARD-027) — the user is asked.
+  # The card is the whole claim: E01 is about whether the user is ASKED, so the
+  # assertion is on the card itself and not on any post-approval receipt.
+  #
+  # Two deliberate shaping choices, both learned by running it:
+  #
+  # 1. There is no "Approved" receipt to wait for. In this bare-HOME PTY the
+  #    shell starts with `audit writer is unavailable`, so accepting the card
+  #    lands on a `Blocked req-1` panel (blocked_audit_required) rather than
+  #    executing. Waiting for "Approved" therefore timed out and the case
+  #    soft-failed on BOTH binaries. That is an environment artifact downstream
+  #    of the decision under test, not part of the E01 contract.
+  #
+  # 2. `wait_for` is avoided so neither binary soft-fails. A soft-failed input
+  #    makes the runner kill the PTY child, and its `terminate_and_reap` only
+  #    rescues ECHILD/ESRCH: the follow-up `KILL(-pgid)` on a group whose leader
+  #    is already a zombie raises EPERM on macOS, which escapes and aborts the
+  #    run BEFORE transcript.cast is written. `wait_quiet` plus an unconditional
+  #    enter lets both sides exit on their own, so both keep their artifacts.
+  - id: E01-PTY-001
+    title: trusted single-line spelling must not approve a newline variant
+    tags: [approval, trust-key, e01, issue-6782]
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 30000
+      - type: line
+        text: "?? stream multiline tool approval"
+      - id: variant-card
+        type: wait_quiet
+        quiet_ms: 5000
+        timeout_ms: 20000
+      - type: key
+        name: enter
+      - id: receipt
+        type: wait_quiet
+        quiet_ms: 5000
+        timeout_ms: 20000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      contains:
+        - "Allow once"
+      not_contains:
+        - "bash: ??"
+    evidence:
+      points:
+        - id: variant-card
+          trigger_event: variant-card
+          layout_sensitive: true
+          required_types: [screenshot]
+        - id: receipt
+          trigger_event: receipt
+          required_types: [screenshot]
+
+  # Positive control: the byte-identical command must still be auto-approved,
+  # so the case above cannot pass by simply disabling trust keys. Preloaded key
+  # and proposed command are the same spelling here only if the trusted entry
+  # is the multiline one, so this case runs with a SECOND prepared HOME
+  # (/tmp/e01-pty-home-exact) whose config holds the exact multiline spelling.
+  # Expected on BOTH pre-fix and post-fix: no card.
+  - id: E01-PTY-002
+    title: exactly trusted command still skips the card
+    tags: [approval, trust-key, e01, positive-control]
+    env:
+      TERM: xterm-256color
+      COSH_SHELL_ISOLATED: "1"
+      COSH_SHELL_APPROVAL_MODE: auto
+      COSH_SHELL_WIDTH: "96"
+      HOME: /tmp/e01-pty-home-exact
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 30000
+      - type: line
+        text: "?? stream multiline tool approval"
+      - id: settled
+        type: wait_quiet
+        quiet_ms: 6000
+        timeout_ms: 20000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      not_contains:
+        - "Allow once"
+        - "bash: ??"
+    evidence:
+      points:
+        - id: settled
+          trigger_event: settled
+          layout_sensitive: true
+          required_types: [screenshot]
+
+  # Reproduction form of E01-PTY-001: same variant HOME, same proposed command,
+  # but the expectation is INVERTED (no card). This exists because the runner
+  # drops an evidence point whose trigger event never fired, so a `wait_for
+  # "Allow once"` that times out on the pre-fix binary yields a cast with no
+  # screenshot — the defect would be asserted but not shown.
+  #
+  # Expected: PASS on pre-fix (the collision is live, the card is suppressed)
+  # and FAIL on post-fix (the card appears). The inversion across the two
+  # binaries is what makes E01-PTY-001 a discriminator rather than a tautology.
+  - id: E01-PTY-001R
+    title: reproduce the collision - single-line key suppresses the card
+    tags: [approval, trust-key, e01, issue-6782, reproduce]
+    input:
+      - type: wait_for
+        text: "cosh-osc$"
+        timeout_ms: 30000
+      - type: line
+        text: "?? stream multiline tool approval"
+      - id: suppressed
+        type: wait_quiet
+        quiet_ms: 6000
+        timeout_ms: 20000
+      # Unconditional, and it is what keeps this case runnable on BOTH binaries.
+      # On the fixed binary the card IS present, so a bare `exit` would be typed
+      # into the card instead of the shell and the run would hit its overall
+      # deadline; on the pre-fix binary it is just an empty line at the prompt.
+      - type: key
+        name: enter
+      - type: wait_quiet
+        quiet_ms: 3000
+        timeout_ms: 15000
+      - type: line
+        text: exit
+    expect:
+      status: 0
+      not_contains:
+        - "Allow once"
+        - "bash: ??"
+    evidence:
+      points:
+        - id: suppressed
+          trigger_event: suppressed
+          layout_sensitive: true
+          required_types: [screenshot]

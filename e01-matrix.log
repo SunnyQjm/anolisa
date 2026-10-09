@@ -1,0 +1,30 @@
+=== candidate identities ===
+prefix-fa8442c82 1a5b2240abae984dacffa671b7f47e71112192a61946d5969bad662e6dad3f91 36652488 bytes
+postfix-fed53bf2d 6aab9f76cefebb453f91714cb1b3225be9955ba74ce3df99922d7b592e4732a3 36659448 bytes
+
+--- prefix-fa8442c82 / E01-PTY-001 ---
+  runner_rc=1 ok=False exit_status=0 points=[variant-card@5381ms,receipt@10443ms]
+  failures: missing text: Allow once
+
+--- prefix-fa8442c82 / E01-PTY-001R ---
+  runner_rc=0 ok=True exit_status=0 points=[suppressed@6370ms]
+  failures: -
+
+--- prefix-fa8442c82 / E01-PTY-002 ---
+  runner_rc=0 ok=True exit_status=0 points=[settled@6361ms]
+  failures: -
+
+--- postfix-fed53bf2d / E01-PTY-001 ---
+  runner_rc=0 ok=True exit_status=0 points=[variant-card@5439ms,receipt@10445ms]
+  failures: -
+
+--- postfix-fed53bf2d / E01-PTY-001R ---
+  runner_rc=1 ok=False exit_status=0 points=[suppressed@6417ms]
+  failures: unexpected text: Allow once
+
+--- postfix-fed53bf2d / E01-PTY-002 ---
+  runner_rc=0 ok=True exit_status=0 points=[settled@6421ms]
+  failures: -
+
+=== matrix driver done ===
+MATRIX_EXIT=0

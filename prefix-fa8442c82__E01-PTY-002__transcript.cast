@@ -1,0 +1,13 @@
+{"version":2,"width":100,"height":30,"timestamp":1791522581}
+[0.196209,"o","cosh-shell audit degraded; command execution continues: audit writer is unavailable\r\n"]
+[0.2446,"o","\u001b[0m\u001b[27m\u001b[24m\u001b[Jcosh-osc$ \u001b[K\u001b[?2004h"]
+[0.244801,"o","\u001b[>4;1m"]
+[0.244922,"o","\r\u001b[2K\r\n\u001b[1;38;5;33m  ██████╗  ██████╗  ███████╗ ██╗  ██╗\u001b[0m\r\n\u001b[1;38;5;33m ██╔════╝ ██╔═══██╗ ██╔════╝ ██║  ██║\u001b[0m\r\n\u001b[1;38;5;39m ██║      ██║   ██║ ███████╗ ███████║\u001b[0m\r\n\u001b[1;38;5;39m ██║      ██║   ██║ ╚════██║ ██╔══██║\u001b[0m\r\n\u001b[1;38;5;117m ╚██████╗ ╚██████╔╝ ███████║ ██║  ██║\u001b[0m\r\n\u001b[1;38;5;117m  ╚═════╝  ╚═════╝  ╚══════╝ ╚═╝  ╚═╝\u001b[0m\r\n\r\n"]
+[0.245684,"o","╭\u001b[0;1m · cosh-shell \u001b[0m────────────────────────────────────────────────────────────────────────────────╮\u001b[0m\r\n│ Adapter: fake · Shell: zsh · Approval: auto · Analysis: smart                                │\r\n│ cwd: /Users/quejianming/vscode/cosh-shell-dev                                                │\r\n│ /help · /mode · /hooks                                                                       │\r\n│ 💡 Run \"cosh-switch\" to switch between cosh-ng and copilot-shell                             │\r\n╰──────────────────────────────────────────────────────────────────────────────────────────────╯\r\n\r\n\u001b[0m\u001b[27m\u001b[24m\u001b[Jcosh-osc$ \u001b[K\u001b[?2004h\r\u001b"]
+[0.247125,"o","[2Kcosh-osc$ ?? stream multiline tool approval\r\u001b[2Kcosh-osc$ ?? stream multiline tool approval\n\r\u001b[2K⠋ Thinking..."]
+[0.253526,"o","\r\u001b[2K\r"]
+[0.357256,"o","╭ Agent ───────────────────────────────────────────────────────────────────────────────────────╮\r\n"]
+[0.357794,"o","│ Preparing a multiline streamed tool request before finishing.                                │\r\n╰──────────────────────────────────────────────────────────────────────────────────────────────╯\r\n\r\u001b[2K⠙ Thinking... running shell command: 1"]
+[0.35836,"o","\u001b[0;31m┌\u001b[0;1;31m Deferred \u001b[0;31mreq-1 ──────────────────────────────────────────────────────────────────────────────┐\u001b[0m\r\n\u001b[0;31m│\u001b[0m \u001b[0;1mCommand: \u001b[0m$ printf one                                                                        \u001b[0;31m│\u001b[0m\r\n\u001b[0;31m│\u001b[0m          printf two                                                                          \u001b[0;31m│\u001b[0m\r\n\u001b[0;31m└──────────────────────────────────────────────────────────────────────────────────────────────┘\u001b[0m\r\n\r\u001b[2K\r\u001b[0m\u001b[27m\u001b[24m\u001b[Jcosh-osc$ \u001b[K\u001b[?2004h"]
+[6.361607,"o","e\bexit\u001b[?2004l\r\r\n"]
+[6.388133,"o","\u001b[>4;0m"]

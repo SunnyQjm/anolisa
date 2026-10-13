@@ -1,0 +1,1018 @@
+Test cosh-ng	Run process and PTY integration tests	﻿2026-10-13T20:12:03.6777093Z ##[group]Run cd src/cosh-ng
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6777423Z ^[[36;1mcd src/cosh-ng^[[0m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6777655Z ^[[36;1mbash --version^[[0m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6777919Z ^[[36;1mzsh --version^[[0m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6778133Z ^[[36;1mlocale^[[0m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6778352Z ^[[36;1mtest "$(locale charmap)" = UTF-8^[[0m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6778664Z ^[[36;1mscripts/run-test-gates.sh integration^[[0m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6788313Z shell: /usr/bin/bash -e {0}
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6788590Z env:
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6788875Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6789256Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6789591Z   RUSTUP_TOOLCHAIN: 1.88.0
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6789824Z   SCCACHE_SKIP_CACHE_CHECK: 1
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6790079Z   CARGO_HOME: /home/runner/.cargo
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6790324Z   CARGO_TERM_COLOR: always
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6790549Z   CACHE_ON_FAILURE: false
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6790774Z   CARGO_INCREMENTAL: 0
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6791047Z   LANG: C.UTF-8
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6791296Z   LC_ALL: C.UTF-8
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6791514Z   COSH_RAW_CLI_TEST_PARALLELISM: 8
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6791768Z ##[endgroup]
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6823288Z GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6823795Z Copyright (C) 2020 Free Software Foundation, Inc.
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6824304Z License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6824675Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6824873Z This is free software; you are free to change and redistribute it.
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6825286Z There is NO WARRANTY, to the extent permitted by law.
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6831434Z zsh 5.8.1 (x86_64-ubuntu-linux-gnu)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6838193Z LANG=C.UTF-8
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6838389Z LANGUAGE=
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6838581Z LC_CTYPE="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6838799Z LC_NUMERIC="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6839007Z LC_TIME="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6839205Z LC_COLLATE="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6840834Z LC_MONETARY="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6841188Z LC_MESSAGES="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6841415Z LC_PAPER="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6841624Z LC_NAME="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6841834Z LC_ADDRESS="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6842050Z LC_TELEPHONE="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6842285Z LC_MEASUREMENT="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6842517Z LC_IDENTIFICATION="C.UTF-8"
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:03.6842948Z LC_ALL=C.UTF-8
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:04.6285358Z ^[[1m^[[32m    Updating^[[0m crates.io index
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:06.7607743Z ^[[1m^[[32m   Compiling^[[0m cosh-types v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-types)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:06.7608681Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:07.2716720Z ^[[1m^[[32m   Compiling^[[0m cosh-platform v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-platform)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.2195341Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 21.51s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.2382831Z ^[[1m^[[32m     Running^[[0m tests/cli_tools.rs (target/debug/deps/cli_tools-ced9ff33e9a4015e)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.2394123Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.2394310Z running 3 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.2912182Z test empty_tools_remain_valid ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.3006833Z test unknown_tools_fail_before_authentication ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.3141614Z test configured_mcp_tool_selection_remains_valid ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.3141970Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.3142267Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.3142856Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.5104765Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.9691139Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.64s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.9861277Z ^[[1m^[[32m     Running^[[0m tests/compaction_lifecycle.rs (target/debug/deps/compaction_lifecycle-3f646e7f5dd90978)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.9872056Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:25.9872186Z running 9 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.0159520Z test auto_compact_argument_combinations_fail_closed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.1321618Z test compact_without_resume_or_with_disabled_policy_is_rejected ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.1982328Z test manual_compact_succeeds_with_one_complete_run ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.2701813Z test automatic_idle_compaction_triggers_past_the_soft_threshold ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.3277411Z test emergency_preflight_recovers_under_the_default_recent_run_protection ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.3958322Z test automatic_idle_compaction_waits_for_a_compactable_run ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.4824227Z test provider_failure_never_commits_a_projection ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.7918548Z test manual_compact_preserves_identity_and_appends_after_restart ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.8141364Z test emergency_preflight_protects_oversized_tool_free_runs ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.8141930Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.8142388Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.83s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:26.8142984Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.0066900Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3003359Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.47s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3171135Z ^[[1m^[[32m     Running^[[0m tests/core_version.rs (target/debug/deps/core_version-fab950055ede0290)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3181314Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3181445Z running 1 test
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3223510Z test version_flag_exits_zero_and_prints_name_version ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3223849Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3224125Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.3224482Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:27.5166020Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0309918Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.69s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0484967Z ^[[1m^[[32m     Running^[[0m tests/jsonl_protocol.rs (target/debug/deps/jsonl_protocol-b77d63c0ed9ea9ec)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0496062Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0496171Z running 19 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0757920Z test gateway_brokered_profile_acks_v3_without_initializing_local_runtime ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0823768Z test gateway_brokered_profile_rejects_runtime_and_registry_mutation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0833229Z test checkpoint_brokered_profile_rejects_v3_identity_without_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.0837898Z test checkpoint_brokered_profile_acks_exact_v4_inventory ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.1390456Z test invalid_jsonl_input_returns_error_and_fails ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.1439935Z test headless_extension_info_reports_current_runtime_projection ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.1824131Z test gateway_brokered_profile_rejects_legacy_or_missing_ack_without_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.1928432Z test initialize_returns_system_init ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2174316Z test shutdown_terminates_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2205592Z test initial_extension_session_hook_is_registered_once ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2308657Z test output_format_matches_cosh_shell_expectations ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2338703Z test headless_registry_reload_publishes_into_the_live_generation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2348551Z test unsupported_initialize_version_fails_loud ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2517412Z test workspace_write_brokered_profile_acks_exact_v5_inventory ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.2950676Z test initialize_can_skip_session_start_hooks_for_one_shot_transport ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3114586Z test versioned_initialize_returns_negotiated_version ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3513463Z test user_message_cannot_replace_initialized_session_id ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3761787Z test user_message_returns_assistant_and_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3949071Z test generic_headless_ignores_untrusted_raw_user_input_for_hooks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3949683Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3949975Z test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.3950364Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:28.5900731Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.2462041Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 1.84s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.2633210Z ^[[1m^[[32m     Running^[[0m tests/oauth_mcp.rs (target/debug/deps/oauth_mcp-73302108665c829f)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.2644922Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.2645115Z running 2 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.3036165Z test mcp_inspect_does_not_reuse_credentials_after_endpoint_changes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.3094451Z test mcp_login_completes_discovery_registration_and_callback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.3094818Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.3095119Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.3095561Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.5041107Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:30.9963396Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.67s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.0133309Z ^[[1m^[[32m     Running^[[0m tests/project_config_hooks.rs (target/debug/deps/project_config_hooks-483916e73eedbe06)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.0144576Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.0144685Z running 7 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.1422132Z test fingerprinted_consent_does_not_cover_project_config_hooks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.1520301Z test legacy_bare_root_does_not_cover_project_config_hooks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.1652561Z test project_config_hook_is_blocked_without_trust_store ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.1657124Z test revoking_trust_in_a_running_core_leaves_no_project_config_hook_running ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.1705366Z test project_config_still_cannot_widen_core_approval ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.3787170Z test trust_revoke_and_retrust_never_enable_project_config_hooks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.4924366Z test edited_project_config_hook_is_not_authorized_by_earlier_consent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.4924802Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.4925098Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.48s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.4925679Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:31.6860737Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.6761558Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 1.17s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.6931550Z ^[[1m^[[32m     Running^[[0m tests/registry_protocol.rs (target/debug/deps/registry_protocol-8bfcf83da6807965)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.6943206Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.6943329Z running 31 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7012267Z test registry_auth_activate_clears_a_stale_model ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7013056Z test registry_auth_delete_removes_user_provider_and_credentials ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7013720Z test bare_registry_reports_env_only_auth_as_satisfied ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7016923Z test registry_auth_configure_rejects_invalid_base_url_without_writing_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7059232Z test bare_registry_does_not_discover_project_skills ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7068174Z test registry_auth_state_includes_localized_provider_guidance ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7086771Z test registry_auth_state_merges_user_auth_with_project_preferences ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7148390Z test registry_extension_info_reports_declared_agents_as_non_executable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7374698Z test registry_auth_configure_writes_home_config_only ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7425855Z test registry_extensions_detail_nonexistent_returns_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7447404Z test mock_server_without_connection_times_out ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7480234Z test registry_extensions_git_install_rejects_non_https_source ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7496046Z test registry_extensions_list_returns_success ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7543349Z test registry_auth_rejects_unusable_aliyun_model_without_writing_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7580620Z test registry_extensions_new_creates_valid_scaffold_without_installing_it ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7607040Z test registry_commit_rolls_back_when_required_runtime_health_fails ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7641986Z test registry_hooks_list_returns_success ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7690606Z test registry_skills_detail_nonexistent_returns_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7804945Z test registry_skills_discovers_custom_system_prefix ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7853904Z test registry_auth_rejects_missing_aliyun_role_without_writing_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7901289Z test registry_skills_list_returns_success ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7947256Z test registry_unknown_domain_returns_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.7996853Z test registry_unsupported_action_returns_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8051370Z test registry_extensions_report_desired_effective_and_health ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8125080Z test registry_extension_settings_parse_persist_and_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8128469Z test registry_skills_discovers_raw_user_data_directory ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8129278Z test registry_enable_rolls_back_when_required_runtime_health_fails ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8201554Z test registry_auth_preflight_rejection_is_classified_without_writing_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8477374Z test registry_workspace_settings_require_existing_project_trust ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8493544Z test registry_required_setting_unset_rolls_back_unhealthy_candidate ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8695770Z test registry_extensions_path_copy_requires_preflight_commit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8696147Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8696420Z test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:32.8696795Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:33.0631496Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.1059336Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 1.22s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.1226455Z ^[[1m^[[32m     Running^[[0m tests/session_recovery.rs (target/debug/deps/session_recovery-6764f3cb377187aa)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.1237668Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.1237797Z running 42 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.2661437Z test authentication_selected_model_initializes_new_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.3186952Z test activity::explicit_clear_is_not_revived_by_an_active_runtime ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.3341975Z test activity::second_resume_is_bounded_and_does_not_change_the_active_envelope ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.3346836Z test management_clear_all_includes_workspace_owned_legacy_sessions ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.3431733Z test management_clear_in_empty_workspace_reports_not_found ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.3862047Z test disabled_auto_persist_marks_session_non_resumable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.4610996Z test activity::unreadable_scope_refuses_new_optional_persistence ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.5957585Z test management_clear_requires_an_explicit_protection_set ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.6073489Z test activity::first_commit_holds_the_live_lease_while_waiting_for_the_user_budget_lock ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.6680460Z test management_list_bounds_prompt_preview_on_wire ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.6726804Z test management_clear_rejects_cross_workspace_scoped_directory_symlink ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.6846656Z test management_rejects_oversized_or_malformed_input_as_invalid_request ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.7739186Z test activity::active_process_survives_expiration_then_its_exit_allows_reclamation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.7911934Z test management_list_skips_unreadable_entry_without_hiding_healthy_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.8041099Z test activity::first_commit_sync_failures_preserve_only_published_controls ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.8148017Z test process_cwd_legacy_session_cannot_be_claimed_by_another_workspace ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.8935584Z test management_mode_lists_validates_and_protects_without_provider_auth ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:34.9793596Z test pre_workspace_default_session_is_discovered_and_migrated ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.0091995Z test management_list_cursor_survives_deleted_previous_page ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.0430802Z test management_summaries_bound_oversized_model_metadata_on_wire ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.0821364Z test persistence_conflict_emits_structured_persist_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.2668749Z test quota::active_relative_legacy_survives_other_workspace_sweep_until_exit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.2669956Z test quota::missing_resume_preserves_preexisting_and_held_activity_files ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.2848597Z test quota::custom_roots_preserve_unowned_workspace_message_arrays ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:35.7409870Z test quota::relative_roots_age_workspace_and_flat_legacy_arrays ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:36.0655123Z test quota::historical_legacy_directory_recreation_does_not_authorize_cleanup ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:36.1124817Z test quota::repeated_missing_resumes_leave_no_new_activity_control_files ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:37.4153364Z test management_clear_all_pages_stay_below_shell_output_limit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:37.6128631Z test quota::unversioned_location_markers_refuse_sweeps_without_deleting_data ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:37.7732476Z test recoverable_provider_error_still_persists_mutated_history ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:38.4181485Z test requested_workspace_controls_project_session_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:38.4769508Z test activity::two_process_writers_share_one_remaining_envelope_of_budget ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:38.7239119Z test resume_explicit_model_overrides_persisted_model ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:38.7578099Z test resume_bounds_oversized_persisted_model_in_init ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:38.9191557Z test session_control_loads_persist_dir_from_requested_workspace ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:39.0008692Z test second_process_resumes_model_visible_history ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:39.0309677Z test quota::clear_and_commit_share_the_snapshot_lock_and_freed_space_is_retried ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:39.3515455Z test quota::corrupt_legacy_with_a_clock_remains_accounted_and_is_not_evicted ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:39.4373745Z test quota::rejected_fresh_processes_leave_no_new_controls ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:39.4606223Z test quota::relative_roots_share_the_user_budget_and_count_both_legacy_locations ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:42.2868770Z test quota::recreated_historical_arrays_do_not_consume_the_budget ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:42.7098341Z test quota::unowned_workspace_arrays_do_not_consume_custom_root_budget ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:42.7098796Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:42.7099047Z test result: ok. 42 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.59s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:42.7099376Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:42.9068286Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.2403909Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.51s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.2579736Z ^[[1m^[[32m     Running^[[0m tests/sigint.rs (target/debug/deps/sigint-216e3e080098fe4a)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.2591210Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.2591540Z running 1 test
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.4022319Z test sigint_exits_when_inherited_as_ignored ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.4022775Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.4023142Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.4023557Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.5979679Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.9781115Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.56s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.9953409Z ^[[1m^[[32m     Running^[[0m tests/sls_integration.rs (target/debug/deps/sls_integration-575c8f3b76dddb45)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.9964246Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:43.9964673Z running 2 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.1251385Z test user_message_produces_sls_record ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.1251842Z test sls_not_created_when_missing ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.1252077Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.1252324Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.1252724Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.3227068Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.7585409Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.62s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.7755668Z ^[[1m^[[32m     Running^[[0m tests/telemetry_upload.rs (target/debug/deps/telemetry_upload-349d9091ad48eafa)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.7765948Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.7766050Z running 1 test
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.9333351Z test standalone_self_upload_posts_to_local_server ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.9333714Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.9334018Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:44.9334447Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.1311385Z ^[[1m^[[32m   Compiling^[[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.5714032Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 0.62s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.5884518Z ^[[1m^[[32m     Running^[[0m tests/tool_approval.rs (target/debug/deps/tool_approval-8edbaf2505190ba4)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.5895885Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.5896020Z running 10 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.6760226Z test initialize_then_shutdown ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.6760887Z test session_id_from_user_message_cannot_replace_initialized_identity ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.6761360Z test config_override_approval_mode ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.7179681Z test result_has_duration_ms ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.7278306Z test session_start_hook_emits_notification ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.7599600Z test switch_model_changes_reported_model ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.7647522Z test assistant_text_format_matches_cosh_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.7820460Z test one_shot_prompt_ask_accepts_an_approval_response ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:45.8041905Z test user_message_produces_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:46.7174099Z test one_shot_prompt_ask_times_out_with_open_stdin ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:46.7174476Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:46.7174774Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.13s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:46.7175444Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:12:46.9147451Z ^[[1m^[[32m   Compiling^[[0m cosh-shell v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2047566Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 28.47s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2154026Z ^[[1m^[[32m     Running^[[0m tests/logic.rs (target/debug/deps/logic-fc714e50b77e9674)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2164139Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2164300Z running 9 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2167356Z test session_recovery::recovery_states_and_health_have_stable_user_labels ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2168043Z test session_recovery::active_and_selected_provider_sessions_are_both_protected ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2168644Z test session_recovery::picker_footer_keeps_resume_and_clear_semantics_distinct ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2271248Z test tools::readonly_tool_does_not_interpret_shell_syntax_in_tokens ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2271883Z test tools::readonly_tool_executes_tokenized_command_without_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2272541Z test tools::shell_expands_globs_so_verbatim_token_assertions_are_not_vacuous ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:15.2273213Z test tools::user_approved_tool_runs_shell_syntax_through_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:16.2225163Z test tools::user_approved_tool_has_no_default_timeout ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:17.2204393Z test tools::user_approved_tool_honors_configured_timeout ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:17.2204959Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:17.2205338Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.00s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:17.2206051Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:17.3556074Z ^[[1m^[[32m   Compiling^[[0m cosh-shell v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.6983651Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 2.46s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7088411Z ^[[1m^[[32m     Running^[[0m tests/protocol.rs (target/debug/deps/protocol-0302d2c7fe2f39f4)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7101287Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7101412Z running 83 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7414776Z test claude_stream::claude_code_adapter_streams_question_options_from_input_json_delta ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7415497Z test claude_stream::claude_code_adapter_reads_question_options_from_permission_request ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7416990Z test claude_stream::claude_code_adapter_reuses_stream_session_id_on_next_invocation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7450483Z test control::approval_round_trip::control_protocol_cancel_while_waiting_for_approval_finishes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7451566Z test control::approval_round_trip::control_protocol_allow_round_trip ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7475156Z test control::approval_round_trip::control_protocol_deny_round_trip ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7478032Z test control::approval_round_trip::control_protocol_claude_allow_uses_tool_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7514997Z test control::approval_round_trip::control_protocol_session_id_captured ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7543045Z test control::approval_round_trip::control_protocol_multi_tool_approval ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7565813Z test control::host_executed::qwen_control_protocol_records_initialize_capabilities ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7566926Z test control::host_executed::respond_approval_fails_without_sender ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7757970Z test control::host_executed::cosh_core_host_executed_shell_result_uses_control_response ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7761546Z test control::host_executed::cosh_core_analysis_continuation_denies_reentrant_shell_request ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7819250Z test control::host_executed::cosh_core_multi_host_executed_shell_results_stay_in_same_control_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7825383Z test control::provider_modes::qwen_auto_uses_control_approval_channel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7827325Z test control::initialize_wire::cosh_core_initialize_carries_protocol_version_and_capabilities ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.7836870Z test control::provider_modes::qwen_recommend_uses_stream_prompt_with_closed_stdin ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8037567Z test control::provider_modes::cosh_core_auto_uses_control_approval_channel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8052495Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8052757Z running 1 test
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8247508Z test ecs_probe::probe_cleanup_with_ignored_sigchld ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8247859Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8248158Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 82 filtered out; finished in 0.02s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8248570Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:19.8250128Z test ecs_probe::probe_cleanup_with_ignored_sigchld ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.2861878Z test ecs_probe::configure_response_does_not_wait_indefinitely_for_process_exit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.2936363Z test ecs_probe::dropping_a_probe_cancels_and_joins_it ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7110019Z test ecs_probe::fifty_cancellations_reap_each_owned_child ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7194614Z test ecs_probe::probe_returns_only_after_its_child_is_reaped ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7280130Z test ecs_probe::response_without_process_exit_does_not_block_reaping ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7653640Z test provider_lifecycle::active_load_failure_preserves_unrelated_selection_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7734767Z test provider_lifecycle::active_persistence_failure_releases_resume_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7819620Z test provider_lifecycle::active_resume_identity_mismatch_is_rejected_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.7997453Z test provider_lifecycle::cancelled_max_turn_run_commits_no_fresh_persistent_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.8008817Z test provider_lifecycle::claude_provider_lifecycle_cancellable_process_emits_cancelled_event ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.8176857Z test provider_lifecycle::cancelled_async_runners_apply_already_parsed_session_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.8551389Z test provider_lifecycle::cosh_core_active_load_failure_releases_resume_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.8866437Z test provider_lifecycle::cancelled_selected_runners_preserve_already_parsed_session_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.9077426Z test provider_lifecycle::cosh_core_async_restore_identity_failure_replaces_completed_event ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:20.9390922Z test provider_lifecycle::cosh_core_async_restore_preserves_provider_result_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.0713013Z test provider_lifecycle::cosh_core_async_read_error_terminates_and_reaps_provider ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.0979341Z test provider_lifecycle::cosh_core_drop_during_active_turn_emits_cancelled_not_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.1246167Z test provider_lifecycle::cosh_core_drop_during_selected_restore_records_no_transport_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.1512886Z test provider_lifecycle::cosh_core_drop_with_unanswered_question_emits_cancelled_not_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.1778570Z test provider_lifecycle::cosh_core_pending_question_nonzero_exit_reports_only_protocol_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.2044458Z test provider_lifecycle::cosh_core_persistent_user_message_carries_raw_input_separately ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.2311563Z test provider_lifecycle::cosh_core_rejects_unsupported_initialize_before_user_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:21.9211068Z test provider_lifecycle::cosh_core_cancel_after_completed_result_emits_only_cancelled ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.1753668Z test provider_lifecycle::cosh_core_sync_read_error_terminates_and_reaps_provider ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.2282945Z test provider_lifecycle::cosh_core_sync_reaps_descendant_that_inherits_output_pipes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.2307680Z test provider_lifecycle::cosh_core_sync_restore_identity_failure_replaces_completed_event ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.2328736Z test provider_lifecycle::cosh_core_sync_restore_preserves_provider_result_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.4867382Z test provider_lifecycle::cosh_core_sync_sink_error_terminates_and_reaps_provider ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.6508005Z test provider_lifecycle::cosh_core_sync_drains_child_output_while_writing_large_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.6535848Z test provider_lifecycle::cosh_core_sync_user_message_carries_raw_input_and_skips_session_start ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.7093866Z test provider_lifecycle::disable_resume_hint_preserves_selection_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.7653413Z test provider_lifecycle::disabled_resume_non_resumable_turn_preserves_unattempted_ids_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.8178908Z test provider_lifecycle::max_turn_failure_keeps_the_persistent_service_session_active_for_continuation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.8448189Z test provider_lifecycle::non_resumable_max_turn_failure_commits_no_persistent_service_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9180499Z test provider_lifecycle::cosh_core_sync_stdin_write_failure_cleans_up_and_preserves_recovery_state ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9202804Z test provider_lifecycle::ordinary_active_provider_failure_keeps_committed_resume ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9222871Z test provider_lifecycle::ordinary_provider_error_marker_cannot_release_active_resume ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9417990Z test provider_lifecycle::cosh_core_cancelled_non_resumable_restore_preserves_previous_active_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9486288Z test provider_lifecycle::ordinary_service_failure_commits_no_persistent_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9496125Z test provider_lifecycle::non_resumable_service_process_commits_no_session_on_later_turns ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9581466Z test provider_lifecycle::provider_drivers_emit_one_completed_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9666642Z test provider_lifecycle::provider_drivers_emit_one_failed_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9682270Z test provider_lifecycle::persist_phase_max_turn_failure_commits_no_persistent_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9698040Z test provider_lifecycle::qwen_provider_lifecycle_cancellable_process_emits_cancelled_event ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9719905Z test provider_lifecycle::qwen_provider_lifecycle_commits_session_only_after_successful_completion ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9736411Z test provider_lifecycle::qwen_provider_lifecycle_does_not_commit_session_after_provider_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:22.9760293Z test provider_lifecycle::provider_drivers_nonzero_exit_emits_one_failed_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.0840217Z test provider_lifecycle::selected_structured_failures_preserve_metadata_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.1390805Z test provider_lifecycle::structured_session_failure_survives_nonzero_exit_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.2418915Z test provider_lifecycle::structured_session_failure_is_finalized_before_read_error_for_every_runner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.2721035Z test session_management::adapter_serializes_clear_with_concurrent_selection ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.2751055Z test session_management::session_management_client_parses_pages_and_per_item_clear_errors ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.5267554Z test session_management::session_management_deadline_survives_setsid_descendant_with_output_pipes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.5486841Z test session_management::session_management_drains_large_stderr_before_reaping_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.6058611Z test session_management::session_management_paginates_clear_all_and_batches_clear_requests ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.6289414Z test session_management::session_management_preserves_partial_clear_results_after_later_batch_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.6404563Z test session_management::session_management_reaps_descendant_that_inherits_output_pipes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.6431764Z test session_management::session_management_deadline_survives_setsid_descendant_holding_stdin ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:23.7036792Z test session_management::session_management_rejects_bounded_stdout_and_stderr_overflow ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:24.4595127Z test session_management::session_management_timeout_kills_term_ignoring_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:24.5445620Z test session_management::session_management_write_failure_terminates_and_reaps_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:25.7352226Z test ecs_probe::silent_probe_times_out_and_reaps_its_child ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:25.9005028Z test session_management::session_management_timeout_covers_blocked_request_write ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:35.2773976Z test provider_lifecycle::provider_drivers_cancel_emit_one_cancelled_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:35.2774483Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:35.2774764Z test result: ok. 83 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.57s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:35.2775105Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:35.4097939Z ^[[1m^[[32m   Compiling^[[0m cosh-shell v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:38.9585757Z ^[[1m^[[32m    Finished^[[0m `test` profile [unoptimized + debuginfo] target(s) in 3.67s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:38.9691776Z ^[[1m^[[32m     Running^[[0m tests/raw_cli.rs (target/debug/deps/raw_cli-bf2a2ca42af3517e)
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:38.9704342Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:38.9704473Z running 581 tests
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:39.1478057Z test activity::raw_cli_missing_details_uses_structured_notice_and_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:39.1586002Z test agent_input::raw_cli_empty_enter_and_ctrl_c_do_not_start_agent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:39.1733535Z test activity::raw_cli_missing_details_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:39.6869815Z test agent_input::raw_cli_non_ascii_shell_input_supports_backspace ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:39.8697718Z test agent_input::raw_cli_keeps_batched_path_prompt_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.0889521Z test activity::raw_cli_activity_details_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.1108652Z test activity::raw_cli_details_for_activity_uses_structured_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.1619097Z test agent_input::raw_cli_non_ascii_agent_input_echoes_before_intercept ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.4521765Z test agent_input::raw_cli_bash_agent_prompt_restore_does_not_duplicate_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.5473522Z test agent_input::raw_cli_agent_marker_invokes_adapter_without_failed_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.8485397Z test agent_input::raw_cli_natural_language_omits_recent_command_facts_by_default ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:40.9943774Z test agent_input::raw_cli_routes_path_prompt_after_shell_cwd_change ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:41.0327733Z test agent_input::raw_cli_redacts_cjk_adjacent_secret_in_path_prompt_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:41.0621753Z test agent_input::raw_cli_keeps_slash_candidate_batch_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:41.3246165Z test agent_input::raw_cli_routes_slash_leading_path_prompt_in_one_input_batch ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:41.6726893Z test agent_input::raw_cli_shell_only_keeps_slash_bearing_han_prompt_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:41.8300911Z test agent_input::raw_cli_zsh_keeps_slash_function_after_line_init_mutation_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:41.9912782Z test agent_input::raw_cli_zsh_keeps_slash_function_after_self_bound_line_init_mutation_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:42.1541427Z test agent_input::raw_cli_empty_enter_after_agent_response_does_not_retrigger ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:42.2798682Z test agent_input::raw_cli_zsh_hands_buffered_tab_to_zle_before_follow_up_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:42.4188994Z test agent_input::raw_cli_zsh_agent_prompt_restore_suppresses_partial_line_marker ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:42.5727743Z test agent_input::raw_cli_zsh_agent_response_restores_prompt_without_empty_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:42.7479376Z test agent_input::raw_cli_delays_agent_output_while_foreground_command_is_active ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:42.9785420Z test agent_input::raw_cli_bash_shell_marker_agent_response_does_not_duplicate_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.0457545Z test agent_input::raw_cli_passthrough_shortcut_shows_one_time_tip ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.0465648Z test agent_input::raw_cli_rejects_physical_cwd_with_trailing_newline ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.1095541Z test agent_input::raw_cli_routes_slash_bearing_han_prompt_before_shell_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.2368867Z test agent_input::raw_cli_zsh_shell_arg_intercepts_fragmented_natural_language ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.5199576Z test agent_input::routing_c3_explicit_draft_bracketed_paste_newlines_do_not_submit_early ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.5653514Z test agent_input::raw_cli_zsh_shell_arg_intercepts_fragmented_agent_marker ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:43.6394826Z test agent_input::raw_cli_uses_physical_cwd_when_pwd_is_reassigned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:44.1613294Z test agent_input::routing_c3_explicit_draft_shows_composition_hint ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:44.4329560Z test agent_input::raw_cli_zsh_shell_marker_agent_response_does_not_duplicate_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:44.5527338Z test agent_input::raw_cli_zh_natural_language_intercept_skips_redundant_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:45.0274123Z test agent_input::routing_c3_explicit_draft_soft_newline_composes_multiline_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:45.5129145Z test agent_input::routing_c3_wrapped_paste_split_opener_stays_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:46.1407087Z test animation::raw_cli_animation_mode_uses_transient_agent_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:46.3069540Z test animation::raw_cli_slow_agent_shows_elapsed_heartbeat ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:47.1086971Z test agent_input::raw_cli_zsh_keeps_slash_named_function_and_alias_shell_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:47.4894781Z test approval::foreground::raw_cli_approved_bash_tool_drops_stale_pre_approval_followup ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:47.5338343Z test agent_input::raw_cli_zsh_routes_fragmented_slash_leading_path_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:47.5942040Z test approval::details::raw_cli_details_approvals_records_cancelled_not_executed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:48.7386642Z test approval::details::raw_cli_details_approvals_renders_decision_journal_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:49.2151527Z test approval::details::raw_cli_multiline_bash_tool_is_visible_in_approval_details ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:50.7856105Z test approval::details::raw_cli_details_for_approval_uses_structured_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:50.8872716Z test approval::details::raw_cli_details_approvals_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:51.3053878Z test animation::raw_cli_animation_stops_heartbeat_after_visible_agent_text ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:52.9618880Z test approval::foreground::raw_cli_approved_repl_tool_receives_followup_lines ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:55.3109922Z test approval::foreground::raw_cli_approved_less_tool_hints_in_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:13:57.6612836Z test approval::foreground::raw_cli_approved_less_tool_hints_before_taking_the_foreground ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:00.0175866Z test approval::foreground::raw_cli_approved_pager_tool_receives_q ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:01.2408180Z test approval::foreground::raw_cli_user_typed_git_log_keeps_its_own_pager_configuration ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:03.5896714Z test approval::foreground::raw_cli_approved_ssh_tool_receives_foreground_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:04.7585224Z test agent_input::raw_cli_zsh_routes_space_prefixed_path_prompt_before_zle ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:05.8669211Z test approval::foreground::raw_cli_user_approved_pipeline_supports_quoted_multiline_script ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:05.8670203Z test approval::foreground::raw_cli_user_approved_bash_tool_supports_pipe ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:05.9577374Z test approval::foreground::raw_cli_zsh_user_approved_pipeline_supports_quoted_multiline_script ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:05.9663913Z test approval::foreground::raw_cli_approved_bash_tool_prints_native_command_and_stdout ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:06.8667700Z test approval::foreground::raw_cli_approved_sudo_tool_is_emitted_to_foreground_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:06.9668521Z test approval::details::raw_cli_details_approvals_records_denied_not_executed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:07.1320024Z test approval::foreground::raw_cli_denied_bash_tool_does_not_render_stale_executed_claim ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:08.4697783Z test approval::foreground::raw_cli_approved_git_log_tool_never_waits_for_a_pager ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:08.8420382Z test approval::foreground::raw_cli_denied_bash_tool_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:09.4439525Z test approval::foreground::raw_cli_streaming_tool_approval_renders_before_agent_finishes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:09.8651294Z test approval::input::raw_cli_approval_application_cursor_arrow_updates_focus ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:10.0498726Z test approval::slash_removed::raw_cli_approve_slash_is_not_recommendation_or_governance_alias ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:10.2500681Z test approval::slash_removed::raw_cli_allow_is_removed_and_does_not_record_recommendation_approval ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:10.7433078Z test approval::foreground::raw_cli_approved_bash_tool_streams_delayed_output_before_analysis ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:11.7444659Z test approval::status::raw_cli_approval_cancel_records_receipt_and_advances_queue ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:11.9121734Z test audit::raw_cli_audit_status_is_bounded_and_restores_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:12.1416751Z test approval::input::raw_cli_approval_split_arrow_sequence_does_not_cancel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:12.4194636Z test approval::status::raw_cli_approval_card_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:12.4406854Z test approval::input::raw_cli_approval_text_input_does_not_confirm_or_leak_to_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:13.1402296Z test approval::status::raw_cli_approval_ctrl_c_cancels_card_without_agent_cancel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:13.2086305Z test approval::input::raw_cli_single_request_turn_keeps_standard_actions ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:13.9260052Z test approval::details::raw_cli_details_for_approval_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:14.1674954Z test approval::input::raw_cli_turn_batch_consent_sweeps_queued_requests ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:15.0181288Z test approval::input::raw_cli_zsh_turn_batch_consent_serializes_handoffs ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:15.1922056Z test audit::raw_cli_audit_export_forwards_a_destination_containing_spaces ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:15.2488247Z test auth::raw_cli_auth_ctrl_c_mid_form_abandons_the_flow ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:16.3176877Z test auth::raw_cli_auth_esc_preserves_picker_focus_for_the_next_arrow ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:17.3605157Z test auth::raw_cli_auth_esc_on_an_edit_returns_to_the_provider_action_menu ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:17.6658790Z test approval::status::raw_cli_zsh_approval_card_capture_does_not_leak_to_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:18.0586500Z test auth::raw_cli_auth_esc_walks_back_through_the_form_before_cancelling ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:22.2163760Z test approval::foreground::raw_cli_approved_bash_tool_streams_stderr_to_transcript ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:24.4702748Z test auth::raw_cli_auth_ecs_keeps_saved_provider_reachable_below_sysom ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:25.3156459Z test auth::raw_cli_auth_dotted_provider_id_can_be_corrected ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:26.3320046Z test auth::raw_cli_auth_edits_coding_plan_with_its_original_template ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:27.4021619Z test auth_ecs::ecs_ready_configures_without_name_or_authorization_confirmation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:28.4829076Z test auth::raw_cli_auth_non_ecs_keeps_saved_providers_then_add_new ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:28.8239103Z test auth::raw_cli_auth_ecs_offers_sysom_first_without_saved_providers ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:29.5038300Z test auth::raw_cli_auth_sysom_shortcut_reuses_prefetched_challenge ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:29.5244626Z test auth::raw_cli_auth_ecs_promotes_configured_ram_role_provider ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:29.6735585Z test cancellation::raw_cli_cancel_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:31.3277534Z test cancellation::raw_cli_cancel_stops_active_agent_run_and_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:31.7836681Z test cancellation::raw_cli_ctrl_backslash_recovers_ignored_foreground_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:32.2585332Z test auth::raw_cli_auth_failure_keeps_panel_and_never_claims_success ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:32.4247775Z test cancellation::raw_cli_cancel_is_intercepted_and_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:32.6327144Z test cancellation::raw_cli_active_cancel_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:33.3794509Z test auth::raw_cli_auth_non_ecs_without_saved_providers_shows_plan_entries ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:33.4327984Z test cancellation::raw_cli_ctrl_c_cancels_active_agent_without_queueing_generic_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:33.5298813Z test auth_ecs::ecs_cancel_returns_shell_input_and_allows_a_new_auth_flow ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:33.9383369Z test cancellation::raw_cli_ctrl_c_drops_late_provider_cancel_timeout_artifact ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:34.0488050Z test auth_ecs::initial_menu_prepare_ctrl_c_reaps_probe_and_worker_in_live_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:34.5944488Z test auth_ecs::ecs_waiting_becomes_ready_without_another_keypress ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:34.8331285Z test cancellation::raw_cli_ctrl_c_drops_late_provider_tool_request_artifact ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:35.2429060Z test cancellation::raw_cli_ctrl_c_drops_late_provider_tool_error_artifact ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:35.4521298Z test cancellation::raw_cli_ctrl_c_drops_late_fake_question_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:35.7981890Z test cancellation::raw_cli_ctrl_c_active_agent_cancel_is_idempotent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:37.0576655Z test cancellation::raw_cli_ctrl_c_interrupts_foreground_command_without_agent_cancel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:37.7083523Z test cancellation::raw_cli_ctrl_c_does_not_resume_cancelled_provider_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:38.1645147Z test cancellation::raw_cli_ctrl_c_drops_unclosed_request_block_before_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:38.5154563Z test auth::raw_cli_auth_non_ecs_aliyun_falls_back_to_manual_keys ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:39.1123456Z test cancellation::raw_cli_ctrl_c_drops_late_fake_tool_artifact ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:39.6609652Z test composer::raw_cli_agent_composer_health_uses_the_current_shell_workspace ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:39.9873571Z test auth::raw_cli_auth_prepare_failure_falls_back_to_the_existing_menu ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.1349794Z test composer::raw_cli_agent_composer_control_command_hands_input_to_its_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.2214548Z test cancellation::raw_cli_ctrl_c_stops_active_agent_run_and_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.6760313Z test compaction::raw_cli_cancel_sigterm_stops_term_honoring_compactor ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.8179738Z test cancellation::raw_cli_ctrl_c_archives_provider_cancel_artifact_in_details ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.8425445Z test composer::raw_cli_agent_composer_suggests_and_accepts_workspace_paths ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.9379634Z test composer::raw_cli_removed_draft_alias_falls_through_to_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:40.9977198Z test composer::raw_cli_bash_agent_composer_submits_multiline_request_and_restores_custom_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.1125334Z test composer::raw_cli_composer_change_preserves_bash_path_completion ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.2602063Z test composer::raw_cli_agent_composer_lists_completes_and_executes_slash_commands ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.2977358Z test composer::raw_cli_agent_composer_enter_executes_the_selected_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.3459532Z test compaction::raw_cli_shell_exit_terminates_running_compactor ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.3997792Z test composer::raw_cli_agent_composer_slash_completion_scrolls_to_the_last_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.4016981Z test config::raw_cli_invalid_shell_integration_fails_visibly ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.4445458Z test composer::raw_cli_agent_composer_unknown_command_is_local ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.4840859Z test config::raw_cli_config_env_language_override_does_not_rewrite_file ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.5087442Z test compaction::raw_cli_automatic_compaction_chain_binds_revision_and_resumes_once ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:41.8134841Z test composer::raw_cli_zsh_agent_composer_cancel_restores_custom_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:42.8367670Z test config::raw_cli_config_language_direct_set_saves_after_confirmation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:43.4408122Z test compaction::raw_cli_manual_compaction_keeps_shell_usable_and_resumes_agent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:45.5679746Z test auth::raw_cli_auth_sysom_shortcut_still_validates_provider_id ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:50.6136817Z test compaction::raw_cli_cancel_escalates_to_sigkill_for_term_ignoring_compactor ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:52.8895585Z test cosh_core::approval_modes::raw_cli_cosh_core_trust_without_confirm_does_not_enable_trust ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:14:57.9688236Z test cosh_core::approval_modes::raw_cli_cosh_core_non_shell_permission_passes_allow_only ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:04.4160177Z test cosh_core::approval_modes::raw_cli_cosh_core_write_permission_details_hide_content_json ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:06.6306693Z test config::raw_cli_config_summary_ignores_legacy_user_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:06.6307346Z test config::raw_cli_config_summary_reads_language_from_user_config ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:06.7316893Z test config::raw_cli_config_language_errors_use_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:07.6400559Z test cosh_core::composer::raw_cli_agent_composer_completes_a_registry_skill_before_submit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:08.0646534Z test config::raw_cli_config_language_save_applies_to_current_session_help ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:08.1644741Z test config::raw_cli_config_language_selector_cancel_does_not_write_file ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:10.0644706Z test cosh_core::approval_modes::raw_cli_cosh_core_non_shell_permission_deny_does_not_write_or_host_execute ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:13.5656911Z test cosh_core::evidence::raw_cli_cosh_core_bypass_recent_filter_reads_after_host_executed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:15.6399050Z test cosh_core::approval_modes::raw_cli_cosh_core_approval_mode_argv_maps_to_cosh_core_modes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:16.7920999Z test cosh_core::composer::raw_cli_plain_agent_composer_request_omits_empty_metadata ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:18.5151302Z test cosh_core::evidence::raw_cli_cosh_core_shell_evidence_splits_agent_cards ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:20.2155624Z test cosh_core::evidence::raw_cli_cosh_core_list_recent_commands_does_not_read_output ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:20.2156379Z test cosh_core::evidence::raw_cli_original_vmstat_top_terminal_output_read_misroute_is_targeted ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:20.7164692Z test config::raw_cli_config_language_selector_saves_after_confirmation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:21.2151850Z test cosh_core::evidence::raw_cli_cosh_core_duplicate_shell_evidence_read_is_marked_duplicate ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:22.2146869Z test cosh_core::evidence::raw_cli_cosh_core_activity_recap_lists_facts_without_reading_output ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:22.7161430Z test cosh_core::evidence::raw_cli_cosh_core_same_command_text_reads_show_command_ids ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:22.7166781Z test cosh_core::evidence::raw_cli_cosh_core_read_after_truncated_host_executed_returns_output ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:23.0918294Z test cosh_core::evidence::raw_cli_cosh_core_status_analysis_reads_result_bearing_output ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:23.4148018Z test cosh_core::evidence::raw_cli_cosh_core_failed_command_diagnostic_reads_output_before_answering ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:23.8900700Z test cosh_core::evidence::raw_cli_cosh_core_recommend_mode_suppresses_shell_evidence_instructions ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:25.9663305Z test cosh_core::host_executed::raw_cli_cosh_core_auto_safe_shell_auto_approves_host_executed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:29.0428811Z test cosh_core::host_executed::raw_cli_cosh_core_sysctl_non_ascii_shell_handoff_is_not_intercepted ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:30.1710003Z test cosh_core::lifecycle::raw_cli_cosh_core_cancel_then_exit_cleans_up_active_provider_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:31.5429527Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_multi_tool_keeps_single_turn_boundary ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:31.8417195Z test cosh_core::evidence::raw_cli_cosh_core_stale_terminal_output_ref_fails_closed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:34.0432396Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_shell_result_continues_same_provider_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:34.1437995Z test cosh_core::host_executed::raw_cli_cosh_core_duplicate_host_executed_shell_request_is_not_executed_twice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:35.5420738Z test cosh_core::host_executed::raw_cli_cosh_core_failed_host_executed_preserves_redacted_stderr ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:35.5424168Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_nonzero_returns_normal_tool_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:36.0441193Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_long_command_continues_same_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:37.7084543Z test composer::raw_cli_agent_composer_hidden_controls_restore_prompt_after_their_output has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:38.1239002Z test cosh_core::host_executed::raw_cli_cosh_core_trust_confirm_shell_auto_approves_host_executed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:40.1978657Z test cosh_core::lifecycle::raw_cli_cosh_core_dumb_terminal_uses_plain_blocks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:40.3613470Z test composer::raw_cli_agent_composer_hidden_controls_restore_prompt_after_their_output ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:40.4020485Z test cosh_core::passthrough::raw_cli_cosh_core_bash_ordinary_commands_passthrough_without_agent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:40.6586328Z test cosh_core::passthrough::raw_cli_cosh_core_zsh_ordinary_commands_passthrough_without_agent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:41.3724294Z test cosh_core::lifecycle::raw_cli_cosh_core_malformed_provider_event_failure_is_contained ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:42.7740989Z test cosh_core::lifecycle::raw_cli_cosh_core_completed_run_exit_leaves_no_provider_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:43.4408976Z test cosh_core::composer::raw_cli_agent_composer_sends_validated_references_and_skill_to_cosh_core has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:43.9485005Z test cosh_core::provider_native::raw_cli_cosh_core_control_request_suppresses_matching_shell_snapshot ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:44.7366289Z test cosh_core::provider_native::raw_cli_cosh_core_streamed_provider_native_shell_result_renders_before_final_text ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:44.7779397Z test cosh_core::provider_native::raw_cli_cosh_core_provider_native_shell_omits_duplicate_activity_in_normal_ui ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:44.7785275Z test cosh_core::provider_native::raw_cli_cosh_core_provider_native_non_shell_result_is_visible ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:44.9373752Z test cosh_core::evidence::raw_cli_cosh_core_shell_evidence_tool_lists_and_reads_current_ledger ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:45.4786188Z test cosh_core::evidence::raw_cli_cosh_core_shell_evidence_home_path_redaction_still_delivers ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:45.8462399Z test cosh_core::provider_native::raw_cli_path_prompt_remains_visible_before_first_tool_call ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:45.9023107Z test cosh_core::composer::raw_cli_agent_composer_sends_validated_references_and_skill_to_cosh_core ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:46.5235181Z test cosh_core::provider_native::raw_cli_cosh_core_provider_native_tool_results_are_visible ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:50.2753822Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_large_output_is_bounded ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:50.3550334Z test cosh_core::evidence::raw_cli_cosh_core_control_shell_evidence_suppresses_provider_snapshot ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:53.8141165Z test cosh_core::provider_native::raw_cli_cosh_core_suppresses_provider_native_echo_after_manual_host_executed_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.8879106Z test cosh_core::turn_extension::raw_cli_non_resumable_cap_has_no_extension_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.9374069Z test diagnostics::diagnostics_export_collects_sources_without_leaking_secrets ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.9731431Z test diagnostics::diagnostics_export_health_checks_match_doctor_cli ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.9750200Z test doctor::doctor_degraded_environment_exits_one ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.9768473Z test doctor::doctor_failed_environment_exits_two ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.9785747Z test doctor::doctor_healthy_environment_exits_zero ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:55.9802343Z test doctor::doctor_partially_unavailable_environment_exits_one ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:57.0151312Z test cosh_core::questions::raw_cli_cosh_core_question_card_answer_continues_same_provider_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:57.0422937Z test cosh_core::questions::raw_cli_cosh_core_malformed_question_fails_fast_and_restores_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:57.1891804Z test doctor::slash_health_renders_health_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:57.3591774Z test doctor::slash_health_uses_child_shell_cwd_for_hook_checks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:57.3769430Z test daily_terminal::bash_non_login_startup_sources_user_environment_once ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:58.1082998Z test cosh_core::questions::raw_cli_cosh_core_answer_write_failure_retries_through_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:58.6370971Z test daily_terminal::zsh_nonzero_exit_restores_parent_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:59.1760104Z test cosh_core::turn_extension::raw_cli_capped_run_approval_continues_same_core_process ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:59.2941885Z test cosh_core::questions::raw_cli_cosh_core_narrow_question_and_debug_remain_readable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:59.5028135Z test daily_terminal::bash_nonzero_exit_restores_parent_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:59.7389209Z test daily_terminal::zsh_non_login_startup_sources_user_environment_once ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:15:59.7621014Z test cosh_core::evidence::raw_cli_cosh_core_terminal_output_read_misroute_recommends_shell_evidence_tool ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:00.0089971Z test daily_terminal::zsh_eof_restores_parent_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:00.4846378Z test evidence_request::raw_cli_cosh_request_card_ignore_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:01.1237508Z test evidence_request::raw_cli_cosh_request_history_auto_sends_history_index ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:01.6775890Z test evidence_request::raw_cli_invalid_cosh_request_is_audited_without_evidence_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:02.3026581Z test evidence_request::raw_cli_terminal_output_read_misroute_records_details_audit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:02.4669622Z test cosh_core::lifecycle::raw_cli_cosh_core_host_executed_provider_disconnect_marks_recovery_reason ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:02.7811169Z test evidence_request::raw_cli_cosh_request_card_ctrl_c_cancels_only_evidence_request ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:09.4718646Z test external_hook::raw_cli_external_hook_stdin_holder_is_killed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:12.2511372Z test external_hook::raw_cli_external_hook_timeout_kills_grandchildren ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:14.8906487Z test external_hook::raw_cli_external_hook_stdout_holder_is_killed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:15.7947189Z test external_hook::raw_cli_external_hook_ignoring_large_stdin_respects_deadline ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:15.9934074Z test failed_command::raw_cli_explain_after_usage_help_failure_invokes_adapter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:16.1348313Z test daily_terminal::bash_ctrl_u_and_paste_wait_for_explicit_enter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:16.3349771Z test failed_command::raw_cli_clear_keeps_generic_failure_silent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:16.3660936Z test external_hook::raw_cli_external_hook_executes_pinned_file_after_path_replacement ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:16.3669296Z test external_hook::raw_cli_untrusted_project_hook_registry_is_bounded ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:16.4246063Z test daily_terminal::bash_eof_restores_parent_terminal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:16.6644921Z test evidence_request::raw_cli_fallback_debug_session_reports_fenced_request_access ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:17.0055848Z test external_hook::raw_cli_project_hook_rejects_symlinked_cosh_directory ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:17.4984097Z test failed_command::raw_cli_auto_repeated_build_failure_is_suppressed_without_old_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:17.6396294Z test failed_command::raw_cli_hook_consultation_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:17.8643424Z test failed_command::raw_cli_failure_insight_keeps_shell_only_ownership_of_shift_tab ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:17.8796819Z test failed_command::raw_cli_natural_language_after_failure_does_not_bind_generic_failure ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:17.9644083Z test failed_command::raw_cli_failure_insight_keeps_assisted_ownership_of_shift_tab ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:18.0248423Z test failed_command::raw_cli_natural_language_omits_unbound_recent_failed_command_context ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:18.0903388Z test failed_command::raw_cli_generic_failure_is_silent_before_next_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:18.2449038Z test daily_terminal::zsh_ctrl_u_and_paste_wait_for_explicit_enter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:18.3537752Z test failed_command::raw_cli_natural_language_does_not_make_later_generic_failure_actionable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:18.6384570Z test failed_command::raw_cli_generic_failure_does_not_trigger_inline_guidance ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:18.8384564Z test failed_command::raw_cli_shell_keeps_generic_failure_silent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:19.3987729Z test evidence_request::raw_cli_cosh_request_history_omits_secret_without_confirmation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:19.5986660Z test failed_command::raw_cli_slash_after_failed_command_invokes_adapter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:19.6388727Z test evidence_request::raw_cli_cosh_request_output_card_sends_bounded_excerpt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:19.8380410Z test failed_command::raw_cli_smart_usage_help_failure_does_not_start_agent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:19.9513003Z test failed_command::raw_cli_repeated_generic_failure_stays_silent_without_budget_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:20.1674273Z test failed_command::raw_cli_smart_command_not_found_is_silent_without_unique_rewrite ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:20.7455520Z test failed_command::raw_cli_isolated_bash_auto_plain_narrow_restores_one_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:21.4115019Z test failed_command::raw_cli_zh_auto_build_failure_localizes_auto_analyze_activity ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:21.7124691Z test failed_command::raw_cli_success_then_command_not_found_keeps_failure_insight ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:21.7657886Z test failed_command::raw_cli_repeated_ps_dash_aux_generic_failure_stays_silent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:22.1308869Z test failed_command::raw_cli_zsh_generic_failure_restores_prompt_without_insight ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:22.6175879Z test failed_command::raw_cli_runtime_exception_requires_confirmation_outside_manual_mode ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.0632293Z test failopen::native_post_spawn_panic_does_not_fall_open ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.0645791Z test failopen::missing_zsh_probe_and_spawn_fall_open_to_preserving_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.0655033Z test failopen::non_tty_explicit_raw_login_with_invalid_integration_exits_two ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.1100207Z test failed_command::raw_cli_plain_smart_insight_has_no_insight_ansi ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.1197686Z test failed_command::raw_cli_zh_repeated_generic_failure_stays_silent ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.2776615Z test failopen::integration_misconfig_falls_open_to_login_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.3327389Z test failopen::path_probe_side_effect_prevents_pre_spawn_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.4657652Z test failed_command::raw_cli_tail_follow_ctrl_c_does_not_start_agent_analysis ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.5595059Z test failopen::post_spawn_panic_does_not_fall_open ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:23.5858604Z test failopen::path_probe_side_effect_prevents_relay_error_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:24.2746054Z test failed_command::raw_cli_smart_build_failure_ghost_tab_then_enter_starts_bound_analysis ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:24.6155176Z test failed_command::raw_cli_build_failure_respects_analysis_mode_matrix ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:25.0161050Z test failed_command::raw_cli_normal_bash_smart_and_auto_restore_one_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:26.4998504Z test failed_command::raw_cli_smart_agent_prompt_split_arrow_cancels_without_shell_leak ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:34.1277803Z test heavy::raw_cli_host_executed_password_prompt_timeout_defers_notice_until_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:47.7081077Z test heavy::raw_cli_host_executed_fullscreen_timeout_defers_notice_until_exit_alt_screen ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:16:52.8869777Z test heavy::raw_cli_host_executed_input_wait_timeout_returns_evidence ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:02.4616671Z test host_executed::raw_cli_host_executed_pipeline_alias_handoff_never_deadlocks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:09.0376361Z test host_executed::raw_cli_host_executed_provider_disconnect_marks_recovery_reason ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:10.3049222Z test host_executed::raw_cli_host_executed_shell_result_continues_same_provider_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:11.4648763Z test host_executed::raw_cli_host_executed_streaming_order_renders_shell_before_post_text ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:16.3661436Z test failed_command::raw_cli_isolated_bash_smart_and_auto_restore_one_prompt has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:16.3669912Z test failed_command::raw_cli_isolated_zsh_smart_and_auto_restore_one_prompt has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:17.6397162Z test failed_command::raw_cli_normal_zsh_smart_and_auto_restore_one_prompt has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:19.6431550Z test host_executed::raw_cli_host_executed_untracked_handoff_closes_and_recovers ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:20.7456524Z test failopen::failed_path_probe_side_effect_prevents_pre_spawn_fallback has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:21.7125543Z test failopen::isolated_pre_spawn_failures_do_not_run_login_profile has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:21.8403246Z test host_executed::raw_cli_manual_approval_host_executed_shell_result_continues_same_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:22.0521080Z test failopen::non_login_pty_with_invalid_integration_does_not_fall_open ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:22.0723901Z test failopen::pre_spawn_panic_falls_open_to_login_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:22.1019135Z test failopen::pre_spawn_error_falls_open_to_login_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:22.2754172Z test failopen::isolated_pre_spawn_failures_do_not_run_login_profile ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:22.4159567Z test failopen::r2_probe_side_effect_prevents_pre_spawn_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:23.7493311Z test failed_command::raw_cli_isolated_bash_smart_and_auto_restore_one_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:23.8281449Z test failed_command::raw_cli_isolated_zsh_smart_and_auto_restore_one_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:24.0452227Z test host_executed::raw_cli_host_executed_nonzero_exit_returns_normal_tool_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:24.1866098Z test mode::raw_cli_auto_mode_runs_safe_bash_tool_without_approval_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:24.2746725Z test heavy::raw_cli_host_executed_shell_timeout_interrupts_and_returns_result has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:24.6156025Z test heavy::raw_cli_host_executed_shell_timeout_uses_zh_language_env has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:25.0162036Z test host_executed::raw_cli_host_executed_interrupt_returns_normal_tool_result has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:25.9587574Z test mode::raw_cli_auto_mode_trusted_command_requires_exact_match ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.0224897Z test mode::raw_cli_auto_mode_skips_readonly_builtin_tool_approval_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.1611404Z test mode::raw_cli_mode_analysis_card_cancel_keeps_current_session_mode ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.1635177Z test mode::raw_cli_mode_approval_and_analysis_use_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.3072810Z test mode::raw_cli_help_and_mode_use_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.3759464Z test failopen::failed_path_probe_side_effect_prevents_pre_spawn_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.3974864Z test mode::raw_cli_mode_approval_card_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.4999494Z test host_executed::raw_cli_host_executed_multi_tool_keeps_single_turn_boundary has been running for over 60 seconds
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.5673376Z test mode::raw_cli_mode_rejects_quoted_arguments_without_changing_mode ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:26.7239647Z test mode::raw_cli_mode_quoted_argument_error_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:27.6292509Z test host_executed::raw_cli_host_executed_multi_tool_keeps_single_turn_boundary ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:27.9327922Z test mode::raw_cli_mode_analysis_card_selects_auto_for_current_session ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:28.1027223Z test mode::raw_cli_mode_root_and_language_guidance_are_canonical ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:28.2407315Z test mode::raw_cli_auto_mode_skips_exact_trusted_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:28.4859661Z test mode::raw_cli_auto_mode_still_asks_for_unsafe_bash_tool ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:28.9149404Z test memory_hook::raw_cli_agent_fallback_memory_hook_is_internal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:28.9236936Z test host_executed::raw_cli_host_executed_interrupt_returns_normal_tool_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.0057721Z test mode::raw_cli_mode_slash_panel_selects_recommend_with_card_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.1227793Z test native::raw_cli_default_enhanced_keeps_bash_prompt_undecorated_without_mutating_ps1 ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.4170587Z test heavy::raw_cli_host_executed_shell_timeout_interrupts_and_returns_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.4917528Z test memory_hook::raw_cli_provider_foreground_memory_hook_is_internal ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.5398067Z test mode::raw_cli_zsh_native_known_slash_does_not_reach_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.5963742Z test mode::raw_cli_mode_slash_updates_approval_mode_with_feedback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.7225272Z test mode::raw_cli_pasted_trust_confirm_sets_trust_mode_after_enter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.8526162Z test heavy::raw_cli_host_executed_shell_timeout_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:29.9546456Z test native::raw_cli_enhanced_status_symbols_on_decorates_zsh_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.1899259Z test mode::raw_cli_zsh_fragmented_mode_slash_does_not_accumulate_redraws ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.2099437Z test native::raw_cli_enhanced_keeps_zsh_prompt_undecorated_without_mutating_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.2281262Z test failed_command::raw_cli_normal_zsh_smart_and_auto_restore_one_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.3276499Z test native::raw_cli_enhanced_status_symbols_on_decorates_bash_prompt_without_mutating_ps1 ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.4293624Z test native::raw_cli_bash_native_loads_existing_user_history ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.7409022Z test mode::raw_cli_zsh_native_pasted_mode_slash_does_not_reach_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.7462699Z test mode::raw_cli_trust_mode_runs_bash_tool_without_approval_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:30.8030708Z test native::raw_cli_login_probe_preserves_login_argv0 ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:32.2923079Z test native::raw_cli_status_symbols_config_file_enables_symbols ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:32.2923939Z test native::raw_cli_zsh_native_path_slash_and_tab_stay_in_shell ... ignored, native zsh completion can invoke user rc and real editor; keep out of default raw_cli
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.0574565Z test native::raw_cli_native_keeps_custom_bash_prompt_undecorated ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.0612047Z test passthrough::raw_cli_cosh_entry_combined_login_flags_reach_bash_with_arg0 ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.4766736Z test native::raw_cli_status_symbols_invalid_config_value_stays_off ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.4796370Z test passthrough::raw_cli_cosh_entry_invalid_option_is_judged_by_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5018853Z test native::raw_cli_enhanced_status_symbols_follow_shift_tab_ownership ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5055604Z test passthrough::raw_cli_cosh_entry_isolated_dash_c_ignores_bash_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5081219Z test passthrough::raw_cli_cosh_entry_isolated_dash_c_preserves_command_argv ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5106507Z test passthrough::raw_cli_cosh_entry_isolated_dash_c_preserves_signal_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5157697Z test passthrough::raw_cli_cosh_entry_isolated_login_rejects_before_profile_and_bash_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5168060Z test mode::raw_cli_suggest_mode_keeps_tool_requests_display_only ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5181542Z test passthrough::raw_cli_cosh_entry_isolated_network_stdin_translates_bash_isolation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5223785Z test passthrough::raw_cli_cosh_entry_isolated_posix_bash_ignores_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5260400Z test passthrough::raw_cli_cosh_entry_login_argv0_reaches_inner_shell_dollar_zero ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5284320Z test passthrough::raw_cli_cosh_entry_missing_script_file_reports_bash_127 ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5305743Z test passthrough::raw_cli_cosh_entry_plain_dash_c_preserves_env_and_argv ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5330324Z test passthrough::raw_cli_dash_c_passthrough_filters_wrapper_shell_option ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5356445Z test passthrough::raw_cli_dash_c_passthrough_preserves_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5428422Z test passthrough::raw_cli_dash_c_passthrough_preserves_signal_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5450137Z test passthrough::raw_cli_double_dash_passthrough_does_not_capture_child_help_arg ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5472296Z test passthrough::raw_cli_double_dash_passthrough_executes_command_directly ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5493501Z test passthrough::raw_cli_double_dash_passthrough_preserves_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5555960Z test passthrough::raw_cli_double_dash_passthrough_preserves_signal_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5568194Z test passthrough::raw_cli_cosh_entry_isolated_bash_login_blocks_logout_files ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5582767Z test passthrough::raw_cli_double_dash_passthrough_requires_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5593507Z test passthrough::raw_cli_cosh_entry_isolated_zsh_args_fail_closed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5618212Z test passthrough::raw_cli_interactive_dash_c_passthrough_transports_env_ps1 ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5652017Z test passthrough::raw_cli_login_argv0_dash_c_passthrough_executes_without_agent_ui ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5688879Z test passthrough::raw_cli_login_argv0_dash_c_passthrough_preserves_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5723302Z test passthrough::raw_cli_login_argv0_stdin_passthrough_preserves_exit_status_without_agent_ui ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5757010Z test passthrough::raw_cli_login_dash_c_passthrough_executes_without_agent_ui ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5791233Z test passthrough::raw_cli_login_dash_c_passthrough_preserves_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5864478Z test passthrough::raw_cli_double_dash_passthrough_preserves_start_failure_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5877053Z test passthrough::raw_cli_passthrough_preserves_ignored_sigpipe_disposition ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.5889676Z test passthrough::raw_cli_raw_adapter_dash_c_passthrough_executes_without_agent_ui ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6490337Z test passthrough::raw_cli_stdin_passthrough_preserves_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6490981Z test passthrough::raw_cli_raw_adapter_dash_c_passthrough_preserves_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6559944Z test passthrough::raw_cli_stdin_passthrough_preserves_signal_exit_status ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6675775Z test native::raw_cli_status_symbols_simple_key_invalid_bare_value_stays_off ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6763502Z test native::raw_cli_enhanced_shift_tab_toggles_zsh_routing_in_place ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6899491Z test passthrough::raw_cli_cosh_entry_default_enhanced_reaches_user_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.6910592Z test passthrough::raw_cli_explicit_interactive_norc_preserves_prompt_readiness ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.7409674Z test native::raw_cli_mode_routing_switches_the_live_enhanced_session ... FAILED
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.7716615Z test native::raw_cli_status_symbols_table_form_enables_symbols ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.8174227Z test native::raw_cli_status_symbols_env_overrides_config_file ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:33.8340031Z test passthrough::raw_cli_ai_off_consumes_agent_marker_without_adapter_or_shell_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:34.5524762Z test native::raw_cli_explicit_native_skips_enhanced_startup_workers ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:34.6701739Z test native::raw_cli_enhanced_passes_through_user_prompt_containing_status_glyph ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:34.9697578Z test prompt_replay::raw_cli_bash_bracketed_literal_tab_submits_when_enter_follows_closer ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:35.0238914Z test native::raw_cli_zsh_native_loads_existing_user_history ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:35.1445365Z test prompt_replay::raw_cli_bash_bracketed_literal_tab_submits_when_closer_and_enter_share_batch ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:35.7081739Z test native::raw_cli_native_never_shows_status_symbols ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:36.2833795Z test prompt_replay::raw_cli_bash_quoted_literal_tab_reaches_provider_on_first_enter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:37.0467615Z test prompt_replay::raw_cli_bash_ctrl_o_submission_with_typeahead_empty_enter_is_not_swallowed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:37.2445849Z test prompt_replay::raw_cli_bash_bracketed_paste_empty_enter_after_slash_panel_repaints_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:37.5840420Z test prompt_replay::raw_cli_bash_recalled_ordinary_command_remains_exact_without_prompt_run_on ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:38.5634407Z test prompt_replay::raw_cli_bash_recalled_slash_with_same_chunk_empty_enter_is_not_swallowed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:39.3596649Z test prompt_replay::raw_cli_bash_slash_intercept_does_not_replay_user_command_echo ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:40.5851229Z test prompt_replay::raw_cli_bash_recalled_natural_language_reaches_provider_after_edit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:40.9043347Z test native::raw_cli_login_probe_reaps_detached_descendants ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:41.5439347Z test prompt_replay::raw_cli_bash_typeahead_empty_enter_during_failing_command_survives_prompt_restore ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:41.9430847Z test prompt_replay::raw_cli_bash_replay_dedup_recovers_after_foreground_program_consumed_enter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:42.8810908Z test prompt_replay::raw_cli_bash_bracketed_paste_off_empty_enter_after_slash_panel_repaints_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:43.1380866Z test prompt_replay::raw_cli_bash_recall_walks_distinct_natural_language_history_entries ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:46.8660315Z test prompt_replay::raw_cli_bash_recovered_history_keeps_private_inputs_excluded ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:46.8661097Z test prompt_replay::raw_cli_bash_bracketed_paste_empty_enter_within_delay_window_is_not_swallowed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:48.7171410Z test prompt_replay::raw_cli_bash_slow_prompt_command_does_not_write_off_queued_enter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:48.7172704Z test provider_handoff::fallback::raw_cli_qwen_control_shell_result_uses_foreground_transcript ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:48.7173750Z test prompt_replay::raw_cli_bash_dirty_safe_natural_language_stays_recallable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:48.7174806Z test provider_handoff::continuation::raw_cli_shell_handoff_continuation_denies_second_shell_tool ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:48.7273603Z test provider_handoff::continuation::raw_cli_zh_shell_handoff_continuation_denies_second_shell_tool ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:49.2148858Z test provider_handoff::continuation::raw_cli_shell_handoff_continuation_prompt_keeps_user_mode ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:49.2337366Z test prompt_replay::raw_cli_zsh_empty_enter_after_slash_panel_repaints_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:50.4439776Z test provider_handoff::fallback::raw_cli_qwen_shell_without_advertised_host_capability_uses_foreground_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:52.2953701Z test provider_handoff::fallback::raw_cli_cwd_scoped_qwen_shell_uses_foreground_without_half_open_resume ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:52.2956023Z test provider_handoff::foreground::raw_cli_claude_without_host_executed_capability_uses_foreground_recovery ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:53.2936734Z test provider_handoff::foreground::raw_cli_auto_provider_shell_permission_uses_foreground_handoff ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:53.4899018Z test prompt_replay::raw_cli_bash_split_quoted_tab_survives_a_prior_provider_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:53.8093640Z test provider_handoff::foreground::raw_cli_debug_mode_keeps_control_shell_output_foreground_owned ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:54.7111950Z test prompt_replay::raw_cli_bash_preserves_user_leading_whitespace_for_provider ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:55.0197273Z test provider_handoff::foreground::raw_cli_control_shell_output_uses_foreground_transcript_by_default ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:55.8064534Z test provider_handoff::foreground::raw_cli_control_shell_permission_uses_foreground_and_suppresses_provider_output ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:56.5240261Z test provider_handoff::preemptive_text::raw_cli_preemptive_provider_text_is_dropped_and_recovered_from_shell_evidence ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:58.5809622Z test provider_handoff::recovery::raw_cli_zh_provider_timeout_drops_extra_queued_requests ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:59.5962740Z test provider_handoff::foreground::raw_cli_zh_control_shell_foreground_localizes_shell_owned_wrapper ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:17:59.8715335Z test provider_handoff::foreground::raw_cli_zh_control_shell_details_localizes_shell_owned_chrome ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:00.8711350Z test provider_handoff::recovery::raw_cli_shell_handoff_fallback_chain_renders_retry_line_then_single_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:01.6725762Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_command_not_found_does_not_intercept ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:03.2871937Z test provider_handoff::recovery::raw_cli_shell_handoff_resume_timeout_retries_without_timeout_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:03.8723948Z test provider_handoff::preemptive_text::raw_cli_preemptive_provider_text_during_command_is_dropped_and_recovered ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:04.4473979Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_with_secret_delivers_host_executed_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:05.0998154Z test provider_handoff::recovery::raw_cli_shell_handoff_recovery_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:05.3641179Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_bypasses_marker_intercepts ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:05.6621010Z test provider_handoff::recovery::raw_cli_shell_handoff_retry_success_shows_reason_without_panel ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:06.6153934Z test provider_handoff::send_to_shell::raw_cli_zsh_approved_shell_handoff_bypasses_marker_intercepts ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:07.1578093Z test provider_handoff::recovery::raw_cli_shell_handoff_resume_timeout_renders_structured_context_before_recovery_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:08.2499744Z test provider_handoff::send_to_shell::raw_cli_provider_tool_send_to_shell_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:09.1902937Z test provider_tools::raw_cli_qwen_streamed_skill_tool_renders_failed_result_phase ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:10.2383113Z test provider_tools::raw_cli_qwen_long_running_tool_shows_pending_status_then_result_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:10.5490839Z test provider_handoff::send_to_shell::raw_cli_send_to_shell_command_triggers_trusted_project_hook ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:11.7232628Z test provider_handoff::preemptive_text::raw_cli_same_turn_host_executed_result_keeps_preamble_and_final_text ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:11.8239343Z test provider_tools::raw_cli_qwen_streamed_write_file_renders_concise_result_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:11.9404303Z test provider_handoff::foreground::raw_cli_obvious_tty_provider_shell_permission_uses_foreground_recovery ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:11.9516419Z test provider_tools::raw_cli_non_shell_permission_passes_through_allow_only ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:13.1246643Z test provider_tools::raw_cli_qwen_streamed_skill_tool_renders_skill_name_and_loaded_result ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:13.2336292Z test provider_tools::raw_cli_qwen_streamed_non_shell_tool_renders_result_without_call_activity ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:13.5147234Z test native::raw_cli_isolated_candidate_redraws_add_no_status_lines ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:13.7979597Z test provider_tools::raw_cli_qwen_unknown_plain_tool_input_renders_opaque_payload_summary ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:13.9667953Z test provider_handoff::send_to_shell::raw_cli_missing_send_to_shell_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:14.0147586Z test provider_tools::raw_cli_qwen_unknown_mcp_tool_renders_custom_fallback_without_raw_json ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:14.0286921Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_wrapper_does_not_leak ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:15.3304509Z test question::raw_cli_agent_free_text_question_echoes_input_before_submit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:15.6243244Z test question::raw_cli_agent_multiple_accepts_custom_only_answer ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:16.1329039Z test question::raw_cli_agent_question_accepts_free_text_only_answer ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:17.1515155Z test question::raw_cli_agent_multiple_empty_submit_stays_on_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:17.7294758Z test question::raw_cli_agent_question_accepts_natural_language_answer ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:18.2088619Z test provider_tools::raw_cli_qwen_unknown_custom_tool_failure_renders_diagnostic_without_raw_json ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:18.4008569Z test provider_handoff::send_to_shell::raw_cli_provider_tool_interactive_escape_hatch_requires_explicit_send ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:18.4374672Z test question::raw_cli_agent_free_text_empty_submit_stays_on_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:19.2603996Z test question::raw_cli_agent_question_accepts_card_answer_choice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:19.8355118Z test question::raw_cli_agent_question_accepts_multiple_card_answers ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:20.5444646Z test provider_tools::raw_cli_streamed_tool_fallback_recovery_blocks_new_shell_tool ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:20.5947096Z test question::raw_cli_agent_question_answer_drops_stale_held_text ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:21.3167399Z test question::raw_cli_agent_question_no_color_keeps_box_placeholder ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:21.7722255Z test provider_tools::raw_cli_qwen_slow_tool_arguments_show_a_status_without_the_payload ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:22.8092686Z test provider_tools::raw_cli_streamed_tool_fallback_with_host_capability_is_not_delivered ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:25.9846596Z test recommendation::raw_cli_foreground_command_wins_before_analyzer_body_write ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:27.7580019Z test recommendation::raw_cli_select_out_of_range_uses_structured_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:30.1320289Z test recommendation::raw_cli_copy_fallback_shows_recommendation_without_executing_it ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:31.9061109Z test recommendation::raw_cli_selects_recommendation_without_executing_it ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:32.5825529Z test recommendation::raw_cli_default_on_recommendations_keep_foreground_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.3583895Z test recommendation::raw_cli_zh_selects_recommendation_without_executing_it ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.5293215Z test registry::slash_hooks_with_fake_backend_shows_shell_hooks_section ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.5310870Z test registry::slash_extensions_with_fake_backend_zh_shows_degradation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.5533760Z test recommendation::raw_cli_select_before_recommendation_is_display_only_noop ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.5534536Z test recommendation::raw_cli_zh_select_before_recommendation_uses_catalog_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.6488223Z test recommendation::raw_cli_recommendations_off_renders_insight_cross_reference_hint ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:34.7321648Z test registry::slash_extensions_not_intercepted_as_shell_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:35.6449274Z test recommendation::raw_cli_fresh_home_initializes_recommendation_store ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.1622504Z test question::raw_cli_agent_question_ctrl_c_cancels_card_without_answer_turn ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.3229372Z test renderer::raw_cli_agent_response_joins_soft_wrapped_markdown_paragraph ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.3270275Z test question::raw_cli_agent_question_answer_slash_is_ignored ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.3305193Z test registry::slash_extensions_with_fake_backend_shows_degradation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.4661476Z test question::raw_cli_agent_question_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.4944501Z test registry::slash_skills_with_fake_backend_shows_degradation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.6545277Z test question::raw_cli_agent_question_accepts_multiple_answers_with_custom_card_answer ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.7389131Z test question::raw_cli_zsh_question_card_capture_does_not_leak_to_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.8292068Z test question::raw_cli_agent_question_accepts_custom_card_answer ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:36.9962805Z test registry::slash_skills_with_fake_backend_zh_shows_degradation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:37.2194541Z test renderer::raw_cli_agent_response_renders_indented_markdown_code_inside_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:37.3685847Z test renderer::raw_cli_agent_response_streams_soft_wrapped_markdown_paragraph ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:37.5272064Z test renderer::raw_cli_agent_response_streams_markdown_table_as_stable_block ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:37.8976235Z test renderer::raw_cli_agent_response_renders_markdown_table_at_configured_narrow_width ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:37.9039145Z test renderer::raw_cli_agent_response_renders_markdown_table_inside_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:38.0396128Z test renderer::raw_cli_agent_response_renders_markdown_inside_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:38.0939280Z test renderer::raw_cli_agent_response_streams_markdown_fragments_inside_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:38.3131138Z test renderer::raw_cli_explicit_plain_render_mode_uses_plain_blocks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:38.5705120Z test renderer::raw_cli_dumb_terminal_uses_plain_blocks ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:38.6980678Z test session::raw_cli_new_alias_starts_fresh_without_reaching_bash_or_changing_cwd ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:39.0523158Z test session::raw_cli_session_list_prints_full_canonical_ids ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:39.4723287Z test renderer::raw_cli_tool_output_does_not_break_markdown_stream_finalization ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:39.4777133Z test renderer::raw_cli_agent_response_keeps_markdown_pipe_output_without_separator_as_text ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:39.6143077Z test renderer::raw_cli_zh_agent_response_renders_markdown_labels ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:39.6681602Z test renderer::raw_cli_no_color_keeps_box_layout_when_terminal_supports_it ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.0926769Z test session::raw_cli_session_picker_cancel_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.2722389Z test renderer::raw_cli_agent_response_renders_markdown_in_plain_mode ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.5169253Z test session::raw_cli_session_list_all_groups_foreign_workspace_and_resume_fails ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.7061692Z test session::raw_cli_launch_resume_enables_integration_for_value_and_picker ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.7191341Z test session::raw_cli_session_picker_loads_next_page_near_viewport_end ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.8751890Z test slash::raw_cli_help_renders_slash_command_reference ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:40.8904359Z test slash::raw_cli_bare_slash_is_noop_without_hint_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.0424257Z test slash::raw_cli_informational_slash_commands_render_feedback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.0587604Z test slash::raw_cli_mcp_login_redirects_to_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.2300443Z test slash::raw_cli_mcp_slash_is_intercepted ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.3985788Z test slash::raw_cli_mcp_missing_server_argument_shows_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.5490286Z test session::raw_cli_session_picker_space_then_enter_confirms_and_deletes_without_resuming ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.5742997Z test slash::raw_cli_mcp_extra_argument_shows_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.6128364Z test session::raw_cli_session_multi_clear_requires_confirmation_and_cancel_is_safe ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.7486714Z test slash::raw_cli_status_about_and_stats_render_without_reaching_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.7798882Z test slash::raw_cli_slash_cards_wrap_long_text_and_restore_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.8070819Z test session::raw_cli_session_status_shows_active_and_selected_ids ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.8083850Z test startup::diagnostics_export_help_writes_to_stdout_not_stderr ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.8095391Z test startup::help_flag_writes_to_stdout_not_stderr ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.9481061Z test slash::raw_cli_unknown_slash_suggests_nearest_canonical_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:41.9777355Z test slash::raw_cli_unknown_slash_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.2851837Z test session::raw_cli_session_clear_all_skips_active_session_in_request ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.3674127Z test slash::raw_cli_zsh_shell_arg_intercepts_fragmented_slash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.3863138Z test session::raw_cli_session_picker_navigates_selects_and_restores_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.3882466Z test startup::raw_cli_missing_shell_arg_reports_error_without_starting_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.4571436Z test slash::raw_cli_slash_prefix_renders_hint_without_leaking_to_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.6288360Z test startup::raw_cli_adapter_failure_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.7972232Z test startup::raw_cli_adapter_error_keeps_shell_usable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.8372457Z test slash::raw_cli_zsh_mcp_slash_is_intercepted ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.9241710Z test session::raw_cli_session_new_detaches_active_without_deleting_or_forcing_resume ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.9406867Z test startup::raw_cli_plain_startup_banner_keeps_both_modes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:42.9530740Z test slash::raw_cli_zsh_status_about_and_stats_render_without_reaching_zsh ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.1212149Z test startup::raw_cli_backend_unavailable_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.2616063Z test startup::raw_cli_startup_banner_renders_cached_upgrade_notice ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.3341167Z test startup::raw_cli_shell_arg_can_select_zsh_raw_host ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.4774260Z test startup::raw_cli_rpm_cache_check_does_not_hold_the_first_prompt_after_rpm_exits ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.5050381Z test slash::raw_cli_mcp_unknown_subcommand_shows_error ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.5581715Z test session::raw_cli_session_picker_keeps_list_workspace_for_validate_and_clear ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.5773860Z test startup::raw_cli_rpm_cache_check_does_not_hold_the_first_prompt_after_rpm_times_out ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.5910736Z test session::raw_cli_session_selection_race_is_recoverable ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.6163986Z test startup::raw_cli_exit_kills_an_in_flight_upgrade_probe ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.6452954Z test startup::raw_cli_startup_approval_alias_and_invalid_value_fail_closed ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.6474833Z test startup::raw_cli_startup_banner_renders_when_enabled ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.9366264Z test startup::raw_cli_startup_health_critical_fixture_uses_compact_oom_copy ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:43.9830716Z test startup::raw_cli_startup_banner_reports_selected_zsh_shell ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.0272854Z test startup::raw_cli_startup_health_fixture_renders_when_enabled ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.1244028Z test startup::raw_cli_startup_banner_reports_effective_modes ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.2668134Z test startup::raw_cli_startup_banner_uses_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.4106366Z test startup::raw_cli_startup_health_disabled_renders_no_row ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.4339010Z test startup::raw_cli_raw_run_without_adapter_uses_cosh_core_default_adapter ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.5046348Z test startup::raw_cli_startup_health_no_color_keeps_readable_content ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.6599002Z test startup::raw_cli_startup_health_healthy_fixture_renders_startup_row_in_banner ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.6675744Z test startup::raw_cli_default_agent_mode_defers_safe_fallback_tool ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.7669309Z test session::raw_cli_session_clear_all_reports_when_every_session_is_protected ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:44.9238582Z test startup::raw_cli_startup_health_context_is_not_attached_to_plain_agent_request ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.1169289Z test startup::raw_cli_startup_health_dumb_terminal_uses_plain_fallback ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.1479983Z test startup::raw_cli_unsupported_shell_reports_error_without_starting_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.2627471Z test startup::raw_cli_startup_hooks_use_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.4044268Z test startup::raw_cli_startup_hooks_render_markdown_findings_without_running_commands ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.5549030Z test session::raw_cli_session_picker_surfaces_unhealthy_and_empty_entries ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.7008485Z test startup::raw_cli_startup_hooks_no_findings_use_zh_language_env ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.8219865Z test startup::raw_cli_startup_health_degraded_fixture_is_read_only ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:45.9164207Z test startup::raw_cli_startup_health_banner_disabled_does_not_suppress_later_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:46.5528868Z test provider_tools::raw_cli_qwen_tool_result_splits_agent_cards_around_structured_card ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:46.7712803Z test startup::raw_cli_startup_health_shift_tab_cycles_then_enter_submits_active_prompt ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:46.7724777Z test startup::version_flag_writes_to_stdout_not_stderr ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:46.7763311Z test startup::raw_cli_startup_health_suppresses_all_three_visible_try_items ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:46.9424389Z test startup::raw_cli_startup_health_live_does_not_block_shell_on_linux_by_default ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:47.0548018Z test startup::raw_cli_upgrade_notice_renders_at_an_idle_prompt_without_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:47.0789036Z test startup::raw_cli_startup_health_cards_share_configured_width ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:47.1334625Z test startup::raw_cli_startup_health_prompt_ghost_tab_only_does_not_submit ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:47.2296136Z test task::raw_cli_snapshot_switch_confirms_exact_preview_once ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:48.0300113Z test task::raw_cli_lists_task_owned_snapshots_without_reaching_bash ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:48.1602833Z test startup::raw_cli_upgrade_notice_waits_until_the_next_prompt_after_a_failed_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:48.9514606Z test startup::raw_cli_startup_health_prompt_ghost_does_not_override_manual_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.0463364Z test startup::raw_cli_upgrade_notice_preserves_input_after_a_completed_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.1495148Z test task::raw_cli_snapshot_preview_and_diff_render_read_only_notices ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.2481255Z test startup::raw_cli_upgrade_notice_skips_the_zsh_session_after_typed_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.3331046Z test startup::raw_cli_startup_health_prompt_ghost_tab_fills_first_suggestion ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.4454997Z test terminal_ownership::bash_status_rows_preserve_geometry_across_control_transitions ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.8257951Z test terminal_ownership::bash_prompt_geometry_survives_control_transitions_without_status_rows ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.9060542Z test terminal_ownership::zsh_prompt_geometry_survives_control_transitions_without_status_rows ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:49.9188231Z test terminal_resize::bash_enhanced_resize_after_slash_preserves_unsubmitted_draft ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:50.1578773Z test startup::raw_cli_upgrade_notice_skips_the_session_after_typed_input ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:50.2529463Z test task::raw_cli_snapshot_switch_defaults_to_cancel_without_mutation ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:50.2664904Z test task::raw_cli_task_form_submits_edited_typed_launch_once ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:50.4257873Z test terminal_resize::bash_enhanced_resize_preserves_unsubmitted_draft ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:50.9841076Z test terminal_ownership::zsh_status_rows_preserve_geometry_across_control_transitions ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:51.1897428Z test terminal_unicode::raw_cli_zsh_enhanced_combining_cells_cursor_and_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:51.2186990Z test terminal_resize::bash_native_resize_preserves_unsubmitted_draft ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.0618435Z test terminal_unicode::raw_cli_zsh_native_combining_cells_cursor_and_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.1528357Z test startup::raw_cli_upgrade_notice_skips_the_session_after_custom_accept_line_typeahead ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.2039638Z test terminal_unicode::raw_cli_zsh_enhanced_unicode_cells_cursor_and_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.2477817Z test task::raw_cli_snapshot_switch_explains_cwd_occupant_block ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.6039594Z test startup::raw_cli_startup_health_prompt_selection_respects_terminal_capability_not_color ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.6955343Z test startup::raw_cli_upgrade_notice_waits_for_a_queued_typeahead_command ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.7889528Z test terminal_unicode::raw_cli_zsh_native_unicode_cells_cursor_and_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.8360064Z test terminal_unicode::raw_cli_bash_enhanced_unicode_cells_cursor_and_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:52.8473018Z test terminal_unicode::raw_cli_bash_native_unicode_cells_cursor_and_execution ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0458774Z test startup::raw_cli_upgrade_notice_skips_the_session_after_zsh_bindkey_typeahead ... ok
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0459405Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0459929Z failures:
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0460118Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0460423Z ---- native::raw_cli_mode_routing_switches_the_live_enhanced_session stdout ----
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0460810Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0461214Z thread 'native::raw_cli_mode_routing_switches_the_live_enhanced_session' panicked at crates/cosh-shell/tests/raw_cli/native.rs:605:5:
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0461946Z ^[[?2004hcosh-osc$ ^[[>4;1m
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0462231Z ^[[2Kcosh-osc$ /mode routing shell-only
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0462538Z ^[[2Kcosh-osc$ /mode routing shell-only
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0462901Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0464309Z ^[[2K╭ · Input routing ─────────────────────────────────────────────────────────────────────────────────╮
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0464922Z │ Routing mode set to shell-only.                                                                  │
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0465539Z │ Input stays with Shell; post-command insights remain available.                                  │
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0466408Z ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0466801Z ^[[?2004hcosh-osc$ hello there
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0467054Z ^[[?2004l
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0467252Z bash: hello: command not found
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0467544Z ^[[?2004hcosh-osc$ /mode routing assisted
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0468001Z ^[[?2004l
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0468270Z bash: /mode: No such file or directory
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0468566Z ^[[?2004hcosh-osc$ hello there
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0468806Z ^[[?2004l
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0469055Z bash: hello: command not found
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0469346Z ^[[?2004hcosh-osc$ exit 0
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0469585Z ^[[?2004l
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0469792Z exit
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0469905Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0470115Z note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0470409Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0470414Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0470489Z failures:
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0470781Z     native::raw_cli_mode_routing_switches_the_live_enhanced_session
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0471022Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0471286Z test result: FAILED. 579 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 317.08s
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0471627Z 
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0471918Z ^[[1m^[[31merror^[[0m^[[1m:^[[0m test failed, to rerun pass `-p cosh-shell --test raw_cli`
+Test cosh-ng	Run process and PTY integration tests	2026-10-13T20:18:56.0517412Z ##[error]Process completed with exit code 101.

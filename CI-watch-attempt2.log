@@ -1,0 +1,957 @@
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request less than a minute ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 1 minute ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 1 minute ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 2 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 2 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 3 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 4 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 4 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+* Test cosh-ng (ID 115569606423)
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  * Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  * Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  * Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 9 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  * Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 9 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  * Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 10 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Post Run actions/checkout@v4
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 10 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Post Run actions/checkout@v4
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 11 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Post Run actions/checkout@v4
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-python@v5
+  ✓ Run dtolnay/rust-toolchain@1.97.1
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Check formatting
+  ✓ Lint
+  ✓ Validate stage E2E contract
+  ✓ Run fast regression tests
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/setup-python@v5
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 11 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+* Test cosh-ng (ID 115569606423)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  * Install system dependencies
+  * Run process and PTY integration tests
+  * Post Run actions/checkout@v4
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-python@v5
+  ✓ Run dtolnay/rust-toolchain@1.97.1
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Check formatting
+  ✓ Lint
+  ✓ Validate stage E2E contract
+  ✓ Run fast regression tests
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/setup-python@v5
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+✓ cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 12 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115569606157)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Check component version metadata
+  ✓ Regression test tokenless catalog version mismatch detection
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+✓ Test cosh-ng in 11m49s (ID 115569606423)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  * Run dtolnay/rust-toolchain@1.88.0
+  * Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  * Run process and PTY integration tests
+  * Post Run actions/checkout@v4
+  * Complete runner
+✓ Detect Changes in 17s (ID 115569607087)
+- Test agent-sec-core (ID 115569607459)
+✓ Test cosh-ng fast checks in 6m16s (ID 115569607724)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-python@v5
+  ✓ Run dtolnay/rust-toolchain@1.97.1
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Check formatting
+  ✓ Lint
+  ✓ Validate stage E2E contract
+  ✓ Run fast regression tests
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/setup-python@v5
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test SkillFS (ID 115569607733)
+- Test agent-memory (ID 115569607777)
+- Build copilot-shell (ID 115569607835)
+- Test anolisa (ID 115569607857)
+- Test ktuner (ID 115569607991)
+- Test ws-ckpt (ID 115569608043)
+- Test agentsight (ID 115569608516)
+✓ Build cosh-ng release in 4m25s (ID 115569608540)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Run dtolnay/rust-toolchain@1.88.0
+  - Configure trusted compiler cache writes
+  ✓ Run Swatinem/rust-cache@v2
+  ✓ Install system dependencies
+  ✓ Build release workspace
+  ✓ Post Run Swatinem/rust-cache@v2
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job
+- Test tokenless (ID 115569608598)
+- Test copilot-shell/cli (ID 115569608814)
+- Test copilot-shell/core (ID 115569608999)
+✓ Check build runtime dependencies in 17s (ID 115569675287)
+  ✓ Set up job
+  ✓ Set up runner
+  ✓ Run actions/checkout@v4
+  ✓ Test aggregated runtime dependency preflight
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete runner
+  ✓ Complete job

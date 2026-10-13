@@ -1,0 +1,10 @@
+{
+  "owner_run": "20261013T190856Z-2c83db58",
+  "container": "codex-data-c-r9-20261014",
+  "cache": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/data-C/round9/cache",
+  "files": 35817,
+  "logical_bytes": 8662369470,
+  "profile_cache_matches": true,
+  "cache_not_symlink": true,
+  "retain": false
+}

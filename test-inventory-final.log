@@ -1,0 +1,10 @@
+cosh-types source tests: 28 (floor 24)
+cosh-platform source tests: 337 (floor 279)
+cosh-cli source tests: 85 (floor 75)
+cosh-core source tests: 1381 (floor 696)
+cosh-shell source tests: 3791 (floor 2683)
+ignored tests: 3 (ceiling 3)
+cosh-core exact lib/bin overlap: 4 (ceiling 4)
+cosh-shell exact lib/bin overlap: 696 (ceiling 696)
+test inventory audit passed
+test necessity registry passed: 6182 stable source IDs, 22 contract rules

@@ -1,0 +1,11 @@
+{
+  "accepted": [
+    {
+      "surface": "reviews",
+      "id": 5510721934,
+      "login": "kongche-jbw",
+      "fingerprint": "3b273821d7b1c7197d10cc2e71edcee834be7d033cc916e07892a7455285039e",
+      "reason": "No blocking findings; CI pending and product acceptance limits explicitly remain; COMMENTED is not formal approval"
+    }
+  ]
+}

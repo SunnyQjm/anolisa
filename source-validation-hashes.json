@@ -1,0 +1,22 @@
+{
+  "head": "4cf6aeb8ed47bc0137db3bcb256deb74b291854b",
+  "tree": "de420f4d01fa121573033e38fb6be1167799ec2d",
+  "base": "69ae39dc5b97e47a399ed6c42d841d421e29c6dd",
+  "source_hashes": {
+    "src/cosh-ng/crates/cosh-core/src/compaction/engine.rs": "4dd0d8493372d8d4dac9e6d81cce1bae9fb220eb81c2de1d5fe217a915f45c15",
+    "src/cosh-ng/crates/cosh-core/src/compaction/engine/tests.rs": "f41b62ea0730ff711e22fd116136afdc40af66d21e6999326bf96713ba584cac",
+    "src/cosh-ng/crates/cosh-core/src/headless.rs": "2811dc603d455fefb3966b08e9d98f799075037a977ed47d8550c0ac4bec5195",
+    "src/cosh-ng/crates/cosh-core/src/session.rs": "118bd1fd019d646dab57c06d452293f92f241dd96dc9d28e4add7143d00c0ea5",
+    "src/cosh-ng/crates/cosh-core/src/session/io.rs": "a092563ea8b94968925a860538d697b361570c9acbc436463d3352fd31c21246",
+    "src/cosh-ng/crates/cosh-core/src/session/scoped.rs": "f0e7d600abd5e62556642c0c4df0eeff00e83acbc44466607bafbfc6817e7ac7",
+    "src/cosh-ng/crates/cosh-core/src/session/store.rs": "2f52f48ce5f963846fae9fa5ef666b31c2fe733626de56951b9809136b49c498",
+    "src/cosh-ng/crates/cosh-core/src/session/store/budget.rs": "a86f0be422aabe4c34f4887859153b7441be0fc78779c5d931f6f0b40049c33c",
+    "src/cosh-ng/crates/cosh-core/src/session/store/tests.rs": "209db92a80c506f079fab136e94a4aae3bc3401bf5cbc22f091c94a611d19c72",
+    "src/cosh-ng/crates/cosh-core/tests/compaction_activity.rs": "51f0b79afbaed048acb1ff9a55cb07a1f1f03fcdda566a9c2741ce7b0c1976ad",
+    "src/cosh-ng/crates/cosh-core/tests/session_recovery.rs": "c4d2c152dde8e53c896fd5c6de04be626e04759368a021b60b2257c266988ce9",
+    "src/cosh-ng/crates/cosh-core/tests/session_recovery/activity.rs": "1a05f506b8bbca5e5f4d60a052a8828d50a3386d0efca7a58939467c4cad6b48",
+    "src/cosh-ng/crates/cosh-core/tests/session_recovery/budget_close.c": "7ebfad217f3279ae9a5ada72c4fc3319d1d4413f3ef0d3d4e77240771024357f",
+    "src/cosh-ng/crates/cosh-core/tests/session_recovery/quota.rs": "a4cdc64d0f7604e12157860699acb6d56593655fd4149d78ad56aff8e44e7e8f",
+    "src/cosh-ng/crates/cosh-core/tests/session_recovery/resume_absence.rs": "e12f4c7272e9d9d91e0e4e6454b47f31e18890ceafc42c76b5fe8ffbea12e9ee"
+  }
+}

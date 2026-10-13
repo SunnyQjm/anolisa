@@ -1,0 +1,43 @@
+feat(cosh-ng): [core] enforce the task budget
+
+Bound session data to seven days and 100 MiB per user through a fixed
+HOME budget namespace independent of configurable persistence roots.
+Discover current/default and registered canonical roots, including
+legacy arrays explicitly owned by their configured store. Share the
+canonical ownership predicate with recovery. Bind historical legacy
+paths to directory identity and private owner tokens; never automatically
+renew a broken proof. Keep same-directory legacy bytes accounted after marker loss, using
+directory birth-time as an additional reuse fingerprint. Unknown birth
+and read-only sources remain accounted without deletion authority. Version the private locator and refuse
+unproven old or unknown schemas without deleting data. Validate complete
+current envelopes, filename IDs and canonical workspace hashes before
+using their clocks for automatic deletion. Account legacy bytes until
+cleanup succeeds and retain incompatible or corrupt data.
+
+Claim a nonblocking runtime lease before resume load and the first
+commit. Keep all candidate guards through unlink, remove only newly
+created control inodes while owned guards are held, and serialize clear
+with budget snapshots. Loaded legacy history cannot revive after clear.
+Retry optional persistence when budget space becomes available. Clean
+owned controls on failed writes according to actual session data, keeping
+leases when a partial write published an envelope. Reacquire the current
+live inode on retry. Isolate in-process test storage and budget namespaces
+from the invoking HOME.
+
+Lease persisted compaction sources across provider work, errors and
+cancellation with a separate activity guard. Missing resumes prove data
+existence under the global lock before creating scoped state or registering
+a workspace. Skip historical workspaces with no legacy ownership.
+
+Open activity directories without temporary-file sweeping during budget
+candidate probes. Keep ordinary writer sweeping intact and regress
+per-pass directory-scan counts under age and capacity pressure.
+
+Regress the lifecycle with synchronized real Core processes, complete
+session recovery, valid compiled mutations and nonroot permission tests.
+No release or deployment is included.
+
+Assisted-by: Qoder:0.4.3
+Assisted-by: Codex:0.144.6
+Signed-off-by: SunnyQjm <mfeng@linux.alibaba.com>
+

@@ -1,0 +1,542 @@
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 1 minute ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 1 minute ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 2 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 2 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 3 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 4 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 4 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+* Build cosh-ng release (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 5 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 6 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+* Test cosh-ng fast checks (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+✓ Test cosh-ng fast checks in 6m16s (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 7 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+✓ Test cosh-ng fast checks in 6m16s (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+✓ Test cosh-ng fast checks in 6m16s (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 8 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+* Test cosh-ng (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+✓ Test cosh-ng fast checks in 6m16s (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+
+X cosh-quota-c-task-budget CI / Components agentic-os-org/ANOLISA#7157 · 38475379875
+Triggered via pull_request about 9 minutes ago
+
+JOBS
+✓ Check component versions in 17s (ID 115564651831)
+✓ Detect Changes in 17s (ID 115564652049)
+✓ Check build runtime dependencies in 17s (ID 115564652108)
+X Test cosh-ng in 8m25s (ID 115564873723)
+✓ Build cosh-ng release in 4m25s (ID 115564873859)
+✓ Test cosh-ng fast checks in 6m16s (ID 115564873869)
+- Test ws-ckpt (ID 115564875090)
+- Test agent-memory (ID 115564875215)
+- Test tokenless (ID 115564875546)
+- Test agent-sec-core (ID 115564875770)
+- Build copilot-shell (ID 115564875830)
+- Test anolisa (ID 115564875956)
+- Test agentsight (ID 115564876155)
+- Test SkillFS (ID 115564876250)
+- Test ktuner (ID 115564876373)
+- Test copilot-shell/cli in 0s (ID 115564876398)
+- Test copilot-shell/core in 0s (ID 115564876771)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check component versions: .github#2
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Detect Changes: .github#14
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Check build runtime dependencies: .github#2
+

@@ -1,0 +1,1560 @@
+﻿2026-10-13T22:06:37.7266964Z Current runner version: '2.337.0'
+2026-10-13T22:06:37.7272916Z Runner name: 'anolisa-k8s-general-ci-x64-7d26n-runner-hjxhg'
+2026-10-13T22:06:37.7273883Z Runner group name: 'Default'
+2026-10-13T22:06:37.7274805Z Machine name: 'anolisa-k8s-general-ci-x64-7d26n-runner-hjxhg'
+2026-10-13T22:06:37.7277588Z ##[group]GITHUB_TOKEN Permissions
+2026-10-13T22:06:37.7279738Z Contents: read
+2026-10-13T22:06:37.7280380Z Metadata: read
+2026-10-13T22:06:37.7280863Z ##[endgroup]
+2026-10-13T22:06:37.7283022Z Secret source: None
+2026-10-13T22:06:37.7283902Z Cache mode: write
+2026-10-13T22:06:37.7284562Z Prepare workflow directory
+2026-10-13T22:06:37.7639888Z Prepare all required actions
+2026-10-13T22:06:37.7685718Z Getting action download info
+2026-10-13T22:06:38.6700865Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-13T22:06:39.0225490Z Download action repository 'dtolnay/rust-toolchain@1.88.0' (SHA:9c73e2f62269c4b1d0240bd5dd1b81de08099bb6)
+2026-10-13T22:06:39.7047152Z Download action repository 'Swatinem/rust-cache@v2' (SHA:6323deb102c322ba6fcbdcafc7e3dddab59af2b6)
+2026-10-13T22:06:40.3796673Z Complete job name: Test cosh-ng
+2026-10-13T22:06:40.4268061Z A job started hook has been configured by the self-hosted runner administrator
+2026-10-13T22:06:40.4418818Z ##[group]Run '/opt/anolisa/sccache-job-started.sh'
+2026-10-13T22:06:40.4431097Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:40.4431723Z ##[endgroup]
+2026-10-13T22:06:40.4573979Z sccache: Starting the server...
+2026-10-13T22:06:40.4578262Z sccache: Listening on address 127.0.0.1:4226
+2026-10-13T22:06:40.4580039Z Shared sccache ready (runner default: read-only)
+2026-10-13T22:06:40.4811029Z ##[group]Run actions/checkout@v4
+2026-10-13T22:06:40.4811359Z with:
+2026-10-13T22:06:40.4811611Z   repository: agentic-os-org/ANOLISA
+2026-10-13T22:06:40.4814003Z   token: ***
+2026-10-13T22:06:40.4814225Z   ssh-strict: true
+2026-10-13T22:06:40.4814435Z   ssh-user: git
+2026-10-13T22:06:40.4814658Z   persist-credentials: true
+2026-10-13T22:06:40.4814933Z   clean: true
+2026-10-13T22:06:40.4815154Z   sparse-checkout-cone-mode: true
+2026-10-13T22:06:40.4815413Z   fetch-depth: 1
+2026-10-13T22:06:40.4815623Z   fetch-tags: false
+2026-10-13T22:06:40.4815841Z   show-progress: true
+2026-10-13T22:06:40.4816049Z   lfs: false
+2026-10-13T22:06:40.4816243Z   submodules: false
+2026-10-13T22:06:40.4816541Z   set-safe-directory: true
+2026-10-13T22:06:40.4816812Z   allow-unsafe-pr-checkout: false
+2026-10-13T22:06:40.4817061Z env:
+2026-10-13T22:06:40.4817304Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:40.4817709Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:40.4818113Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:40.4818359Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:40.4818594Z ##[endgroup]
+2026-10-13T22:06:40.5686066Z Syncing repository: agentic-os-org/ANOLISA
+2026-10-13T22:06:40.5687580Z ##[group]Getting Git version info
+2026-10-13T22:06:40.5688022Z Working directory is '/home/runner/actions-runner/_work/ANOLISA/ANOLISA'
+2026-10-13T22:06:40.5688827Z [command]/usr/bin/git version
+2026-10-13T22:06:40.5689141Z git version 2.34.1
+2026-10-13T22:06:40.5689998Z ##[endgroup]
+2026-10-13T22:06:40.5691368Z Temporarily overriding HOME='/home/runner/actions-runner/_work/_temp/81d4396a-4bcb-425b-80ec-26fb89f7e83d' before making global git config changes
+2026-10-13T22:06:40.5692216Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-13T22:06:40.5693251Z [command]/usr/bin/git config --global --add safe.directory /home/runner/actions-runner/_work/ANOLISA/ANOLISA
+2026-10-13T22:06:40.5714428Z Deleting the contents of '/home/runner/actions-runner/_work/ANOLISA/ANOLISA'
+2026-10-13T22:06:40.5717138Z ##[group]Initializing the repository
+2026-10-13T22:06:40.5720525Z [command]/usr/bin/git init /home/runner/actions-runner/_work/ANOLISA/ANOLISA
+2026-10-13T22:06:40.5738852Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-13T22:06:40.5739771Z hint: is subject to change. To configure the initial branch name to use in all
+2026-10-13T22:06:40.5740497Z hint: of your new repositories, which will suppress this warning, call:
+2026-10-13T22:06:40.5740863Z hint: 
+2026-10-13T22:06:40.5741174Z hint: 	git config --global init.defaultBranch <name>
+2026-10-13T22:06:40.5741485Z hint: 
+2026-10-13T22:06:40.5741782Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-13T22:06:40.5742262Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-13T22:06:40.5742644Z hint: 
+2026-10-13T22:06:40.5742895Z hint: 	git branch -m <name>
+2026-10-13T22:06:40.5743329Z Initialized empty Git repository in /home/runner/actions-runner/_work/ANOLISA/ANOLISA/.git/
+2026-10-13T22:06:40.5748712Z [command]/usr/bin/git remote add origin https://github.com/agentic-os-org/ANOLISA
+2026-10-13T22:06:40.5767074Z ##[endgroup]
+2026-10-13T22:06:40.5767495Z ##[group]Disabling automatic garbage collection
+2026-10-13T22:06:40.5770086Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-13T22:06:40.5786974Z ##[endgroup]
+2026-10-13T22:06:40.5787357Z ##[group]Setting up auth
+2026-10-13T22:06:40.5792247Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-13T22:06:40.5811257Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-13T22:06:40.5956635Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-13T22:06:40.5975118Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-13T22:06:40.6116799Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-13T22:06:40.6138608Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-13T22:06:40.6285283Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-13T22:06:40.6305411Z ##[endgroup]
+2026-10-13T22:06:40.6305823Z ##[group]Fetching the repository
+2026-10-13T22:06:40.6312370Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +68b1f8c30ce7abf160c85e5780d3f87ae7fe5196:refs/remotes/pull/7157/merge
+2026-10-13T22:06:45.6358045Z From https://github.com/agentic-os-org/ANOLISA
+2026-10-13T22:06:45.6358705Z  * [new ref]         68b1f8c30ce7abf160c85e5780d3f87ae7fe5196 -> pull/7157/merge
+2026-10-13T22:06:45.6369739Z ##[endgroup]
+2026-10-13T22:06:45.6370342Z ##[group]Determining the checkout info
+2026-10-13T22:06:45.6371943Z ##[endgroup]
+2026-10-13T22:06:45.6376138Z [command]/usr/bin/git sparse-checkout disable
+2026-10-13T22:06:45.6400515Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-13T22:06:45.6417585Z ##[group]Checking out the ref
+2026-10-13T22:06:45.6419838Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/7157/merge
+2026-10-13T22:06:46.2793478Z Note: switching to 'refs/remotes/pull/7157/merge'.
+2026-10-13T22:06:46.2793834Z 
+2026-10-13T22:06:46.2794067Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-13T22:06:46.2794602Z changes and commit them, and you can discard any commits you make in this
+2026-10-13T22:06:46.2795072Z state without impacting any branches by switching back to a branch.
+2026-10-13T22:06:46.2795374Z 
+2026-10-13T22:06:46.2795615Z If you want to create a new branch to retain commits you create, you may
+2026-10-13T22:06:46.2796062Z do so (now or later) by using -c with the switch command. Example:
+2026-10-13T22:06:46.2796306Z 
+2026-10-13T22:06:46.2796425Z   git switch -c <new-branch-name>
+2026-10-13T22:06:46.2796606Z 
+2026-10-13T22:06:46.2796713Z Or undo this operation with:
+2026-10-13T22:06:46.2797205Z 
+2026-10-13T22:06:46.2797303Z   git switch -
+2026-10-13T22:06:46.2797519Z 
+2026-10-13T22:06:46.2797801Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-13T22:06:46.2798092Z 
+2026-10-13T22:06:46.2798428Z HEAD is now at 68b1f8c Merge 4cf6aeb8ed47bc0137db3bcb256deb74b291854b into 69ae39dc5b97e47a399ed6c42d841d421e29c6dd
+2026-10-13T22:06:46.2820557Z ##[endgroup]
+2026-10-13T22:06:46.2847593Z [command]/usr/bin/git log -1 --format=%H
+2026-10-13T22:06:46.2863106Z 68b1f8c30ce7abf160c85e5780d3f87ae7fe5196
+2026-10-13T22:06:46.3108798Z ##[group]Run dtolnay/rust-toolchain@1.88.0
+2026-10-13T22:06:46.3109109Z with:
+2026-10-13T22:06:46.3109298Z env:
+2026-10-13T22:06:46.3109557Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.3109936Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.3110413Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.3110663Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.3110979Z ##[endgroup]
+2026-10-13T22:06:46.3172772Z ##[start-action display=Parse toolchain version;id=__dtolnay_rust-toolchain.parse]
+2026-10-13T22:06:46.3265920Z ##[group]Run if [[ -z $toolchain ]]; then
+2026-10-13T22:06:46.3266300Z [36;1mif [[ -z $toolchain ]]; then[0m
+2026-10-13T22:06:46.3266840Z [36;1m  # GitHub does not enforce `required: true` inputs itself. https://github.com/actions/runner/issues/1070[0m
+2026-10-13T22:06:46.3267369Z [36;1m  echo "'toolchain' is a required input" >&2[0m
+2026-10-13T22:06:46.3267672Z [36;1m  exit 1[0m
+2026-10-13T22:06:46.3268087Z [36;1melif [[ $toolchain =~ ^stable' '[0-9]+' '(year|month|week|day)s?' 'ago$ ]]; then[0m
+2026-10-13T22:06:46.3268492Z [36;1m  if [[ Linux == macOS ]]; then[0m
+2026-10-13T22:06:46.3269010Z [36;1m    echo "toolchain=1.$((($(date -v-$(sed 's/stable \([0-9]*\) \(.\).*/\1\2/' <<< $toolchain) +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-13T22:06:46.3269516Z [36;1m  else[0m
+2026-10-13T22:06:46.3269908Z [36;1m    echo "toolchain=1.$((($(date --date "${toolchain#stable }" +%s)/60/60/24-16569)/7/6))" >> $GITHUB_OUTPUT[0m
+2026-10-13T22:06:46.3270462Z [36;1m  fi[0m
+2026-10-13T22:06:46.3270762Z [36;1melif [[ $toolchain =~ ^stable' 'minus' '[0-9]+' 'releases?$ ]]; then[0m
+2026-10-13T22:06:46.3271275Z [36;1m  echo "toolchain=1.$((($(date +%s)/60/60/24-16569)/7/6-${toolchain//[^0-9]/}))" >> $GITHUB_OUTPUT[0m
+2026-10-13T22:06:46.3271715Z [36;1melif [[ $toolchain =~ ^1\.[0-9]+$ ]]; then[0m
+2026-10-13T22:06:46.3272217Z [36;1m  echo "toolchain=1.$((i=${toolchain#1.}, c=($(date +%s)/60/60/24-16569)/7/6, i+9*i*(10*i<=c)+90*i*(100*i<=c)))" >> $GITHUB_OUTPUT[0m
+2026-10-13T22:06:46.3272708Z [36;1melse[0m
+2026-10-13T22:06:46.3272919Z [36;1m  delimiter=EOF[0m
+2026-10-13T22:06:46.3273224Z [36;1m  while [[ $toolchain == *$delimiter* ]]; do delimiter+=_; done[0m
+2026-10-13T22:06:46.3273705Z [36;1m  printf 'toolchain<<%s\n%s\n%s\n' "$delimiter" "$toolchain" "$delimiter" >> $GITHUB_OUTPUT[0m
+2026-10-13T22:06:46.3274117Z [36;1mfi[0m
+2026-10-13T22:06:46.3283384Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.3283730Z env:
+2026-10-13T22:06:46.3283998Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.3284380Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.3284806Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.3285049Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.3285288Z   toolchain: 1.88.0
+2026-10-13T22:06:46.3285493Z ##[endgroup]
+2026-10-13T22:06:46.3338630Z ##[end-action id=__dtolnay_rust-toolchain.parse;outcome=success;conclusion=success;duration_ms=16]
+2026-10-13T22:06:46.3341064Z ##[start-action display=Set $CARGO_HOME;id=__dtolnay_rust-toolchain.__run]
+2026-10-13T22:06:46.3376365Z ##[group]Run echo CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV
+2026-10-13T22:06:46.3376857Z [36;1mecho CARGO_HOME=${CARGO_HOME:-"$HOME/.cargo"} >> $GITHUB_ENV[0m
+2026-10-13T22:06:46.3385622Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.3386099Z env:
+2026-10-13T22:06:46.3386361Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.3386752Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.3387087Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.3387326Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.3387556Z ##[endgroup]
+2026-10-13T22:06:46.3415252Z ##[end-action id=__dtolnay_rust-toolchain.__run;outcome=success;conclusion=success;duration_ms=7]
+2026-10-13T22:06:46.3417475Z ##[start-action display=Install rustup if needed;id=__dtolnay_rust-toolchain.__run_2]
+2026-10-13T22:06:46.3446177Z ##[group]Run if ! command -v rustup &>/dev/null; then
+2026-10-13T22:06:46.3446610Z [36;1mif ! command -v rustup &>/dev/null; then[0m
+2026-10-13T22:06:46.3447340Z [36;1m  curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail https://sh.rustup.rs | sh -s -- --default-toolchain none -y[0m
+2026-10-13T22:06:46.3448044Z [36;1m  echo "$CARGO_HOME/bin" >> $GITHUB_PATH[0m
+2026-10-13T22:06:46.3448338Z [36;1mfi[0m
+2026-10-13T22:06:46.3456369Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.3456704Z env:
+2026-10-13T22:06:46.3457159Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.3457642Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.3458055Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.3458422Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.3458725Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.3459065Z ##[endgroup]
+2026-10-13T22:06:46.3486480Z ##[end-action id=__dtolnay_rust-toolchain.__run_2;outcome=success;conclusion=success;duration_ms=6]
+2026-10-13T22:06:46.3489101Z ##[start-action display=Install rustup if needed on windows;id=__dtolnay_rust-toolchain.__run_3]
+2026-10-13T22:06:46.3496361Z ##[end-action id=__dtolnay_rust-toolchain.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-13T22:06:46.3511152Z ##[start-action display=rustup toolchain install 1.88.0;id=__dtolnay_rust-toolchain.__run_4]
+2026-10-13T22:06:46.3537086Z ##[group]Run set -f  # split targets and components on commas and whitespace, without glob expansion
+2026-10-13T22:06:46.3537806Z [36;1mset -f  # split targets and components on commas and whitespace, without glob expansion[0m
+2026-10-13T22:06:46.3538340Z [36;1mflags=()[0m
+2026-10-13T22:06:46.3538742Z [36;1mfor t in ${targets//,/ }; do flags+=(--target "$t"); done[0m
+2026-10-13T22:06:46.3539232Z [36;1mfor c in ${components//,/ }; do flags+=(--component "$c"); done[0m
+2026-10-13T22:06:46.3539811Z [36;1mif [[ $toolchain == nightly && -n $components ]]; then flags+=(--allow-downgrade); fi[0m
+2026-10-13T22:06:46.3540439Z [36;1mlog=$(mktemp)[0m
+2026-10-13T22:06:46.3540749Z [36;1mtrap 'rm -f "$log"' EXIT[0m
+2026-10-13T22:06:46.3541077Z [36;1mfor attempt in 1 2 3 4 5; do[0m
+2026-10-13T22:06:46.3541749Z [36;1m  if rustup toolchain install "$toolchain" "${flags[@]}" --profile minimal --no-self-update --force-non-host 2>&1 | tee "$log"; then[0m
+2026-10-13T22:06:46.3542351Z [36;1m    break[0m
+2026-10-13T22:06:46.3542649Z [36;1m  else[0m
+2026-10-13T22:06:46.3542977Z [36;1m    status=$?[0m
+2026-10-13T22:06:46.3543311Z [36;1m  fi[0m
+2026-10-13T22:06:46.3543669Z [36;1m  if [[ $attempt == 5 ]] || ! grep -Fq 'checksum failed for ' "$log" \[0m
+2026-10-13T22:06:46.3544254Z [36;1m      || ! grep -Fq 'this is likely due to an ongoing update of the official release server' "$log"; then[0m
+2026-10-13T22:06:46.3544967Z [36;1m    exit "$status"[0m
+2026-10-13T22:06:46.3545271Z [36;1m  fi[0m
+2026-10-13T22:06:46.3545711Z [36;1m  echo "Retrying rustup toolchain install in 30 seconds (retry $attempt of 4)" >&2[0m
+2026-10-13T22:06:46.3546183Z [36;1m  sleep 30[0m
+2026-10-13T22:06:46.3546490Z [36;1mdone[0m
+2026-10-13T22:06:46.3554998Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.3555477Z env:
+2026-10-13T22:06:46.3555813Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.3556394Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.3556851Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.3557153Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.3557489Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.3557814Z   toolchain: 1.88.0
+2026-10-13T22:06:46.3558128Z   targets: 
+2026-10-13T22:06:46.3558427Z   components: 
+2026-10-13T22:06:46.3558694Z   RUSTUP_PERMIT_COPY_RENAME: 1
+2026-10-13T22:06:46.3559026Z ##[endgroup]
+2026-10-13T22:06:46.3979564Z info: syncing channel updates for 1.88.0-x86_64-unknown-linux-gnu
+2026-10-13T22:06:46.4590677Z 
+2026-10-13T22:06:46.4659732Z   1.88.0-x86_64-unknown-linux-gnu unchanged - rustc 1.88.0 (6b00bc388 2025-06-23)
+2026-10-13T22:06:46.4660362Z 
+2026-10-13T22:06:46.4692481Z ##[end-action id=__dtolnay_rust-toolchain.__run_4;outcome=success;conclusion=success;duration_ms=118]
+2026-10-13T22:06:46.4795586Z ##[start-action display=rustup default 1.88.0;id=__dtolnay_rust-toolchain.__run_5]
+2026-10-13T22:06:46.4820437Z ##[group]Run rustup default "$toolchain" --force-non-host
+2026-10-13T22:06:46.4820861Z [36;1mrustup default "$toolchain" --force-non-host[0m
+2026-10-13T22:06:46.4829728Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.4830060Z env:
+2026-10-13T22:06:46.4830455Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.4830842Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.4831167Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.4831427Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.4831683Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.4831933Z   toolchain: 1.88.0
+2026-10-13T22:06:46.4832135Z ##[endgroup]
+2026-10-13T22:06:46.4889306Z info: using existing install for 1.88.0-x86_64-unknown-linux-gnu
+2026-10-13T22:06:46.4904039Z info: default toolchain set to 1.88.0-x86_64-unknown-linux-gnu
+2026-10-13T22:06:46.4904373Z 
+2026-10-13T22:06:46.4970087Z info: note that the toolchain '1.88.0-x86_64-unknown-linux-gnu' is currently in use (overridden by environment variable RUSTUP_TOOLCHAIN)
+2026-10-13T22:06:46.4970978Z   1.88.0-x86_64-unknown-linux-gnu unchanged - rustc 1.88.0 (6b00bc388 2025-06-23)
+2026-10-13T22:06:46.4971284Z 
+2026-10-13T22:06:46.4982458Z ##[end-action id=__dtolnay_rust-toolchain.__run_5;outcome=success;conclusion=success;duration_ms=18]
+2026-10-13T22:06:46.4985946Z ##[start-action display=Create cachekey;id=__dtolnay_rust-toolchain.rustc-version]
+2026-10-13T22:06:46.5008632Z ##[group]Run DATE=$(rustc +"$toolchain" --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')
+2026-10-13T22:06:46.5009461Z [36;1mDATE=$(rustc +"$toolchain" --version --verbose | sed -ne 's/^commit-date: \(20[0-9][0-9]\)-\([01][0-9]\)-\([0-3][0-9]\)$/\1\2\3/p')[0m
+2026-10-13T22:06:46.5010104Z [36;1mHASH=$(rustc +"$toolchain" --version --verbose | sed -ne 's/^commit-hash: //p')[0m
+2026-10-13T22:06:46.5010696Z [36;1mecho "cachekey=$(echo $DATE$HASH | head -c12)" >> $GITHUB_OUTPUT[0m
+2026-10-13T22:06:46.5019153Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.5019486Z env:
+2026-10-13T22:06:46.5019755Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.5020139Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.5020574Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.5020822Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.5021093Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.5021341Z   toolchain: 1.88.0
+2026-10-13T22:06:46.5021560Z ##[endgroup]
+2026-10-13T22:06:46.5268419Z ##[end-action id=__dtolnay_rust-toolchain.rustc-version;outcome=success;conclusion=success;duration_ms=28]
+2026-10-13T22:06:46.5272557Z ##[start-action display=Disable incremental compilation;id=__dtolnay_rust-toolchain.__run_6]
+2026-10-13T22:06:46.5309818Z ##[group]Run if [ -z "${CARGO_INCREMENTAL+set}" ]; then
+2026-10-13T22:06:46.5310609Z [36;1mif [ -z "${CARGO_INCREMENTAL+set}" ]; then[0m
+2026-10-13T22:06:46.5311203Z [36;1m  echo CARGO_INCREMENTAL=0 >> $GITHUB_ENV[0m
+2026-10-13T22:06:46.5311928Z [36;1mfi[0m
+2026-10-13T22:06:46.5325090Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.5325704Z env:
+2026-10-13T22:06:46.5326144Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.5326805Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.5327445Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.5327936Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.5328405Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.5329016Z ##[endgroup]
+2026-10-13T22:06:46.5365082Z ##[end-action id=__dtolnay_rust-toolchain.__run_6;outcome=success;conclusion=success;duration_ms=9]
+2026-10-13T22:06:46.5367346Z ##[start-action display=Enable colors in Cargo output;id=__dtolnay_rust-toolchain.__run_7]
+2026-10-13T22:06:46.5390775Z ##[group]Run if [ -z "${CARGO_TERM_COLOR+set}" ]; then
+2026-10-13T22:06:46.5391156Z [36;1mif [ -z "${CARGO_TERM_COLOR+set}" ]; then[0m
+2026-10-13T22:06:46.5391491Z [36;1m  echo CARGO_TERM_COLOR=always >> $GITHUB_ENV[0m
+2026-10-13T22:06:46.5391792Z [36;1mfi[0m
+2026-10-13T22:06:46.5400035Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.5400459Z env:
+2026-10-13T22:06:46.5400726Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.5401107Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.5401434Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.5401683Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.5401938Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.5402193Z ##[endgroup]
+2026-10-13T22:06:46.5428849Z ##[end-action id=__dtolnay_rust-toolchain.__run_7;outcome=success;conclusion=success;duration_ms=6]
+2026-10-13T22:06:46.5432156Z ##[start-action display=Enable Cargo sparse registry;id=__dtolnay_rust-toolchain.__run_8]
+2026-10-13T22:06:46.5455877Z ##[group]Run # implemented in 1.66, stabilized in 1.68, made default in 1.70
+2026-10-13T22:06:46.5456376Z [36;1m# implemented in 1.66, stabilized in 1.68, made default in 1.70[0m
+2026-10-13T22:06:46.5457116Z [36;1mif [ -z "${CARGO_REGISTRIES_CRATES_IO_PROTOCOL+set}" -o -f "/home/runner/actions-runner/_work/_temp"/.implicit_cargo_registries_crates_io_protocol ]; then[0m
+2026-10-13T22:06:46.5457876Z [36;1m  if rustc +"$toolchain" --version --verbose | grep -q '^release: 1\.6[89]\.'; then[0m
+2026-10-13T22:06:46.5458487Z [36;1m    touch "/home/runner/actions-runner/_work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-13T22:06:46.5459074Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse >> $GITHUB_ENV[0m
+2026-10-13T22:06:46.5459575Z [36;1m  elif rustc +"$toolchain" --version --verbose | grep -q '^release: 1\.6[67]\.'; then[0m
+2026-10-13T22:06:46.5460176Z [36;1m    touch "/home/runner/actions-runner/_work/_temp"/.implicit_cargo_registries_crates_io_protocol || true[0m
+2026-10-13T22:06:46.5460855Z [36;1m    echo CARGO_REGISTRIES_CRATES_IO_PROTOCOL=git >> $GITHUB_ENV[0m
+2026-10-13T22:06:46.5461185Z [36;1m  fi[0m
+2026-10-13T22:06:46.5461388Z [36;1mfi[0m
+2026-10-13T22:06:46.5469286Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.5469622Z env:
+2026-10-13T22:06:46.5469882Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.5470369Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.5470710Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.5470953Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.5471211Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.5471465Z   CARGO_TERM_COLOR: always
+2026-10-13T22:06:46.5471695Z   toolchain: 1.88.0
+2026-10-13T22:06:46.5471899Z ##[endgroup]
+2026-10-13T22:06:46.5701864Z ##[end-action id=__dtolnay_rust-toolchain.__run_8;outcome=success;conclusion=success;duration_ms=26]
+2026-10-13T22:06:46.5705717Z ##[start-action display=Work around spurious network errors in curl 8.0;id=__dtolnay_rust-toolchain.__run_9]
+2026-10-13T22:06:46.5729306Z ##[group]Run # https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation
+2026-10-13T22:06:46.5730170Z [36;1m# https://rust-lang.zulipchat.com/#narrow/stream/246057-t-cargo/topic/timeout.20investigation[0m
+2026-10-13T22:06:46.5730911Z [36;1mif rustc +"$toolchain" --version --verbose | grep -q '^release: 1\.7[01]\.'; then[0m
+2026-10-13T22:06:46.5731385Z [36;1m  echo CARGO_HTTP_MULTIPLEXING=false >> $GITHUB_ENV[0m
+2026-10-13T22:06:46.5731697Z [36;1mfi[0m
+2026-10-13T22:06:46.5740422Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.5740761Z env:
+2026-10-13T22:06:46.5741141Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.5741540Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.5741874Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.5742114Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.5742368Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.5742629Z   CARGO_TERM_COLOR: always
+2026-10-13T22:06:46.5742859Z   toolchain: 1.88.0
+2026-10-13T22:06:46.5743085Z ##[endgroup]
+2026-10-13T22:06:46.5868909Z ##[end-action id=__dtolnay_rust-toolchain.__run_9;outcome=success;conclusion=success;duration_ms=16]
+2026-10-13T22:06:46.5873432Z ##[start-action display=rustc +1.88.0 --version --verbose;id=__dtolnay_rust-toolchain.__run_10]
+2026-10-13T22:06:46.5903607Z ##[group]Run rustc +"$toolchain" --version --verbose
+2026-10-13T22:06:46.5904341Z [36;1mrustc +"$toolchain" --version --verbose[0m
+2026-10-13T22:06:46.5932212Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:06:46.5932831Z env:
+2026-10-13T22:06:46.5933272Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.5933935Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.5934570Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.5934981Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.5935397Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.5935839Z   CARGO_TERM_COLOR: always
+2026-10-13T22:06:46.5936237Z   toolchain: 1.88.0
+2026-10-13T22:06:46.5936579Z ##[endgroup]
+2026-10-13T22:06:46.6053606Z rustc 1.88.0 (6b00bc388 2025-06-23)
+2026-10-13T22:06:46.6054088Z binary: rustc
+2026-10-13T22:06:46.6054585Z commit-hash: 6b00bc3880198600130e1cf62b8f8a93494488cc
+2026-10-13T22:06:46.6055165Z commit-date: 2025-06-23
+2026-10-13T22:06:46.6055548Z host: x86_64-unknown-linux-gnu
+2026-10-13T22:06:46.6055960Z release: 1.88.0
+2026-10-13T22:06:46.6056291Z LLVM version: 20.1.5
+2026-10-13T22:06:46.6071011Z ##[end-action id=__dtolnay_rust-toolchain.__run_10;outcome=success;conclusion=success;duration_ms=19]
+2026-10-13T22:06:46.6197646Z ##[group]Run Swatinem/rust-cache@v2
+2026-10-13T22:06:46.6197923Z with:
+2026-10-13T22:06:46.6198116Z   cache-bin: false
+2026-10-13T22:06:46.6198329Z   workspaces: src/cosh-ng
+2026-10-13T22:06:46.6198564Z   prefix-key: v0-rust
+2026-10-13T22:06:46.6198776Z   add-job-id-key: true
+2026-10-13T22:06:46.6199017Z   add-rust-environment-hash-key: true
+2026-10-13T22:06:46.6199288Z   cache-targets: true
+2026-10-13T22:06:46.6199510Z   cache-all-crates: false
+2026-10-13T22:06:46.6199786Z   cache-workspace-crates: false
+2026-10-13T22:06:46.6200022Z   save-if: true
+2026-10-13T22:06:46.6200343Z   cache-provider: github
+2026-10-13T22:06:46.6200577Z   lookup-only: false
+2026-10-13T22:06:46.6200804Z   cmd-format: {0}
+2026-10-13T22:06:46.6201000Z env:
+2026-10-13T22:06:46.6201243Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:06:46.6201606Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:06:46.6201927Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:06:46.6202198Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:06:46.6202438Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:06:46.6202677Z   CARGO_TERM_COLOR: always
+2026-10-13T22:06:46.6202895Z ##[endgroup]
+2026-10-13T22:06:46.9592630Z ##[group]Cache Configuration
+2026-10-13T22:06:46.9592934Z Cache Provider:
+2026-10-13T22:06:46.9593204Z     github
+2026-10-13T22:06:46.9593397Z Workspaces:
+2026-10-13T22:06:46.9593726Z     /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng
+2026-10-13T22:06:46.9594449Z Cache Paths:
+2026-10-13T22:06:46.9594672Z     /home/runner/.cargo/registry
+2026-10-13T22:06:46.9594928Z     /home/runner/.cargo/git
+2026-10-13T22:06:46.9595262Z     /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/target
+2026-10-13T22:06:46.9595634Z Restore Key:
+2026-10-13T22:06:46.9595874Z     v0-rust-test-cosh-ng-Linux-x64-08220cda
+2026-10-13T22:06:46.9596143Z Cache Key:
+2026-10-13T22:06:46.9596397Z     v0-rust-test-cosh-ng-Linux-x64-08220cda-c02a975f
+2026-10-13T22:06:46.9596731Z .. Prefix:
+2026-10-13T22:06:46.9596970Z   - v0-rust-test-cosh-ng-Linux-x64
+2026-10-13T22:06:46.9597237Z .. Environment considered:
+2026-10-13T22:06:46.9597465Z   - Rust Versions:
+2026-10-13T22:06:46.9597784Z     - 1.86.0 x86_64-unknown-linux-gnu 05f9846f893b09a1be1fc8560e33fc3c815cfecb
+2026-10-13T22:06:46.9598251Z     - 1.88.0 x86_64-unknown-linux-gnu 6b00bc3880198600130e1cf62b8f8a93494488cc
+2026-10-13T22:06:46.9598698Z     - 1.89.0 x86_64-unknown-linux-gnu 29483883eed69d5fb4db01964cdf2af4d86e9cb2
+2026-10-13T22:06:46.9599169Z     - 1.91.0 x86_64-unknown-linux-gnu f8297e351a40c1439a467bbbb6879088047f50b3
+2026-10-13T22:06:46.9599607Z     - 1.93.0 x86_64-unknown-linux-gnu 254b59607d4417e9dffbc307138ae5c86280fe4c
+2026-10-13T22:06:46.9600044Z     - 1.93.1 x86_64-unknown-linux-gnu 01f6ddf7588f42ae2d7eb0a2f21d44e8e96674cf
+2026-10-13T22:06:46.9600632Z     - 1.96.0 x86_64-unknown-linux-gnu ac68faa20c58cbccd01ee7208bf3b6e93a7d7f96
+2026-10-13T22:06:46.9601092Z     - 1.97.1 x86_64-unknown-linux-gnu 8bab26f4f68e0e26f0bb7960be334d5b520ea452
+2026-10-13T22:06:46.9601566Z     - 1.98.0 x86_64-unknown-linux-gnu 88d9e12ae178fab0fb5cc050a94da85685d449ea
+2026-10-13T22:06:46.9601911Z   - CARGO_HOME
+2026-10-13T22:06:46.9602116Z   - CARGO_INCREMENTAL
+2026-10-13T22:06:46.9602338Z   - CARGO_TERM_COLOR
+2026-10-13T22:06:46.9602556Z   - RUSTC_WRAPPER
+2026-10-13T22:06:46.9602765Z   - RUSTUP_DIST_SERVER
+2026-10-13T22:06:46.9602975Z   - RUSTUP_TOOLCHAIN
+2026-10-13T22:06:46.9603181Z   - RUSTUP_UPDATE_ROOT
+2026-10-13T22:06:46.9603408Z .. Lockfiles considered:
+2026-10-13T22:06:46.9603775Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/.cargo/config.toml
+2026-10-13T22:06:46.9604286Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/Cargo.lock
+2026-10-13T22:06:46.9604867Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-cli/Cargo.toml
+2026-10-13T22:06:46.9605446Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core/Cargo.toml
+2026-10-13T22:06:46.9606241Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-gateway-app/Cargo.toml
+2026-10-13T22:06:46.9606896Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-gateway-contracts/Cargo.toml
+2026-10-13T22:06:46.9607576Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-gateway/Cargo.toml
+2026-10-13T22:06:46.9608168Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-platform/Cargo.toml
+2026-10-13T22:06:46.9608775Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell/Cargo.toml
+2026-10-13T22:06:46.9609353Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-types/Cargo.toml
+2026-10-13T22:06:46.9609924Z   - /home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/rust-toolchain.toml
+2026-10-13T22:06:46.9610603Z ##[endgroup]
+2026-10-13T22:06:46.9610715Z 
+2026-10-13T22:06:46.9610809Z ... Restoring cache ...
+2026-10-13T22:06:47.6968035Z Cache hit for: v0-rust-test-cosh-ng-Linux-x64-08220cda-c02a975f
+2026-10-13T22:06:49.5984198Z Received 0 of 478466663 (0.0%), 0.0 MBs/sec
+2026-10-13T22:06:50.5982793Z Received 0 of 478466663 (0.0%), 0.0 MBs/sec
+2026-10-13T22:06:51.5982627Z Received 20971520 of 478466663 (4.4%), 6.7 MBs/sec
+2026-10-13T22:06:52.5994700Z Received 75497472 of 478466663 (15.8%), 18.0 MBs/sec
+2026-10-13T22:06:53.5999430Z Received 130023424 of 478466663 (27.2%), 24.8 MBs/sec
+2026-10-13T22:06:54.5997199Z Received 134217728 of 478466663 (28.1%), 21.3 MBs/sec
+2026-10-13T22:06:55.5992664Z Received 134217728 of 478466663 (28.1%), 18.3 MBs/sec
+2026-10-13T22:06:56.5993535Z Received 134217728 of 478466663 (28.1%), 16.0 MBs/sec
+2026-10-13T22:06:57.5997456Z Received 134217728 of 478466663 (28.1%), 14.2 MBs/sec
+2026-10-13T22:06:58.5997034Z Received 150994944 of 478466663 (31.6%), 14.4 MBs/sec
+2026-10-13T22:06:59.5999791Z Received 171966464 of 478466663 (35.9%), 14.9 MBs/sec
+2026-10-13T22:07:00.5994529Z Received 184549376 of 478466663 (38.6%), 14.7 MBs/sec
+2026-10-13T22:07:01.5999025Z Received 197132288 of 478466663 (41.2%), 14.5 MBs/sec
+2026-10-13T22:07:02.6001969Z Received 218103808 of 478466663 (45.6%), 14.9 MBs/sec
+2026-10-13T22:07:03.6003836Z Received 239075328 of 478466663 (50.0%), 15.2 MBs/sec
+2026-10-13T22:07:04.6003064Z Received 255852544 of 478466663 (53.5%), 15.2 MBs/sec
+2026-10-13T22:07:05.6006614Z Received 260046848 of 478466663 (54.4%), 14.6 MBs/sec
+2026-10-13T22:07:06.6005042Z Received 264241152 of 478466663 (55.2%), 14.0 MBs/sec
+2026-10-13T22:07:07.6009778Z Received 264241152 of 478466663 (55.2%), 13.3 MBs/sec
+2026-10-13T22:07:08.6008907Z Received 268435456 of 478466663 (56.1%), 12.8 MBs/sec
+2026-10-13T22:07:09.6003779Z Received 289406976 of 478466663 (60.5%), 13.1 MBs/sec
+2026-10-13T22:07:10.6007028Z Received 306184192 of 478466663 (64.0%), 13.3 MBs/sec
+2026-10-13T22:07:11.6011258Z Received 314572800 of 478466663 (65.7%), 13.0 MBs/sec
+2026-10-13T22:07:12.6008495Z Received 322961408 of 478466663 (67.5%), 12.8 MBs/sec
+2026-10-13T22:07:13.6011663Z Received 331350016 of 478466663 (69.3%), 12.6 MBs/sec
+2026-10-13T22:07:14.6018717Z Received 335544320 of 478466663 (70.1%), 12.3 MBs/sec
+2026-10-13T22:07:15.6012755Z Received 335544320 of 478466663 (70.1%), 11.9 MBs/sec
+2026-10-13T22:07:16.6016472Z Received 352321536 of 478466663 (73.6%), 12.0 MBs/sec
+2026-10-13T22:07:17.6012412Z Received 360710144 of 478466663 (75.4%), 11.9 MBs/sec
+2026-10-13T22:07:18.6013215Z Received 364904448 of 478466663 (76.3%), 11.6 MBs/sec
+2026-10-13T22:07:19.6017774Z Received 364904448 of 478466663 (76.3%), 11.2 MBs/sec
+2026-10-13T22:07:20.6018379Z Received 377487360 of 478466663 (78.9%), 11.2 MBs/sec
+2026-10-13T22:07:21.6021726Z Received 390070272 of 478466663 (81.5%), 11.3 MBs/sec
+2026-10-13T22:07:22.6029721Z Received 394264576 of 478466663 (82.4%), 11.1 MBs/sec
+2026-10-13T22:07:23.6022916Z Received 402653184 of 478466663 (84.2%), 11.0 MBs/sec
+2026-10-13T22:07:24.6023821Z Received 402653184 of 478466663 (84.2%), 10.7 MBs/sec
+2026-10-13T22:07:25.6032066Z Received 402653184 of 478466663 (84.2%), 10.4 MBs/sec
+2026-10-13T22:07:26.6033505Z Received 415236096 of 478466663 (86.8%), 10.4 MBs/sec
+2026-10-13T22:07:27.6036315Z Received 436207616 of 478466663 (91.2%), 10.7 MBs/sec
+2026-10-13T22:07:28.6033532Z Received 440401920 of 478466663 (92.0%), 10.5 MBs/sec
+2026-10-13T22:07:29.6035509Z Received 470078055 of 478466663 (98.2%), 10.9 MBs/sec
+2026-10-13T22:07:30.6042433Z Received 474272359 of 478466663 (99.1%), 10.8 MBs/sec
+2026-10-13T22:07:30.9054025Z Received 478466663 of 478466663 (100.0%), 10.8 MBs/sec
+2026-10-13T22:07:30.9078574Z Cache Size: ~456 MB (478466663 B)
+2026-10-13T22:07:30.9089341Z [command]/usr/bin/tar -xf /home/runner/actions-runner/_work/_temp/e713fa53-dcff-43de-8201-a30e51b5fbec/cache.tgz -P -C /home/runner/actions-runner/_work/ANOLISA/ANOLISA -z
+2026-10-13T22:07:39.7668100Z Cache restored successfully
+2026-10-13T22:07:39.8095403Z Restored from cache key "v0-rust-test-cosh-ng-Linux-x64-08220cda-c02a975f" full match: true.
+2026-10-13T22:07:39.8235005Z ##[group]Run sudo apt-get update
+2026-10-13T22:07:39.8235373Z [36;1msudo apt-get update[0m
+2026-10-13T22:07:39.8235683Z [36;1msudo apt-get install -y pkg-config ripgrep zsh[0m
+2026-10-13T22:07:39.8246196Z shell: /usr/bin/bash -e {0}
+2026-10-13T22:07:39.8246465Z env:
+2026-10-13T22:07:39.8246795Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:07:39.8247190Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:07:39.8247533Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:07:39.8248087Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:07:39.8248364Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:07:39.8248624Z   CARGO_TERM_COLOR: always
+2026-10-13T22:07:39.8248879Z   CACHE_ON_FAILURE: false
+2026-10-13T22:07:39.8249118Z   CARGO_INCREMENTAL: 0
+2026-10-13T22:07:39.8249336Z ##[endgroup]
+2026-10-13T22:07:40.3065228Z Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+2026-10-13T22:07:40.3591690Z Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+2026-10-13T22:07:41.5497588Z Get:3 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1323 kB]
+2026-10-13T22:07:41.5974698Z Get:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+2026-10-13T22:07:41.9102314Z Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+2026-10-13T22:07:42.2228958Z Get:6 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+2026-10-13T22:07:42.7774813Z Get:7 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [96.8 kB]
+2026-10-13T22:07:42.7897912Z Get:8 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [7955 kB]
+2026-10-13T22:07:43.7180630Z Get:9 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [4429 kB]
+2026-10-13T22:07:43.7374860Z Get:10 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+2026-10-13T22:07:43.7381213Z Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+2026-10-13T22:07:43.7938790Z Get:12 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+2026-10-13T22:07:43.7974616Z Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [104 kB]
+2026-10-13T22:07:43.7991097Z Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1624 kB]
+2026-10-13T22:07:43.8483425Z Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [8243 kB]
+2026-10-13T22:07:44.0768669Z Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [4757 kB]
+2026-10-13T22:07:44.4977580Z Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [35.6 kB]
+2026-10-13T22:07:44.5182460Z Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [82.9 kB]
+2026-10-13T22:07:45.3681040Z Fetched 49.0 MB in 6s (8873 kB/s)
+2026-10-13T22:07:46.3238150Z Reading package lists...
+2026-10-13T22:07:47.3730529Z Reading package lists...
+2026-10-13T22:07:47.5732752Z Building dependency tree...
+2026-10-13T22:07:47.5734455Z Reading state information...
+2026-10-13T22:07:47.8001622Z pkg-config is already the newest version (0.29.2-1ubuntu3).
+2026-10-13T22:07:47.8002105Z zsh is already the newest version (5.8.1-1).
+2026-10-13T22:07:47.8002509Z ripgrep is already the newest version (13.0.0-2ubuntu0.1).
+2026-10-13T22:07:47.8002915Z 0 upgraded, 0 newly installed, 0 to remove and 98 not upgraded.
+2026-10-13T22:07:47.8041183Z ##[group]Run cd src/cosh-ng
+2026-10-13T22:07:47.8041487Z [36;1mcd src/cosh-ng[0m
+2026-10-13T22:07:47.8041744Z [36;1mbash --version[0m
+2026-10-13T22:07:47.8041982Z [36;1mzsh --version[0m
+2026-10-13T22:07:47.8042205Z [36;1mlocale[0m
+2026-10-13T22:07:47.8042433Z [36;1mtest "$(locale charmap)" = UTF-8[0m
+2026-10-13T22:07:47.8042760Z [36;1mscripts/run-test-gates.sh integration[0m
+2026-10-13T22:07:47.8052613Z shell: /usr/bin/bash -e {0}
+2026-10-13T22:07:47.8052870Z env:
+2026-10-13T22:07:47.8053144Z   RUSTUP_DIST_SERVER: https://static.rust-lang.org
+2026-10-13T22:07:47.8053527Z   RUSTUP_UPDATE_ROOT: https://static.rust-lang.org/rustup
+2026-10-13T22:07:47.8053864Z   RUSTUP_TOOLCHAIN: 1.88.0
+2026-10-13T22:07:47.8054105Z   SCCACHE_SKIP_CACHE_CHECK: 1
+2026-10-13T22:07:47.8054360Z   CARGO_HOME: /home/runner/.cargo
+2026-10-13T22:07:47.8054615Z   CARGO_TERM_COLOR: always
+2026-10-13T22:07:47.8054846Z   CACHE_ON_FAILURE: false
+2026-10-13T22:07:47.8055068Z   CARGO_INCREMENTAL: 0
+2026-10-13T22:07:47.8055427Z   LANG: C.UTF-8
+2026-10-13T22:07:47.8055633Z   LC_ALL: C.UTF-8
+2026-10-13T22:07:47.8055848Z   COSH_RAW_CLI_TEST_PARALLELISM: 8
+2026-10-13T22:07:47.8056258Z ##[endgroup]
+2026-10-13T22:07:47.8088092Z GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
+2026-10-13T22:07:47.8088580Z Copyright (C) 2020 Free Software Foundation, Inc.
+2026-10-13T22:07:47.8089130Z License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+2026-10-13T22:07:47.8089504Z 
+2026-10-13T22:07:47.8089707Z This is free software; you are free to change and redistribute it.
+2026-10-13T22:07:47.8090183Z There is NO WARRANTY, to the extent permitted by law.
+2026-10-13T22:07:47.8097427Z zsh 5.8.1 (x86_64-ubuntu-linux-gnu)
+2026-10-13T22:07:47.8104182Z LANG=C.UTF-8
+2026-10-13T22:07:47.8104394Z LANGUAGE=
+2026-10-13T22:07:47.8104608Z LC_CTYPE="C.UTF-8"
+2026-10-13T22:07:47.8104849Z LC_NUMERIC="C.UTF-8"
+2026-10-13T22:07:47.8105081Z LC_TIME="C.UTF-8"
+2026-10-13T22:07:47.8105362Z LC_COLLATE="C.UTF-8"
+2026-10-13T22:07:47.8105602Z LC_MONETARY="C.UTF-8"
+2026-10-13T22:07:47.8105816Z LC_MESSAGES="C.UTF-8"
+2026-10-13T22:07:47.8106038Z LC_PAPER="C.UTF-8"
+2026-10-13T22:07:47.8106248Z LC_NAME="C.UTF-8"
+2026-10-13T22:07:47.8106449Z LC_ADDRESS="C.UTF-8"
+2026-10-13T22:07:47.8106663Z LC_TELEPHONE="C.UTF-8"
+2026-10-13T22:07:47.8106886Z LC_MEASUREMENT="C.UTF-8"
+2026-10-13T22:07:47.8107123Z LC_IDENTIFICATION="C.UTF-8"
+2026-10-13T22:07:47.8107378Z LC_ALL=C.UTF-8
+2026-10-13T22:07:48.2111226Z [1m[32m    Updating[0m crates.io index
+2026-10-13T22:07:49.6116776Z [1m[32m   Compiling[0m cosh-types v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-types)
+2026-10-13T22:07:49.6127630Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:07:50.1319158Z [1m[32m   Compiling[0m cosh-platform v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-platform)
+2026-10-13T22:08:08.9896176Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 21.15s
+2026-10-13T22:08:09.0083487Z [1m[32m     Running[0m tests/cli_tools.rs (target/debug/deps/cli_tools-ced9ff33e9a4015e)
+2026-10-13T22:08:09.0095277Z 
+2026-10-13T22:08:09.0095644Z running 3 tests
+2026-10-13T22:08:09.0509170Z test unknown_tools_fail_before_authentication ... ok
+2026-10-13T22:08:09.0660679Z test configured_mcp_tool_selection_remains_valid ... ok
+2026-10-13T22:08:09.0903607Z test empty_tools_remain_valid ... ok
+2026-10-13T22:08:09.0903867Z 
+2026-10-13T22:08:09.0904174Z test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+2026-10-13T22:08:09.0904574Z 
+2026-10-13T22:08:09.2903868Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:09.8276221Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.72s
+2026-10-13T22:08:09.8452486Z [1m[32m     Running[0m tests/compaction_activity.rs (target/debug/deps/compaction_activity-bf81d468d2461ed0)
+2026-10-13T22:08:09.8463814Z 
+2026-10-13T22:08:09.8463927Z running 1 test
+2026-10-13T22:08:10.2061404Z test blocked_compaction_survives_another_process_age_sweep ... ok
+2026-10-13T22:08:10.2061736Z 
+2026-10-13T22:08:10.2061989Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s
+2026-10-13T22:08:10.2062307Z 
+2026-10-13T22:08:10.4048307Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:10.8929663Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.67s
+2026-10-13T22:08:10.9104354Z [1m[32m     Running[0m tests/compaction_lifecycle.rs (target/debug/deps/compaction_lifecycle-3f646e7f5dd90978)
+2026-10-13T22:08:10.9115912Z 
+2026-10-13T22:08:10.9116019Z running 9 tests
+2026-10-13T22:08:10.9448962Z test auto_compact_argument_combinations_fail_closed ... ok
+2026-10-13T22:08:11.0766458Z test compact_without_resume_or_with_disabled_policy_is_rejected ... ok
+2026-10-13T22:08:11.1996621Z test manual_compact_succeeds_with_one_complete_run ... ok
+2026-10-13T22:08:11.2544461Z test automatic_idle_compaction_triggers_past_the_soft_threshold ... ok
+2026-10-13T22:08:11.2909761Z test emergency_preflight_recovers_under_the_default_recent_run_protection ... ok
+2026-10-13T22:08:11.4077941Z test provider_failure_never_commits_a_projection ... ok
+2026-10-13T22:08:11.4340199Z test automatic_idle_compaction_waits_for_a_compactable_run ... ok
+2026-10-13T22:08:11.7799702Z test manual_compact_preserves_identity_and_appends_after_restart ... ok
+2026-10-13T22:08:11.8519676Z test emergency_preflight_protects_oversized_tool_free_runs ... ok
+2026-10-13T22:08:11.8520019Z 
+2026-10-13T22:08:11.8520405Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.94s
+2026-10-13T22:08:11.8520777Z 
+2026-10-13T22:08:12.0496181Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:12.3526075Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.49s
+2026-10-13T22:08:12.3700059Z [1m[32m     Running[0m tests/core_version.rs (target/debug/deps/core_version-fab950055ede0290)
+2026-10-13T22:08:12.3711144Z 
+2026-10-13T22:08:12.3711270Z running 1 test
+2026-10-13T22:08:12.3754148Z test version_flag_exits_zero_and_prints_name_version ... ok
+2026-10-13T22:08:12.3754542Z 
+2026-10-13T22:08:12.3754808Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+2026-10-13T22:08:12.3755138Z 
+2026-10-13T22:08:12.5719731Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:13.1131806Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.72s
+2026-10-13T22:08:13.1308338Z [1m[32m     Running[0m tests/jsonl_protocol.rs (target/debug/deps/jsonl_protocol-b77d63c0ed9ea9ec)
+2026-10-13T22:08:13.1320571Z 
+2026-10-13T22:08:13.1321368Z running 19 tests
+2026-10-13T22:08:13.1539178Z test checkpoint_brokered_profile_acks_exact_v4_inventory ... ok
+2026-10-13T22:08:13.1590414Z test checkpoint_brokered_profile_rejects_v3_identity_without_fallback ... ok
+2026-10-13T22:08:13.1610820Z test gateway_brokered_profile_acks_v3_without_initializing_local_runtime ... ok
+2026-10-13T22:08:13.1614302Z test gateway_brokered_profile_rejects_runtime_and_registry_mutation ... ok
+2026-10-13T22:08:13.2244702Z test headless_extension_info_reports_current_runtime_projection ... ok
+2026-10-13T22:08:13.2443563Z test invalid_jsonl_input_returns_error_and_fails ... ok
+2026-10-13T22:08:13.2800957Z test gateway_brokered_profile_rejects_legacy_or_missing_ack_without_fallback ... ok
+2026-10-13T22:08:13.2998521Z test initialize_returns_system_init ... ok
+2026-10-13T22:08:13.3255724Z test headless_registry_reload_publishes_into_the_live_generation ... ok
+2026-10-13T22:08:13.3264585Z test shutdown_terminates_process ... ok
+2026-10-13T22:08:13.3403058Z test initial_extension_session_hook_is_registered_once ... ok
+2026-10-13T22:08:13.3416505Z test unsupported_initialize_version_fails_loud ... ok
+2026-10-13T22:08:13.3530195Z test output_format_matches_cosh_shell_expectations ... ok
+2026-10-13T22:08:13.3619588Z test workspace_write_brokered_profile_acks_exact_v5_inventory ... ok
+2026-10-13T22:08:13.4335410Z test versioned_initialize_returns_negotiated_version ... ok
+2026-10-13T22:08:13.4514299Z test initialize_can_skip_session_start_hooks_for_one_shot_transport ... ok
+2026-10-13T22:08:13.4559655Z test user_message_returns_assistant_and_result ... ok
+2026-10-13T22:08:13.4872489Z test user_message_cannot_replace_initialized_session_id ... ok
+2026-10-13T22:08:13.5172102Z test generic_headless_ignores_untrusted_raw_user_input_for_hooks ... ok
+2026-10-13T22:08:13.5172424Z 
+2026-10-13T22:08:13.5172668Z test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s
+2026-10-13T22:08:13.5173040Z 
+2026-10-13T22:08:13.7174483Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:15.5330044Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 2.00s
+2026-10-13T22:08:15.5508803Z [1m[32m     Running[0m tests/oauth_mcp.rs (target/debug/deps/oauth_mcp-73302108665c829f)
+2026-10-13T22:08:15.5521213Z 
+2026-10-13T22:08:15.5521643Z running 2 tests
+2026-10-13T22:08:15.6134839Z test mcp_inspect_does_not_reuse_credentials_after_endpoint_changes ... ok
+2026-10-13T22:08:15.6196789Z test mcp_login_completes_discovery_registration_and_callback ... ok
+2026-10-13T22:08:15.6197124Z 
+2026-10-13T22:08:15.6197394Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+2026-10-13T22:08:15.6197718Z 
+2026-10-13T22:08:15.8171544Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:16.3400702Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.70s
+2026-10-13T22:08:16.3576062Z [1m[32m     Running[0m tests/project_config_hooks.rs (target/debug/deps/project_config_hooks-483916e73eedbe06)
+2026-10-13T22:08:16.3587208Z 
+2026-10-13T22:08:16.3587323Z running 7 tests
+2026-10-13T22:08:16.5175246Z test revoking_trust_in_a_running_core_leaves_no_project_config_hook_running ... ok
+2026-10-13T22:08:16.5208232Z test project_config_still_cannot_widen_core_approval ... ok
+2026-10-13T22:08:16.5319388Z test project_config_hook_is_blocked_without_trust_store ... ok
+2026-10-13T22:08:16.5523463Z test fingerprinted_consent_does_not_cover_project_config_hooks ... ok
+2026-10-13T22:08:16.5554978Z test legacy_bare_root_does_not_cover_project_config_hooks ... ok
+2026-10-13T22:08:16.7505618Z test trust_revoke_and_retrust_never_enable_project_config_hooks ... ok
+2026-10-13T22:08:16.8993270Z test edited_project_config_hook_is_not_authorized_by_earlier_consent ... ok
+2026-10-13T22:08:16.8993712Z 
+2026-10-13T22:08:16.8994013Z test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.54s
+2026-10-13T22:08:16.8994396Z 
+2026-10-13T22:08:17.0973249Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:18.1854855Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 1.27s
+2026-10-13T22:08:18.2032629Z [1m[32m     Running[0m tests/registry_protocol.rs (target/debug/deps/registry_protocol-8bfcf83da6807965)
+2026-10-13T22:08:18.2044274Z 
+2026-10-13T22:08:18.2044632Z running 31 tests
+2026-10-13T22:08:18.2121249Z test registry_auth_activate_clears_a_stale_model ... ok
+2026-10-13T22:08:18.2122172Z test bare_registry_reports_env_only_auth_as_satisfied ... ok
+2026-10-13T22:08:18.2125259Z test registry_auth_delete_removes_user_provider_and_credentials ... ok
+2026-10-13T22:08:18.2126562Z test registry_auth_configure_rejects_invalid_base_url_without_writing_config ... ok
+2026-10-13T22:08:18.2172470Z test bare_registry_does_not_discover_project_skills ... ok
+2026-10-13T22:08:18.2200825Z test registry_auth_state_merges_user_auth_with_project_preferences ... ok
+2026-10-13T22:08:18.2202315Z test registry_auth_state_includes_localized_provider_guidance ... ok
+2026-10-13T22:08:18.2407007Z test registry_extension_info_reports_declared_agents_as_non_executable ... ok
+2026-10-13T22:08:18.2549975Z test mock_server_without_connection_times_out ... ok
+2026-10-13T22:08:18.2627267Z test registry_extensions_detail_nonexistent_returns_error ... ok
+2026-10-13T22:08:18.2707429Z test registry_extensions_git_install_rejects_non_https_source ... ok
+2026-10-13T22:08:18.2813906Z test registry_auth_configure_writes_home_config_only ... ok
+2026-10-13T22:08:18.2921086Z test registry_extensions_new_creates_valid_scaffold_without_installing_it ... ok
+2026-10-13T22:08:18.2924892Z test registry_extensions_list_returns_success ... ok
+2026-10-13T22:08:18.2959967Z test registry_commit_rolls_back_when_required_runtime_health_fails ... ok
+2026-10-13T22:08:18.2969106Z test registry_auth_rejects_unusable_aliyun_model_without_writing_config ... ok
+2026-10-13T22:08:18.3026430Z test registry_hooks_list_returns_success ... ok
+2026-10-13T22:08:18.3093256Z test registry_skills_detail_nonexistent_returns_error ... ok
+2026-10-13T22:08:18.3218928Z test registry_skills_discovers_custom_system_prefix ... ok
+2026-10-13T22:08:18.3229133Z test registry_auth_rejects_missing_aliyun_role_without_writing_config ... ok
+2026-10-13T22:08:18.3248724Z test registry_auth_preflight_rejection_is_classified_without_writing_config ... ok
+2026-10-13T22:08:18.3293936Z test registry_skills_list_returns_success ... ok
+2026-10-13T22:08:18.3333244Z test registry_unknown_domain_returns_error ... ok
+2026-10-13T22:08:18.3351042Z test registry_unsupported_action_returns_error ... ok
+2026-10-13T22:08:18.3376731Z test registry_enable_rolls_back_when_required_runtime_health_fails ... ok
+2026-10-13T22:08:18.3616081Z test registry_skills_discovers_raw_user_data_directory ... ok
+2026-10-13T22:08:18.3652155Z test registry_extension_settings_parse_persist_and_fallback ... ok
+2026-10-13T22:08:18.3655017Z test registry_extensions_report_desired_effective_and_health ... ok
+2026-10-13T22:08:18.3889501Z test registry_workspace_settings_require_existing_project_trust ... ok
+2026-10-13T22:08:18.4103484Z test registry_required_setting_unset_rolls_back_unhealthy_candidate ... ok
+2026-10-13T22:08:18.4264595Z test registry_extensions_path_copy_requires_preflight_commit ... ok
+2026-10-13T22:08:18.4264940Z 
+2026-10-13T22:08:18.4265213Z test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+2026-10-13T22:08:18.4265656Z 
+2026-10-13T22:08:18.6237313Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:19.7533376Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 1.31s
+2026-10-13T22:08:19.7705752Z [1m[32m     Running[0m tests/session_recovery.rs (target/debug/deps/session_recovery-6764f3cb377187aa)
+2026-10-13T22:08:19.7716252Z 
+2026-10-13T22:08:19.7716506Z running 45 tests
+2026-10-13T22:08:19.9498277Z test activity::explicit_clear_is_not_revived_by_an_active_runtime ... ok
+2026-10-13T22:08:19.9510654Z test authentication_selected_model_initializes_new_session ... ok
+2026-10-13T22:08:19.9583492Z test activity::second_resume_is_bounded_and_does_not_change_the_active_envelope ... ok
+2026-10-13T22:08:19.9662416Z test management_clear_all_includes_workspace_owned_legacy_sessions ... ok
+2026-10-13T22:08:19.9752516Z test management_clear_in_empty_workspace_reports_not_found ... ok
+2026-10-13T22:08:20.0804367Z test disabled_auto_persist_marks_session_non_resumable ... ok
+2026-10-13T22:08:20.1558982Z test activity::unreadable_scope_refuses_new_optional_persistence ... ok
+2026-10-13T22:08:20.2629264Z test management_clear_requires_an_explicit_protection_set ... ok
+2026-10-13T22:08:20.2810651Z test activity::first_commit_holds_the_live_lease_while_waiting_for_the_user_budget_lock ... ok
+2026-10-13T22:08:20.3638283Z test management_clear_rejects_cross_workspace_scoped_directory_symlink ... ok
+2026-10-13T22:08:20.4346546Z test management_list_bounds_prompt_preview_on_wire ... ok
+2026-10-13T22:08:20.4524771Z test management_rejects_oversized_or_malformed_input_as_invalid_request ... ok
+2026-10-13T22:08:20.4918962Z test management_list_skips_unreadable_entry_without_hiding_healthy_session ... ok
+2026-10-13T22:08:20.5864498Z test activity::first_commit_sync_failures_preserve_only_published_controls ... ok
+2026-10-13T22:08:20.6116066Z test activity::active_process_survives_expiration_then_its_exit_allows_reclamation ... ok
+2026-10-13T22:08:20.6216215Z test process_cwd_legacy_session_cannot_be_claimed_by_another_workspace ... ok
+2026-10-13T22:08:20.6865040Z test management_mode_lists_validates_and_protects_without_provider_auth ... ok
+2026-10-13T22:08:20.7481698Z test management_list_cursor_survives_deleted_previous_page ... ok
+2026-10-13T22:08:20.8353915Z test pre_workspace_default_session_is_discovered_and_migrated ... ok
+2026-10-13T22:08:20.8675381Z test persistence_conflict_emits_structured_persist_failure ... ok
+2026-10-13T22:08:21.0201563Z test management_summaries_bound_oversized_model_metadata_on_wire ... ok
+2026-10-13T22:08:21.1435706Z test quota::active_relative_legacy_survives_other_workspace_sweep_until_exit ... ok
+2026-10-13T22:08:21.2173326Z test quota::custom_roots_preserve_unowned_workspace_message_arrays ... ok
+2026-10-13T22:08:21.3121831Z test quota::missing_resume_preserves_preexisting_and_held_activity_files ... ok
+2026-10-13T22:08:22.4451631Z test quota::historical_legacy_directory_recreation_does_not_authorize_cleanup ... ok
+2026-10-13T22:08:23.0626577Z test quota::relative_roots_age_workspace_and_flat_legacy_arrays ... ok
+2026-10-13T22:08:24.1691422Z test management_clear_all_pages_stay_below_shell_output_limit ... ok
+2026-10-13T22:08:24.2320853Z test quota::repeated_missing_resumes_leave_no_new_activity_control_files ... ok
+2026-10-13T22:08:24.5669322Z test activity::two_process_writers_share_one_remaining_envelope_of_budget ... ok
+2026-10-13T22:08:24.6473221Z test quota::stale_workspace_without_legacy_ownership_does_not_block_another_workspace ... ok
+2026-10-13T22:08:24.9379927Z test quota::unversioned_location_markers_refuse_sweeps_without_deleting_data ... ok
+2026-10-13T22:08:25.1945007Z test recoverable_provider_error_still_persists_mutated_history ... ok
+2026-10-13T22:08:25.3403255Z test requested_workspace_controls_project_session_config ... ok
+2026-10-13T22:08:25.5964022Z test resume_absence::missing_resumes_across_workspaces_preserve_directories_and_location_index ... ok
+2026-10-13T22:08:26.0302794Z test resume_bounds_oversized_persisted_model_in_init ... ok
+2026-10-13T22:08:26.2982015Z test quota::corrupt_legacy_with_a_clock_remains_accounted_and_is_not_evicted ... ok
+2026-10-13T22:08:26.2982997Z test resume_explicit_model_overrides_persisted_model ... ok
+2026-10-13T22:08:26.5678878Z test session_control_loads_persist_dir_from_requested_workspace ... ok
+2026-10-13T22:08:26.7102738Z test second_process_resumes_model_visible_history ... ok
+2026-10-13T22:08:27.3536343Z test quota::clear_and_commit_share_the_snapshot_lock_and_freed_space_is_retried ... ok
+2026-10-13T22:08:27.3556173Z test quota::relative_roots_share_the_user_budget_and_count_both_legacy_locations ... ok
+2026-10-13T22:08:27.8138711Z test quota::rejected_fresh_processes_leave_no_new_controls ... ok
+2026-10-13T22:08:29.6328126Z test quota::recreated_historical_arrays_do_not_consume_the_budget ... ok
+2026-10-13T22:08:32.0785019Z test quota::unowned_workspace_arrays_do_not_consume_custom_root_budget ... ok
+2026-10-13T22:08:45.7720519Z test quota::lost_legacy_deletion_markers_keep_same_directory_bytes_in_the_user_budget ... ok
+2026-10-13T22:08:45.7720981Z 
+2026-10-13T22:08:45.7721231Z test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 26.00s
+2026-10-13T22:08:45.7721565Z 
+2026-10-13T22:08:45.9763776Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:46.3228130Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.53s
+2026-10-13T22:08:46.3403468Z [1m[32m     Running[0m tests/sigint.rs (target/debug/deps/sigint-216e3e080098fe4a)
+2026-10-13T22:08:46.3413368Z 
+2026-10-13T22:08:46.3413685Z running 1 test
+2026-10-13T22:08:46.4948362Z test sigint_exits_when_inherited_as_ignored ... ok
+2026-10-13T22:08:46.4948694Z 
+2026-10-13T22:08:46.4949078Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+2026-10-13T22:08:46.4949641Z 
+2026-10-13T22:08:46.6923478Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:47.0878562Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.58s
+2026-10-13T22:08:47.1054001Z [1m[32m     Running[0m tests/sls_integration.rs (target/debug/deps/sls_integration-575c8f3b76dddb45)
+2026-10-13T22:08:47.1065490Z 
+2026-10-13T22:08:47.1065594Z running 2 tests
+2026-10-13T22:08:47.2343176Z test sls_not_created_when_missing ... ok
+2026-10-13T22:08:47.2351007Z test user_message_produces_sls_record ... ok
+2026-10-13T22:08:47.2351267Z 
+2026-10-13T22:08:47.2351572Z test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+2026-10-13T22:08:47.2351976Z 
+2026-10-13T22:08:47.4346327Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:47.9062200Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.66s
+2026-10-13T22:08:47.9238569Z [1m[32m     Running[0m tests/telemetry_upload.rs (target/debug/deps/telemetry_upload-349d9091ad48eafa)
+2026-10-13T22:08:47.9250065Z 
+2026-10-13T22:08:47.9250183Z running 1 test
+2026-10-13T22:08:48.0818807Z test standalone_self_upload_posts_to_local_server ... ok
+2026-10-13T22:08:48.0819138Z 
+2026-10-13T22:08:48.0819433Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+2026-10-13T22:08:48.0819858Z 
+2026-10-13T22:08:48.2785924Z [1m[32m   Compiling[0m cosh-core v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-core)
+2026-10-13T22:08:48.7343415Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 0.64s
+2026-10-13T22:08:48.7518715Z [1m[32m     Running[0m tests/tool_approval.rs (target/debug/deps/tool_approval-8edbaf2505190ba4)
+2026-10-13T22:08:48.7530571Z 
+2026-10-13T22:08:48.7530879Z running 10 tests
+2026-10-13T22:08:48.8696807Z test config_override_approval_mode ... ok
+2026-10-13T22:08:48.8708150Z test session_id_from_user_message_cannot_replace_initialized_identity ... ok
+2026-10-13T22:08:48.8857650Z test assistant_text_format_matches_cosh_shell ... ok
+2026-10-13T22:08:48.8913977Z test initialize_then_shutdown ... ok
+2026-10-13T22:08:48.8926677Z test result_has_duration_ms ... ok
+2026-10-13T22:08:48.8943361Z test session_start_hook_emits_notification ... ok
+2026-10-13T22:08:48.9459484Z test one_shot_prompt_ask_accepts_an_approval_response ... ok
+2026-10-13T22:08:48.9567134Z test switch_model_changes_reported_model ... ok
+2026-10-13T22:08:48.9980931Z test user_message_produces_result ... ok
+2026-10-13T22:08:49.9113278Z test one_shot_prompt_ask_times_out_with_open_stdin ... ok
+2026-10-13T22:08:49.9113770Z 
+2026-10-13T22:08:49.9114212Z test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.16s
+2026-10-13T22:08:49.9114803Z 
+2026-10-13T22:08:50.1112479Z [1m[32m   Compiling[0m cosh-shell v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell)
+2026-10-13T22:09:19.7180458Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 29.79s
+2026-10-13T22:09:19.7289465Z [1m[32m     Running[0m tests/logic.rs (target/debug/deps/logic-fc714e50b77e9674)
+2026-10-13T22:09:19.7300098Z 
+2026-10-13T22:09:19.7300376Z running 9 tests
+2026-10-13T22:09:19.7303159Z test session_recovery::active_and_selected_provider_sessions_are_both_protected ... ok
+2026-10-13T22:09:19.7304251Z test session_recovery::recovery_states_and_health_have_stable_user_labels ... ok
+2026-10-13T22:09:19.7305141Z test session_recovery::picker_footer_keeps_resume_and_clear_semantics_distinct ... ok
+2026-10-13T22:09:19.7406994Z test tools::readonly_tool_executes_tokenized_command_without_shell ... ok
+2026-10-13T22:09:19.7407618Z test tools::readonly_tool_does_not_interpret_shell_syntax_in_tokens ... ok
+2026-10-13T22:09:19.7408192Z test tools::shell_expands_globs_so_verbatim_token_assertions_are_not_vacuous ... ok
+2026-10-13T22:09:19.7408705Z test tools::user_approved_tool_runs_shell_syntax_through_bash ... ok
+2026-10-13T22:09:20.7362055Z test tools::user_approved_tool_has_no_default_timeout ... ok
+2026-10-13T22:09:21.7339241Z test tools::user_approved_tool_honors_configured_timeout ... ok
+2026-10-13T22:09:21.7339582Z 
+2026-10-13T22:09:21.7339832Z test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.00s
+2026-10-13T22:09:21.7340603Z 
+2026-10-13T22:09:21.8681143Z [1m[32m   Compiling[0m cosh-shell v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell)
+2026-10-13T22:09:24.3862730Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 2.64s
+2026-10-13T22:09:24.3970145Z [1m[32m     Running[0m tests/protocol.rs (target/debug/deps/protocol-0302d2c7fe2f39f4)
+2026-10-13T22:09:24.3983682Z 
+2026-10-13T22:09:24.4299269Z running 83 tests
+2026-10-13T22:09:24.4300124Z test claude_stream::claude_code_adapter_reads_question_options_from_permission_request ... ok
+2026-10-13T22:09:24.4301218Z test claude_stream::claude_code_adapter_streams_question_options_from_input_json_delta ... ok
+2026-10-13T22:09:24.4302211Z test claude_stream::claude_code_adapter_reuses_stream_session_id_on_next_invocation ... ok
+2026-10-13T22:09:24.4340668Z test control::approval_round_trip::control_protocol_allow_round_trip ... ok
+2026-10-13T22:09:24.4347973Z test control::approval_round_trip::control_protocol_cancel_while_waiting_for_approval_finishes ... ok
+2026-10-13T22:09:24.4353242Z test control::approval_round_trip::control_protocol_deny_round_trip ... ok
+2026-10-13T22:09:24.4376428Z test control::approval_round_trip::control_protocol_claude_allow_uses_tool_input ... ok
+2026-10-13T22:09:24.4414539Z test control::approval_round_trip::control_protocol_session_id_captured ... ok
+2026-10-13T22:09:24.4431100Z test control::approval_round_trip::control_protocol_multi_tool_approval ... ok
+2026-10-13T22:09:24.4454153Z test control::host_executed::qwen_control_protocol_records_initialize_capabilities ... ok
+2026-10-13T22:09:24.4455050Z test control::host_executed::respond_approval_fails_without_sender ... ok
+2026-10-13T22:09:24.4646918Z test control::host_executed::cosh_core_analysis_continuation_denies_reentrant_shell_request ... ok
+2026-10-13T22:09:24.4658161Z test control::host_executed::cosh_core_host_executed_shell_result_uses_control_response ... ok
+2026-10-13T22:09:24.4716376Z test control::initialize_wire::cosh_core_initialize_carries_protocol_version_and_capabilities ... ok
+2026-10-13T22:09:24.4719182Z test control::provider_modes::qwen_auto_uses_control_approval_channel ... ok
+2026-10-13T22:09:24.4727252Z test control::host_executed::cosh_core_multi_host_executed_shell_results_stay_in_same_control_turn ... ok
+2026-10-13T22:09:24.4736276Z test control::provider_modes::qwen_recommend_uses_stream_prompt_with_closed_stdin ... ok
+2026-10-13T22:09:24.4929009Z test control::provider_modes::cosh_core_auto_uses_control_approval_channel ... ok
+2026-10-13T22:09:24.4943198Z 
+2026-10-13T22:09:24.4943310Z running 1 test
+2026-10-13T22:09:24.5199596Z test ecs_probe::probe_cleanup_with_ignored_sigchld ... ok
+2026-10-13T22:09:24.5199924Z 
+2026-10-13T22:09:24.5200300Z test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 82 filtered out; finished in 0.03s
+2026-10-13T22:09:24.5200945Z 
+2026-10-13T22:09:24.5202536Z test ecs_probe::probe_cleanup_with_ignored_sigchld ... ok
+2026-10-13T22:09:24.9753408Z test ecs_probe::configure_response_does_not_wait_indefinitely_for_process_exit ... ok
+2026-10-13T22:09:24.9828349Z test ecs_probe::dropping_a_probe_cancels_and_joins_it ... ok
+2026-10-13T22:09:25.4001288Z test ecs_probe::fifty_cancellations_reap_each_owned_child ... ok
+2026-10-13T22:09:25.4086475Z test ecs_probe::probe_returns_only_after_its_child_is_reaped ... ok
+2026-10-13T22:09:25.4172492Z test ecs_probe::response_without_process_exit_does_not_block_reaping ... ok
+2026-10-13T22:09:25.4546583Z test provider_lifecycle::active_load_failure_preserves_unrelated_selection_for_every_runner ... ok
+2026-10-13T22:09:25.4627842Z test provider_lifecycle::active_persistence_failure_releases_resume_for_every_runner ... ok
+2026-10-13T22:09:25.4714158Z test provider_lifecycle::active_resume_identity_mismatch_is_rejected_for_every_runner ... ok
+2026-10-13T22:09:25.4890712Z test provider_lifecycle::cancelled_max_turn_run_commits_no_fresh_persistent_session ... ok
+2026-10-13T22:09:25.4901909Z test provider_lifecycle::claude_provider_lifecycle_cancellable_process_emits_cancelled_event ... ok
+2026-10-13T22:09:25.5070969Z test provider_lifecycle::cancelled_async_runners_apply_already_parsed_session_failure ... ok
+2026-10-13T22:09:25.5443836Z test provider_lifecycle::cosh_core_active_load_failure_releases_resume_for_every_runner ... ok
+2026-10-13T22:09:25.5761251Z test provider_lifecycle::cancelled_selected_runners_preserve_already_parsed_session_failure ... ok
+2026-10-13T22:09:25.5971647Z test provider_lifecycle::cosh_core_async_restore_identity_failure_replaces_completed_event ... ok
+2026-10-13T22:09:25.6286705Z test provider_lifecycle::cosh_core_async_restore_preserves_provider_result_error ... ok
+2026-10-13T22:09:25.7607047Z test provider_lifecycle::cosh_core_async_read_error_terminates_and_reaps_provider ... ok
+2026-10-13T22:09:25.7873635Z test provider_lifecycle::cosh_core_drop_during_active_turn_emits_cancelled_not_error ... ok
+2026-10-13T22:09:25.8138578Z test provider_lifecycle::cosh_core_drop_during_selected_restore_records_no_transport_error ... ok
+2026-10-13T22:09:25.8404499Z test provider_lifecycle::cosh_core_drop_with_unanswered_question_emits_cancelled_not_error ... ok
+2026-10-13T22:09:25.8669794Z test provider_lifecycle::cosh_core_pending_question_nonzero_exit_reports_only_protocol_failure ... ok
+2026-10-13T22:09:25.8936003Z test provider_lifecycle::cosh_core_persistent_user_message_carries_raw_input_separately ... ok
+2026-10-13T22:09:25.9202931Z test provider_lifecycle::cosh_core_rejects_unsupported_initialize_before_user_turn ... ok
+2026-10-13T22:09:26.6107526Z test provider_lifecycle::cosh_core_cancel_after_completed_result_emits_only_cancelled ... ok
+2026-10-13T22:09:26.8650703Z test provider_lifecycle::cosh_core_sync_read_error_terminates_and_reaps_provider ... ok
+2026-10-13T22:09:26.9179295Z test provider_lifecycle::cosh_core_sync_reaps_descendant_that_inherits_output_pipes ... ok
+2026-10-13T22:09:26.9204865Z test provider_lifecycle::cosh_core_sync_restore_identity_failure_replaces_completed_event ... ok
+2026-10-13T22:09:26.9227282Z test provider_lifecycle::cosh_core_sync_restore_preserves_provider_result_error ... ok
+2026-10-13T22:09:27.1766342Z test provider_lifecycle::cosh_core_sync_sink_error_terminates_and_reaps_provider ... ok
+2026-10-13T22:09:27.5015652Z test provider_lifecycle::cosh_core_sync_drains_child_output_while_writing_large_prompt ... ok
+2026-10-13T22:09:27.5044619Z test provider_lifecycle::cosh_core_sync_user_message_carries_raw_input_and_skips_session_start ... ok
+2026-10-13T22:09:27.5603846Z test provider_lifecycle::disable_resume_hint_preserves_selection_for_every_runner ... ok
+2026-10-13T22:09:27.6084785Z test provider_lifecycle::cosh_core_sync_stdin_write_failure_cleans_up_and_preserves_recovery_state ... ok
+2026-10-13T22:09:27.6167025Z test provider_lifecycle::disabled_resume_non_resumable_turn_preserves_unattempted_ids_for_every_runner ... ok
+2026-10-13T22:09:27.6314930Z test provider_lifecycle::cosh_core_cancelled_non_resumable_restore_preserves_previous_active_session ... ok
+2026-10-13T22:09:27.6432006Z test provider_lifecycle::non_resumable_max_turn_failure_commits_no_persistent_service_session ... ok
+2026-10-13T22:09:27.6452942Z test provider_lifecycle::ordinary_active_provider_failure_keeps_committed_resume ... ok
+2026-10-13T22:09:27.6474288Z test provider_lifecycle::ordinary_provider_error_marker_cannot_release_active_resume ... ok
+2026-10-13T22:09:27.6606764Z test provider_lifecycle::max_turn_failure_keeps_the_persistent_service_session_active_for_continuation ... ok
+2026-10-13T22:09:27.6738001Z test provider_lifecycle::ordinary_service_failure_commits_no_persistent_session ... ok
+2026-10-13T22:09:27.6870864Z test provider_lifecycle::persist_phase_max_turn_failure_commits_no_persistent_session ... ok
+2026-10-13T22:09:27.6959015Z test provider_lifecycle::provider_drivers_emit_one_completed_terminal ... ok
+2026-10-13T22:09:27.7044985Z test provider_lifecycle::provider_drivers_emit_one_failed_terminal ... ok
+2026-10-13T22:09:27.7132931Z test provider_lifecycle::provider_drivers_nonzero_exit_emits_one_failed_terminal ... ok
+2026-10-13T22:09:27.7144221Z test provider_lifecycle::qwen_provider_lifecycle_cancellable_process_emits_cancelled_event ... ok
+2026-10-13T22:09:27.7159143Z test provider_lifecycle::qwen_provider_lifecycle_commits_session_only_after_successful_completion ... ok
+2026-10-13T22:09:27.7174144Z test provider_lifecycle::qwen_provider_lifecycle_does_not_commit_session_after_provider_failure ... ok
+2026-10-13T22:09:27.7355754Z test provider_lifecycle::non_resumable_service_process_commits_no_session_on_later_turns ... ok
+2026-10-13T22:09:27.8269182Z test provider_lifecycle::selected_structured_failures_preserve_metadata_for_every_runner ... ok
+2026-10-13T22:09:27.8818991Z test provider_lifecycle::structured_session_failure_survives_nonzero_exit_for_every_runner ... ok
+2026-10-13T22:09:28.0015754Z test provider_lifecycle::structured_session_failure_is_finalized_before_read_error_for_every_runner ... ok
+2026-10-13T22:09:28.0149030Z test session_management::adapter_serializes_clear_with_concurrent_selection ... ok
+2026-10-13T22:09:28.0356777Z test session_management::session_management_client_parses_pages_and_per_item_clear_errors ... ok
+2026-10-13T22:09:28.2877562Z test session_management::session_management_deadline_survives_setsid_descendant_with_output_pipes ... ok
+2026-10-13T22:09:28.3098131Z test session_management::session_management_drains_large_stderr_before_reaping_process ... ok
+2026-10-13T22:09:28.3683864Z test session_management::session_management_paginates_clear_all_and_batches_clear_requests ... ok
+2026-10-13T22:09:28.3916086Z test session_management::session_management_preserves_partial_clear_results_after_later_batch_failure ... ok
+2026-10-13T22:09:28.3926069Z test session_management::session_management_deadline_survives_setsid_descendant_holding_stdin ... ok
+2026-10-13T22:09:28.4036592Z test session_management::session_management_reaps_descendant_that_inherits_output_pipes ... ok
+2026-10-13T22:09:28.4559256Z test session_management::session_management_rejects_bounded_stdout_and_stderr_overflow ... ok
+2026-10-13T22:09:29.2120030Z test session_management::session_management_timeout_kills_term_ignoring_process ... ok
+2026-10-13T22:09:29.2970664Z test session_management::session_management_write_failure_terminates_and_reaps_process ... ok
+2026-10-13T22:09:30.4230690Z test ecs_probe::silent_probe_times_out_and_reaps_its_child ... ok
+2026-10-13T22:09:30.6636793Z test session_management::session_management_timeout_covers_blocked_request_write ... ok
+2026-10-13T22:09:40.0035320Z test provider_lifecycle::provider_drivers_cancel_emit_one_cancelled_terminal ... ok
+2026-10-13T22:09:40.0035722Z 
+2026-10-13T22:09:40.0036010Z test result: ok. 83 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.61s
+2026-10-13T22:09:40.0036378Z 
+2026-10-13T22:09:40.1365692Z [1m[32m   Compiling[0m cosh-shell v0.27.0 (/home/runner/actions-runner/_work/ANOLISA/ANOLISA/src/cosh-ng/crates/cosh-shell)
+2026-10-13T22:09:43.7867690Z [1m[32m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 3.77s
+2026-10-13T22:09:43.7976111Z [1m[32m     Running[0m tests/raw_cli.rs (target/debug/deps/raw_cli-bf2a2ca42af3517e)
+2026-10-13T22:09:43.7987778Z 
+2026-10-13T22:09:43.7988167Z running 581 tests
+2026-10-13T22:09:43.9775189Z test activity::raw_cli_missing_details_uses_zh_language_env ... ok
+2026-10-13T22:09:43.9963602Z test agent_input::raw_cli_empty_enter_and_ctrl_c_do_not_start_agent ... ok
+2026-10-13T22:09:44.0027878Z test activity::raw_cli_missing_details_uses_structured_notice_and_keeps_shell_usable ... ok
+2026-10-13T22:09:44.4723922Z test agent_input::raw_cli_non_ascii_agent_input_echoes_before_intercept ... ok
+2026-10-13T22:09:44.6772582Z test agent_input::raw_cli_keeps_batched_path_prompt_shell_owned ... ok
+2026-10-13T22:09:44.7978652Z test agent_input::raw_cli_empty_enter_after_agent_response_does_not_retrigger ... ok
+2026-10-13T22:09:44.9301445Z test activity::raw_cli_activity_details_uses_zh_language_env ... ok
+2026-10-13T22:09:44.9339988Z test activity::raw_cli_details_for_activity_uses_structured_panel ... ok
+2026-10-13T22:09:45.0794335Z test agent_input::raw_cli_passthrough_shortcut_shows_one_time_tip ... ok
+2026-10-13T22:09:45.2853456Z test agent_input::raw_cli_bash_agent_prompt_restore_does_not_duplicate_prompt ... ok
+2026-10-13T22:09:45.3772449Z test agent_input::raw_cli_agent_marker_invokes_adapter_without_failed_command ... ok
+2026-10-13T22:09:45.7585467Z test agent_input::raw_cli_shell_only_keeps_slash_bearing_han_prompt_shell_owned ... ok
+2026-10-13T22:09:45.9884146Z test agent_input::raw_cli_bash_shell_marker_agent_response_does_not_duplicate_prompt ... ok
+2026-10-13T22:09:46.1613631Z test agent_input::raw_cli_routes_slash_leading_path_prompt_in_one_input_batch ... ok
+2026-10-13T22:09:46.4021387Z test agent_input::raw_cli_redacts_cjk_adjacent_secret_in_path_prompt_notice ... ok
+2026-10-13T22:09:46.4747616Z test agent_input::raw_cli_natural_language_omits_recent_command_facts_by_default ... ok
+2026-10-13T22:09:46.7571129Z test agent_input::raw_cli_zsh_keeps_slash_function_after_line_init_mutation_shell_owned ... ok
+2026-10-13T22:09:47.0105333Z test agent_input::raw_cli_zsh_hands_buffered_tab_to_zle_before_follow_up_input ... ok
+2026-10-13T22:09:47.1459343Z test agent_input::raw_cli_zsh_agent_prompt_restore_suppresses_partial_line_marker ... ok
+2026-10-13T22:09:47.2440408Z test agent_input::raw_cli_zsh_keeps_slash_function_after_self_bound_line_init_mutation_shell_owned ... ok
+2026-10-13T22:09:47.5208453Z test agent_input::raw_cli_routes_slash_bearing_han_prompt_before_shell_execution ... ok
+2026-10-13T22:09:47.5776109Z test agent_input::raw_cli_delays_agent_output_while_foreground_command_is_active ... ok
+2026-10-13T22:09:47.7370543Z test agent_input::raw_cli_zh_natural_language_intercept_skips_redundant_notice ... ok
+2026-10-13T22:09:47.9149868Z test agent_input::raw_cli_rejects_physical_cwd_with_trailing_newline ... ok
+2026-10-13T22:09:48.0184010Z test agent_input::raw_cli_zsh_agent_response_restores_prompt_without_empty_command ... ok
+2026-10-13T22:09:48.0620277Z test agent_input::raw_cli_zsh_shell_arg_intercepts_fragmented_natural_language ... ok
+2026-10-13T22:09:48.0782337Z test agent_input::raw_cli_uses_physical_cwd_when_pwd_is_reassigned ... ok
+2026-10-13T22:09:48.3382958Z test agent_input::raw_cli_zsh_shell_arg_intercepts_fragmented_agent_marker ... ok
+2026-10-13T22:09:48.3907475Z test agent_input::routing_c3_explicit_draft_bracketed_paste_newlines_do_not_submit_early ... ok
+2026-10-13T22:09:48.5642020Z test agent_input::routing_c3_wrapped_paste_split_opener_stays_shell_owned ... ok
+2026-10-13T22:09:48.7140368Z test agent_input::raw_cli_keeps_slash_candidate_batch_shell_owned ... ok
+2026-10-13T22:09:48.9658042Z test agent_input::raw_cli_zsh_shell_marker_agent_response_does_not_duplicate_prompt ... ok
+2026-10-13T22:09:49.1885954Z test agent_input::raw_cli_routes_path_prompt_after_shell_cwd_change ... ok
+2026-10-13T22:09:49.2642296Z test agent_input::routing_c3_explicit_draft_shows_composition_hint ... ok
+2026-10-13T22:09:50.2265563Z test agent_input::raw_cli_zsh_keeps_slash_named_function_and_alias_shell_owned ... ok
+2026-10-13T22:09:50.4397739Z test animation::raw_cli_slow_agent_shows_elapsed_heartbeat ... ok
+2026-10-13T22:09:50.9153107Z test agent_input::routing_c3_explicit_draft_soft_newline_composes_multiline_prompt ... ok
+2026-10-13T22:09:51.3951358Z test agent_input::raw_cli_zsh_routes_space_prefixed_path_prompt_before_zle ... ok
+2026-10-13T22:09:51.4698661Z test approval::details::raw_cli_details_approvals_records_denied_not_executed ... ok
+2026-10-13T22:09:51.5401468Z test animation::raw_cli_animation_mode_uses_transient_agent_status ... ok
+2026-10-13T22:09:52.4658640Z test approval::details::raw_cli_details_approvals_records_cancelled_not_executed ... ok
+2026-10-13T22:09:52.8648450Z test approval::details::raw_cli_details_for_approval_uses_structured_panel ... ok
+2026-10-13T22:09:53.4015291Z test agent_input::raw_cli_zsh_routes_fragmented_slash_leading_path_prompt ... ok
+2026-10-13T22:09:55.1458512Z test approval::details::raw_cli_details_for_approval_uses_zh_language_env ... ok
+2026-10-13T22:09:55.4936070Z test approval::details::raw_cli_details_approvals_renders_decision_journal_panel ... ok
+2026-10-13T22:09:55.9742638Z test approval::details::raw_cli_details_approvals_uses_zh_language_env ... ok
+2026-10-13T22:09:56.9072469Z test animation::raw_cli_animation_stops_heartbeat_after_visible_agent_text ... ok
+2026-10-13T22:09:59.2708606Z test approval::foreground::raw_cli_approved_pager_tool_receives_q ... ok
+2026-10-13T22:10:01.6249840Z test approval::foreground::raw_cli_approved_less_tool_hints_before_taking_the_foreground ... ok
+2026-10-13T22:10:03.9792449Z test approval::foreground::raw_cli_approved_less_tool_hints_in_zh_language_env ... ok
+2026-10-13T22:10:05.6413269Z test approval::foreground::raw_cli_approved_repl_tool_receives_followup_lines ... ok
+2026-10-13T22:10:06.8682473Z test approval::foreground::raw_cli_user_typed_git_log_keeps_its_own_pager_configuration ... ok
+2026-10-13T22:10:09.2214342Z test approval::foreground::raw_cli_approved_ssh_tool_receives_foreground_input ... ok
+2026-10-13T22:10:11.1992104Z test approval::foreground::raw_cli_approved_bash_tool_drops_stale_pre_approval_followup ... ok
+2026-10-13T22:10:11.4994481Z test approval::foreground::raw_cli_approved_bash_tool_prints_native_command_and_stdout ... ok
+2026-10-13T22:10:11.6002629Z test approval::foreground::raw_cli_user_approved_pipeline_supports_quoted_multiline_script ... ok
+2026-10-13T22:10:11.6004138Z test approval::foreground::raw_cli_user_approved_bash_tool_supports_pipe ... ok
+2026-10-13T22:10:12.1256958Z test agent_input::raw_cli_non_ascii_shell_input_supports_backspace ... ok
+2026-10-13T22:10:12.4999015Z test approval::foreground::raw_cli_approved_sudo_tool_is_emitted_to_foreground_shell ... ok
+2026-10-13T22:10:12.7994205Z test approval::foreground::raw_cli_streaming_tool_approval_renders_before_agent_finishes ... ok
+2026-10-13T22:10:13.0035366Z test approval::slash_removed::raw_cli_allow_is_removed_and_does_not_record_recommendation_approval ... ok
+2026-10-13T22:10:13.5675692Z test approval::foreground::raw_cli_zsh_user_approved_pipeline_supports_quoted_multiline_script ... ok
+2026-10-13T22:10:14.0993077Z test approval::foreground::raw_cli_approved_git_log_tool_never_waits_for_a_pager ... ok
+2026-10-13T22:10:14.1785997Z test approval::slash_removed::raw_cli_approve_slash_is_not_recommendation_or_governance_alias ... ok
+2026-10-13T22:10:14.6756378Z test approval::details::raw_cli_multiline_bash_tool_is_visible_in_approval_details ... ok
+2026-10-13T22:10:15.0742073Z test approval::input::raw_cli_zsh_turn_batch_consent_serializes_handoffs ... ok
+2026-10-13T22:10:15.3766784Z test approval::foreground::raw_cli_approved_bash_tool_streams_delayed_output_before_analysis ... ok
+2026-10-13T22:10:15.4972702Z test approval::input::raw_cli_approval_application_cursor_arrow_updates_focus ... ok
+2026-10-13T22:10:15.6680596Z test audit::raw_cli_audit_export_forwards_a_destination_containing_spaces ... ok
+2026-10-13T22:10:16.2483962Z test approval::foreground::raw_cli_denied_bash_tool_does_not_render_stale_executed_claim ... ok
+2026-10-13T22:10:17.5400617Z test approval::input::raw_cli_turn_batch_consent_sweeps_queued_requests ... ok
+2026-10-13T22:10:17.9517176Z test approval::status::raw_cli_approval_cancel_records_receipt_and_advances_queue ... ok
+2026-10-13T22:10:18.2032050Z test approval::input::raw_cli_single_request_turn_keeps_standard_actions ... ok
+2026-10-13T22:10:18.9443614Z test approval::status::raw_cli_approval_ctrl_c_cancels_card_without_agent_cancel ... ok
+2026-10-13T22:10:18.9542561Z test approval::status::raw_cli_approval_card_uses_zh_language_env ... ok
+2026-10-13T22:10:19.6543275Z test approval::input::raw_cli_approval_text_input_does_not_confirm_or_leak_to_bash ... ok
+2026-10-13T22:10:20.4155132Z test approval::foreground::raw_cli_denied_bash_tool_uses_zh_language_env ... ok
+2026-10-13T22:10:21.4246157Z test approval::status::raw_cli_zsh_approval_card_capture_does_not_leak_to_shell ... ok
+2026-10-13T22:10:21.7641820Z test auth::raw_cli_auth_esc_on_an_edit_returns_to_the_provider_action_menu ... ok
+2026-10-13T22:10:22.0803641Z test approval::foreground::raw_cli_approved_bash_tool_streams_stderr_to_transcript ... ok
+2026-10-13T22:10:23.5269663Z test auth::raw_cli_auth_esc_preserves_picker_focus_for_the_next_arrow ... ok
+2026-10-13T22:10:30.1161915Z test auth::raw_cli_auth_ecs_keeps_saved_provider_reachable_below_sysom ... ok
+2026-10-13T22:10:30.3702023Z test auth::raw_cli_auth_ecs_promotes_configured_ram_role_provider ... ok
+2026-10-13T22:10:30.3989600Z test auth::raw_cli_auth_dotted_provider_id_can_be_corrected ... ok
+2026-10-13T22:10:31.1219490Z test auth::raw_cli_auth_edits_coding_plan_with_its_original_template ... ok
+2026-10-13T22:10:32.5822342Z test auth::raw_cli_auth_ecs_offers_sysom_first_without_saved_providers ... ok
+2026-10-13T22:10:33.2176114Z test auth::raw_cli_auth_sysom_shortcut_reuses_prefetched_challenge ... ok
+2026-10-13T22:10:33.4766433Z test auth::raw_cli_auth_ctrl_c_mid_form_abandons_the_flow ... ok
+2026-10-13T22:10:33.9294696Z test auth::raw_cli_auth_non_ecs_keeps_saved_providers_then_add_new ... ok
+2026-10-13T22:10:34.2626606Z test auth::raw_cli_auth_non_ecs_aliyun_falls_back_to_manual_keys ... ok
+2026-10-13T22:10:35.6440675Z test auth_ecs::initial_menu_prepare_ctrl_c_reaps_probe_and_worker_in_live_shell ... ok
+2026-10-13T22:10:35.8138616Z test cancellation::raw_cli_cancel_is_intercepted_and_keeps_shell_usable ... ok
+2026-10-13T22:10:35.9847948Z test cancellation::raw_cli_cancel_uses_zh_language_env ... ok
+2026-10-13T22:10:36.0680805Z test cancellation::raw_cli_cancel_stops_active_agent_run_and_keeps_shell_usable ... ok
+2026-10-13T22:10:36.1558968Z test audit::raw_cli_audit_status_is_bounded_and_restores_prompt ... ok
+2026-10-13T22:10:37.1663183Z test cancellation::raw_cli_ctrl_c_cancels_active_agent_without_queueing_generic_failure ... ok
+2026-10-13T22:10:37.7298620Z test auth::raw_cli_auth_failure_keeps_panel_and_never_claims_success ... ok
+2026-10-13T22:10:38.1820836Z test cancellation::raw_cli_ctrl_backslash_recovers_ignored_foreground_command ... ok
+2026-10-13T22:10:38.4746411Z test cancellation::raw_cli_active_cancel_uses_zh_language_env ... ok
+2026-10-13T22:10:39.5888894Z test cancellation::raw_cli_ctrl_c_drops_late_fake_tool_artifact ... ok
+2026-10-13T22:10:39.7465407Z test auth_ecs::ecs_cancel_returns_shell_input_and_allows_a_new_auth_flow ... ok
+2026-10-13T22:10:39.7812013Z test cancellation::raw_cli_ctrl_c_drops_late_provider_cancel_timeout_artifact ... ok
+2026-10-13T22:10:40.0432952Z test auth_ecs::ecs_waiting_becomes_ready_without_another_keypress ... ok
+2026-10-13T22:10:40.8256009Z test auth_ecs::ecs_ready_configures_without_name_or_authorization_confirmation ... ok
+2026-10-13T22:10:40.9892392Z test cancellation::raw_cli_ctrl_c_active_agent_cancel_is_idempotent ... ok
+2026-10-13T22:10:40.9961742Z test cancellation::raw_cli_ctrl_c_drops_late_fake_question_card ... ok
+2026-10-13T22:10:41.9320760Z test cancellation::raw_cli_ctrl_c_drops_unclosed_request_block_before_prompt ... ok
+2026-10-13T22:10:42.2848827Z test auth::raw_cli_auth_non_ecs_without_saved_providers_shows_plan_entries ... ok
+2026-10-13T22:10:42.2968578Z test cancellation::raw_cli_ctrl_c_drops_late_provider_tool_error_artifact ... ok
+2026-10-13T22:10:42.5819040Z test auth::raw_cli_auth_sysom_shortcut_still_validates_provider_id ... ok
+2026-10-13T22:10:43.3917035Z test cancellation::raw_cli_ctrl_c_stops_active_agent_run_and_keeps_shell_usable ... ok
+2026-10-13T22:10:43.5432894Z test cancellation::raw_cli_ctrl_c_interrupts_foreground_command_without_agent_cancel ... ok
+2026-10-13T22:10:43.5479590Z test composer::raw_cli_agent_composer_control_command_hands_input_to_its_card ... ok
+2026-10-13T22:10:43.8884776Z test cancellation::raw_cli_ctrl_c_drops_late_provider_tool_request_artifact ... ok
+2026-10-13T22:10:43.9813543Z test compaction::raw_cli_shell_exit_terminates_running_compactor ... ok
+2026-10-13T22:10:44.3183167Z test cancellation::raw_cli_ctrl_c_does_not_resume_cancelled_provider_session ... ok
+2026-10-13T22:10:44.3791686Z test auth::raw_cli_auth_prepare_failure_falls_back_to_the_existing_menu ... ok
+2026-10-13T22:10:44.7100554Z test composer::raw_cli_agent_composer_health_uses_the_current_shell_workspace ... ok
+2026-10-13T22:10:44.8754184Z test composer::raw_cli_agent_composer_suggests_and_accepts_workspace_paths ... ok
+2026-10-13T22:10:45.5417981Z test composer::raw_cli_agent_composer_enter_executes_the_selected_command ... ok
+2026-10-13T22:10:45.6931843Z test composer::raw_cli_agent_composer_unknown_command_is_local ... ok
+2026-10-13T22:10:46.0209909Z test approval::input::raw_cli_approval_split_arrow_sequence_does_not_cancel ... ok
+2026-10-13T22:10:46.0648543Z test composer::raw_cli_agent_composer_slash_completion_scrolls_to_the_last_command ... ok
+2026-10-13T22:10:46.4338011Z test composer::raw_cli_zsh_agent_composer_cancel_restores_custom_prompt ... ok
+2026-10-13T22:10:46.5538805Z test composer::raw_cli_removed_draft_alias_falls_through_to_shell ... ok
+2026-10-13T22:10:46.8115025Z test composer::raw_cli_composer_change_preserves_bash_path_completion ... ok
+2026-10-13T22:10:46.9491855Z test config::raw_cli_config_env_language_override_does_not_rewrite_file ... ok
+2026-10-13T22:10:47.2181972Z test composer::raw_cli_agent_composer_hidden_controls_restore_prompt_after_their_output ... ok
+2026-10-13T22:10:47.2201845Z test config::raw_cli_invalid_shell_integration_fails_visibly ... ok
+2026-10-13T22:10:47.3570411Z test config::raw_cli_config_summary_ignores_legacy_user_config ... ok
+2026-10-13T22:10:47.5732007Z test compaction::raw_cli_automatic_compaction_chain_binds_revision_and_resumes_once ... ok
+2026-10-13T22:10:48.1292153Z test config::raw_cli_config_language_save_applies_to_current_session_help ... ok
+2026-10-13T22:10:48.5252605Z test config::raw_cli_config_language_selector_cancel_does_not_write_file ... ok
+2026-10-13T22:10:49.1184796Z test cancellation::raw_cli_ctrl_c_archives_provider_cancel_artifact_in_details ... ok
+2026-10-13T22:10:49.2572774Z test compaction::raw_cli_manual_compaction_keeps_shell_usable_and_resumes_agent ... ok
+2026-10-13T22:10:50.3516451Z test compaction::raw_cli_cancel_sigterm_stops_term_honoring_compactor ... ok
+2026-10-13T22:10:53.5654135Z test compaction::raw_cli_cancel_escalates_to_sigkill_for_term_ignoring_compactor ... ok
+2026-10-13T22:10:57.9396323Z test cosh_core::approval_modes::raw_cli_cosh_core_write_permission_details_hide_content_json ... ok
+2026-10-13T22:11:02.2886804Z test cosh_core::approval_modes::raw_cli_cosh_core_trust_without_confirm_does_not_enable_trust ... ok
+2026-10-13T22:11:07.3727327Z test cosh_core::approval_modes::raw_cli_cosh_core_non_shell_permission_passes_allow_only ... ok
+2026-10-13T22:11:09.5879572Z test config::raw_cli_config_summary_reads_language_from_user_config ... ok
+2026-10-13T22:11:10.5745024Z test cosh_core::composer::raw_cli_agent_composer_completes_a_registry_skill_before_submit ... ok
+2026-10-13T22:11:12.2216929Z test config::raw_cli_config_language_selector_saves_after_confirmation ... ok
+2026-10-13T22:11:13.0247871Z test cosh_core::approval_modes::raw_cli_cosh_core_non_shell_permission_deny_does_not_write_or_host_execute ... ok
+2026-10-13T22:11:13.6097093Z test auth::raw_cli_auth_esc_walks_back_through_the_form_before_cancelling ... ok
+2026-10-13T22:11:15.0230861Z test cosh_core::evidence::raw_cli_cosh_core_duplicate_shell_evidence_read_is_marked_duplicate ... ok
+2026-10-13T22:11:15.0232553Z test cosh_core::evidence::raw_cli_cosh_core_control_shell_evidence_suppresses_provider_snapshot ... ok
+2026-10-13T22:11:16.0230601Z test cosh_core::evidence::raw_cli_cosh_core_activity_recap_lists_facts_without_reading_output ... ok
+2026-10-13T22:11:18.0981122Z test cosh_core::approval_modes::raw_cli_cosh_core_approval_mode_argv_maps_to_cosh_core_modes ... ok
+2026-10-13T22:11:18.3400200Z test config::raw_cli_config_language_errors_use_zh_language_env ... ok
+2026-10-13T22:11:19.2760943Z test composer::raw_cli_bash_agent_composer_submits_multiline_request_and_restores_custom_prompt ... ok
+2026-10-13T22:11:20.9742874Z test cosh_core::evidence::raw_cli_cosh_core_shell_evidence_splits_agent_cards ... ok
+2026-10-13T22:11:20.9753424Z test cosh_core::evidence::raw_cli_original_vmstat_top_terminal_output_read_misroute_is_targeted ... ok
+2026-10-13T22:11:21.7738413Z test cosh_core::evidence::raw_cli_cosh_core_recommend_mode_suppresses_shell_evidence_instructions ... ok
+2026-10-13T22:11:22.6740597Z test cosh_core::evidence::raw_cli_cosh_core_list_recent_commands_does_not_read_output ... ok
+2026-10-13T22:11:23.1745186Z test cosh_core::evidence::raw_cli_cosh_core_shell_evidence_home_path_redaction_still_delivers ... ok
+2026-10-13T22:11:25.1515405Z test cosh_core::evidence::raw_cli_cosh_core_stale_terminal_output_ref_fails_closed ... ok
+2026-10-13T22:11:25.1736927Z test cosh_core::evidence::raw_cli_cosh_core_same_command_text_reads_show_command_ids ... ok
+2026-10-13T22:11:25.2753584Z test cosh_core::evidence::raw_cli_cosh_core_bypass_recent_filter_reads_after_host_executed ... ok
+2026-10-13T22:11:25.4178245Z test cosh_core::evidence::raw_cli_cosh_core_read_after_truncated_host_executed_returns_output ... ok
+2026-10-13T22:11:25.5503158Z test cosh_core::evidence::raw_cli_cosh_core_shell_evidence_tool_lists_and_reads_current_ledger ... ok
+2026-10-13T22:11:27.6261691Z test cosh_core::host_executed::raw_cli_cosh_core_auto_safe_shell_auto_approves_host_executed ... ok
+2026-10-13T22:11:27.8918249Z test composer::raw_cli_agent_composer_lists_completes_and_executes_slash_commands ... ok
+2026-10-13T22:11:28.7509326Z test cosh_core::composer::raw_cli_agent_composer_sends_validated_references_and_skill_to_cosh_core ... ok
+2026-10-13T22:11:29.0195864Z test cosh_core::lifecycle::raw_cli_cosh_core_cancel_then_exit_cleans_up_active_provider_process ... ok
+2026-10-13T22:11:29.2003844Z test config::raw_cli_config_language_direct_set_saves_after_confirmation ... ok
+2026-10-13T22:11:31.5017194Z test cosh_core::evidence::raw_cli_cosh_core_terminal_output_read_misroute_recommends_shell_evidence_tool ... ok
+2026-10-13T22:11:35.4019188Z test cosh_core::evidence::raw_cli_cosh_core_failed_command_diagnostic_reads_output_before_answering ... ok
+2026-10-13T22:11:37.2021902Z test cosh_core::host_executed::raw_cli_cosh_core_failed_host_executed_preserves_redacted_stderr ... ok
+2026-10-13T22:11:37.3031725Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_nonzero_returns_normal_tool_result ... ok
+2026-10-13T22:11:37.7037572Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_large_output_is_bounded ... ok
+2026-10-13T22:11:39.7772136Z test cosh_core::lifecycle::raw_cli_cosh_core_dumb_terminal_uses_plain_blocks ... ok
+2026-10-13T22:11:41.8543473Z test cosh_core::host_executed::raw_cli_cosh_core_trust_confirm_shell_auto_approves_host_executed ... ok
+2026-10-13T22:11:42.0797694Z test cosh_core::passthrough::raw_cli_cosh_core_bash_ordinary_commands_passthrough_without_agent ... ok
+2026-10-13T22:11:43.0023857Z test cosh_core::composer::raw_cli_plain_agent_composer_request_omits_empty_metadata ... ok
+2026-10-13T22:11:44.1522399Z test cosh_core::lifecycle::raw_cli_cosh_core_malformed_provider_event_failure_is_contained ... ok
+2026-10-13T22:11:44.4309116Z test cosh_core::provider_native::raw_cli_cosh_core_control_request_suppresses_matching_shell_snapshot ... ok
+2026-10-13T22:11:44.4310382Z test cosh_core::lifecycle::raw_cli_cosh_core_completed_run_exit_leaves_no_provider_process ... ok
+2026-10-13T22:11:44.8604572Z test cosh_core::passthrough::raw_cli_cosh_core_zsh_ordinary_commands_passthrough_without_agent ... ok
+2026-10-13T22:11:46.4293379Z test cosh_core::provider_native::raw_cli_cosh_core_provider_native_non_shell_result_is_visible ... ok
+2026-10-13T22:11:47.0053247Z test cosh_core::provider_native::raw_cli_cosh_core_provider_native_tool_results_are_visible ... ok
+2026-10-13T22:11:47.3313228Z test cosh_core::host_executed::raw_cli_cosh_core_sysctl_non_ascii_shell_handoff_is_not_intercepted ... ok
+2026-10-13T22:11:47.5323420Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_multi_tool_keeps_single_turn_boundary ... ok
+2026-10-13T22:11:48.4846148Z test cosh_core::questions::raw_cli_cosh_core_malformed_question_fails_fast_and_restores_shell ... ok
+2026-10-13T22:11:49.5041170Z test cosh_core::provider_native::raw_cli_path_prompt_remains_visible_before_first_tool_call ... ok
+2026-10-13T22:11:49.9327669Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_shell_result_continues_same_provider_turn ... ok
+2026-10-13T22:11:50.1625077Z test cosh_core::host_executed::raw_cli_cosh_core_duplicate_host_executed_shell_request_is_not_executed_twice ... ok
+2026-10-13T22:11:51.9376856Z test cosh_core::host_executed::raw_cli_cosh_core_host_executed_long_command_continues_same_turn ... ok
+2026-10-13T22:11:53.5824572Z test cosh_core::lifecycle::raw_cli_cosh_core_host_executed_provider_disconnect_marks_recovery_reason ... ok
+2026-10-13T22:11:53.9380183Z test cosh_core::provider_native::raw_cli_cosh_core_suppresses_provider_native_echo_after_manual_host_executed_shell ... ok
+2026-10-13T22:11:56.0139356Z test cosh_core::turn_extension::raw_cli_non_resumable_cap_has_no_extension_card ... ok
+2026-10-13T22:11:56.0555806Z test diagnostics::diagnostics_export_collects_sources_without_leaking_secrets ... ok
+2026-10-13T22:11:56.0912377Z test diagnostics::diagnostics_export_health_checks_match_doctor_cli ... ok
+2026-10-13T22:11:56.0931734Z test doctor::doctor_degraded_environment_exits_one ... ok
+2026-10-13T22:11:56.0952956Z test doctor::doctor_failed_environment_exits_two ... ok
+2026-10-13T22:11:56.0971637Z test doctor::doctor_healthy_environment_exits_zero ... ok
+2026-10-13T22:11:56.0991035Z test doctor::doctor_partially_unavailable_environment_exits_one ... ok
+2026-10-13T22:11:57.5973344Z test daily_terminal::bash_non_login_startup_sources_user_environment_once ... ok
+2026-10-13T22:11:57.6561404Z test daily_terminal::bash_ctrl_u_and_paste_wait_for_explicit_enter ... ok
+2026-10-13T22:11:58.0487962Z test daily_terminal::zsh_ctrl_u_and_paste_wait_for_explicit_enter ... ok
+2026-10-13T22:11:58.0561186Z test daily_terminal::zsh_non_login_startup_sources_user_environment_once ... ok
+2026-10-13T22:11:58.1512894Z test cosh_core::questions::raw_cli_cosh_core_question_card_answer_continues_same_provider_turn ... ok
+2026-10-13T22:11:58.1823991Z test cosh_core::turn_extension::raw_cli_capped_run_approval_continues_same_core_process ... ok
+2026-10-13T22:11:58.1942379Z test doctor::slash_health_renders_health_card ... ok
+2026-10-13T22:11:58.9145311Z test doctor::slash_health_uses_child_shell_cwd_for_hook_checks ... ok
+2026-10-13T22:11:59.3206360Z test cosh_core::questions::raw_cli_cosh_core_narrow_question_and_debug_remain_readable ... ok
+2026-10-13T22:11:59.5211254Z test daily_terminal::bash_nonzero_exit_restores_parent_terminal ... ok
+2026-10-13T22:12:00.0894656Z test cosh_core::provider_native::raw_cli_cosh_core_streamed_provider_native_shell_result_renders_before_final_text ... ok
+2026-10-13T22:12:00.1586815Z test evidence_request::raw_cli_fallback_debug_session_reports_fenced_request_access ... ok
+2026-10-13T22:12:00.3972774Z test cosh_core::questions::raw_cli_cosh_core_answer_write_failure_retries_through_fallback ... ok
+2026-10-13T22:12:00.8698379Z test evidence_request::raw_cli_cosh_request_history_auto_sends_history_index ... ok
+2026-10-13T22:12:01.3286858Z test evidence_request::raw_cli_cosh_request_output_card_sends_bounded_excerpt ... ok
+2026-10-13T22:12:01.6959913Z test evidence_request::raw_cli_invalid_cosh_request_is_audited_without_evidence_card ... ok
+2026-10-13T22:12:01.8884096Z test evidence_request::raw_cli_cosh_request_history_omits_secret_without_confirmation ... ok
+2026-10-13T22:12:02.7264178Z test cosh_core::provider_native::raw_cli_cosh_core_provider_native_shell_omits_duplicate_activity_in_normal_ui ... ok
+2026-10-13T22:12:04.6651028Z test cosh_core::evidence::raw_cli_cosh_core_status_analysis_reads_result_bearing_output ... ok
+2026-10-13T22:12:08.5533031Z test external_hook::raw_cli_external_hook_ignoring_large_stdin_respects_deadline ... ok
+2026-10-13T22:12:14.1573302Z test external_hook::raw_cli_external_hook_timeout_kills_grandchildren ... ok
+2026-10-13T22:12:16.7962670Z test external_hook::raw_cli_external_hook_stdout_holder_is_killed ... ok
+2026-10-13T22:12:17.7742682Z test daily_terminal::bash_eof_restores_parent_terminal ... ok
+2026-10-13T22:12:17.8931747Z test failed_command::raw_cli_clear_keeps_generic_failure_silent ... ok
+2026-10-13T22:12:17.8932808Z test failed_command::raw_cli_explain_after_usage_help_failure_invokes_adapter ... ok
+2026-10-13T22:12:18.0758167Z test daily_terminal::zsh_nonzero_exit_restores_parent_terminal ... ok
+2026-10-13T22:12:18.3255633Z test daily_terminal::zsh_eof_restores_parent_terminal ... ok
+2026-10-13T22:12:18.3490141Z test external_hook::raw_cli_untrusted_project_hook_registry_is_bounded ... ok
+2026-10-13T22:12:18.3579800Z test external_hook::raw_cli_project_hook_rejects_symlinked_cosh_directory ... ok
+2026-10-13T22:12:18.4687224Z test external_hook::raw_cli_external_hook_executes_pinned_file_after_path_replacement ... ok
+2026-10-13T22:12:19.0011322Z test failed_command::raw_cli_generic_failure_does_not_trigger_inline_guidance ... ok
+2026-10-13T22:12:19.4769755Z test failed_command::raw_cli_natural_language_does_not_make_later_generic_failure_actionable ... ok
+2026-10-13T22:12:19.6228572Z test failed_command::raw_cli_hook_consultation_uses_zh_language_env ... ok
+2026-10-13T22:12:19.8580746Z test failed_command::raw_cli_failure_insight_keeps_assisted_ownership_of_shift_tab ... ok
+2026-10-13T22:12:19.9677827Z test failed_command::raw_cli_failure_insight_keeps_shell_only_ownership_of_shift_tab ... ok
+2026-10-13T22:12:20.0216822Z test failed_command::raw_cli_natural_language_omits_unbound_recent_failed_command_context ... ok
+2026-10-13T22:12:20.0673639Z test failed_command::raw_cli_auto_repeated_build_failure_is_suppressed_without_old_notice ... ok
+2026-10-13T22:12:20.2579538Z test evidence_request::raw_cli_terminal_output_read_misroute_records_details_audit ... ok
+2026-10-13T22:12:20.5178069Z test external_hook::raw_cli_external_hook_stdin_holder_is_killed ... ok
+2026-10-13T22:12:20.8433788Z test failed_command::raw_cli_natural_language_after_failure_does_not_bind_generic_failure ... ok
+2026-10-13T22:12:21.5326622Z test failed_command::raw_cli_isolated_bash_auto_plain_narrow_restores_one_prompt ... ok
+2026-10-13T22:12:22.0835960Z test failed_command::raw_cli_plain_smart_insight_has_no_insight_ansi ... ok
+2026-10-13T22:12:22.2875061Z test failed_command::raw_cli_shell_keeps_generic_failure_silent ... ok
+2026-10-13T22:12:22.4738134Z test evidence_request::raw_cli_cosh_request_card_ctrl_c_cancels_only_evidence_request ... ok
+2026-10-13T22:12:22.5867037Z test evidence_request::raw_cli_cosh_request_card_ignore_keeps_shell_usable ... ok
+2026-10-13T22:12:22.7884699Z test failed_command::raw_cli_smart_usage_help_failure_does_not_start_agent ... ok
+2026-10-13T22:12:23.3540404Z test failed_command::raw_cli_repeated_ps_dash_aux_generic_failure_stays_silent ... ok
+2026-10-13T22:12:24.1829338Z test failed_command::raw_cli_repeated_generic_failure_stays_silent_without_budget_notice ... ok
+2026-10-13T22:12:24.2622738Z test failed_command::raw_cli_zh_auto_build_failure_localizes_auto_analyze_activity ... ok
+2026-10-13T22:12:24.6631872Z test failed_command::raw_cli_success_then_command_not_found_keeps_failure_insight ... ok
+2026-10-13T22:12:24.6687694Z test failed_command::raw_cli_tail_follow_ctrl_c_does_not_start_agent_analysis ... ok
+2026-10-13T22:12:24.7580618Z test failed_command::raw_cli_generic_failure_is_silent_before_next_prompt ... ok
+2026-10-13T22:12:24.9717692Z test failed_command::raw_cli_slash_after_failed_command_invokes_adapter ... ok
+2026-10-13T22:12:25.2252229Z test failopen::missing_zsh_probe_and_spawn_fall_open_to_preserving_bash ... ok
+2026-10-13T22:12:25.9108221Z test failed_command::raw_cli_build_failure_respects_analysis_mode_matrix ... ok
+2026-10-13T22:12:25.9133151Z test failopen::non_tty_explicit_raw_login_with_invalid_integration_exits_two ... ok
+2026-10-13T22:12:26.1537014Z test failopen::native_post_spawn_panic_does_not_fall_open ... ok
+2026-10-13T22:12:26.1649511Z test failopen::non_login_pty_with_invalid_integration_does_not_fall_open ... ok
+2026-10-13T22:12:26.3666196Z test failopen::path_probe_side_effect_prevents_pre_spawn_fallback ... ok
+2026-10-13T22:12:26.3950608Z test failed_command::raw_cli_smart_build_failure_ghost_tab_then_enter_starts_bound_analysis ... ok
+2026-10-13T22:12:26.5647750Z test failed_command::raw_cli_zh_repeated_generic_failure_stays_silent ... ok
+2026-10-13T22:12:26.5731291Z test failed_command::raw_cli_isolated_bash_smart_and_auto_restore_one_prompt ... ok
+2026-10-13T22:12:26.5794566Z test failopen::integration_misconfig_falls_open_to_login_bash ... ok
+2026-10-13T22:12:26.8844561Z test failed_command::raw_cli_smart_agent_prompt_split_arrow_cancels_without_shell_leak ... ok
+2026-10-13T22:12:27.2115545Z test failed_command::raw_cli_normal_zsh_smart_and_auto_restore_one_prompt ... ok
+2026-10-13T22:12:27.7818433Z test failed_command::raw_cli_zsh_generic_failure_restores_prompt_without_insight ... ok
+2026-10-13T22:12:28.1273011Z test failed_command::raw_cli_isolated_zsh_smart_and_auto_restore_one_prompt ... ok
+2026-10-13T22:12:28.4741399Z test failed_command::raw_cli_normal_bash_smart_and_auto_restore_one_prompt ... ok
+2026-10-13T22:12:42.0505218Z test heavy::raw_cli_host_executed_fullscreen_timeout_defers_notice_until_exit_alt_screen ... ok
+2026-10-13T22:12:47.2316024Z test heavy::raw_cli_host_executed_input_wait_timeout_returns_evidence ... ok
+2026-10-13T22:12:54.8084634Z test heavy::raw_cli_host_executed_password_prompt_timeout_defers_notice_until_prompt ... ok
+2026-10-13T22:13:04.3849013Z test host_executed::raw_cli_host_executed_pipeline_alias_handoff_never_deadlocks ... ok
+2026-10-13T22:13:10.9613292Z test host_executed::raw_cli_host_executed_provider_disconnect_marks_recovery_reason ... ok
+2026-10-13T22:13:12.1278711Z test host_executed::raw_cli_host_executed_shell_result_continues_same_provider_turn ... ok
+2026-10-13T22:13:13.2905767Z test host_executed::raw_cli_host_executed_streaming_order_renders_shell_before_post_text ... ok
+2026-10-13T22:13:20.0674332Z test failed_command::raw_cli_runtime_exception_requires_confirmation_outside_manual_mode has been running for over 60 seconds
+2026-10-13T22:13:21.4668479Z test host_executed::raw_cli_host_executed_untracked_handoff_closes_and_recovers ... ok
+2026-10-13T22:13:22.0836699Z test failed_command::raw_cli_smart_command_not_found_is_silent_without_unique_rewrite has been running for over 60 seconds
+2026-10-13T22:13:23.6382875Z test host_executed::raw_cli_manual_approval_host_executed_shell_result_continues_same_turn ... ok
+2026-10-13T22:13:23.8897348Z test failopen::path_probe_side_effect_prevents_relay_error_fallback ... ok
+2026-10-13T22:13:23.8908472Z test failopen::pre_spawn_error_falls_open_to_login_bash ... ok
+2026-10-13T22:13:23.9060666Z test failopen::post_spawn_panic_does_not_fall_open ... ok
+2026-10-13T22:13:23.9506038Z test failopen::r2_probe_side_effect_prevents_pre_spawn_fallback ... ok
+2026-10-13T22:13:24.1191311Z test failopen::failed_path_probe_side_effect_prevents_pre_spawn_fallback ... ok
+2026-10-13T22:13:24.3425400Z test failopen::pre_spawn_panic_falls_open_to_login_bash ... ok
+2026-10-13T22:13:24.4816644Z test mode::raw_cli_auto_mode_skips_exact_trusted_command ... ok
+2026-10-13T22:13:24.5448611Z test failed_command::raw_cli_runtime_exception_requires_confirmation_outside_manual_mode ... ok
+2026-10-13T22:13:24.6206869Z test mode::raw_cli_auto_mode_runs_safe_bash_tool_without_approval_panel ... ok
+2026-10-13T22:13:24.6688524Z test failopen::isolated_pre_spawn_failures_do_not_run_login_profile has been running for over 60 seconds
+2026-10-13T22:13:24.7663890Z test mode::raw_cli_help_and_mode_use_zh_language_env ... ok
+2026-10-13T22:13:24.8395140Z test host_executed::raw_cli_host_executed_interrupt_returns_normal_tool_result ... ok
+2026-10-13T22:13:26.6540628Z test mode::raw_cli_auto_mode_trusted_command_requires_exact_match ... ok
+2026-10-13T22:13:27.0400655Z test mode::raw_cli_auto_mode_skips_readonly_builtin_tool_approval_panel ... ok
+2026-10-13T22:13:27.0956322Z test host_executed::raw_cli_host_executed_nonzero_exit_returns_normal_tool_result ... ok
+2026-10-13T22:13:27.2116581Z test heavy::raw_cli_host_executed_shell_timeout_interrupts_and_returns_result has been running for over 60 seconds
+2026-10-13T22:13:27.2421588Z test failopen::isolated_pre_spawn_failures_do_not_run_login_profile ... ok
+2026-10-13T22:13:27.7819294Z test heavy::raw_cli_host_executed_shell_timeout_uses_zh_language_env has been running for over 60 seconds
+2026-10-13T22:13:28.4742100Z test host_executed::raw_cli_host_executed_multi_tool_keeps_single_turn_boundary has been running for over 60 seconds
+2026-10-13T22:13:28.8629216Z test mode::raw_cli_mode_analysis_card_selects_auto_for_current_session ... ok
+2026-10-13T22:13:29.0335547Z test mode::raw_cli_mode_root_and_language_guidance_are_canonical ... ok
+2026-10-13T22:13:29.2163906Z test mode::raw_cli_mode_analysis_card_cancel_keeps_current_session_mode ... ok
+2026-10-13T22:13:29.2534985Z test failed_command::raw_cli_smart_command_not_found_is_silent_without_unique_rewrite ... ok
+2026-10-13T22:13:29.3023476Z test mode::raw_cli_auto_mode_still_asks_for_unsafe_bash_tool ... ok
+2026-10-13T22:13:29.3934730Z test mode::raw_cli_mode_quoted_argument_error_uses_zh_language_env ... ok
+2026-10-13T22:13:29.3979363Z test mode::raw_cli_mode_slash_updates_approval_mode_with_feedback ... ok
+2026-10-13T22:13:29.4761525Z test mode::raw_cli_mode_rejects_quoted_arguments_without_changing_mode ... ok
+2026-10-13T22:13:29.5664159Z test mode::raw_cli_mode_slash_panel_selects_recommend_with_card_input ... ok
+2026-10-13T22:13:29.8645381Z test mode::raw_cli_zsh_fragmented_mode_slash_does_not_accumulate_redraws ... ok
+2026-10-13T22:13:29.9826382Z test native::raw_cli_default_enhanced_keeps_bash_prompt_undecorated_without_mutating_ps1 ... ok
+2026-10-13T22:13:29.9827384Z test mode::raw_cli_zsh_native_known_slash_does_not_reach_shell ... ok
+2026-10-13T22:13:30.4170750Z test host_executed::raw_cli_host_executed_multi_tool_keeps_single_turn_boundary ... ok
+2026-10-13T22:13:30.8827436Z test mode::raw_cli_zsh_native_pasted_mode_slash_does_not_reach_shell ... ok
+2026-10-13T22:13:30.9706443Z test memory_hook::raw_cli_agent_fallback_memory_hook_is_internal ... ok
+2026-10-13T22:13:31.0272504Z test memory_hook::raw_cli_provider_foreground_memory_hook_is_internal ... ok
+2026-10-13T22:13:31.2137551Z test heavy::raw_cli_host_executed_shell_timeout_uses_zh_language_env ... ok
+2026-10-13T22:13:31.2152247Z test heavy::raw_cli_host_executed_shell_timeout_interrupts_and_returns_result ... ok
+2026-10-13T22:13:31.2727518Z test mode::raw_cli_trust_mode_runs_bash_tool_without_approval_panel ... ok
+2026-10-13T22:13:31.3319456Z test native::raw_cli_enhanced_passes_through_user_prompt_containing_status_glyph ... ok
+2026-10-13T22:13:31.3850186Z test native::raw_cli_enhanced_status_symbols_on_decorates_zsh_prompt ... ok
+2026-10-13T22:13:31.4139254Z test mode::raw_cli_mode_approval_and_analysis_use_zh_language_env ... ok
+2026-10-13T22:13:31.4223363Z test mode::raw_cli_mode_approval_card_uses_zh_language_env ... ok
+2026-10-13T22:13:31.4865688Z test mode::raw_cli_pasted_trust_confirm_sets_trust_mode_after_enter ... ok
+2026-10-13T22:13:31.5726739Z test native::raw_cli_enhanced_keeps_zsh_prompt_undecorated_without_mutating_prompt ... ok
+2026-10-13T22:13:31.6043316Z test native::raw_cli_enhanced_status_symbols_on_decorates_bash_prompt_without_mutating_ps1 ... ok
+2026-10-13T22:13:32.3454123Z test native::raw_cli_enhanced_status_symbols_follow_shift_tab_ownership ... ok
+2026-10-13T22:13:32.7066424Z test native::raw_cli_status_symbols_simple_key_invalid_bare_value_stays_off ... ok
+2026-10-13T22:13:32.7067424Z test native::raw_cli_zsh_native_path_slash_and_tab_stay_in_shell ... ignored, native zsh completion can invoke user rc and real editor; keep out of default raw_cli
+2026-10-13T22:13:32.7901485Z test native::raw_cli_status_symbols_env_overrides_config_file ... ok
+2026-10-13T22:13:32.7938397Z test passthrough::raw_cli_cosh_entry_combined_login_flags_reach_bash_with_arg0 ... ok
+2026-10-13T22:13:32.9027586Z test passthrough::raw_cli_cosh_entry_default_enhanced_reaches_user_prompt ... ok
+2026-10-13T22:13:32.9050558Z test passthrough::raw_cli_cosh_entry_invalid_option_is_judged_by_bash ... ok
+2026-10-13T22:13:32.9292457Z test native::raw_cli_explicit_native_skips_enhanced_startup_workers ... ok
+2026-10-13T22:13:32.9293263Z test native::raw_cli_bash_native_loads_existing_user_history ... ok
+2026-10-13T22:13:32.9322218Z test passthrough::raw_cli_cosh_entry_isolated_dash_c_preserves_command_argv ... ok
+2026-10-13T22:13:32.9326364Z test passthrough::raw_cli_cosh_entry_isolated_dash_c_ignores_bash_env ... ok
+2026-10-13T22:13:32.9348241Z test passthrough::raw_cli_cosh_entry_isolated_dash_c_preserves_signal_status ... ok
+2026-10-13T22:13:32.9371785Z test passthrough::raw_cli_cosh_entry_isolated_network_stdin_translates_bash_isolation ... ok
+2026-10-13T22:13:32.9381023Z test passthrough::raw_cli_cosh_entry_isolated_login_rejects_before_profile_and_bash_env ... ok
+2026-10-13T22:13:32.9425388Z test passthrough::raw_cli_cosh_entry_isolated_posix_bash_ignores_env ... ok
+2026-10-13T22:13:32.9462596Z test passthrough::raw_cli_cosh_entry_login_argv0_reaches_inner_shell_dollar_zero ... ok
+2026-10-13T22:13:32.9486533Z test passthrough::raw_cli_cosh_entry_missing_script_file_reports_bash_127 ... ok
+2026-10-13T22:13:32.9510055Z test passthrough::raw_cli_cosh_entry_plain_dash_c_preserves_env_and_argv ... ok
+2026-10-13T22:13:32.9534928Z test passthrough::raw_cli_dash_c_passthrough_filters_wrapper_shell_option ... ok
+2026-10-13T22:13:32.9559638Z test passthrough::raw_cli_dash_c_passthrough_preserves_exit_status ... ok
+2026-10-13T22:13:32.9635254Z test passthrough::raw_cli_dash_c_passthrough_preserves_signal_exit_status ... ok
+2026-10-13T22:13:32.9658233Z test passthrough::raw_cli_double_dash_passthrough_does_not_capture_child_help_arg ... ok
+2026-10-13T22:13:32.9679827Z test passthrough::raw_cli_double_dash_passthrough_executes_command_directly ... ok
+2026-10-13T22:13:32.9700581Z test passthrough::raw_cli_double_dash_passthrough_preserves_exit_status ... ok
+2026-10-13T22:13:32.9777898Z test passthrough::raw_cli_double_dash_passthrough_preserves_signal_exit_status ... ok
+2026-10-13T22:13:32.9785131Z test passthrough::raw_cli_cosh_entry_isolated_bash_login_blocks_logout_files ... ok
+2026-10-13T22:13:32.9799126Z test passthrough::raw_cli_double_dash_passthrough_requires_command ... ok
+2026-10-13T22:13:32.9809144Z test passthrough::raw_cli_cosh_entry_isolated_zsh_args_fail_closed ... ok
+2026-10-13T22:13:32.9834998Z test passthrough::raw_cli_interactive_dash_c_passthrough_transports_env_ps1 ... ok
+2026-10-13T22:13:32.9870805Z test passthrough::raw_cli_login_argv0_dash_c_passthrough_executes_without_agent_ui ... ok
+2026-10-13T22:13:32.9905518Z test passthrough::raw_cli_login_argv0_dash_c_passthrough_preserves_exit_status ... ok
+2026-10-13T22:13:32.9942103Z test passthrough::raw_cli_login_argv0_stdin_passthrough_preserves_exit_status_without_agent_ui ... ok
+2026-10-13T22:13:32.9977438Z test passthrough::raw_cli_login_dash_c_passthrough_executes_without_agent_ui ... ok
+2026-10-13T22:13:33.0014113Z test passthrough::raw_cli_login_dash_c_passthrough_preserves_exit_status ... ok
+2026-10-13T22:13:33.0101708Z test passthrough::raw_cli_passthrough_preserves_ignored_sigpipe_disposition ... ok
+2026-10-13T22:13:33.0109301Z test passthrough::raw_cli_double_dash_passthrough_preserves_start_failure_status ... ok
+2026-10-13T22:13:33.0125270Z test passthrough::raw_cli_raw_adapter_dash_c_passthrough_executes_without_agent_ui ... ok
+2026-10-13T22:13:33.0133800Z test passthrough::raw_cli_raw_adapter_dash_c_passthrough_preserves_exit_status ... ok
+2026-10-13T22:13:33.0149714Z test passthrough::raw_cli_stdin_passthrough_preserves_exit_status ... ok
+2026-10-13T22:13:33.0203463Z test passthrough::raw_cli_stdin_passthrough_preserves_signal_exit_status ... ok
+2026-10-13T22:13:33.0658122Z test passthrough::raw_cli_explicit_interactive_norc_preserves_prompt_readiness ... ok
+2026-10-13T22:13:33.2773987Z test native::raw_cli_login_probe_preserves_login_argv0 ... FAILED
+2026-10-13T22:13:33.3614783Z test native::raw_cli_status_symbols_table_form_enables_symbols ... ok
+2026-10-13T22:13:33.4505173Z test native::raw_cli_native_keeps_custom_bash_prompt_undecorated ... ok
+2026-10-13T22:13:33.5572910Z test mode::raw_cli_suggest_mode_keeps_tool_requests_display_only ... ok
+2026-10-13T22:13:33.6404103Z test native::raw_cli_native_never_shows_status_symbols ... ok
+2026-10-13T22:13:33.7237159Z test native::raw_cli_status_symbols_invalid_config_value_stays_off ... ok
+2026-10-13T22:13:34.2438989Z test native::raw_cli_enhanced_shift_tab_toggles_zsh_routing_in_place ... ok
+2026-10-13T22:13:34.4364576Z test native::raw_cli_zsh_native_loads_existing_user_history ... ok
+2026-10-13T22:13:34.6209369Z test native::raw_cli_status_symbols_config_file_enables_symbols ... ok
+2026-10-13T22:13:34.9047394Z test native::raw_cli_mode_routing_switches_the_live_enhanced_session ... ok
+2026-10-13T22:13:35.2267437Z test prompt_replay::raw_cli_bash_bracketed_paste_empty_enter_within_delay_window_is_not_swallowed ... ok
+2026-10-13T22:13:35.6372352Z test prompt_replay::raw_cli_bash_bracketed_paste_empty_enter_after_slash_panel_repaints_prompt ... ok
+2026-10-13T22:13:35.8334979Z test prompt_replay::raw_cli_bash_bracketed_paste_off_empty_enter_after_slash_panel_repaints_prompt ... ok
+2026-10-13T22:13:35.8884866Z test prompt_replay::raw_cli_bash_quoted_literal_tab_reaches_provider_on_first_enter ... ok
+2026-10-13T22:13:36.1304567Z test prompt_replay::raw_cli_bash_bracketed_literal_tab_submits_when_closer_and_enter_share_batch ... ok
+2026-10-13T22:13:37.5136833Z test prompt_replay::raw_cli_bash_recalled_ordinary_command_remains_exact_without_prompt_run_on ... ok
+2026-10-13T22:13:37.5554944Z test prompt_replay::raw_cli_bash_bracketed_literal_tab_submits_when_enter_follows_closer ... ok
+2026-10-13T22:13:37.9061249Z test prompt_replay::raw_cli_bash_slash_intercept_does_not_replay_user_command_echo ... ok
+2026-10-13T22:13:38.7431370Z test prompt_replay::raw_cli_bash_ctrl_o_submission_with_typeahead_empty_enter_is_not_swallowed ... ok
+2026-10-13T22:13:39.8317098Z test prompt_replay::raw_cli_bash_recalled_slash_with_same_chunk_empty_enter_is_not_swallowed ... ok
+2026-10-13T22:13:40.0003628Z test passthrough::raw_cli_ai_off_consumes_agent_marker_without_adapter_or_shell_error ... ok
+2026-10-13T22:13:40.9508713Z test native::raw_cli_login_probe_reaps_detached_descendants ... ok
+2026-10-13T22:13:41.1815603Z test prompt_replay::raw_cli_bash_typeahead_empty_enter_during_failing_command_survives_prompt_restore ... ok
+2026-10-13T22:13:41.3682496Z test prompt_replay::raw_cli_bash_dirty_safe_natural_language_stays_recallable ... ok
+2026-10-13T22:13:41.4057591Z test prompt_replay::raw_cli_bash_recalled_natural_language_reaches_provider_after_edit ... ok
+2026-10-13T22:13:42.1155301Z test prompt_replay::raw_cli_bash_replay_dedup_recovers_after_foreground_program_consumed_enter ... ok
+2026-10-13T22:13:43.0671198Z test prompt_replay::raw_cli_bash_recall_walks_distinct_natural_language_history_entries ... ok
+2026-10-13T22:13:44.8208227Z test provider_handoff::continuation::raw_cli_shell_handoff_continuation_denies_second_shell_tool ... ok
+2026-10-13T22:13:44.9814513Z test provider_handoff::fallback::raw_cli_cwd_scoped_qwen_shell_uses_foreground_without_half_open_resume ... ok
+2026-10-13T22:13:45.6433773Z test prompt_replay::raw_cli_bash_split_quoted_tab_survives_a_prior_provider_card ... ok
+2026-10-13T22:13:46.0076525Z test provider_handoff::fallback::raw_cli_qwen_control_shell_result_uses_foreground_transcript ... ok
+2026-10-13T22:13:46.0794559Z test provider_handoff::continuation::raw_cli_shell_handoff_continuation_prompt_keeps_user_mode ... ok
+2026-10-13T22:13:46.6925208Z test provider_handoff::foreground::raw_cli_auto_provider_shell_permission_uses_foreground_handoff ... ok
+2026-10-13T22:13:47.0279508Z test provider_handoff::continuation::raw_cli_zh_shell_handoff_continuation_denies_second_shell_tool ... ok
+2026-10-13T22:13:47.6440326Z test provider_handoff::foreground::raw_cli_control_shell_output_uses_foreground_transcript_by_default ... ok
+2026-10-13T22:13:48.3756106Z test prompt_replay::raw_cli_zsh_empty_enter_after_slash_panel_repaints_prompt ... ok
+2026-10-13T22:13:48.5591368Z test provider_handoff::fallback::raw_cli_qwen_shell_without_advertised_host_capability_uses_foreground_shell ... ok
+2026-10-13T22:13:48.8676697Z test prompt_replay::raw_cli_bash_preserves_user_leading_whitespace_for_provider ... ok
+2026-10-13T22:13:52.6571684Z test provider_handoff::foreground::raw_cli_zh_control_shell_details_localizes_shell_owned_chrome ... ok
+2026-10-13T22:13:53.1885457Z test prompt_replay::raw_cli_bash_slow_prompt_command_does_not_write_off_queued_enter ... ok
+2026-10-13T22:13:53.2698009Z test provider_handoff::foreground::raw_cli_obvious_tty_provider_shell_permission_uses_foreground_recovery ... ok
+2026-10-13T22:13:54.0465187Z test provider_handoff::foreground::raw_cli_control_shell_permission_uses_foreground_and_suppresses_provider_output ... ok
+2026-10-13T22:13:54.3976305Z test prompt_replay::raw_cli_bash_recovered_history_keeps_private_inputs_excluded ... ok
+2026-10-13T22:13:55.4448009Z test provider_handoff::preemptive_text::raw_cli_preemptive_provider_text_is_dropped_and_recovered_from_shell_evidence ... ok
+2026-10-13T22:13:56.4753292Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_bypasses_marker_intercepts ... ok
+2026-10-13T22:13:57.1350539Z test provider_handoff::recovery::raw_cli_shell_handoff_fallback_chain_renders_retry_line_then_single_panel ... ok
+2026-10-13T22:13:57.6235727Z test provider_handoff::foreground::raw_cli_claude_without_host_executed_capability_uses_foreground_recovery ... ok
+2026-10-13T22:13:57.7652435Z test provider_handoff::foreground::raw_cli_zh_control_shell_foreground_localizes_shell_owned_wrapper ... ok
+2026-10-13T22:13:57.7931262Z test provider_handoff::send_to_shell::raw_cli_missing_send_to_shell_uses_zh_language_env ... ok
+2026-10-13T22:13:57.8456073Z test provider_handoff::foreground::raw_cli_debug_mode_keeps_control_shell_output_foreground_owned ... ok
+2026-10-13T22:13:58.2196635Z test provider_handoff::recovery::raw_cli_zh_provider_timeout_drops_extra_queued_requests ... ok
+2026-10-13T22:13:58.5524562Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_command_not_found_does_not_intercept ... ok
+2026-10-13T22:13:58.6040458Z test provider_handoff::preemptive_text::raw_cli_preemptive_provider_text_during_command_is_dropped_and_recovered ... ok
+2026-10-13T22:13:59.5093367Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_with_secret_delivers_host_executed_result ... ok
+2026-10-13T22:14:00.7715402Z test provider_handoff::send_to_shell::raw_cli_zsh_approved_shell_handoff_bypasses_marker_intercepts ... ok
+2026-10-13T22:14:04.4221762Z test provider_handoff::send_to_shell::raw_cli_provider_tool_send_to_shell_uses_zh_language_env ... ok
+2026-10-13T22:14:04.4719032Z test provider_handoff::send_to_shell::raw_cli_provider_tool_interactive_escape_hatch_requires_explicit_send ... ok
+2026-10-13T22:14:05.7132789Z test provider_handoff::preemptive_text::raw_cli_same_turn_host_executed_result_keeps_preamble_and_final_text ... ok
+2026-10-13T22:14:06.7972726Z test provider_handoff::recovery::raw_cli_shell_handoff_resume_timeout_renders_structured_context_before_recovery_notice ... ok
+2026-10-13T22:14:07.1175130Z test provider_tools::raw_cli_qwen_streamed_non_shell_tool_renders_result_without_call_activity ... ok
+2026-10-13T22:14:07.1279372Z test provider_handoff::recovery::raw_cli_shell_handoff_retry_success_shows_reason_without_panel ... ok
+2026-10-13T22:14:08.0864067Z test provider_handoff::recovery::raw_cli_shell_handoff_resume_timeout_retries_without_timeout_card ... ok
+2026-10-13T22:14:08.8758620Z test provider_handoff::send_to_shell::raw_cli_approved_shell_handoff_wrapper_does_not_leak ... ok
+2026-10-13T22:14:09.0965680Z test provider_tools::raw_cli_qwen_long_running_tool_shows_pending_status_then_result_card ... ok
+2026-10-13T22:14:09.2023739Z test provider_tools::raw_cli_qwen_unknown_mcp_tool_renders_custom_fallback_without_raw_json ... ok
+2026-10-13T22:14:09.3476968Z test provider_handoff::recovery::raw_cli_shell_handoff_recovery_uses_zh_language_env ... ok
+2026-10-13T22:14:10.6618059Z test provider_tools::raw_cli_qwen_streamed_skill_tool_renders_skill_name_and_loaded_result ... ok
+2026-10-13T22:14:10.6912835Z test provider_tools::raw_cli_qwen_streamed_write_file_renders_concise_result_card ... ok
+2026-10-13T22:14:11.4508274Z test provider_tools::raw_cli_qwen_streamed_skill_tool_renders_failed_result_phase ... ok
+2026-10-13T22:14:11.4576445Z test question::raw_cli_agent_free_text_question_echoes_input_before_submit ... ok
+2026-10-13T22:14:12.2895563Z test provider_handoff::send_to_shell::raw_cli_send_to_shell_command_triggers_trusted_project_hook ... ok
+2026-10-13T22:14:12.7668977Z test question::raw_cli_agent_multiple_accepts_custom_only_answer ... ok
+2026-10-13T22:14:13.5327072Z test provider_tools::raw_cli_qwen_unknown_custom_tool_failure_renders_diagnostic_without_raw_json ... ok
+2026-10-13T22:14:14.4684420Z test question::raw_cli_agent_question_accepts_card_answer_choice ... ok
+2026-10-13T22:14:14.5563750Z test question::raw_cli_agent_multiple_empty_submit_stays_on_card ... ok
+2026-10-13T22:14:14.8717540Z test question::raw_cli_agent_question_accepts_multiple_card_answers ... ok
+2026-10-13T22:14:15.3969572Z test question::raw_cli_agent_free_text_empty_submit_stays_on_card ... ok
+2026-10-13T22:14:15.7794149Z test provider_tools::raw_cli_streamed_tool_fallback_recovery_blocks_new_shell_tool ... ok
+2026-10-13T22:14:16.5632234Z test question::raw_cli_agent_question_accepts_custom_card_answer ... ok
+2026-10-13T22:14:16.6314340Z test provider_tools::raw_cli_qwen_unknown_plain_tool_input_renders_opaque_payload_summary ... ok
+2026-10-13T22:14:16.6452921Z test question::raw_cli_agent_question_answer_slash_is_ignored ... ok
+2026-10-13T22:14:17.0456076Z test provider_tools::raw_cli_qwen_slow_tool_arguments_show_a_status_without_the_payload ... ok
+2026-10-13T22:14:17.5024974Z test question::raw_cli_agent_question_accepts_free_text_only_answer ... ok
+2026-10-13T22:14:17.8737512Z test question::raw_cli_agent_question_answer_drops_stale_held_text ... ok
+2026-10-13T22:14:18.1070625Z test provider_tools::raw_cli_qwen_tool_result_splits_agent_cards_around_structured_card ... ok
+2026-10-13T22:14:18.6693055Z test question::raw_cli_agent_question_accepts_natural_language_answer ... ok
+2026-10-13T22:14:20.2682069Z test provider_tools::raw_cli_streamed_tool_fallback_with_host_capability_is_not_delivered ... ok
+2026-10-13T22:14:22.0414726Z test recommendation::raw_cli_select_out_of_range_uses_structured_notice ... ok
+2026-10-13T22:14:25.2169314Z test recommendation::raw_cli_foreground_command_wins_before_analyzer_body_write ... ok
+2026-10-13T22:14:26.9905831Z test recommendation::raw_cli_selects_recommendation_without_executing_it ... ok
+2026-10-13T22:14:29.3651114Z test recommendation::raw_cli_copy_fallback_shows_recommendation_without_executing_it ... ok
+2026-10-13T22:14:31.0273461Z test native::raw_cli_isolated_candidate_redraws_add_no_status_lines has been running for over 60 seconds
+2026-10-13T22:14:31.1396113Z test recommendation::raw_cli_zh_selects_recommendation_without_executing_it ... ok
+2026-10-13T22:14:31.8162569Z test recommendation::raw_cli_default_on_recommendations_keep_foreground_shell_usable ... ok
+2026-10-13T22:14:32.0116752Z test registry::slash_hooks_with_fake_backend_shows_shell_hooks_section ... ok
+2026-10-13T22:14:32.0125290Z test recommendation::raw_cli_select_before_recommendation_is_display_only_noop ... ok
+2026-10-13T22:14:32.0336229Z test recommendation::raw_cli_recommendations_off_renders_insight_cross_reference_hint ... ok
+2026-10-13T22:14:32.1121208Z test recommendation::raw_cli_zh_select_before_recommendation_uses_catalog_fallback ... ok
+2026-10-13T22:14:32.2044027Z test registry::slash_skills_with_fake_backend_zh_shows_degradation ... ok
+2026-10-13T22:14:32.2834903Z test registry::slash_skills_with_fake_backend_shows_degradation ... ok
+2026-10-13T22:14:32.3751205Z test registry::slash_extensions_with_fake_backend_shows_degradation ... ok
+2026-10-13T22:14:32.4866972Z test registry::slash_extensions_not_intercepted_as_shell_command ... ok
+2026-10-13T22:14:32.5974236Z test recommendation::raw_cli_fresh_home_initializes_recommendation_store ... ok
+2026-10-13T22:14:32.9271334Z test question::raw_cli_agent_question_accepts_multiple_answers_with_custom_card_answer ... ok
+2026-10-13T22:14:33.8583938Z test renderer::raw_cli_agent_response_renders_indented_markdown_code_inside_card ... ok
+2026-10-13T22:14:33.9362540Z test question::raw_cli_agent_question_uses_zh_language_env ... ok
+2026-10-13T22:14:33.9486820Z test renderer::raw_cli_agent_response_renders_markdown_in_plain_mode ... ok
+2026-10-13T22:14:34.5008741Z test renderer::raw_cli_agent_response_joins_soft_wrapped_markdown_paragraph ... ok
+2026-10-13T22:14:34.8096581Z test renderer::raw_cli_agent_response_streams_markdown_fragments_inside_card ... ok
+2026-10-13T22:14:34.9751190Z test question::raw_cli_zsh_question_card_capture_does_not_leak_to_shell ... ok
+2026-10-13T22:14:35.1197551Z test question::raw_cli_agent_question_no_color_keeps_box_placeholder ... ok
+2026-10-13T22:14:35.3920560Z test provider_tools::raw_cli_non_shell_permission_passes_through_allow_only ... ok
+2026-10-13T22:14:35.4323570Z test renderer::raw_cli_agent_response_renders_markdown_table_inside_card ... ok
+2026-10-13T22:14:35.5603581Z test registry::slash_extensions_with_fake_backend_zh_shows_degradation ... ok
+2026-10-13T22:14:35.7541434Z test question::raw_cli_agent_question_ctrl_c_cancels_card_without_answer_turn ... ok
+2026-10-13T22:14:36.0754660Z test renderer::raw_cli_agent_response_keeps_markdown_pipe_output_without_separator_as_text ... ok
+2026-10-13T22:14:36.3836840Z test renderer::raw_cli_explicit_plain_render_mode_uses_plain_blocks ... ok
+2026-10-13T22:14:36.5495389Z test renderer::raw_cli_no_color_keeps_box_layout_when_terminal_supports_it ... ok
+2026-10-13T22:14:36.6666392Z test renderer::raw_cli_agent_response_renders_markdown_table_at_configured_narrow_width ... ok
+2026-10-13T22:14:36.6946845Z test renderer::raw_cli_agent_response_renders_markdown_inside_card ... ok
+2026-10-13T22:14:37.0067367Z test renderer::raw_cli_dumb_terminal_uses_plain_blocks ... ok
+2026-10-13T22:14:37.2585163Z test renderer::raw_cli_agent_response_streams_markdown_table_as_stable_block ... ok
+2026-10-13T22:14:37.4058882Z test session::raw_cli_session_list_prints_full_canonical_ids ... ok
+2026-10-13T22:14:37.6500939Z test renderer::raw_cli_tool_output_does_not_break_markdown_stream_finalization ... ok
+2026-10-13T22:14:37.7218379Z test session::raw_cli_session_clear_all_reports_when_every_session_is_protected ... ok
+2026-10-13T22:14:37.7352884Z test session::raw_cli_session_list_all_groups_foreign_workspace_and_resume_fails ... ok
+2026-10-13T22:14:38.4316755Z test session::raw_cli_new_alias_starts_fresh_without_reaching_bash_or_changing_cwd ... ok
+2026-10-13T22:14:38.6029649Z test session::raw_cli_session_picker_cancel_keeps_shell_usable ... ok
+2026-10-13T22:14:38.8382435Z test native::raw_cli_isolated_candidate_redraws_add_no_status_lines ... ok
+2026-10-13T22:14:39.1911654Z test session::raw_cli_session_picker_loads_next_page_near_viewport_end ... ok
+2026-10-13T22:14:39.2964139Z test renderer::raw_cli_zh_agent_response_renders_markdown_labels ... ok
+2026-10-13T22:14:39.5769156Z test session::raw_cli_session_selection_race_is_recoverable ... ok
+2026-10-13T22:14:39.7481860Z test slash::raw_cli_mcp_extra_argument_shows_error ... ok
+2026-10-13T22:14:39.9185660Z test slash::raw_cli_help_renders_slash_command_reference ... ok
+2026-10-13T22:14:40.0721675Z test session::raw_cli_session_picker_space_then_enter_confirms_and_deletes_without_resuming ... ok
+2026-10-13T22:14:40.0881553Z test slash::raw_cli_mcp_missing_server_argument_shows_error ... ok
+2026-10-13T22:14:40.1797018Z test session::raw_cli_session_picker_navigates_selects_and_restores_prompt ... ok
+2026-10-13T22:14:40.2155847Z test session::raw_cli_session_clear_all_skips_active_session_in_request ... ok
+2026-10-13T22:14:40.2439721Z test slash::raw_cli_informational_slash_commands_render_feedback ... ok
+2026-10-13T22:14:40.2628706Z test slash::raw_cli_mcp_slash_is_intercepted ... ok
+2026-10-13T22:14:40.4134619Z test slash::raw_cli_mcp_unknown_subcommand_shows_error ... ok
+2026-10-13T22:14:40.5324006Z test session::raw_cli_session_multi_clear_requires_confirmation_and_cancel_is_safe ... ok
+2026-10-13T22:14:40.5405123Z test slash::raw_cli_status_about_and_stats_render_without_reaching_bash ... ok
+2026-10-13T22:14:40.5418177Z test startup::diagnostics_export_help_writes_to_stdout_not_stderr ... ok
+2026-10-13T22:14:40.5431369Z test startup::help_flag_writes_to_stdout_not_stderr ... ok
+2026-10-13T22:14:40.5843605Z test slash::raw_cli_unknown_slash_uses_zh_language_env ... ok
+2026-10-13T22:14:40.5912547Z test slash::raw_cli_bare_slash_is_noop_without_hint_card ... ok
+2026-10-13T22:14:40.6119666Z test session::raw_cli_session_picker_keeps_list_workspace_for_validate_and_clear ... ok
+2026-10-13T22:14:40.7620955Z test slash::raw_cli_slash_prefix_renders_hint_without_leaking_to_shell ... ok
+2026-10-13T22:14:40.8561688Z test slash::raw_cli_mcp_login_redirects_to_shell ... ok
+2026-10-13T22:14:40.8581032Z test startup::raw_cli_missing_shell_arg_reports_error_without_starting_bash ... ok
+2026-10-13T22:14:40.9326941Z test slash::raw_cli_slash_cards_wrap_long_text_and_restore_prompt ... ok
+2026-10-13T22:14:40.9567033Z test slash::raw_cli_zsh_shell_arg_intercepts_fragmented_slash ... ok
+2026-10-13T22:14:41.0257968Z test startup::raw_cli_backend_unavailable_uses_zh_language_env ... ok
+2026-10-13T22:14:41.0788210Z test slash::raw_cli_zsh_mcp_slash_is_intercepted ... ok
+2026-10-13T22:14:41.0949528Z test startup::raw_cli_plain_startup_banner_keeps_both_modes ... ok
+2026-10-13T22:14:41.1967627Z test startup::raw_cli_adapter_error_keeps_shell_usable ... ok
+2026-10-13T22:14:41.3627187Z test slash::raw_cli_unknown_slash_suggests_nearest_canonical_command ... ok
+2026-10-13T22:14:41.4063792Z test renderer::raw_cli_agent_response_streams_soft_wrapped_markdown_paragraph ... ok
+2026-10-13T22:14:41.5279996Z test session::raw_cli_launch_resume_enables_integration_for_value_and_picker ... ok
+2026-10-13T22:14:41.5736855Z test session::raw_cli_session_picker_surfaces_unhealthy_and_empty_entries ... ok
+2026-10-13T22:14:41.6679751Z test startup::raw_cli_startup_banner_renders_cached_upgrade_notice ... ok
+2026-10-13T22:14:41.7125245Z test startup::raw_cli_exit_kills_an_in_flight_upgrade_probe ... ok
+2026-10-13T22:14:41.8198878Z test startup::raw_cli_shell_arg_can_select_zsh_raw_host ... ok
+2026-10-13T22:14:41.8338137Z test startup::raw_cli_rpm_cache_check_does_not_hold_the_first_prompt_after_rpm_times_out ... ok
+2026-10-13T22:14:41.8882858Z test session::raw_cli_session_status_shows_active_and_selected_ids ... ok
+2026-10-13T22:14:41.9302088Z test slash::raw_cli_zsh_status_about_and_stats_render_without_reaching_zsh ... ok
+2026-10-13T22:14:41.9368825Z test startup::raw_cli_adapter_failure_keeps_shell_usable ... ok
+2026-10-13T22:14:42.0701916Z test startup::raw_cli_startup_banner_reports_effective_modes ... ok
+2026-10-13T22:14:42.1596065Z test startup::raw_cli_startup_health_critical_fixture_uses_compact_oom_copy ... ok
+2026-10-13T22:14:42.2003844Z test startup::raw_cli_startup_banner_renders_when_enabled ... ok
+2026-10-13T22:14:42.2829667Z test startup::raw_cli_startup_banner_reports_selected_zsh_shell ... ok
+2026-10-13T22:14:42.3457858Z test startup::raw_cli_startup_health_dumb_terminal_uses_plain_fallback ... ok
+2026-10-13T22:14:42.5857312Z test startup::raw_cli_startup_approval_alias_and_invalid_value_fail_closed ... ok
+2026-10-13T22:14:42.5960967Z test startup::raw_cli_startup_health_live_does_not_block_shell_on_linux_by_default ... ok
+2026-10-13T22:14:42.6701336Z test startup::raw_cli_raw_run_without_adapter_uses_cosh_core_default_adapter ... ok
+2026-10-13T22:14:42.7069725Z test session::raw_cli_session_new_detaches_active_without_deleting_or_forcing_resume ... ok
+2026-10-13T22:14:42.7582435Z test startup::raw_cli_startup_health_no_color_keeps_readable_content ... ok
+2026-10-13T22:14:42.8157396Z test startup::raw_cli_default_agent_mode_defers_safe_fallback_tool ... ok
+2026-10-13T22:14:42.8268333Z test startup::raw_cli_startup_banner_uses_zh_language_env ... ok
+2026-10-13T22:14:42.9664870Z test startup::raw_cli_startup_health_disabled_renders_no_row ... ok
+2026-10-13T22:14:43.0387880Z test startup::raw_cli_startup_health_healthy_fixture_renders_startup_row_in_banner ... ok
+2026-10-13T22:14:43.0695532Z test startup::raw_cli_unsupported_shell_reports_error_without_starting_bash ... ok
+2026-10-13T22:14:43.1801882Z test startup::raw_cli_startup_hooks_no_findings_use_zh_language_env ... ok
+2026-10-13T22:14:43.3417554Z test startup::raw_cli_rpm_cache_check_does_not_hold_the_first_prompt_after_rpm_exits ... ok
+2026-10-13T22:14:43.3735415Z test startup::raw_cli_startup_health_fixture_renders_when_enabled ... ok
+2026-10-13T22:14:43.4306198Z test startup::raw_cli_startup_health_banner_disabled_does_not_suppress_later_prompt ... ok
+2026-10-13T22:14:44.1106775Z test startup::raw_cli_startup_health_degraded_fixture_is_read_only ... ok
+2026-10-13T22:14:44.4089416Z test startup::raw_cli_startup_health_cards_share_configured_width ... ok
+2026-10-13T22:14:44.5680135Z test startup::raw_cli_upgrade_notice_renders_at_an_idle_prompt_without_input ... ok
+2026-10-13T22:14:44.7092454Z test startup::raw_cli_startup_hooks_render_markdown_findings_without_running_commands ... ok
+2026-10-13T22:14:44.7108393Z test startup::version_flag_writes_to_stdout_not_stderr ... ok
+2026-10-13T22:14:44.7705451Z test startup::raw_cli_startup_health_prompt_ghost_does_not_override_manual_input ... ok
+2026-10-13T22:14:45.2863216Z test startup::raw_cli_startup_health_shift_tab_cycles_then_enter_submits_active_prompt ... ok
+2026-10-13T22:14:45.4399767Z test startup::raw_cli_startup_health_prompt_ghost_tab_only_does_not_submit ... ok
+2026-10-13T22:14:46.1164195Z test startup::raw_cli_upgrade_notice_skips_the_session_after_typed_input ... ok
+2026-10-13T22:14:46.2990653Z test task::raw_cli_snapshot_switch_defaults_to_cancel_without_mutation ... ok
+2026-10-13T22:14:46.3935808Z test task::raw_cli_snapshot_switch_confirms_exact_preview_once ... ok
+2026-10-13T22:14:46.5614455Z test startup::raw_cli_startup_health_context_is_not_attached_to_plain_agent_request ... ok
+2026-10-13T22:14:46.6555784Z test task::raw_cli_snapshot_switch_explains_cwd_occupant_block ... ok
+2026-10-13T22:14:46.9745138Z test startup::raw_cli_startup_health_prompt_ghost_tab_fills_first_suggestion ... ok
+2026-10-13T22:14:47.0252413Z test startup::raw_cli_upgrade_notice_preserves_input_after_a_completed_command ... ok
+2026-10-13T22:14:47.1023601Z test startup::raw_cli_upgrade_notice_skips_the_zsh_session_after_typed_input ... ok
+2026-10-13T22:14:47.7000086Z test terminal_ownership::bash_status_rows_preserve_geometry_across_control_transitions ... ok
+2026-10-13T22:14:47.7428977Z test task::raw_cli_lists_task_owned_snapshots_without_reaching_bash ... ok
+2026-10-13T22:14:47.7845118Z test terminal_ownership::zsh_prompt_geometry_survives_control_transitions_without_status_rows ... ok
+2026-10-13T22:14:48.1944678Z test startup::raw_cli_upgrade_notice_waits_until_the_next_prompt_after_a_failed_command ... ok
+2026-10-13T22:14:48.3889950Z test terminal_ownership::zsh_status_rows_preserve_geometry_across_control_transitions ... ok
+2026-10-13T22:14:48.4199210Z test startup::raw_cli_startup_health_suppresses_all_three_visible_try_items ... ok
+2026-10-13T22:14:48.4693160Z test terminal_ownership::bash_prompt_geometry_survives_control_transitions_without_status_rows ... ok
+2026-10-13T22:14:48.6109333Z test startup::raw_cli_startup_hooks_use_zh_language_env ... ok
+2026-10-13T22:14:48.6927610Z test startup::raw_cli_upgrade_notice_waits_for_a_queued_typeahead_command ... ok
+2026-10-13T22:14:49.0765485Z test terminal_resize::bash_enhanced_resize_preserves_unsubmitted_draft ... ok
+2026-10-13T22:14:49.8111558Z test terminal_resize::bash_native_resize_preserves_unsubmitted_draft ... ok
+2026-10-13T22:14:49.8342055Z test task::raw_cli_snapshot_preview_and_diff_render_read_only_notices ... ok
+2026-10-13T22:14:50.0453928Z test terminal_unicode::raw_cli_bash_native_unicode_cells_cursor_and_execution ... ok
+2026-10-13T22:14:50.0629968Z test terminal_unicode::raw_cli_zsh_enhanced_unicode_cells_cursor_and_execution ... ok
+2026-10-13T22:14:50.4957188Z test terminal_unicode::raw_cli_zsh_native_unicode_cells_cursor_and_execution ... ok
+2026-10-13T22:14:50.5491427Z test startup::raw_cli_upgrade_notice_skips_the_session_after_zsh_bindkey_typeahead ... ok
+2026-10-13T22:14:50.6377845Z test terminal_resize::bash_enhanced_resize_after_slash_preserves_unsubmitted_draft ... ok
+2026-10-13T22:14:50.7293041Z test task::raw_cli_task_form_submits_edited_typed_launch_once ... ok
+2026-10-13T22:14:51.0693864Z test terminal_unicode::raw_cli_zsh_enhanced_combining_cells_cursor_and_execution ... ok
+2026-10-13T22:14:51.2671023Z test startup::raw_cli_upgrade_notice_skips_the_session_after_custom_accept_line_typeahead ... ok
+2026-10-13T22:14:51.2725188Z test terminal_unicode::raw_cli_bash_enhanced_unicode_cells_cursor_and_execution ... ok
+2026-10-13T22:14:51.6366340Z test terminal_unicode::raw_cli_zsh_native_combining_cells_cursor_and_execution ... ok
+2026-10-13T22:14:51.9852520Z test startup::raw_cli_startup_health_prompt_selection_respects_terminal_capability_not_color ... ok
+2026-10-13T22:14:51.9853071Z 
+2026-10-13T22:14:51.9853163Z failures:
+2026-10-13T22:14:51.9853291Z 
+2026-10-13T22:14:51.9853513Z ---- native::raw_cli_login_probe_preserves_login_argv0 stdout ----
+2026-10-13T22:14:51.9853801Z 
+2026-10-13T22:14:51.9854165Z thread 'native::raw_cli_login_probe_preserves_login_argv0' panicked at crates/cosh-shell/tests/raw_cli/native.rs:152:57:
+2026-10-13T22:14:51.9854810Z read logout events: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+2026-10-13T22:14:51.9855323Z note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+2026-10-13T22:14:51.9855611Z 
+2026-10-13T22:14:51.9855616Z 
+2026-10-13T22:14:51.9855700Z failures:
+2026-10-13T22:14:51.9855937Z     native::raw_cli_login_probe_preserves_login_argv0
+2026-10-13T22:14:51.9856156Z 
+2026-10-13T22:14:51.9856426Z test result: FAILED. 579 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 308.19s
+2026-10-13T22:14:51.9856767Z 
+2026-10-13T22:14:51.9864042Z [1m[31merror[0m[1m:[0m test failed, to rerun pass `-p cosh-shell --test raw_cli`
+2026-10-13T22:14:51.9922478Z ##[error]Process completed with exit code 101.
+2026-10-13T22:14:52.0033244Z Post job cleanup.
+2026-10-13T22:14:52.0783040Z [command]/usr/bin/git version
+2026-10-13T22:14:52.0810643Z git version 2.34.1
+2026-10-13T22:14:52.0840201Z Temporarily overriding HOME='/home/runner/actions-runner/_work/_temp/6b338ff2-0381-4bbe-a463-323c73b451ca' before making global git config changes
+2026-10-13T22:14:52.0841199Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-13T22:14:52.0844425Z [command]/usr/bin/git config --global --add safe.directory /home/runner/actions-runner/_work/ANOLISA/ANOLISA
+2026-10-13T22:14:52.0868821Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-13T22:14:52.0889603Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-13T22:14:52.1049928Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-13T22:14:52.1063751Z http.https://github.com/.extraheader
+2026-10-13T22:14:52.1069921Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-13T22:14:52.1089558Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-13T22:14:52.1244640Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-13T22:14:52.1263555Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-13T22:14:52.1474692Z A job completed hook has been configured by the self-hosted runner administrator
+2026-10-13T22:14:52.1492137Z ##[group]Run '/opt/anolisa/sccache-job-completed.sh'
+2026-10-13T22:14:52.1500103Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-13T22:14:52.1500543Z ##[endgroup]
+2026-10-13T22:14:52.1537257Z Stopping sccache server...
+2026-10-13T22:14:52.1539839Z Compile requests                       0
+2026-10-13T22:14:52.1540380Z Compile requests executed              3
+2026-10-13T22:14:52.1540825Z Cache hits                             3
+2026-10-13T22:14:52.1541225Z Cache hits (Rust)                      3
+2026-10-13T22:14:52.1541620Z Cache misses                           0
+2026-10-13T22:14:52.1542035Z Cache hits rate                   100.00 %
+2026-10-13T22:14:52.1542343Z Cache hits rate (Rust)            100.00 %
+2026-10-13T22:14:52.1621301Z Cache timeouts                         0
+2026-10-13T22:14:52.1621838Z Cache read errors                      0
+2026-10-13T22:14:52.1622189Z Forced recaches                        0
+2026-10-13T22:14:52.1622477Z Cache write errors                     0
+2026-10-13T22:14:52.1622755Z Cache errors                           0
+2026-10-13T22:14:52.1623101Z Compilations                           0
+2026-10-13T22:14:52.1623455Z Compilation failures                   0
+2026-10-13T22:14:52.1623771Z Non-cacheable compilations             0
+2026-10-13T22:14:52.1624051Z Non-cacheable calls                   22
+2026-10-13T22:14:52.1624368Z Non-compilation calls                  0
+2026-10-13T22:14:52.1624685Z Unsupported compiler calls             0
+2026-10-13T22:14:52.1625020Z Average cache write                0.000 s
+2026-10-13T22:14:52.1625329Z Average compiler                   0.000 s
+2026-10-13T22:14:52.1625605Z Average cache read hit             0.138 s
+2026-10-13T22:14:52.1625904Z Failed distributed compilations        0
+2026-10-13T22:14:52.1626086Z 
+2026-10-13T22:14:52.1626183Z Non-cacheable reasons:
+2026-10-13T22:14:52.1626421Z crate-type                            19
+2026-10-13T22:14:52.1626684Z missing input                          2
+2026-10-13T22:14:52.1626938Z -                                      1
+2026-10-13T22:14:52.1627112Z 
+2026-10-13T22:14:52.1627733Z Cache location                  redis, name: ***, prefix: /anolisa-ci/v1/
+2026-10-13T22:14:52.1628104Z Base directories                (none)
+2026-10-13T22:14:52.1628372Z Version (client)                0.18.0
+2026-10-13T22:14:52.1693553Z Cleaning up orphan processes
+2026-10-13T22:14:52.1728069Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

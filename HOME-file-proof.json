@@ -1,0 +1,12 @@
+{
+  "stable_regular_files": 2,
+  "green_regular_files": 2,
+  "production_regular_files": 3,
+  "stable_equals_green": true,
+  "sentinel_preserved": true,
+  "production_paths": [
+    ".budget/.budget.lock",
+    ".budget/00000000-0000-4000-8000-000000000000.json",
+    "sentinel"
+  ]
+}

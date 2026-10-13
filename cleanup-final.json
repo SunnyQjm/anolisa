@@ -1,0 +1,14 @@
+{
+  "container_absent": true,
+  "native_probe_exit": 1,
+  "owner_run": "20261013T190856Z-2c83db58",
+  "exclusive_cache_deleted": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/data-C/round9/cache",
+  "cache_files": 35817,
+  "logical_bytes_reclaimed": 8662369470,
+  "lab_ledger_archived": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/data-C/round11/lab-ledger",
+  "worktree_retained": true,
+  "git_clean": true,
+  "all_15_source_hashes_unchanged": true,
+  "host_HOME_416_file_contents_unchanged": true,
+  "unrelated_resources_touched": false
+}

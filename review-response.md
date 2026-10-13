@@ -1,0 +1,5 @@
+Review5510277629 is addressed in `4cf6aeb8ed47bc0137db3bcb256deb74b291854b`. Activity probes now use a no-sweep directory path preserving descriptor/permission and candidate lock protections. Ordinary writers still sweep, and a prior no-sweep access on the same instance does not mark it swept.
+
+The compiled/source-artifact-bound RED records8 candidates causing8 full temporary sweeps. Instrumented regression covers8/64 candidates for both age and capacity, verifies actual envelope eviction, zero activity-loop temporary sweeps, and one ordinary-writer sweep across repeated accesses. Restoring the old per-candidate directory(true) produces an actual8!=0 behavioral mutation failure. Final13/13 mutations and45+1+105+16+37 tests, strict preflight, committed-source/HOME/production evidence pass. [Evidence](https://raw.githubusercontent.com/SunnyQjm/anolisa/b98fb4dfd369b29b5bf067973ec51d0fddf3033d/REPORT.md).
+
+New-head CI38475379875 and external approval remain pending; resources retained for follow-up. Prior R10 platform startup and R9 Shell risks remain documented without source-fix claims.

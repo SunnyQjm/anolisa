@@ -1,0 +1,40 @@
+Build copilot-shell	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607835	
+Test SkillFS	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607733	
+Test agent-memory	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607777	
+Test agent-sec-core	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607459	
+Test agentsight	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608516	
+Test anolisa	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607857	
+Test copilot-shell/cli	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608814	
+Test copilot-shell/core	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608999	
+Test ktuner	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607991	
+Test cosh-ng	pass	11m49s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569606423	
+📝 Commit Message Lint	pass	18s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38478685159/job/115575647416	
+Test tokenless	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608598	
+Test ws-ckpt	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608043	
+Build cosh-ng release	pass	4m25s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608540	
+Check build runtime dependencies	pass	17s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569675287	
+Check component versions	pass	17s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569606157	
+Detect Changes	pass	17s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607087	
+Test cosh-ng fast checks	pass	6m16s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607724	
+Test cosh-ng prebuilt action	pass	25s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379892/job/115564651661	
+🔍 PR Checks	pass	16s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38478685159/job/115575647653	
+Build cosh-ng release	pass	4m25s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608540	
+Check build runtime dependencies	pass	17s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569675287	
+Check component versions	pass	17s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569606157	
+Test copilot-shell/core	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608999	
+Test agentsight	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608516	
+Test anolisa	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607857	
+Test copilot-shell/cli	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608814	
+Test agent-sec-core	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607459	
+🔍 PR Checks	pass	16s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38478685159/job/115575647653	
+Test cosh-ng	pass	11m49s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569606423	
+📝 Commit Message Lint	pass	18s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38478685159/job/115575647416	
+Test cosh-ng prebuilt action	pass	25s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379892/job/115564651661	
+Test cosh-ng fast checks	pass	6m16s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607724	
+Test agent-memory	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607777	
+Test SkillFS	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607733	
+Build copilot-shell	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607835	
+Detect Changes	pass	17s	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607087	
+Test ktuner	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569607991	
+Test tokenless	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608598	
+Test ws-ckpt	skipping	0	https://github.com/agentic-os-org/ANOLISA/actions/runs/38475379875/job/115569608043	

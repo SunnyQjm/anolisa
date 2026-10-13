@@ -1,0 +1,378 @@
+{
+  "verdict": "Go: independent source/time/geometry/pixel/content/sidecar checks",
+  "source_head": "2e7fc1720511479c25374246b0ff50a38596aee4",
+  "points": [
+    {
+      "run": "20261013T210121Z-962f7310",
+      "point": "cjk-output",
+      "source_sha256": "77ba70e03522d436f785f966aa83111043a43b61b076817e05f3c90c55d28149",
+      "source_event": 8,
+      "offset_ms": 909,
+      "selected_video_frame": 8,
+      "selected_pts_ms": 909,
+      "viewport": [
+        80,
+        30
+      ],
+      "png_dimensions": [
+        787,
+        694
+      ],
+      "pixel_max_difference": 1,
+      "content_checks": {
+        "entire_cjk_history": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210121Z-962f7310-cjk-output.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210121Z-962f7310/screens/cjk-output.webm",
+        "-vf",
+        "select=eq(n\\,8),crop=787:694:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210121Z-962f7310",
+      "point": "worker-card",
+      "source_sha256": "77ba70e03522d436f785f966aa83111043a43b61b076817e05f3c90c55d28149",
+      "source_event": 13,
+      "offset_ms": 1424,
+      "selected_video_frame": 13,
+      "selected_pts_ms": 1077,
+      "viewport": [
+        80,
+        30
+      ],
+      "png_dimensions": [
+        787,
+        694
+      ],
+      "pixel_max_difference": 1,
+      "content_checks": {
+        "entire_cjk_history": true,
+        "one_current_complete_card": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210121Z-962f7310-worker-card.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210121Z-962f7310/screens/worker-card.webm",
+        "-vf",
+        "select=eq(n\\,13),crop=787:694:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210121Z-962f7310",
+      "point": "resized-current-card",
+      "source_sha256": "77ba70e03522d436f785f966aa83111043a43b61b076817e05f3c90c55d28149",
+      "source_event": 17,
+      "offset_ms": 1788,
+      "selected_video_frame": 17,
+      "selected_pts_ms": 1438,
+      "viewport": [
+        47,
+        20
+      ],
+      "png_dimensions": [
+        470,
+        470
+      ],
+      "pixel_max_difference": 2,
+      "content_checks": {
+        "entire_cjk_history": true,
+        "one_current_complete_card": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210121Z-962f7310-resized-current-card.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210121Z-962f7310/screens/resized-current-card.webm",
+        "-vf",
+        "select=eq(n\\,17),crop=470:470:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210121Z-962f7310",
+      "point": "bash-returned",
+      "source_sha256": "77ba70e03522d436f785f966aa83111043a43b61b076817e05f3c90c55d28149",
+      "source_event": 23,
+      "offset_ms": 2497,
+      "selected_video_frame": 23,
+      "selected_pts_ms": 2497,
+      "viewport": [
+        47,
+        20
+      ],
+      "png_dimensions": [
+        470,
+        470
+      ],
+      "pixel_max_difference": 1,
+      "content_checks": {
+        "entire_cjk_history": true,
+        "ordinary_bash_ready": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210121Z-962f7310-bash-returned.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210121Z-962f7310/screens/bash-returned.webm",
+        "-vf",
+        "select=eq(n\\,23),crop=470:470:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210137Z-149480a9",
+      "point": "fault-focused-deny",
+      "source_sha256": "d9a3a1a052ba9c9e345b759074e04fc38c452000b1c5993bec6a22e7cf2cde5d",
+      "source_event": 11,
+      "offset_ms": 1649,
+      "selected_video_frame": 10,
+      "selected_pts_ms": 1312,
+      "viewport": [
+        80,
+        30
+      ],
+      "png_dimensions": [
+        787,
+        694
+      ],
+      "pixel_max_difference": 1,
+      "content_checks": {
+        "deny_selected": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210137Z-149480a9-fault-focused-deny.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210137Z-149480a9/screens/fault-focused-deny.webm",
+        "-vf",
+        "select=eq(n\\,10),crop=787:694:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210137Z-149480a9",
+      "point": "fault-current-card",
+      "source_sha256": "d9a3a1a052ba9c9e345b759074e04fc38c452000b1c5993bec6a22e7cf2cde5d",
+      "source_event": 19,
+      "offset_ms": 4472,
+      "selected_video_frame": 18,
+      "selected_pts_ms": 4472,
+      "viewport": [
+        47,
+        20
+      ],
+      "png_dimensions": [
+        470,
+        470
+      ],
+      "pixel_max_difference": 2,
+      "content_checks": {
+        "one_current_complete_card": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210137Z-149480a9-fault-current-card.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210137Z-149480a9/screens/fault-current-card.webm",
+        "-vf",
+        "select=eq(n\\,18),crop=470:470:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210137Z-149480a9",
+      "point": "fault-bash-returned",
+      "source_sha256": "d9a3a1a052ba9c9e345b759074e04fc38c452000b1c5993bec6a22e7cf2cde5d",
+      "source_event": 27,
+      "offset_ms": 5734,
+      "selected_video_frame": 26,
+      "selected_pts_ms": 5733,
+      "viewport": [
+        47,
+        20
+      ],
+      "png_dimensions": [
+        470,
+        470
+      ],
+      "pixel_max_difference": 1,
+      "content_checks": {
+        "ordinary_bash_ready": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210137Z-149480a9-fault-bash-returned.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210137Z-149480a9/screens/fault-bash-returned.webm",
+        "-vf",
+        "select=eq(n\\,26),crop=470:470:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    },
+    {
+      "run": "20261013T210137Z-149480a9",
+      "point": "fault-resized-card",
+      "source_sha256": "d9a3a1a052ba9c9e345b759074e04fc38c452000b1c5993bec6a22e7cf2cde5d",
+      "source_event": 21,
+      "offset_ms": 5033,
+      "selected_video_frame": 20,
+      "selected_pts_ms": 4480,
+      "viewport": [
+        47,
+        20
+      ],
+      "png_dimensions": [
+        470,
+        470
+      ],
+      "pixel_max_difference": 2,
+      "content_checks": {
+        "one_current_complete_card": true
+      },
+      "keyframe": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/final-source-visual-review/20261013T210137Z-149480a9-fault-resized-card.png",
+      "decode_command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210137Z-149480a9/screens/fault-resized-card.webm",
+        "-vf",
+        "select=eq(n\\,20),crop=470:470:0:0",
+        "-fps_mode",
+        "passthrough",
+        "-frames:v",
+        "1",
+        "-f",
+        "rawvideo",
+        "-pix_fmt",
+        "rgb24",
+        "pipe:1"
+      ]
+    }
+  ],
+  "sidecar_facts": [
+    {
+      "sidecar": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/canonical/final-source-sidecars/kill-frame-102494/result.json",
+      "all_checked_facts_passed": true
+    },
+    {
+      "sidecar": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/terminal/canonical/final-source-sidecars/resize-102158/result.json",
+      "all_checked_facts_passed": true
+    }
+  ],
+  "no_artifact_or_source_mutation": true,
+  "no_env_cargo": true,
+  "source_tree": "da56e154adf7b3c953948580c84f49de62dbaed2",
+  "manual_visual_review": {
+    "eight_formal_pngs_inspected": true,
+    "eight_decoded_video_keyframes_inspected": true,
+    "cjk_glyphs_readable": true,
+    "complete_card_bottom_visible": true,
+    "deny_focus_visible": true,
+    "resize_points_show_one_current_card": true,
+    "ordinary_bash_ready_visible": true,
+    "fault_current_and_resized_pngs_byte_identical": true
+  },
+  "standard_owner_runtime_verify": {
+    "pythonpath": "/Users/quejianming/vscode/cosh-shell-dev/skills/runtime/cosh-lab/src",
+    "runs_verified": [
+      "20261013T210121Z-962f7310",
+      "20261013T210137Z-149480a9"
+    ],
+    "verified": true
+  },
+  "owned_environment_readback": [
+    {
+      "case_run": "20261013T210121Z-962f7310",
+      "environment_ref": "20261013T184512Z-5a9038a5",
+      "state": "completed",
+      "cleanup": {
+        "status": "cleaned"
+      }
+    },
+    {
+      "case_run": "20261013T210137Z-149480a9",
+      "environment_ref": "20261013T184512Z-5a9038a5",
+      "state": "completed",
+      "cleanup": {
+        "status": "cleaned"
+      }
+    }
+  ]
+}

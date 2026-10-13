@@ -1,0 +1,46 @@
+{
+  "status": "Debug slice validation Go; owned environment cleaned; PR preparation",
+  "head": "b2e645ea42024ca1f583f52debbe57244af1080f",
+  "tree": "825c8ac3e52a7479f7d42ffff6664c5f881f56e8",
+  "base": "69ae39dc5b97e47a399ed6c42d841d421e29c6dd",
+  "toolchain": "rustup run 1.97.1 cargo",
+  "worktree": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice",
+  "untracked": [
+    ".cosh-lab/ owned local runtime metadata; excluded from source"
+  ],
+  "prior_review_commit": "756678f6e",
+  "cosh_scope_upstream_drift": "6f240..a463 has no src/cosh-ng changes",
+  "build_run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T161105Z-b39c9db0",
+  "superseded_head": "39bd78e20dead0e975d58b99764dd8f7adfc89d2",
+  "superseded_binary_hashes": {
+    "cosh-shell": "e115189f4c3dcfa7a53010ee2b16a51e175ea30f1c44489ab78852abdf45f58e",
+    "cosh-core": "9c73f00310b66dea10302e101009edc6dfffa425fe36f3703c6f8d1b80cc2ee9",
+    "cosh-ui-worker": "96037077378ccea723bcee393f600f0c13ab48d357c1d0d9d5beeae875ff658b"
+  },
+  "superseded_heads": [
+    "39bd78e20dead0e975d58b99764dd8f7adfc89d2",
+    "9da5669646581d6200cb484684f61e8679bbacd6",
+    "2bad0d5adb9b1b3c3a0a87d77b9f5acc26b7f7ab",
+    "6e96d9621d6ea5d65b8ca8f04765b3dce00b711b"
+  ],
+  "cosh_source_tree": "f0c35f35a477564ea58415003dca7aee10533888",
+  "binaries": {
+    "cosh-shell": "bb7491202c1c9df292bbb722ee6527057038b1d5b31ebc1fc0c2eaaa5c03af0a",
+    "cosh-core": "9c73f00310b66dea10302e101009edc6dfffa425fe36f3703c6f8d1b80cc2ee9",
+    "cosh-ui-worker": "d512edc83e0db117e7a567f407cef5ff657aae308b7db593689c4c55275351bc"
+  },
+  "ui_matrix_run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T161813Z-3a82ca67",
+  "previous_dev_profile_binary_hashes": {
+    "cosh-shell": "e87ae4fb0cf08482524b237d296a860756103a98e978c68519deaab034cdab5d",
+    "cosh-core": "9c73f00310b66dea10302e101009edc6dfffa425fe36f3703c6f8d1b80cc2ee9",
+    "cosh-ui-worker": "96037077378ccea723bcee393f600f0c13ab48d357c1d0d9d5beeae875ff658b"
+  },
+  "binary_profile": "Cargo integration test-built non-test executables, same throughout final UI25; canonical must reuse without rebuilding",
+  "binary_verification_run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T162603Z-7ab97ec8",
+  "rust_crates_tree": "127f634c311bfb1aa1606c42cd1ce9c24d0f9fb0",
+  "rust_test_source_head": "6e96d9621d6ea5d65b8ca8f04765b3dce00b711b",
+  "canonical_evidence": "terminal/final-owned-visual-review/report.md",
+  "cleanup": "owned environment and gate tools cleaned; borrowed environment and Rust1.97.1 cache retained",
+  "test_head": "02e70598f4dd3ebedbe30f06580a4dcab5bef208",
+  "final_rebase_proof": "final-rebase-proof.json"
+}

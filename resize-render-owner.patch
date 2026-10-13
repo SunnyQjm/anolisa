@@ -1,0 +1,52 @@
+diff --git a/runtime/cosh-lab/src/cosh_lab/evidence.py b/runtime/cosh-lab/src/cosh_lab/evidence.py
+index 176577c..64e207f 100644
+--- a/runtime/cosh-lab/src/cosh_lab/evidence.py
++++ b/runtime/cosh-lab/src/cosh_lab/evidence.py
+@@ -47,6 +47,14 @@ def render_point_screenshots(
+     cast_path = run_dir / "transcript.cast"
+     cast_sha256 = hashlib.sha256(cast_path.read_bytes()).hexdigest()
+     last_offset_ms = last_cast_offset_ms(cast_path)
++    if any(json.loads(line)[1] == "r" for line in cast_path.read_text().splitlines()[1:] if line):
++        from .resize_render import render
++        try:
++            rows = render(run_dir, case_id, points)
++        except (RuntimeError, ValueError, OSError, subprocess.TimeoutExpired) as error:
++            raise EvidenceError(str(error)) from error
++        _write_visual_index(run_dir, rows)
++        return rows
+     screenshots = run_dir / "screenshots"
+     screenshots.mkdir(exist_ok=True)
+     rows = []
+@@ -179,6 +187,11 @@ def render_point_screenshots(
+                 row["screen_source"] = "cast-replay"
+             rows.append(row)
+ 
++    _write_visual_index(run_dir, rows)
++    return rows
++
++
++def _write_visual_index(run_dir, rows):
+     index = run_dir / "visual-evidence-index.tsv"
+     headers = (
+         list(rows[0])
+@@ -199,7 +212,6 @@ def render_point_screenshots(
+     lines = ["\t".join(headers)]
+     lines.extend("\t".join(str(row[header]) for header in headers) for row in rows)
+     index.write_text("\n".join(lines) + "\n")
+-    return rows
+ 
+ 
+ def verify_run(run_dir: Path) -> list[str]:
+@@ -327,6 +339,12 @@ def verify_run(run_dir: Path) -> list[str]:
+                 source_sha256 = hashlib.sha256(cast_path.read_bytes()).hexdigest()
+                 if row.get("source_sha256") != source_sha256:
+                     errors.append(f"acceptance source hash mismatch: {point_id}")
++            if cast_path.is_file() and any(json.loads(line)[1] == "r" for line in cast_path.read_text().splitlines()[1:] if line):
++                from .resize_render import validate_provenance
++                try:
++                    validate_provenance(run_dir, row, manifest)
++                except (ValueError, OSError, KeyError, TypeError) as error:
++                    errors.append(f"resize replay provenance invalid: {point_id}: {error}")
+             if expected_layout:
+                 screen_value = row.get("screen", "")
+                 screen = (run_dir / screen_value).resolve() if screen_value else None

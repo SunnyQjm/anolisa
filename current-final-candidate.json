@@ -1,0 +1,61 @@
+{
+  "base": "69ae39dc5b97e47a399ed6c42d841d421e29c6dd",
+  "toolchain": "rustup run 1.97.1 cargo",
+  "worktree": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice",
+  "untracked": [
+    ".cosh-lab/ owned local runtime metadata; excluded from source"
+  ],
+  "pull_request": "https://github.com/agentic-os-org/ANOLISA/pull/7333",
+  "tracking_issue": "https://github.com/agentic-os-org/ANOLISA/issues/7332",
+  "reviewer": "kongche-jbw",
+  "release_authorized": false,
+  "head": "2e7fc1720511479c25374246b0ff50a38596aee4",
+  "tree": "da56e154adf7b3c953948580c84f49de62dbaed2",
+  "status": "current-head debug local gate Go; all required CI passed; latest external review reports no blockers; formal GitHub approval pending",
+  "owned_environment": "20261013T184512Z-5a9038a5",
+  "borrowed_environment": "20261009T032924Z-83fae118",
+  "source_tracked_clean": true,
+  "cleanup": "owned container deleted (cleaned); 0 remaining Cosh processes; own borrowed temporary tools removed; borrowed environment and Cargo caches retained",
+  "binary_sha256": {
+    "cosh-shell": "790f049fc20f863dbf8c37de0d393d456cac020d9d1f5adb22cfa8f6c7488b36",
+    "cosh-core": "9c73f00310b66dea10302e101009edc6dfffa425fe36f3703c6f8d1b80cc2ee9",
+    "cosh-ui-worker": "cfe30b7de19165edd0883cd9f2aa1b9b993e8659f0a73d0c2bc7dac8c2127787"
+  },
+  "current_head_counts": {
+    "shell_lib": 1608,
+    "shell_bin": 2289,
+    "logic": 9,
+    "protocol": 83,
+    "ui_raw_cli": 25,
+    "ignored_existing": 1,
+    "exact_shared_excluded": 696
+  },
+  "current_head_gate": "Go: debug arm64/container/raw-cli; final-source-gate.json",
+  "review_fixes": "Separate terminal-region repair from geometry constraints; preserve clean startup; latch acquired/partial writes; repair existing direct panel retries before managed publication; clear only completed repair",
+  "historical_evidence": "Previous runs keep their actual source HEAD and are not current-candidate acceptance.",
+  "matrix_run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T205259Z-21c6afea",
+  "clean_target_proof": {
+    "run": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T205259Z-b42fa23a",
+    "result": "19 passed; 0 failed; 0 ignored",
+    "binary_sha256": {
+      "cosh-shell": "790f049fc20f863dbf8c37de0d393d456cac020d9d1f5adb22cfa8f6c7488b36",
+      "cosh-core": "64f052761468f6077b17aed79a4e6dceecd1418f1615c9360cc3355971a57fe9",
+      "cosh-ui-worker": "cfe30b7de19165edd0883cd9f2aa1b9b993e8659f0a73d0c2bc7dac8c2127787"
+    }
+  },
+  "formal_test_run": "20261013T210105Z-1fd32b3c",
+  "canonical_runs": [
+    "20261013T210121Z-962f7310",
+    "20261013T210137Z-149480a9"
+  ],
+  "visual_review": "terminal/final-source-visual-review/review.json",
+  "scope": "debug feature only; scripted real PTY/ELFs with loopback model; no real provider/dual-architecture installed RPM/default-Shell release/merge/deploy",
+  "ci": "all current-head checks completed successfully (unrelated component checks skipped); final-pr-current-state.json",
+  "review_state": "REVIEW_REQUIRED",
+  "latest_review": {
+    "commit": "2e7fc1720511479c25374246b0ff50a38596aee4",
+    "state": "COMMENTED",
+    "submitted_at": "2026-10-13T21:02:27Z",
+    "body": "Review baseline: `69ae39dc5b97...2e7fc1720511`\n\n未发现阻塞问题。\n\nRemaining risks:\n\n- Full raw-CLI PTY/canonical matrix was not rerun locally; `Test cosh-ng` is still pending.\n- Release/default-shell and cross-architecture manual UX remain outside this debug slice.\n\nVerification scope:\n\n- Full diff, adjacent state/input/terminal code, tests, and prior review context were inspected.\n- Format, layout, and Clippy passed for both shell binaries.\n- 23 slice, 5 surface-session, and 1 committed-handoff regression tests passed.\n"
+  }
+}

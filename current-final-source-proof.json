@@ -1,0 +1,37 @@
+{
+  "head": "2e7fc1720511479c25374246b0ff50a38596aee4",
+  "tree": "da56e154adf7b3c953948580c84f49de62dbaed2",
+  "cosh_source_tree": "e4f8b4fa419c809bb888005bcc357aa268489172",
+  "tracked_source_clean": true,
+  "normal_binary_sha256": {
+    "cosh-shell": "790f049fc20f863dbf8c37de0d393d456cac020d9d1f5adb22cfa8f6c7488b36",
+    "cosh-core": "9c73f00310b66dea10302e101009edc6dfffa425fe36f3703c6f8d1b80cc2ee9",
+    "cosh-ui-worker": "cfe30b7de19165edd0883cd9f2aa1b9b993e8659f0a73d0c2bc7dac8c2127787"
+  },
+  "post_capture_binary_sha256": {
+    "cosh-shell": "790f049fc20f863dbf8c37de0d393d456cac020d9d1f5adb22cfa8f6c7488b36",
+    "cosh-core": "9c73f00310b66dea10302e101009edc6dfffa425fe36f3703c6f8d1b80cc2ee9",
+    "cosh-ui-worker": "cfe30b7de19165edd0883cd9f2aa1b9b993e8659f0a73d0c2bc7dac8c2127787"
+  },
+  "source_sha256": {
+    "src/cosh-ng/crates/cosh-shell/src/approval/panel.rs": "d81af143b1c0c27db746665ee4dc0267408278d10a921365ab5ddd3f0d1edb99",
+    "src/cosh-ng/crates/cosh-shell/src/approval/slice_present.rs": "9ed35713ae071dfc70a69e1c45eba449b4e54c530da6a1a14a298b306da8b299",
+    "src/cosh-ng/crates/cosh-shell/src/approval/slice_tests/live_eligibility.rs": "43397a15f4172b6d8d51321b83478441c1d49c679f62f170bfd99219f1874d0d",
+    "src/cosh-ng/crates/cosh-shell/src/approval/surface_session.rs": "669b07905fa626656a446dfa3d328f32801e1995bfd15452d6a6aab4ea912459",
+    "src/cosh-ng/crates/cosh-shell/src/approval/surface_session/tests.rs": "3d82064dcff96f7cc23882e80a58d50e9578cfe972da89d67a664fe6e61f1b9d",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/approval_ui.rs": "7c56c69fc96004f3e0301b5dd1ea87810e3e167f52ed807f0a2beef0dfee209e",
+    "src/cosh-ng/crates/cosh-shell/src/approval/runtime.rs": "1da6bd6de8969176166bd5c23314fb7416b1a4cb39f370c4dc7c2ee23c032762",
+    "specs/shell-e2e-validation/cases/ui-worker-canonical.yaml": "61cf4bdf5417b77a9ad5fb4b9bf5f1c70c144ddc653c7efa58439efd8baa6a9e"
+  },
+  "runs": {
+    "formal-test": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210105Z-1fd32b3c",
+    "resize": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210121Z-962f7310",
+    "fault": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T210137Z-149480a9"
+  },
+  "matrix": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T205259Z-21c6afea",
+  "clean_target": "/Users/quejianming/vscode/cosh-shell-dev/.worktrees/cosh-track2-ui-approval-slice/.cosh-lab/runs/20261013T205259Z-b42fa23a",
+  "renderer_source_sha256": {
+    "/Users/quejianming/vscode/cosh-shell-dev/skills/runtime/cosh-lab/src/cosh_lab/evidence.py": "ae8d1bfadd5637e606799897e26c31a1105ee89cd65f3c409ef47b06723c76cb",
+    "/Users/quejianming/vscode/cosh-shell-dev/skills/runtime/cosh-lab/src/cosh_lab/resize_render.py": "2f3fc8fdee766618942b7f1f642bdc961dbdd44c61791aba0bfdeb8c0c26dc8b"
+  }
+}

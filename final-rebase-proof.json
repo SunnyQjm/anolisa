@@ -1,0 +1,17 @@
+{
+  "tested_head": "02e70598f4dd3ebedbe30f06580a4dcab5bef208",
+  "pr_head": "b2e645ea42024ca1f583f52debbe57244af1080f",
+  "pr_tree": "825c8ac3e52a7479f7d42ffff6664c5f881f56e8",
+  "base": "69ae39dc5b97e47a399ed6c42d841d421e29c6dd",
+  "equal_paths": {
+    "src/cosh-ng": {
+      "tested": "f0c35f35a477564ea58415003dca7aee10533888",
+      "final": "f0c35f35a477564ea58415003dca7aee10533888"
+    },
+    "specs/shell-e2e-validation/cases/ui-worker-canonical.yaml": {
+      "tested": "4589795a41008f5c2bc9f0d59ee911a25804b045",
+      "final": "4589795a41008f5c2bc9f0d59ee911a25804b045"
+    }
+  },
+  "raw_metadata_relabelled": false
+}

@@ -1,0 +1,64 @@
+{
+  "status": "all fast components passed across recorded commands; literal wrapper required environment correction",
+  "head": "9da5669646581d6200cb484684f61e8679bbacd6",
+  "root_permission_failures": "three Core permissions cases re-executed in same actual binary as nobody; full 1017 passed",
+  "existing_shell_bin_ignored": 1,
+  "overlap": 696,
+  "checks": [
+    {
+      "file": "final-fast-restored.json",
+      "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T151745Z-e8b2aec3",
+      "exit_code": 1,
+      "results": []
+    },
+    {
+      "file": "final-fast-components.json",
+      "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T152303Z-8f000661",
+      "exit_code": 127,
+      "results": []
+    },
+    {
+      "file": "final-fast-components-restored.json",
+      "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T153017Z-3cb222ba",
+      "exit_code": 101,
+      "results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 84 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.04s",
+        "test result: ok. 441 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.43s",
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+        "test result: ok. 58 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s",
+        "test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s",
+        "test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 335 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.45s",
+        "test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 184 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.46s",
+        "test result: FAILED. 1010 passed; 3 failed; 0 ignored; 0 measured; 4 filtered out; finished in 21.34s"
+      ]
+    },
+    {
+      "file": "final-fast-nonroot-core.json",
+      "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/login-shell-golive/ui-approval-slice-runs/20261013T153457Z-d62e46d0",
+      "exit_code": 0,
+      "results": [
+        "test result: ok. 1017 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 22.15s",
+        "test result: ok. 1606 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 20.27s",
+        "test result: ok. 2285 passed; 0 failed; 1 ignored; 0 measured; 696 filtered out; finished in 28.83s",
+        "test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.04s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 82 filtered out; finished in 0.02s",
+        "test result: ok. 83 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.86s"
+      ]
+    }
+  ],
+  "cleanup_pending": [
+    "owned tmp rg/ShellCheck",
+    "new diffutils package"
+  ]
+}

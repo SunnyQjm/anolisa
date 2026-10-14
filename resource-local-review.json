@@ -1,0 +1,27 @@
+{
+  "review": "local rule/behavior/code safety read-only",
+  "findings_count": 0,
+  "source_sha256": {
+    "src/cosh-ng/crates/cosh-core/src/redaction.rs": "6514e30d17b7a35f2add8e4bcd57763d92ccf07ebd2f0bed8ef38fcdc89b3bdc",
+    "src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs": "998d3cde1fbe7fcbafe55cc58ef77b274fbcef8d71371b65717e28189eccd570",
+    "src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs": "b1038e55d747099b4c513dae3d544f5c31d085203c236ae712b298c58002a05b"
+  },
+  "invariants": [
+    "original-coordinate PEM scopes",
+    "decoded duplicate keys and whole value masking",
+    "ordinary fields and live context unchanged",
+    "monotonic interval cursors",
+    "per-base alias suffix cursors",
+    "disjoint classified-value parsing",
+    "private owner module; no new dependency or production API"
+  ],
+  "whole_function_linear_claim": false,
+  "remaining_sort": "O(M log M)",
+  "reviewer_ran_cargo_or_external_scan": false,
+  "reviewer_read_raw_tests": "16 GREEN; baseline 8 GREEN and 3 resource RED",
+  "rebased_head": "fa885dcbe1491cf8c17af6a399fa9a1d354475bd",
+  "upstream_base": "4a4961e419170a202487902819f05482eb961db9",
+  "integration_findings_count": 0,
+  "integration_review": "upstream did not alter Core, evidence masking, adapter prompt construction or scripted PTY paths; UI display/capture delta did not bypass masking boundaries",
+  "integration_review_full_ui": false
+}

@@ -1,0 +1,665 @@
+diff --git a/src/cosh-ng/crates/cosh-core/src/redaction.rs b/src/cosh-ng/crates/cosh-core/src/redaction.rs
+index 599289d1f..b321d0ac3 100644
+--- a/src/cosh-ng/crates/cosh-core/src/redaction.rs
++++ b/src/cosh-ng/crates/cosh-core/src/redaction.rs
+@@ -6,8 +6,40 @@ use regex::Regex;
+ use serde::Serialize;
+ use serde_json::Value;
+ 
++mod private_key;
++
++use private_key::{private_key_marker_range, redact_private_key_blocks};
++
+ use crate::provider::{Message, MessageContent, MessageContentBlock};
+ 
++#[cfg(test)]
++thread_local! {
++    static REDACTION_WORK: std::cell::Cell<(usize, usize, usize)> = const { std::cell::Cell::new((0, 0, 0)) };
++}
++
++#[cfg(test)]
++pub(crate) fn redaction_work(reset: bool) -> (usize, usize, usize) {
++    REDACTION_WORK.with(|work| {
++        let current = work.get();
++        if reset {
++            work.set((0, 0, 0));
++        }
++        current
++    })
++}
++
++#[cfg(test)]
++fn record_work(intervals: usize, aliases: usize, bytes: usize) {
++    let current = redaction_work(false);
++    REDACTION_WORK.with(|work| {
++        work.set((
++            current.0 + intervals,
++            current.1 + aliases,
++            current.2 + bytes,
++        ))
++    });
++}
++
+ pub(crate) fn redact_text(text: &str) -> String {
+     let (redacted, private_key_block) = redact_text_patterns(text);
+     if private_key_block {
+@@ -31,14 +63,17 @@ fn redact_json_text_value(value: &mut Value) -> bool {
+         Value::Object(values) => {
+             let reserved: std::collections::HashSet<_> = values.keys().cloned().collect();
+             let mut sensitive = false;
++            let mut next_suffix = std::collections::HashMap::new();
+             for (key, mut value) in std::mem::take(values) {
+                 let mut safe_key = redact_text_patterns(&key).0;
+                 if safe_key != key {
+                     sensitive = true;
+                     let base = safe_key.clone();
+-                    let mut suffix = 0;
++                    let suffix = next_suffix.entry(base.clone()).or_insert(0usize);
+                     while reserved.contains(&safe_key) || values.contains_key(&safe_key) {
+-                        suffix += 1;
++                        #[cfg(test)]
++                        record_work(0, 1, 0);
++                        *suffix += 1;
+                         safe_key = format!("{base}-{suffix}");
+                     }
+                 }
+@@ -293,180 +328,6 @@ fn is_sensitive_key(key: &str) -> bool {
+     )
+ }
+ 
+-fn redact_private_key_blocks(text: &str) -> (String, bool) {
+-    let mut ranges = private_key_ranges(text);
+-    if ranges.is_empty() {
+-        return (text.to_string(), false);
+-    }
+-    if matches!(
+-        serde_json::from_str::<Value>(text),
+-        Ok(Value::Object(_) | Value::Array(_))
+-    ) {
+-        let Some(json_ranges) = sensitive_json_value_ranges(text, &ranges) else {
+-            return ("<redacted>".to_string(), true);
+-        };
+-        ranges = json_ranges;
+-    }
+-    ranges.sort_by_key(|range| range.0);
+-    let mut merged: Vec<(usize, usize, String)> = Vec::new();
+-    for (start, end, replacement) in ranges {
+-        if let Some(previous) = merged.last_mut().filter(|previous| start < previous.1) {
+-            previous.1 = previous.1.max(end);
+-            if replacement == "<redacted private key block>" {
+-                previous.2 = replacement;
+-            }
+-        } else {
+-            merged.push((start, end, replacement));
+-        }
+-    }
+-    let mut output = String::with_capacity(text.len());
+-    let mut offset = 0;
+-    for (start, end, replacement) in merged {
+-        output.push_str(&text[offset..start]);
+-        output.push_str(&replacement);
+-        offset = end;
+-    }
+-    output.push_str(&text[offset..]);
+-    (output, true)
+-}
+-
+-fn private_key_ranges(text: &str) -> Vec<(usize, usize, String)> {
+-    let mut ranges = Vec::new();
+-    let mut pending = None;
+-    let mut offset = 0;
+-    for line in text.split_inclusive('\n') {
+-        if let Some(start) = pending {
+-            if let Some((_, end)) = private_key_marker_range(line, "-----END ") {
+-                ranges.push((
+-                    start,
+-                    offset + end,
+-                    "<redacted private key block>".to_string(),
+-                ));
+-                pending = None;
+-            }
+-        } else if let Some((start, end)) = private_key_marker_range(line, "-----BEGIN ") {
+-            if let Some((_, private_key_end)) = private_key_marker_range(&line[end..], "-----END ")
+-            {
+-                ranges.push((
+-                    offset + start,
+-                    offset + end + private_key_end,
+-                    "<redacted private key block>".to_string(),
+-                ));
+-            } else {
+-                pending = Some(offset + start);
+-            }
+-        }
+-        offset += line.len();
+-    }
+-    if let Some(start) = pending {
+-        ranges.push((
+-            start,
+-            text.len(),
+-            "<redacted private key block>".to_string(),
+-        ));
+-    }
+-    ranges
+-}
+-
+-fn sensitive_json_value_ranges(
+-    text: &str,
+-    private_ranges: &[(usize, usize, String)],
+-) -> Option<Vec<(usize, usize, String)>> {
+-    static JSON_STRING: OnceLock<Regex> = OnceLock::new();
+-    let pattern = JSON_STRING.get_or_init(|| Regex::new(r#""(?:\\.|[^"\\])*""#).unwrap());
+-    let tokens: Vec<_> = pattern.find_iter(text).collect();
+-    let mut reserved = std::collections::HashSet::new();
+-    for token in &tokens {
+-        if text[token.end()..]
+-            .trim_start_matches([' ', '\t', '\r', '\n'])
+-            .starts_with(':')
+-        {
+-            reserved.insert(serde_json::from_str::<String>(token.as_str()).ok()?);
+-        }
+-    }
+-    let mut ranges = Vec::new();
+-    for (start, end, replacement) in private_ranges {
+-        let mut cursor = *start;
+-        for token in &tokens {
+-            if token.end() <= cursor {
+-                continue;
+-            }
+-            if token.start() >= *end {
+-                break;
+-            }
+-            if cursor < token.start() {
+-                ranges.push((cursor, token.start(), replacement.clone()));
+-            }
+-            cursor = token.end().min(*end);
+-        }
+-        if cursor < *end {
+-            ranges.push((cursor, *end, replacement.clone()));
+-        }
+-    }
+-    for token in tokens {
+-        let decoded: String = serde_json::from_str(token.as_str()).ok()?;
+-        let trimmed = text[token.end()..].trim_start_matches([' ', '\t', '\r', '\n']);
+-        if let Some(value) = trimmed.strip_prefix(':') {
+-            if is_sensitive_key(&decoded)
+-                || sensitive_assignment_pattern().is_match(&format!("{decoded}=x"))
+-            {
+-                let value = value.trim_start_matches([' ', '\t', '\r', '\n']);
+-                let start = text.len() - value.len();
+-                let mut stream =
+-                    serde_json::Deserializer::from_str(value).into_iter::<serde::de::IgnoredAny>();
+-                stream.next()?.ok()?;
+-                // Keep a word separator if a cross-field PEM span leaves non-JSON text.
+-                ranges.push((
+-                    start,
+-                    start + stream.byte_offset(),
+-                    "\"<redacted>\" ".to_string(),
+-                ));
+-            }
+-        }
+-        let mut masked = String::from("\"");
+-        let mut cursor = token.start() + 1;
+-        let token_end = token.end() - 1;
+-        for (start, end, replacement) in private_ranges {
+-            let start = (*start).max(cursor);
+-            let end = (*end).min(token_end);
+-            if start < end {
+-                masked.push_str(&text[cursor..start]);
+-                masked.push_str(replacement);
+-                cursor = end;
+-            }
+-        }
+-        masked.push_str(&text[cursor..token_end]);
+-        masked.push('"');
+-        let masked: String = serde_json::from_str(&masked).ok()?;
+-        let mut safe = redact_text(&masked);
+-        if safe == decoded {
+-            continue;
+-        }
+-        if trimmed.starts_with(':') {
+-            let base = safe.clone();
+-            let mut suffix = 0;
+-            while reserved.contains(&safe) {
+-                suffix += 1;
+-                safe = format!("{base}-{suffix}");
+-            }
+-            reserved.insert(safe.clone());
+-        }
+-        ranges.push((
+-            token.start(),
+-            token.end(),
+-            format!("{} ", serde_json::to_string(&safe).ok()?),
+-        ));
+-    }
+-    Some(ranges)
+-}
+-
+-fn private_key_marker_range(line: &str, marker: &str) -> Option<(usize, usize)> {
+-    let upper = line.to_ascii_uppercase();
+-    let start = upper.find(marker)?;
+-    let marker_end = upper[start..].find("PRIVATE KEY-----")?;
+-    Some((start, start + marker_end + "PRIVATE KEY-----".len()))
+-}
+-
+ fn cookie_header_pattern() -> &'static Regex {
+     static PATTERN: OnceLock<Regex> = OnceLock::new();
+     PATTERN.get_or_init(|| {
+diff --git a/src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs b/src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs
+new file mode 100644
+index 000000000..d3d91a82f
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs
+@@ -0,0 +1,213 @@
++use std::sync::OnceLock;
++
++use regex::Regex;
++use serde_json::Value;
++
++use super::{is_sensitive_key, redact_text, sensitive_assignment_pattern};
++
++pub(super) fn redact_private_key_blocks(text: &str) -> (String, bool) {
++    let mut ranges = private_key_ranges(text);
++    if ranges.is_empty() {
++        return (text.to_string(), false);
++    }
++    if matches!(
++        serde_json::from_str::<Value>(text),
++        Ok(Value::Object(_) | Value::Array(_))
++    ) {
++        let Some(json_ranges) = sensitive_json_value_ranges(text, &ranges) else {
++            return ("<redacted>".to_string(), true);
++        };
++        ranges = json_ranges;
++    }
++    ranges.sort_by_key(|range| range.0);
++    let mut merged: Vec<(usize, usize, String)> = Vec::new();
++    for (start, end, replacement) in ranges {
++        if let Some(previous) = merged.last_mut().filter(|previous| start < previous.1) {
++            previous.1 = previous.1.max(end);
++            if replacement == "<redacted private key block>" {
++                previous.2 = replacement;
++            }
++        } else {
++            merged.push((start, end, replacement));
++        }
++    }
++    let mut output = String::with_capacity(text.len());
++    let mut offset = 0;
++    for (start, end, replacement) in merged {
++        output.push_str(&text[offset..start]);
++        output.push_str(&replacement);
++        offset = end;
++    }
++    output.push_str(&text[offset..]);
++    (output, true)
++}
++
++fn private_key_ranges(text: &str) -> Vec<(usize, usize, String)> {
++    let mut ranges = Vec::new();
++    let mut pending = None;
++    for marker in private_key_markers().captures_iter(text) {
++        let matched = marker.get(0).unwrap();
++        if marker["kind"].eq_ignore_ascii_case("BEGIN") {
++            pending.get_or_insert(matched.start());
++        } else if let Some(start) = pending.take() {
++            ranges.push((
++                start,
++                matched.end(),
++                "<redacted private key block>".to_string(),
++            ));
++        }
++    }
++    if let Some(start) = pending {
++        ranges.push((
++            start,
++            text.len(),
++            "<redacted private key block>".to_string(),
++        ));
++    }
++    ranges
++}
++
++fn private_key_markers() -> &'static Regex {
++    static MARKERS: OnceLock<Regex> = OnceLock::new();
++    MARKERS.get_or_init(|| {
++        Regex::new(r"-----(?P<kind>(?i-u:BEGIN|END)) [^\r\n]*?(?i-u:PRIVATE KEY)-----").unwrap()
++    })
++}
++
++fn sensitive_json_value_ranges(
++    text: &str,
++    private_ranges: &[(usize, usize, String)],
++) -> Option<Vec<(usize, usize, String)>> {
++    static JSON_STRING: OnceLock<Regex> = OnceLock::new();
++    let pattern = JSON_STRING.get_or_init(|| Regex::new(r#""(?:\\.|[^"\\])*""#).unwrap());
++    let tokens: Vec<_> = pattern.find_iter(text).collect();
++    let mut reserved = std::collections::HashSet::new();
++    for token in &tokens {
++        if text[token.end()..]
++            .trim_start_matches([' ', '\t', '\r', '\n'])
++            .starts_with(':')
++        {
++            reserved.insert(serde_json::from_str::<String>(token.as_str()).ok()?);
++        }
++    }
++    let mut ranges = Vec::new();
++    let mut token_index = 0;
++    for (start, end, replacement) in private_ranges {
++        let mut cursor = *start;
++        while token_index < tokens.len() {
++            let token = &tokens[token_index];
++            #[cfg(test)]
++            super::record_work(1, 0, 0);
++            if token.end() <= cursor {
++                token_index += 1;
++                continue;
++            }
++            if token.start() >= *end {
++                break;
++            }
++            if cursor < token.start() {
++                ranges.push((cursor, token.start(), replacement.clone()));
++            }
++            cursor = token.end().min(*end);
++            if token.end() > *end {
++                break;
++            }
++            token_index += 1;
++        }
++        if cursor < *end {
++            ranges.push((cursor, *end, replacement.clone()));
++        }
++    }
++    let mut private_index = 0;
++    let mut covered_end = 0;
++    let mut next_suffix = std::collections::HashMap::new();
++    for token in tokens {
++        if token.end() <= covered_end {
++            continue;
++        }
++        let decoded: String = serde_json::from_str(token.as_str()).ok()?;
++        let trimmed = text[token.end()..].trim_start_matches([' ', '\t', '\r', '\n']);
++        if let Some(value) = trimmed.strip_prefix(':') {
++            if is_sensitive_key(&decoded)
++                || sensitive_assignment_pattern().is_match(&format!("{decoded}=x"))
++            {
++                let value = value.trim_start_matches([' ', '\t', '\r', '\n']);
++                let start = text.len() - value.len();
++                let mut stream =
++                    serde_json::Deserializer::from_str(value).into_iter::<serde::de::IgnoredAny>();
++                stream.next()?.ok()?;
++                covered_end = start + stream.byte_offset();
++                #[cfg(test)]
++                super::record_work(0, 0, stream.byte_offset());
++                // Keep a word separator if a cross-field PEM span leaves non-JSON text.
++                ranges.push((
++                    start,
++                    start + stream.byte_offset(),
++                    "\"<redacted>\" ".to_string(),
++                ));
++            }
++        }
++        let mut masked = String::from("\"");
++        let mut cursor = token.start() + 1;
++        let token_end = token.end() - 1;
++        while private_index < private_ranges.len() {
++            let (start, end, replacement) = &private_ranges[private_index];
++            #[cfg(test)]
++            super::record_work(1, 0, 0);
++            if *end <= cursor {
++                private_index += 1;
++                continue;
++            }
++            if *start >= token_end {
++                break;
++            }
++            let start = (*start).max(cursor);
++            let end = (*end).min(token_end);
++            masked.push_str(&text[cursor..start]);
++            masked.push_str(replacement);
++            cursor = end;
++            if private_ranges[private_index].1 > token_end {
++                break;
++            }
++            private_index += 1;
++        }
++        masked.push_str(&text[cursor..token_end]);
++        masked.push('"');
++        let masked: String = serde_json::from_str(&masked).ok()?;
++        let mut safe = redact_text(&masked);
++        if safe == decoded {
++            continue;
++        }
++        if trimmed.starts_with(':') {
++            let base = safe.clone();
++            let suffix = next_suffix.entry(base.clone()).or_insert(0usize);
++            while reserved.contains(&safe) {
++                #[cfg(test)]
++                super::record_work(0, 1, 0);
++                *suffix += 1;
++                safe = format!("{base}-{suffix}");
++            }
++            reserved.insert(safe.clone());
++        }
++        ranges.push((
++            token.start(),
++            token.end(),
++            format!("{} ", serde_json::to_string(&safe).ok()?),
++        ));
++    }
++    Some(ranges)
++}
++
++pub(super) fn private_key_marker_range(line: &str, marker: &str) -> Option<(usize, usize)> {
++    let kind = marker.trim_start_matches('-').trim();
++    private_key_markers()
++        .captures_iter(line)
++        .find_map(|candidate| {
++            if candidate["kind"].eq_ignore_ascii_case(kind) {
++                let matched = candidate.get(0)?;
++                Some((matched.start(), matched.end()))
++            } else {
++                None
++            }
++        })
++}
+diff --git a/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs b/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs
+index da41f6c3d..234588143 100644
+--- a/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs
++++ b/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs
+@@ -376,3 +376,195 @@ fn redaction_boundaries_persist_json_pem_with_decoded_keys() {
+         assert_eq!(session.messages[0].content.as_text(), text, "live context changed");
+     }
+ }
++
++#[test]
++fn redaction_boundaries_persist_many_private_key_fields_has_linear_visits() {
++    let count = 1024;
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut fields = serde_json::Map::new();
++    let mut spanning = serde_json::Map::new();
++    spanning.insert("begin".to_string(), json!("-----BEGIN PRIVATE KEY-----"));
++    for index in 0..count {
++        fields.insert(
++            format!("field-{index:04}"),
++            json!(
++                "-----BEGIN PRIVATE KEY-----\ncanary-private-material\n-----END PRIVATE KEY-----"
++            ),
++        );
++        spanning.insert(format!("body-{index:04}"), json!("canary-private-material"));
++    }
++    fields.insert("region".to_string(), json!("ordinary-region"));
++    spanning.insert("end".to_string(), json!("-----END PRIVATE KEY-----"));
++    spanning.insert("region".to_string(), json!("ordinary-region"));
++    let one_token = json!({"text": format!("ordinary-prefix 中文 {} ordinary-suffix β", "-----BEGIN PRIVATE KEY----- canary-private-material -----END PRIVATE KEY----- ".repeat(count)), "region": "ordinary-region"}).to_string();
++    for (case, text) in [
++        serde_json::to_string_pretty(&Value::Object(fields)).unwrap(),
++        serde_json::to_string_pretty(&Value::Object(spanning)).unwrap(),
++        one_token,
++    ]
++    .into_iter()
++    .enumerate()
++    {
++        let mut session = new_session(&store, &text);
++        crate::redaction::redaction_work(true);
++        store.persist(&mut session).unwrap();
++        let safe = store.load(&session.session_id).unwrap().messages[0]
++            .content
++            .as_text();
++        let (visits, probes, _) = crate::redaction::redaction_work(false);
++        assert!(!safe.contains("canary"), "large PEM masking failed");
++        assert!(
++            safe.contains("ordinary-region"),
++            "large ordinary region changed"
++        );
++        if case == 0 {
++            let values: Value = serde_json::from_str(&safe).unwrap();
++            assert!(
++                values.as_object().unwrap().len() == count + 1,
++                "large ordinary field structure changed"
++            );
++        }
++        if case == 2 {
++            assert!(
++                safe.contains("ordinary-prefix 中文") && safe.contains("ordinary-suffix β"),
++                "large ordinary token fragments changed"
++            );
++        }
++        assert!(
++            session.messages[0].content.as_text() == text,
++            "large live context changed"
++        );
++        assert!(
++            visits > 0 && visits <= 8 * (3 * count + 2),
++            "PEM/token visits exceed linear bound"
++        );
++        assert!(
++            probes <= 8 * (count + 3),
++            "PEM masked-key probes exceed linear bound"
++        );
++    }
++}
++
++#[test]
++fn redaction_boundaries_persist_masked_aliases_has_linear_probes() {
++    let count = 1024;
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut fields = serde_json::Map::new();
++    for index in 0..count {
++        fields.insert(format!("ghp_{index:036x}"), json!("ordinary-value"));
++        fields.insert(format!("<redacted>-{}", index + 1), json!("reserved-value"));
++    }
++    fields.insert("<redacted>".to_string(), json!("reserved-value"));
++    fields.insert("region".to_string(), json!("ordinary-region"));
++    let text = Value::Object(fields).to_string();
++    let mut session = new_session(&store, &text);
++    crate::redaction::redaction_work(true);
++    store.persist(&mut session).unwrap();
++    let safe = store.load(&session.session_id).unwrap().messages[0]
++        .content
++        .as_text();
++    let (_, probes, _) = crate::redaction::redaction_work(false);
++    assert!(!safe.contains("ghp_"), "large shape keys were not masked");
++    let values: Value = serde_json::from_str(&safe).unwrap();
++    assert!(
++        values.as_object().unwrap().len() == 2 * count + 2
++            && values["region"] == "ordinary-region"
++            && values["<redacted>"] == "reserved-value"
++            && values
++                .as_object()
++                .unwrap()
++                .values()
++                .filter(|value| *value == "ordinary-value")
++                .count()
++                == count
++            && values
++                .as_object()
++                .unwrap()
++                .values()
++                .filter(|value| *value == "reserved-value")
++                .count()
++                == count + 1,
++        "large ordinary key values changed"
++    );
++    assert!(
++        session.messages[0].content.as_text() == text,
++        "large live context changed"
++    );
++    assert!(
++        probes > 0 && probes <= 8 * (2 * count + 2),
++        "masked-key probes exceed linear bound"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_sensitive_parent_parses_once() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut value = json!(format!(
++        "-----BEGIN PRIVATE KEY-----\n{}",
++        "canary-inner".repeat(8192)
++    ));
++    for _ in 0..32 {
++        value = json!({"credentials": value});
++    }
++    let text = format!("{{\"credentials\":{value},\"body\":\"canary-body\",\"end\":\"-----END PRIVATE KEY-----\",\"region\":\"ordinary-region\"}}");
++    let mut session = new_session(&store, &text);
++    crate::redaction::redaction_work(true);
++    store.persist(&mut session).unwrap();
++    let safe = store.load(&session.session_id).unwrap().messages[0]
++        .content
++        .as_text();
++    let (_, _, bytes) = crate::redaction::redaction_work(false);
++    assert!(
++        !safe.contains("canary"),
++        "sensitive parent or cross-parent PEM leaked"
++    );
++    assert!(
++        safe.contains("ordinary-region"),
++        "ordinary field outside sensitive parent changed"
++    );
++    assert!(
++        session.messages[0].content.as_text() == text,
++        "nested live context changed"
++    );
++    assert!(
++        bytes > 0 && bytes <= text.len(),
++        "sensitive subtree was parsed repeatedly"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_near_envelope_limit_private_value() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let value = "canary-private-material".repeat(30 * 1024 * 1024 / 23);
++    let text = json!({"pem": format!("ordinary-prefix 中文 -----BEGIN PRIVATE KEY-----\n{value}\n-----END PRIVATE KEY----- ordinary-suffix β"), "region": "ordinary-region"}).to_string();
++    assert!(
++        text.len() > 29 * 1024 * 1024 && text.len() < MAX_SESSION_FILE_BYTES as usize,
++        "size boundary fixture invalid"
++    );
++    let mut session = new_session(&store, &text);
++    crate::redaction::redaction_work(true);
++    store.persist(&mut session).unwrap();
++    let safe = store.load(&session.session_id).unwrap().messages[0]
++        .content
++        .as_text();
++    let (visits, probes, bytes) = crate::redaction::redaction_work(false);
++    assert!(
++        !safe.contains("canary")
++            && safe.contains("ordinary-region")
++            && safe.contains("ordinary-prefix 中文")
++            && safe.contains("ordinary-suffix β"),
++        "large private/ordinary byte boundary failed"
++    );
++    assert!(
++        safe.len() < 1024 && session.messages[0].content.as_text() == text,
++        "large value or live context changed"
++    );
++    assert!(
++        visits > 0 && visits < 32 && probes < 32 && bytes <= text.len(),
++        "large scalar visits exceed constant bound"
++    );
++}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "token-cursor",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  },
+  {
+    "name": "private-cursor",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  },
+  {
+    "name": "parent-alias",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  },
+  {
+    "name": "private-alias",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  },
+  {
+    "name": "covered-value",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  },
+  {
+    "name": "decoded-key",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  },
+  {
+    "name": "token-outside-pem",
+    "compiled": true,
+    "killed": true,
+    "exit": 101
+  }
+]

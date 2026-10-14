@@ -1,0 +1,1652 @@
+diff --git a/src/cosh-ng/crates/cosh-core/src/compaction/summarize.rs b/src/cosh-ng/crates/cosh-core/src/compaction/summarize.rs
+index 908545634..fb96e40a9 100644
+--- a/src/cosh-ng/crates/cosh-core/src/compaction/summarize.rs
++++ b/src/cosh-ng/crates/cosh-core/src/compaction/summarize.rs
+@@ -478,3 +478,6 @@ mod tests {
+         }
+     }
+ }
++
++#[cfg(test)]
++mod redaction_boundaries;
+diff --git a/src/cosh-ng/crates/cosh-core/src/compaction/summarize/redaction_boundaries.rs b/src/cosh-ng/crates/cosh-core/src/compaction/summarize/redaction_boundaries.rs
+new file mode 100644
+index 000000000..b3e5ecdb6
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-core/src/compaction/summarize/redaction_boundaries.rs
+@@ -0,0 +1,31 @@
++use super::*;
++use crate::provider::mock::MockProvider;
++
++#[tokio::test]
++async fn redaction_boundaries_generated_summary() {
++    let input = "## Objective\n--password 'canary multi words'\nSECRET_KEY=canary-secret-material\nprivate_key=canary-private-material\naccess_key=canary-access-material\ntrace Cookie: sid=canary-cookie-material; mode=canary-cookie-tail\nregion=ordinary-value";
++    let provider = MockProvider::text_only(input);
++    let summary = generate_summary(&provider, "mock-model", "ordinary input")
++        .await
++        .expect("summary generated");
++    let leaked = [
++        "canary multi",
++        "words",
++        "canary-secret-material",
++        "canary-private-material",
++        "canary-access-material",
++        "canary-cookie-material",
++        "canary-cookie-tail",
++    ]
++    .iter()
++    .filter(|value| summary.contains(**value))
++    .count();
++    assert!(
++        leaked == 0,
++        "generated summary masking failed: {leaked} canaries remain"
++    );
++    assert!(
++        summary.contains("## Objective") && summary.contains("region=ordinary-value"),
++        "ordinary summary changed"
++    );
++}
+diff --git a/src/cosh-ng/crates/cosh-core/src/redaction.rs b/src/cosh-ng/crates/cosh-core/src/redaction.rs
+index c6d35c6cb..b321d0ac3 100644
+--- a/src/cosh-ng/crates/cosh-core/src/redaction.rs
++++ b/src/cosh-ng/crates/cosh-core/src/redaction.rs
+@@ -6,17 +6,123 @@ use regex::Regex;
+ use serde::Serialize;
+ use serde_json::Value;
+ 
++mod private_key;
++
++use private_key::{private_key_marker_range, redact_private_key_blocks};
++
+ use crate::provider::{Message, MessageContent, MessageContentBlock};
+ 
++#[cfg(test)]
++thread_local! {
++    static REDACTION_WORK: std::cell::Cell<(usize, usize, usize)> = const { std::cell::Cell::new((0, 0, 0)) };
++}
++
++#[cfg(test)]
++pub(crate) fn redaction_work(reset: bool) -> (usize, usize, usize) {
++    REDACTION_WORK.with(|work| {
++        let current = work.get();
++        if reset {
++            work.set((0, 0, 0));
++        }
++        current
++    })
++}
++
++#[cfg(test)]
++fn record_work(intervals: usize, aliases: usize, bytes: usize) {
++    let current = redaction_work(false);
++    REDACTION_WORK.with(|work| {
++        work.set((
++            current.0 + intervals,
++            current.1 + aliases,
++            current.2 + bytes,
++        ))
++    });
++}
++
+ pub(crate) fn redact_text(text: &str) -> String {
+-    let (mut redacted, _) = redact_private_key_blocks(text);
++    let (redacted, private_key_block) = redact_text_patterns(text);
++    if private_key_block {
++        return redacted;
++    }
++    if let Ok(mut value @ (Value::Object(_) | Value::Array(_))) =
++        serde_json::from_str::<Value>(text)
++    {
++        let sensitive = redact_json_text_value(&mut value);
++        return if !sensitive && redacted == text {
++            text.to_string()
++        } else {
++            serde_json::to_string(&value).unwrap_or_default()
++        };
++    }
++    redacted
++}
++
++fn redact_json_text_value(value: &mut Value) -> bool {
++    match value {
++        Value::Object(values) => {
++            let reserved: std::collections::HashSet<_> = values.keys().cloned().collect();
++            let mut sensitive = false;
++            let mut next_suffix = std::collections::HashMap::new();
++            for (key, mut value) in std::mem::take(values) {
++                let mut safe_key = redact_text_patterns(&key).0;
++                if safe_key != key {
++                    sensitive = true;
++                    let base = safe_key.clone();
++                    let suffix = next_suffix.entry(base.clone()).or_insert(0usize);
++                    while reserved.contains(&safe_key) || values.contains_key(&safe_key) {
++                        #[cfg(test)]
++                        record_work(0, 1, 0);
++                        *suffix += 1;
++                        safe_key = format!("{base}-{suffix}");
++                    }
++                }
++                if is_sensitive_key(&key)
++                    || sensitive_assignment_pattern().is_match(&format!("{key}=x"))
++                {
++                    value = Value::String("<redacted>".to_string());
++                    sensitive = true;
++                } else {
++                    sensitive |= redact_json_text_value(&mut value);
++                }
++                values.insert(safe_key, value);
++            }
++            sensitive
++        }
++        Value::Array(values) => {
++            let mut sensitive = false;
++            for value in values {
++                sensitive |= redact_json_text_value(value);
++            }
++            sensitive
++        }
++        Value::String(text) => {
++            let redacted = redact_text(text);
++            let sensitive = redacted.as_str() != text.as_str();
++            *text = redacted;
++            sensitive
++        }
++        Value::Null | Value::Bool(_) | Value::Number(_) => false,
++    }
++}
++
++fn redact_text_patterns(text: &str) -> (String, bool) {
++    let (mut redacted, private_key_block) = redact_private_key_blocks(text);
++    if private_key_block
++        && matches!(
++            serde_json::from_str::<Value>(text),
++            Ok(Value::Object(_) | Value::Array(_))
++        )
++    {
++        return (redacted, true);
++    }
+     for (pattern, replacement) in [
+         (cookie_header_pattern(), "$prefix<redacted>"),
+         (authorization_pattern(), "$prefix$scheme <redacted>"),
+         (bearer_pattern(), "$prefix<redacted>"),
+         (url_password_pattern(), "$prefix<redacted>@"),
+-        (sensitive_flag_pattern(), "$prefix<redacted>$suffix"),
+-        (sensitive_assignment_pattern(), "$prefix<redacted>$suffix"),
++        (sensitive_flag_pattern(), "$prefix<redacted>"),
++        (sensitive_assignment_pattern(), "$prefix<redacted>"),
+         (github_token_pattern(), "<redacted>"),
+         (opaque_token_pattern(), "<redacted>"),
+         (jwt_pattern(), "<redacted>"),
+@@ -25,7 +131,7 @@ pub(crate) fn redact_text(text: &str) -> String {
+     ] {
+         redacted = pattern.replace_all(&redacted, replacement).into_owned();
+     }
+-    redacted
++    (redacted, private_key_block)
+ }
+ 
+ /// Returns whether text matches a redaction rule or private-key end marker.
+@@ -196,66 +302,37 @@ fn is_sensitive_key(key: &str) -> bool {
+             | "accesstoken"
+             | "refreshtoken"
+             | "idtoken"
++            | "sessiontoken"
++            | "authtoken"
+             | "secret"
++            | "secretkey"
++            | "secretaccesskey"
+             | "clientsecret"
++            | "privatekey"
+             | "apikey"
++            | "accesskey"
+             | "accesskeyid"
+             | "accesskeysecret"
+             | "securitytoken"
+             | "awssecretaccesskey"
++            | "awsaccesskeyid"
+             | "openaiapikey"
+             | "dashscopeapikey"
+             | "githubtoken"
++            | "credentials"
++            | "credential"
++            | "bearer"
+             | "authorization"
+             | "cookie"
+             | "setcookie"
+     )
+ }
+ 
+-fn redact_private_key_blocks(text: &str) -> (String, bool) {
+-    let mut output = String::with_capacity(text.len());
+-    let mut in_private_key = false;
+-    let mut changed = false;
+-
+-    for line in text.split_inclusive('\n') {
+-        if in_private_key {
+-            changed = true;
+-            if let Some((_, end)) = private_key_marker_range(line, "-----END ") {
+-                output.push_str(&line[end..]);
+-                in_private_key = false;
+-            }
+-            continue;
+-        }
+-        if let Some((start, end)) = private_key_marker_range(line, "-----BEGIN ") {
+-            output.push_str(&line[..start]);
+-            output.push_str("<redacted private key block>");
+-            let remainder = &line[end..];
+-            if let Some((_, private_key_end)) = private_key_marker_range(remainder, "-----END ") {
+-                output.push_str(&remainder[private_key_end..]);
+-            } else {
+-                in_private_key = true;
+-            }
+-            changed = true;
+-            continue;
+-        }
+-        output.push_str(line);
+-    }
+-
+-    (output, changed)
+-}
+-
+-fn private_key_marker_range(line: &str, marker: &str) -> Option<(usize, usize)> {
+-    let upper = line.to_ascii_uppercase();
+-    let start = upper.find(marker)?;
+-    let marker_end = upper[start..].find("PRIVATE KEY-----")?;
+-    Some((start, start + marker_end + "PRIVATE KEY-----".len()))
+-}
+-
+ fn cookie_header_pattern() -> &'static Regex {
+     static PATTERN: OnceLock<Regex> = OnceLock::new();
+     PATTERN.get_or_init(|| {
+         // The pattern is a compile-time constant covered by the tests below.
+-        Regex::new(r"(?im)(?P<prefix>^(?:set-cookie|cookie)\s*:\s*).*$")
++        Regex::new(r"(?im)(?P<prefix>\b(?:set-cookie|cookie)\s*:\s*)[^\r\n]*")
+             .unwrap_or_else(|_| unreachable!("static cookie pattern must compile"))
+     })
+ }
+@@ -298,13 +375,18 @@ fn sensitive_flag_pattern() -> &'static Regex {
+             (?P<prefix>
+                 (?:^|\s)
+                 --(?:password|passwd|passphrase|token|access[_-]?token|refresh[_-]?token|
+-                     id[_-]?token|secret|client[_-]?secret|api[_-]?key|apikey|
++                     id[_-]?token|secret|secret[_-]?key|secret[_-]?access[_-]?key|
++                     private[_-]?key|auth[_-]?token|session[_-]?token|credentials?|bearer|
++                     client[_-]?secret|api[_-]?key|apikey|access[_-]?key|
+                      access[_-]?key[_-]?secret|security[_-]?token|authorization)
+                 (?:=|\s+)
+-                ["']?
+             )
+-            (?P<value>[^\s,;&"']+)
+-            (?P<suffix>["']?)
++            (?:
++                "(?:\\(?:\r?\n|[^\r\n])|[^"\\])*(?:"|$)|
++                '[^']*(?:'|$)|
++                \\(?:\r?\n|[^\r\n])|
++                [^\s;&|()<>"'\\]
++            )+
+             "#,
+         )
+         .unwrap_or_else(|_| unreachable!("static sensitive flag pattern must compile"))
+@@ -322,16 +404,22 @@ fn sensitive_assignment_pattern() -> &'static Regex {
+                 (?:alibaba[_-]?cloud[_-]?access[_-]?key[_-]?id|
+                    aws[_-]?access[_-]?key[_-]?id|access[_-]?key[_-]?id|
+                    aws[_-]?secret[_-]?access[_-]?key|access[_-]?key[_-]?secret|
++                   access[_-]?key|
++                   secret[_-]?access[_-]?key|secret[_-]?key|private[_-]?key|
++                   session[_-]?token|auth[_-]?token|credentials?|bearer|
+                    dashscope[_-]?api[_-]?key|openai[_-]?api[_-]?key|
+                    client[_-]?secret|security[_-]?token|refresh[_-]?token|
+                    access[_-]?token|github[_-]?token|id[_-]?token|
+                    password|passphrase|passwd|api[_-]?key|apikey|token|secret)
+                 ["']?
+                 \s*(?:=|:)\s*
+-                ["']?
+             )
+-            (?P<value>[^\s,;&"']+)
+-            (?P<suffix>["']?)
++            (?:
++                "(?:\\(?:\r?\n|[^\r\n])|[^"\\])*(?:"|$)|
++                '[^']*(?:'|$)|
++                \\(?:\r?\n|[^\r\n])|
++                [^\s;&|()<>"'\\]
++            )+
+             "#,
+         )
+         .unwrap_or_else(|_| unreachable!("static sensitive assignment pattern must compile"))
+diff --git a/src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs b/src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs
+new file mode 100644
+index 000000000..d3d91a82f
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-core/src/redaction/private_key.rs
+@@ -0,0 +1,213 @@
++use std::sync::OnceLock;
++
++use regex::Regex;
++use serde_json::Value;
++
++use super::{is_sensitive_key, redact_text, sensitive_assignment_pattern};
++
++pub(super) fn redact_private_key_blocks(text: &str) -> (String, bool) {
++    let mut ranges = private_key_ranges(text);
++    if ranges.is_empty() {
++        return (text.to_string(), false);
++    }
++    if matches!(
++        serde_json::from_str::<Value>(text),
++        Ok(Value::Object(_) | Value::Array(_))
++    ) {
++        let Some(json_ranges) = sensitive_json_value_ranges(text, &ranges) else {
++            return ("<redacted>".to_string(), true);
++        };
++        ranges = json_ranges;
++    }
++    ranges.sort_by_key(|range| range.0);
++    let mut merged: Vec<(usize, usize, String)> = Vec::new();
++    for (start, end, replacement) in ranges {
++        if let Some(previous) = merged.last_mut().filter(|previous| start < previous.1) {
++            previous.1 = previous.1.max(end);
++            if replacement == "<redacted private key block>" {
++                previous.2 = replacement;
++            }
++        } else {
++            merged.push((start, end, replacement));
++        }
++    }
++    let mut output = String::with_capacity(text.len());
++    let mut offset = 0;
++    for (start, end, replacement) in merged {
++        output.push_str(&text[offset..start]);
++        output.push_str(&replacement);
++        offset = end;
++    }
++    output.push_str(&text[offset..]);
++    (output, true)
++}
++
++fn private_key_ranges(text: &str) -> Vec<(usize, usize, String)> {
++    let mut ranges = Vec::new();
++    let mut pending = None;
++    for marker in private_key_markers().captures_iter(text) {
++        let matched = marker.get(0).unwrap();
++        if marker["kind"].eq_ignore_ascii_case("BEGIN") {
++            pending.get_or_insert(matched.start());
++        } else if let Some(start) = pending.take() {
++            ranges.push((
++                start,
++                matched.end(),
++                "<redacted private key block>".to_string(),
++            ));
++        }
++    }
++    if let Some(start) = pending {
++        ranges.push((
++            start,
++            text.len(),
++            "<redacted private key block>".to_string(),
++        ));
++    }
++    ranges
++}
++
++fn private_key_markers() -> &'static Regex {
++    static MARKERS: OnceLock<Regex> = OnceLock::new();
++    MARKERS.get_or_init(|| {
++        Regex::new(r"-----(?P<kind>(?i-u:BEGIN|END)) [^\r\n]*?(?i-u:PRIVATE KEY)-----").unwrap()
++    })
++}
++
++fn sensitive_json_value_ranges(
++    text: &str,
++    private_ranges: &[(usize, usize, String)],
++) -> Option<Vec<(usize, usize, String)>> {
++    static JSON_STRING: OnceLock<Regex> = OnceLock::new();
++    let pattern = JSON_STRING.get_or_init(|| Regex::new(r#""(?:\\.|[^"\\])*""#).unwrap());
++    let tokens: Vec<_> = pattern.find_iter(text).collect();
++    let mut reserved = std::collections::HashSet::new();
++    for token in &tokens {
++        if text[token.end()..]
++            .trim_start_matches([' ', '\t', '\r', '\n'])
++            .starts_with(':')
++        {
++            reserved.insert(serde_json::from_str::<String>(token.as_str()).ok()?);
++        }
++    }
++    let mut ranges = Vec::new();
++    let mut token_index = 0;
++    for (start, end, replacement) in private_ranges {
++        let mut cursor = *start;
++        while token_index < tokens.len() {
++            let token = &tokens[token_index];
++            #[cfg(test)]
++            super::record_work(1, 0, 0);
++            if token.end() <= cursor {
++                token_index += 1;
++                continue;
++            }
++            if token.start() >= *end {
++                break;
++            }
++            if cursor < token.start() {
++                ranges.push((cursor, token.start(), replacement.clone()));
++            }
++            cursor = token.end().min(*end);
++            if token.end() > *end {
++                break;
++            }
++            token_index += 1;
++        }
++        if cursor < *end {
++            ranges.push((cursor, *end, replacement.clone()));
++        }
++    }
++    let mut private_index = 0;
++    let mut covered_end = 0;
++    let mut next_suffix = std::collections::HashMap::new();
++    for token in tokens {
++        if token.end() <= covered_end {
++            continue;
++        }
++        let decoded: String = serde_json::from_str(token.as_str()).ok()?;
++        let trimmed = text[token.end()..].trim_start_matches([' ', '\t', '\r', '\n']);
++        if let Some(value) = trimmed.strip_prefix(':') {
++            if is_sensitive_key(&decoded)
++                || sensitive_assignment_pattern().is_match(&format!("{decoded}=x"))
++            {
++                let value = value.trim_start_matches([' ', '\t', '\r', '\n']);
++                let start = text.len() - value.len();
++                let mut stream =
++                    serde_json::Deserializer::from_str(value).into_iter::<serde::de::IgnoredAny>();
++                stream.next()?.ok()?;
++                covered_end = start + stream.byte_offset();
++                #[cfg(test)]
++                super::record_work(0, 0, stream.byte_offset());
++                // Keep a word separator if a cross-field PEM span leaves non-JSON text.
++                ranges.push((
++                    start,
++                    start + stream.byte_offset(),
++                    "\"<redacted>\" ".to_string(),
++                ));
++            }
++        }
++        let mut masked = String::from("\"");
++        let mut cursor = token.start() + 1;
++        let token_end = token.end() - 1;
++        while private_index < private_ranges.len() {
++            let (start, end, replacement) = &private_ranges[private_index];
++            #[cfg(test)]
++            super::record_work(1, 0, 0);
++            if *end <= cursor {
++                private_index += 1;
++                continue;
++            }
++            if *start >= token_end {
++                break;
++            }
++            let start = (*start).max(cursor);
++            let end = (*end).min(token_end);
++            masked.push_str(&text[cursor..start]);
++            masked.push_str(replacement);
++            cursor = end;
++            if private_ranges[private_index].1 > token_end {
++                break;
++            }
++            private_index += 1;
++        }
++        masked.push_str(&text[cursor..token_end]);
++        masked.push('"');
++        let masked: String = serde_json::from_str(&masked).ok()?;
++        let mut safe = redact_text(&masked);
++        if safe == decoded {
++            continue;
++        }
++        if trimmed.starts_with(':') {
++            let base = safe.clone();
++            let suffix = next_suffix.entry(base.clone()).or_insert(0usize);
++            while reserved.contains(&safe) {
++                #[cfg(test)]
++                super::record_work(0, 1, 0);
++                *suffix += 1;
++                safe = format!("{base}-{suffix}");
++            }
++            reserved.insert(safe.clone());
++        }
++        ranges.push((
++            token.start(),
++            token.end(),
++            format!("{} ", serde_json::to_string(&safe).ok()?),
++        ));
++    }
++    Some(ranges)
++}
++
++pub(super) fn private_key_marker_range(line: &str, marker: &str) -> Option<(usize, usize)> {
++    let kind = marker.trim_start_matches('-').trim();
++    private_key_markers()
++        .captures_iter(line)
++        .find_map(|candidate| {
++            if candidate["kind"].eq_ignore_ascii_case(kind) {
++                let matched = candidate.get(0)?;
++                Some((matched.start(), matched.end()))
++            } else {
++                None
++            }
++        })
++}
+diff --git a/src/cosh-ng/crates/cosh-core/src/session/store/tests.rs b/src/cosh-ng/crates/cosh-core/src/session/store/tests.rs
+index 18ddd1179..4a5bf9110 100644
+--- a/src/cosh-ng/crates/cosh-core/src/session/store/tests.rs
++++ b/src/cosh-ng/crates/cosh-core/src/session/store/tests.rs
+@@ -3057,3 +3057,5 @@ fn budget_activity_probes_do_not_rescan_temporary_files_per_candidate() {
+         }
+     }
+ }
++
++mod redaction_boundaries;
+diff --git a/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs b/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs
+new file mode 100644
+index 000000000..234588143
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-core/src/session/store/tests/redaction_boundaries.rs
+@@ -0,0 +1,570 @@
++use super::*;
++use crate::provider::{ToolCallFunction, ToolCallInfo};
++use serde_json::{json, Value};
++
++const KEYS: [&str; 8] = [
++    "auth_token",
++    "session_token",
++    "secret_key",
++    "private_key",
++    "access_key",
++    "credentials",
++    "credential",
++    "bearer",
++];
++const TEXT: &str = "--password 'canary multi words'\nSECRET_KEY=canary-secret-material\nprivate_key=canary-private-material\naccess_key=canary-access-material\ntrace Cookie: sid=canary-cookie-material; mode=canary-cookie-tail\n--auth-token=canary-auth-material\n--session-token=canary-session-material\n--access-key=canary-flag-access\n--credentials=canary-credentials-material\nregion=ordinary-value\n中文 ordinary-text\n-----BEGIN PRIVATE KEY-----\ncanary-pem-material\n-----END PRIVATE KEY-----";
++const TEXT_CANARIES: [&str; 12] = [
++    "canary multi",
++    "words",
++    "canary-secret-material",
++    "canary-private-material",
++    "canary-access-material",
++    "canary-cookie-material",
++    "canary-cookie-tail",
++    "canary-auth-material",
++    "canary-session-material",
++    "canary-flag-access",
++    "canary-credentials-material",
++    "canary-pem-material",
++];
++
++fn arguments() -> Value {
++    let mut value = json!({"tokenizer": "ordinary-value", "region": "ordinary-value"});
++    for key in KEYS {
++        value[key] = json!(format!("canary-json-{key}"));
++    }
++    value
++}
++
++fn boundary_session(store: &SessionStore) -> PersistedSession {
++    let message = Message::assistant_with_tool_calls(
++        TEXT,
++        vec![ToolCallInfo {
++            id: "call-redaction".to_string(),
++            call_type: "function".to_string(),
++            function: ToolCallFunction {
++                name: "inspect".to_string(),
++                arguments: arguments().to_string(),
++            },
++        }],
++    );
++    PersistedSession::new(
++        ProviderSessionId::new(),
++        store.workspace_scope().to_string(),
++        "mock-model".to_string(),
++        vec![Message::user("ordinary prompt"), message],
++    )
++}
++
++fn assert_masked(messages: &[Message]) {
++    let text = messages[1].content.as_text();
++    let leaked = TEXT_CANARIES
++        .iter()
++        .filter(|value| text.contains(**value))
++        .count();
++    assert!(leaked == 0, "text masking failed: {leaked} canaries remain");
++    assert!(
++        text.contains("region=ordinary-value") && text.contains("中文 ordinary-text"),
++        "ordinary text changed"
++    );
++    let calls = messages[1].tool_calls.as_ref().expect("tool call retained");
++    let value: Value = serde_json::from_str(&calls[0].function.arguments).expect("arguments JSON");
++    let masked = KEYS
++        .iter()
++        .filter(|key| value[**key] == "<redacted>")
++        .count();
++    assert!(
++        masked == KEYS.len(),
++        "argument masking failed: {masked} of 8 masked"
++    );
++    assert!(
++        value["tokenizer"] == "ordinary-value" && value["region"] == "ordinary-value",
++        "ordinary argument changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_load_preserve_live_copy() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut session = boundary_session(&store);
++    let original = serde_json::to_string(&session.messages).unwrap();
++    store.persist(&mut session).unwrap();
++    assert!(
++        serde_json::to_string(&session.messages).unwrap() == original,
++        "persistence changed live context"
++    );
++    let disk = envelope_json(&store, &session.session_id);
++    let disk_messages: Vec<Message> = serde_json::from_value(disk["messages"].clone()).unwrap();
++    assert_masked(&disk_messages);
++    assert_masked(&store.load(&session.session_id).unwrap().messages);
++}
++
++#[test]
++fn redaction_boundaries_load_external_envelope() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut session = boundary_session(&store);
++    store.persist(&mut session).unwrap();
++    let mut disk = envelope_json(&store, &session.session_id);
++    disk["messages"] = serde_json::to_value(boundary_session(&store).messages).unwrap();
++    fs::write(
++        store.session_file(&session.session_id),
++        serde_json::to_vec(&disk).unwrap(),
++    )
++    .unwrap();
++    assert_masked(&store.load(&session.session_id).unwrap().messages);
++}
++
++#[test]
++fn redaction_boundaries_hook_payload_preserves_schema() {
++    let properties: serde_json::Map<String, Value> = KEYS
++        .iter()
++        .map(|key| {
++            (
++                key.to_string(),
++                json!({"type": "string", "description": "ordinary value"}),
++            )
++        })
++        .collect();
++    let tools =
++        json!([{"name": "inspect", "parameters": {"type": "object", "properties": properties}}]);
++    let payload = json!({
++        "hook_data": {"nested": [arguments()]},
++        "llm_request": {"config": {"tools": tools.clone()}, "tools": tools.clone()}
++    });
++    let output: Value = serde_json::from_str(&crate::redaction::to_redacted_json_with_schemas(
++        &payload,
++        crate::redaction::TOOL_DECLARATION_PATHS,
++    ))
++    .unwrap();
++    let masked = KEYS
++        .iter()
++        .filter(|key| output["hook_data"]["nested"][0][**key] == "<redacted>")
++        .count();
++    assert!(
++        masked == KEYS.len(),
++        "hook masking failed: {masked} of 8 masked"
++    );
++    assert!(
++        output["hook_data"]["nested"][0]["tokenizer"] == "ordinary-value",
++        "ordinary hook value changed"
++    );
++    assert!(
++        output["llm_request"]["config"]["tools"] == tools
++            && output["llm_request"]["tools"] == tools,
++        "schema declaration changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_load_compaction_summary() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut session = new_session(&store, "ordinary prompt");
++    store.persist(&mut session).unwrap();
++    let mut state = projection(1);
++    state.compacted_through = session.messages.len();
++    state.summary = TEXT.to_string();
++    state.source_digest = crate::compaction::source_digest(&session.messages);
++    let mut disk = envelope_json(&store, &session.session_id);
++    disk["compaction"] = serde_json::to_value(state).unwrap();
++    fs::write(
++        store.session_file(&session.session_id),
++        serde_json::to_vec(&disk).unwrap(),
++    )
++    .unwrap();
++    let loaded = store.load(&session.session_id).unwrap();
++    let summary = loaded
++        .compaction
++        .expect("valid projection retained")
++        .summary;
++    let leaked = TEXT_CANARIES
++        .iter()
++        .filter(|value| summary.contains(**value))
++        .count();
++    assert!(
++        leaked == 0,
++        "loaded summary masking failed: {leaked} canaries remain"
++    );
++    assert!(
++        summary.contains("region=ordinary-value"),
++        "ordinary summary changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_complete_words_and_catalog() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    for text in [r#"tool --password "canary multi words" --region cn"#, r"tool --password canary\ multi\ words --region cn", "tool --password 'unterminated canary tail", "SECRET_ACCESS_KEY=canary-material ACCESS_KEY=canary-access --private-key=canary-private --secret-key=canary-secret --bearer=canary-bearer"] {
++        let mut session = new_session(&store, text);
++        store.persist(&mut session).unwrap();
++        let loaded = store.load(&session.session_id).unwrap();
++        let safe = loaded.messages[0].content.as_text();
++        assert!(!safe.contains("canary") && !safe.contains("words") && !safe.contains("tail"), "complete word masking failed");
++        if text.contains("--region cn") { assert!(safe.contains("--region cn"), "ordinary flag changed"); }
++    }
++    let ordinary = "tokenizer=ordinary api_key_id_shape=ordinary 中文 ordinary-text";
++    let mut session = new_session(&store, ordinary);
++    store.persist(&mut session).unwrap();
++    assert!(
++        store.load(&session.session_id).unwrap().messages[0]
++            .content
++            .as_text()
++            == ordinary,
++        "ordinary persisted text changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_escaped_quoted_flags() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    for text in [
++        r#"tool --password "canary\" multi words" --region cn"#,
++        r#"tool --password "canary\\ multi words" --region cn"#,
++        r#"tool --password 'canary part'" other words" --region cn"#,
++    ] {
++        let mut session = new_session(&store, text);
++        store.persist(&mut session).unwrap();
++        let loaded = store.load(&session.session_id).unwrap();
++        let safe = loaded.messages[0].content.as_text();
++        assert!(
++            !safe.contains("canary") && !safe.contains("words") && !safe.contains("multi"),
++            "escaped quoted flag masking failed"
++        );
++        assert!(
++            safe.contains("--region cn"),
++            "ordinary escaped-word flag changed"
++        );
++    }
++}
++
++#[test]
++fn redaction_boundaries_persist_json_text_preserves_ordinary_fields() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let text = r#"{"password":"canary-material","region":"ordinary-region","nested":[{"secret_key":"canary-nested","tokenizer":"ordinary-tokenizer"},{"auth_token":"canary-second","region":"ordinary-second"}]}"#;
++    let mut session = new_session(&store, text);
++    store.persist(&mut session).unwrap();
++    let loaded = store.load(&session.session_id).unwrap();
++    let safe = loaded.messages[0].content.as_text();
++    assert!(!safe.contains("canary"), "JSON text masking failed");
++    let value: Value = serde_json::from_str(&safe).expect("masked JSON remains structured");
++    assert!(
++        value["region"] == "ordinary-region"
++            && value["nested"][0]["tokenizer"] == "ordinary-tokenizer"
++            && value["nested"][1]["region"] == "ordinary-second",
++        "ordinary JSON fields changed"
++    );
++    let ordinary = "{ \"region\" : \"ordinary-region\", \"tokenizer\" : \"ordinary-tokenizer\" }";
++    let mut session = new_session(&store, ordinary);
++    store.persist(&mut session).unwrap();
++    assert!(
++        store.load(&session.session_id).unwrap().messages[0]
++            .content
++            .as_text()
++            == ordinary,
++        "ordinary JSON bytes changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_json_legacy_keys_and_duplicates() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    for text in [
++        r#"{"aws_session_token":"canary-material","region":"ordinary-region"}"#,
++        r#"{"ALIBABA_CLOUD_ACCESS_KEY_ID":"canary-material","region":"ordinary-region"}"#,
++        r#"{"prefixed_token":"canary-material","region":"ordinary-region"}"#,
++        r#"{"password":"canary-material","password":"<redacted>","region":"ordinary-region"}"#,
++        r#"{"region":"token=canary-material","region":"ordinary-region"}"#,
++        r#"{"api\u005fkey":"canary-material","api_key":"<redacted>","region":"ordinary-region"}"#,
++    ] {
++        let mut session = new_session(&store, text);
++        store.persist(&mut session).unwrap();
++        let loaded = store.load(&session.session_id).unwrap();
++        let safe = loaded.messages[0].content.as_text();
++        assert!(
++            !safe.contains("canary"),
++            "JSON legacy or duplicate masking failed"
++        );
++        let value: Value = serde_json::from_str(&safe).expect("JSON remains structured");
++        assert!(
++            value["region"] == "ordinary-region",
++            "ordinary duplicate JSON field changed"
++        );
++    }
++    let ordinary =
++        r#"{ "region":"first ordinary", "region":"last ordinary", "tokenizer":"ordinary" }"#;
++    let mut session = new_session(&store, ordinary);
++    store.persist(&mut session).unwrap();
++    assert!(
++        store.load(&session.session_id).unwrap().messages[0]
++            .content
++            .as_text()
++            == ordinary,
++        "ordinary duplicate JSON bytes changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_json_shape_keys_preserve_values() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let text = json!({format!("AKIA{}", "A".repeat(16)): "ordinary-one", format!("ghp_{}", "a".repeat(36)): "ordinary-two", "<redacted>": "ordinary-reserved", "region": "ordinary-region"}).to_string();
++    let mut session = new_session(&store, &text);
++    store.persist(&mut session).unwrap();
++    let loaded = store.load(&session.session_id).unwrap();
++    let safe = loaded.messages[0].content.as_text();
++    assert!(
++        !safe.contains(&format!("AKIA{}", "A".repeat(16)))
++            && !safe.contains(&format!("ghp_{}", "a".repeat(36))),
++        "JSON key shapes masking failed"
++    );
++    let value: Value = serde_json::from_str(&safe).expect("JSON remains structured");
++    let fields = value.as_object().expect("object retained");
++    assert!(
++        fields.len() == 4
++            && fields.values().any(|v| v == "ordinary-one")
++            && fields.values().any(|v| v == "ordinary-two")
++            && fields["<redacted>"] == "ordinary-reserved"
++            && fields["region"] == "ordinary-region",
++        "ordinary values or reserved key changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_json_private_key_span() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    for text in [json!({"begin": "-----BEGIN PRIVATE KEY-----", "body": "canary-private-material", "end": "-----END PRIVATE KEY-----", "region": "ordinary-region"}).to_string(), json!({"pem": "-----BEGIN PRIVATE KEY-----\ncanary-private-material\n-----END PRIVATE KEY-----", "region": "ordinary-region"}).to_string()] {
++        let mut session = new_session(&store, &text);
++        store.persist(&mut session).unwrap();
++        let loaded = store.load(&session.session_id).unwrap();
++        let safe = loaded.messages[0].content.as_text();
++        assert!(!safe.contains("canary"), "JSON private-key span masking failed");
++        assert!(safe.contains("ordinary-region"), "ordinary text outside private-key span changed");
++    }
++}
++
++#[test]
++fn redaction_boundaries_persist_json_pem_with_decoded_keys() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    for (case, text) in [
++        r#"{"pem":"-----BEGIN PRIVATE KEY-----\ncanary-pem\n-----END PRIVATE KEY-----","api\u005fkey":"canary-credential","region":"ordinary-region"}"#,
++        r#"{"api\u005fkey":"canary-credential","pem":"-----BEGIN PRIVATE KEY-----\ncanary-pem\n-----END PRIVATE KEY-----","region":"ordinary-region"}"#,
++        r#"{"begin":"-----BEGIN PRIVATE KEY-----","nested":{"body":"canary-pem","end":"-----END PRIVATE KEY-----"},"api\u005fkey":"canary-credential","region":"ordinary-region"}"#,
++        r#"{"api_key":"-----BEGIN PRIVATE KEY-----","body":"canary-pem","end":"-----END PRIVATE KEY-----","api\u005fkey":"canary-credential","region":"ordinary-region"}"#,
++        r#"{"begin":"-----BEGIN PRIVATE KEY-----","body":"canary-pem","api_key":"-----END PRIVATE KEY-----","auth\u005ftoken":"canary-credential","region":"ordinary-region"}"#,
++        r#"{"text":"ordinary-prefix api_key=canary-before -----BEGIN PRIVATE KEY----- canary-pem -----END PRIVATE KEY----- auth_token=canary-after ordinary-suffix","region":"ordinary-region"}"#,
++        r#"{"api_key":"canary-credential","pem":"-----BEGIN PRIVATE KEY-----\ncanary-pem\n-----END PRIVATE KEY-----","region":"ordinary-region"}"#,
++        r#"[{"pem":"-----BEGIN PRIVATE KEY----- canary-pem -----END PRIVATE KEY-----"},{"api\u005fkey":{"nested":"canary-credential"},"region":"ordinary-region"}]"#,
++    ].into_iter().enumerate() {
++        let mut session = new_session(&store, text);
++        store.persist(&mut session).unwrap();
++        let envelope = std::fs::read_to_string(store.session_file(&session.session_id)).unwrap();
++        assert!(!envelope.contains("canary"), "combined JSON PEM credential escaped masking");
++        assert!(envelope.contains("ordinary-region"), "ordinary persisted field changed in case {case}");
++        let loaded = store.load(&session.session_id).unwrap();
++        assert!(loaded.messages[0].content.as_text().contains("ordinary-region"), "ordinary field outside PEM changed in case {case}");
++        if case == 5 {
++            assert!(loaded.messages[0].content.as_text().contains("ordinary-prefix") && loaded.messages[0].content.as_text().contains("ordinary-suffix"), "ordinary token fragments changed");
++        }
++        assert_eq!(session.messages[0].content.as_text(), text, "live context changed");
++    }
++}
++
++#[test]
++fn redaction_boundaries_persist_many_private_key_fields_has_linear_visits() {
++    let count = 1024;
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut fields = serde_json::Map::new();
++    let mut spanning = serde_json::Map::new();
++    spanning.insert("begin".to_string(), json!("-----BEGIN PRIVATE KEY-----"));
++    for index in 0..count {
++        fields.insert(
++            format!("field-{index:04}"),
++            json!(
++                "-----BEGIN PRIVATE KEY-----\ncanary-private-material\n-----END PRIVATE KEY-----"
++            ),
++        );
++        spanning.insert(format!("body-{index:04}"), json!("canary-private-material"));
++    }
++    fields.insert("region".to_string(), json!("ordinary-region"));
++    spanning.insert("end".to_string(), json!("-----END PRIVATE KEY-----"));
++    spanning.insert("region".to_string(), json!("ordinary-region"));
++    let one_token = json!({"text": format!("ordinary-prefix 中文 {} ordinary-suffix β", "-----BEGIN PRIVATE KEY----- canary-private-material -----END PRIVATE KEY----- ".repeat(count)), "region": "ordinary-region"}).to_string();
++    for (case, text) in [
++        serde_json::to_string_pretty(&Value::Object(fields)).unwrap(),
++        serde_json::to_string_pretty(&Value::Object(spanning)).unwrap(),
++        one_token,
++    ]
++    .into_iter()
++    .enumerate()
++    {
++        let mut session = new_session(&store, &text);
++        crate::redaction::redaction_work(true);
++        store.persist(&mut session).unwrap();
++        let safe = store.load(&session.session_id).unwrap().messages[0]
++            .content
++            .as_text();
++        let (visits, probes, _) = crate::redaction::redaction_work(false);
++        assert!(!safe.contains("canary"), "large PEM masking failed");
++        assert!(
++            safe.contains("ordinary-region"),
++            "large ordinary region changed"
++        );
++        if case == 0 {
++            let values: Value = serde_json::from_str(&safe).unwrap();
++            assert!(
++                values.as_object().unwrap().len() == count + 1,
++                "large ordinary field structure changed"
++            );
++        }
++        if case == 2 {
++            assert!(
++                safe.contains("ordinary-prefix 中文") && safe.contains("ordinary-suffix β"),
++                "large ordinary token fragments changed"
++            );
++        }
++        assert!(
++            session.messages[0].content.as_text() == text,
++            "large live context changed"
++        );
++        assert!(
++            visits > 0 && visits <= 8 * (3 * count + 2),
++            "PEM/token visits exceed linear bound"
++        );
++        assert!(
++            probes <= 8 * (count + 3),
++            "PEM masked-key probes exceed linear bound"
++        );
++    }
++}
++
++#[test]
++fn redaction_boundaries_persist_masked_aliases_has_linear_probes() {
++    let count = 1024;
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut fields = serde_json::Map::new();
++    for index in 0..count {
++        fields.insert(format!("ghp_{index:036x}"), json!("ordinary-value"));
++        fields.insert(format!("<redacted>-{}", index + 1), json!("reserved-value"));
++    }
++    fields.insert("<redacted>".to_string(), json!("reserved-value"));
++    fields.insert("region".to_string(), json!("ordinary-region"));
++    let text = Value::Object(fields).to_string();
++    let mut session = new_session(&store, &text);
++    crate::redaction::redaction_work(true);
++    store.persist(&mut session).unwrap();
++    let safe = store.load(&session.session_id).unwrap().messages[0]
++        .content
++        .as_text();
++    let (_, probes, _) = crate::redaction::redaction_work(false);
++    assert!(!safe.contains("ghp_"), "large shape keys were not masked");
++    let values: Value = serde_json::from_str(&safe).unwrap();
++    assert!(
++        values.as_object().unwrap().len() == 2 * count + 2
++            && values["region"] == "ordinary-region"
++            && values["<redacted>"] == "reserved-value"
++            && values
++                .as_object()
++                .unwrap()
++                .values()
++                .filter(|value| *value == "ordinary-value")
++                .count()
++                == count
++            && values
++                .as_object()
++                .unwrap()
++                .values()
++                .filter(|value| *value == "reserved-value")
++                .count()
++                == count + 1,
++        "large ordinary key values changed"
++    );
++    assert!(
++        session.messages[0].content.as_text() == text,
++        "large live context changed"
++    );
++    assert!(
++        probes > 0 && probes <= 8 * (2 * count + 2),
++        "masked-key probes exceed linear bound"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_sensitive_parent_parses_once() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let mut value = json!(format!(
++        "-----BEGIN PRIVATE KEY-----\n{}",
++        "canary-inner".repeat(8192)
++    ));
++    for _ in 0..32 {
++        value = json!({"credentials": value});
++    }
++    let text = format!("{{\"credentials\":{value},\"body\":\"canary-body\",\"end\":\"-----END PRIVATE KEY-----\",\"region\":\"ordinary-region\"}}");
++    let mut session = new_session(&store, &text);
++    crate::redaction::redaction_work(true);
++    store.persist(&mut session).unwrap();
++    let safe = store.load(&session.session_id).unwrap().messages[0]
++        .content
++        .as_text();
++    let (_, _, bytes) = crate::redaction::redaction_work(false);
++    assert!(
++        !safe.contains("canary"),
++        "sensitive parent or cross-parent PEM leaked"
++    );
++    assert!(
++        safe.contains("ordinary-region"),
++        "ordinary field outside sensitive parent changed"
++    );
++    assert!(
++        session.messages[0].content.as_text() == text,
++        "nested live context changed"
++    );
++    assert!(
++        bytes > 0 && bytes <= text.len(),
++        "sensitive subtree was parsed repeatedly"
++    );
++}
++
++#[test]
++fn redaction_boundaries_persist_near_envelope_limit_private_value() {
++    let temp = tempfile::tempdir().unwrap();
++    let store = store(&temp);
++    let value = "canary-private-material".repeat(30 * 1024 * 1024 / 23);
++    let text = json!({"pem": format!("ordinary-prefix 中文 -----BEGIN PRIVATE KEY-----\n{value}\n-----END PRIVATE KEY----- ordinary-suffix β"), "region": "ordinary-region"}).to_string();
++    assert!(
++        text.len() > 29 * 1024 * 1024 && text.len() < MAX_SESSION_FILE_BYTES as usize,
++        "size boundary fixture invalid"
++    );
++    let mut session = new_session(&store, &text);
++    crate::redaction::redaction_work(true);
++    store.persist(&mut session).unwrap();
++    let safe = store.load(&session.session_id).unwrap().messages[0]
++        .content
++        .as_text();
++    let (visits, probes, bytes) = crate::redaction::redaction_work(false);
++    assert!(
++        !safe.contains("canary")
++            && safe.contains("ordinary-region")
++            && safe.contains("ordinary-prefix 中文")
++            && safe.contains("ordinary-suffix β"),
++        "large private/ordinary byte boundary failed"
++    );
++    assert!(
++        safe.len() < 1024 && session.messages[0].content.as_text() == text,
++        "large value or live context changed"
++    );
++    assert!(
++        visits > 0 && visits < 32 && probes < 32 && bytes <= text.len(),
++        "large scalar visits exceed constant bound"
++    );
++}
+diff --git a/src/cosh-ng/crates/cosh-core/tests/session_recovery.rs b/src/cosh-ng/crates/cosh-core/tests/session_recovery.rs
+index e9fe5ee86..75c709382 100644
+--- a/src/cosh-ng/crates/cosh-core/tests/session_recovery.rs
++++ b/src/cosh-ng/crates/cosh-core/tests/session_recovery.rs
+@@ -1411,3 +1411,6 @@ fn session_control_bytes_output(home: &Path, request: &[u8]) -> Output {
+ 
+ #[path = "session_recovery/resume_absence.rs"]
+ mod resume_absence;
++
++#[path = "session_recovery/redaction_boundaries.rs"]
++mod redaction_boundaries;
+diff --git a/src/cosh-ng/crates/cosh-core/tests/session_recovery/redaction_boundaries.rs b/src/cosh-ng/crates/cosh-core/tests/session_recovery/redaction_boundaries.rs
+new file mode 100644
+index 000000000..39d03fc1b
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-core/tests/session_recovery/redaction_boundaries.rs
+@@ -0,0 +1,174 @@
++use super::*;
++
++const PROMPT: &str = "ordinary-marker\n--password 'canary multi words'\nSECRET_KEY=canary-secret-material\nprivate_key=canary-private-material\naccess_key=canary-access-material\ntrace Cookie: sid=canary-cookie-material; mode=canary-cookie-tail\nregion=ordinary-value";
++const CANARIES: [&str; 7] = [
++    "canary multi",
++    "words",
++    "canary-secret-material",
++    "canary-private-material",
++    "canary-access-material",
++    "canary-cookie-material",
++    "canary-cookie-tail",
++];
++const KEYS: [&str; 8] = [
++    "auth_token",
++    "session_token",
++    "secret_key",
++    "private_key",
++    "access_key",
++    "credentials",
++    "credential",
++    "bearer",
++];
++
++fn checked_lines(output: &Output) -> Vec<Value> {
++    assert!(output.status.success(), "Core binary exit failed");
++    json_lines(output)
++}
++
++fn result_id(messages: &[Value]) -> &str {
++    messages
++        .iter()
++        .find(|message| message["type"] == "result")
++        .and_then(|message| message["session_id"].as_str())
++        .expect("session result id")
++}
++
++fn envelope_path(store: &Path, session_id: &str) -> PathBuf {
++    fs::read_dir(store)
++        .expect("read session root")
++        .filter_map(Result::ok)
++        .map(|entry| entry.path().join(format!("{session_id}.json")))
++        .find(|path| path.is_file())
++        .expect("session envelope")
++}
++
++fn assert_masked(text: &str) {
++    let leaked = CANARIES
++        .iter()
++        .filter(|value| text.contains(**value))
++        .count();
++    assert!(
++        leaked == 0,
++        "Core binary masking failed: {leaked} canaries remain"
++    );
++    assert!(
++        text.contains("ordinary-marker") && text.contains("region=ordinary-value"),
++        "Core binary ordinary context changed"
++    );
++    assert!(
++        text.contains("<redacted>"),
++        "Core binary redaction marker missing"
++    );
++}
++
++fn resumed_lines(home: &Path, workspace: &Path, session_id: &str) -> Vec<Value> {
++    checked_lines(&run_protocol(
++        home,
++        workspace,
++        &["--resume", session_id],
++        &[
++            json!({"type": "control_request", "request_id": "redaction-init",
++            "request": {"subtype": "initialize"}}),
++            json!({"type": "user", "message": {"role": "user", "content": "ordinary continuation"}}),
++        ],
++    ))
++}
++
++fn assert_restored_context(messages: &[Value], session_id: &str) {
++    assert!(
++        result_id(messages) == session_id,
++        "Core binary resume identity changed"
++    );
++    let assistant = messages
++        .iter()
++        .find(|message| message["type"] == "assistant")
++        .and_then(|message| message["message"]["content"][0]["text"].as_str())
++        .expect("mock history response");
++    assert_masked(assistant);
++    assert!(
++        assistant.contains("ordinary continuation"),
++        "resumed turn missing"
++    );
++}
++
++#[test]
++fn redaction_boundaries_binary_persist_then_resume_mock_history() {
++    let temp = tempfile::tempdir().expect("tempdir");
++    let home = temp.path().join("home");
++    let workspace = temp.path().join("workspace");
++    let store = temp.path().join("sessions");
++    fs::create_dir_all(&workspace).expect("workspace");
++    configure(&home, &store);
++    let first = checked_lines(&run_prompt(&home, &workspace, &[PROMPT]));
++    let session_id = result_id(&first);
++    let live = first
++        .iter()
++        .find(|message| message["type"] == "assistant")
++        .and_then(|message| message["message"]["content"][0]["text"].as_str())
++        .expect("live mock history response");
++    assert!(
++        CANARIES.iter().all(|value| live.contains(value)),
++        "live context unexpectedly changed"
++    );
++    let path = envelope_path(&store, session_id);
++    assert_masked(&fs::read_to_string(&path).expect("persisted envelope"));
++    assert_restored_context(&resumed_lines(&home, &workspace, session_id), session_id);
++    assert_masked(&fs::read_to_string(&path).expect("resumed envelope"));
++}
++
++#[test]
++fn redaction_boundaries_binary_resume_external_envelope_and_arguments() {
++    let temp = tempfile::tempdir().expect("tempdir");
++    let home = temp.path().join("home");
++    let workspace = temp.path().join("workspace");
++    let store = temp.path().join("sessions");
++    fs::create_dir_all(&workspace).expect("workspace");
++    configure(&home, &store);
++    let first = checked_lines(&run_prompt(&home, &workspace, &["ordinary seed"]));
++    let session_id = result_id(&first);
++    let path = envelope_path(&store, session_id);
++    let mut envelope: Value =
++        serde_json::from_slice(&fs::read(&path).expect("envelope bytes")).expect("envelope JSON");
++    let mut arguments = json!({"tokenizer": "ordinary-value", "region": "ordinary-value"});
++    for key in KEYS {
++        arguments[key] = json!(format!("canary-json-{key}"));
++    }
++    envelope["messages"] = json!([
++        {"role": "user", "content": PROMPT},
++        {"role": "assistant", "content": "ordinary call", "tool_calls": [{
++            "id": "call-redaction", "type": "function", "function": {
++                "name": "inspect", "arguments": arguments.to_string()
++            }
++        }]},
++        {"role": "tool", "tool_call_id": "call-redaction", "content": "ordinary result"},
++        {"role": "assistant", "content": "ordinary completion"}
++    ]);
++    fs::write(
++        &path,
++        serde_json::to_vec(&envelope).expect("serialize external envelope"),
++    )
++    .expect("write external envelope");
++    assert_restored_context(&resumed_lines(&home, &workspace, session_id), session_id);
++    let disk = fs::read_to_string(&path).expect("resumed envelope");
++    assert_masked(&disk);
++    let envelope: Value = serde_json::from_str(&disk).expect("resumed JSON");
++    let arguments: Value = serde_json::from_str(
++        envelope["messages"][1]["tool_calls"][0]["function"]["arguments"]
++            .as_str()
++            .expect("restored arguments string"),
++    )
++    .expect("restored arguments JSON");
++    let masked = KEYS
++        .iter()
++        .filter(|key| arguments[**key] == "<redacted>")
++        .count();
++    assert!(
++        masked == KEYS.len(),
++        "Core binary arguments masking failed: {masked} of 8 masked"
++    );
++    assert!(
++        arguments["tokenizer"] == "ordinary-value" && arguments["region"] == "ordinary-value",
++        "Core binary ordinary arguments changed"
++    );
++}
+diff --git a/src/cosh-ng/crates/cosh-shell/src/evidence/catalog_tests.rs b/src/cosh-ng/crates/cosh-shell/src/evidence/catalog_tests.rs
+new file mode 100644
+index 000000000..79a357662
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-shell/src/evidence/catalog_tests.rs
+@@ -0,0 +1,81 @@
++use super::redaction::{provider_safe_command_facts, redact_sensitive_text};
++use crate::types::{CommandBlock, CommandStatus, OutputRefs};
++
++#[test]
++fn redaction_boundaries_catalog_forms_and_precision() {
++    for key in [
++        "secret_key",
++        "secret_access_key",
++        "private_key",
++        "access_key",
++        "auth_token",
++        "session_token",
++        "credentials",
++        "credential",
++        "bearer",
++    ] {
++        for input in [
++            format!("{key}=catalog-canary-material"),
++            format!(
++                "tool --{} 'catalog canary words' --region cn",
++                key.replace('_', "-")
++            ),
++        ] {
++            let (safe, changed) = redact_sensitive_text(&input);
++            assert!(
++                changed
++                    && !safe.contains("catalog")
++                    && !safe.contains("canary")
++                    && !safe.contains("words"),
++                "catalog masking failed"
++            );
++        }
++    }
++    let ordinary =
++        "cargo test --region cn tokenizer=ordinary_value api_key_id_shape=ordinary_value";
++    assert!(
++        redact_sensitive_text(ordinary) == (ordinary.to_string(), false),
++        "ordinary command changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_actual_command_facts() {
++    let block = CommandBlock {
++        id: "catalog".to_string(), session_id: "catalog-session".to_string(),
++        command: "tool --auth-token facts-canary --access-key facts-access --region cn SECRET_KEY=facts-assignment".to_string(),
++        origin: Default::default(), cwd: "/ordinary".to_string(), end_cwd: "/ordinary".to_string(),
++        started_at_ms: 0, ended_at_ms: 1, duration_ms: 1, exit_code: 0,
++        status: CommandStatus::Completed,
++        output: OutputRefs { terminal_output_ref: None, terminal_output_bytes: 0 },
++        shell_environment_generation: None, audit_identity: None,
++    };
++    let facts = provider_safe_command_facts(&block);
++    assert!(
++        !facts.command.contains("facts-"),
++        "provider facts masking failed"
++    );
++    assert!(
++        facts.command.contains("--region cn") && facts.cwd == "/ordinary",
++        "ordinary facts changed"
++    );
++}
++
++#[test]
++fn redaction_boundaries_actual_output_preview() {
++    let temp = tempfile::tempdir().unwrap();
++    let path = temp.path().join("output.txt");
++    std::fs::write(&path, "SECRET_KEY=preview-canary-material\nprivate_key='preview canary words'\n--auth-token preview-flag-canary\naccess_key=preview-access-canary\nordinary-preview-control").unwrap();
++    let preview = super::output_text::provider_output_preview(
++        path.to_str(),
++        "terminal-output://catalog/preview",
++    );
++    let text = preview.text.expect("actual preview produced");
++    assert!(!text.contains("canary"), "output preview masking failed");
++    assert!(
++        text.contains("ordinary-preview-control")
++            && preview.complete
++            && preview.redaction_status == "preview_redacted",
++        "ordinary preview changed"
++    );
++}
+diff --git a/src/cosh-ng/crates/cosh-shell/src/evidence/mod.rs b/src/cosh-ng/crates/cosh-shell/src/evidence/mod.rs
+index 874f4fdcb..fe7765131 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/evidence/mod.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/evidence/mod.rs
+@@ -20,3 +20,6 @@ pub(crate) use output_text::{
+     clean_terminal_control_sequences, redact_sensitive_output, ControlSequenceScanner,
+ };
+ pub(crate) use redaction::{redact_sensitive_text, truncate_provider_authored_command_text};
++
++#[cfg(test)]
++mod catalog_tests;
+diff --git a/src/cosh-ng/crates/cosh-shell/src/evidence/redaction.rs b/src/cosh-ng/crates/cosh-shell/src/evidence/redaction.rs
+index 2d7a679bb..8d5cb3b1c 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/evidence/redaction.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/evidence/redaction.rs
+@@ -211,10 +211,13 @@ fn sensitive_flag_pattern() -> &'static Regex {
+             r#"(?ix)
+             (?P<prefix>
+                 (?:^|\s)
+-                --(?:password|passwd|passphrase|token|access[_-]?token|refresh[_-]?token|
+-                     id[_-]?token|secret|client[_-]?secret|api[_-]?key|apikey|
+-                     access[_-]?key[_-]?(?:id|secret)|security[_-]?token|authorization|
+-                     cookie|set[_-]?cookie)
++                --(?:password|passwd|passphrase|access[_-]?token|refresh[_-]?token|
++                     id[_-]?token|session[_-]?token|auth[_-]?token|
++                     secret[_-]?access[_-]?key|secret[_-]?key|client[_-]?secret|
++                     api[_-]?key|apikey|
++                     access[_-]?key[_-]?(?:id|secret)|access[_-]?key|
++                     private[_-]?key|security[_-]?token|authorization|credentials?|bearer|
++                     cookie|set[_-]?cookie|token|secret)
+                 (?:=|\s+)
+             )
+             (?:
+@@ -240,6 +243,9 @@ fn sensitive_assignment_pattern() -> &'static Regex {
+                 (?:alibaba[_-]?cloud[_-]?access[_-]?key[_-]?id|
+                    aws[_-]?access[_-]?key[_-]?id|access[_-]?key[_-]?id|
+                    aws[_-]?secret[_-]?access[_-]?key|access[_-]?key[_-]?secret|
++                   access[_-]?key|
++                   secret[_-]?access[_-]?key|secret[_-]?key|private[_-]?key|
++                   session[_-]?token|auth[_-]?token|credentials?|bearer|
+                    dashscope[_-]?api[_-]?key|openai[_-]?api[_-]?key|
+                    client[_-]?secret|security[_-]?token|refresh[_-]?token|
+                    access[_-]?token|github[_-]?token|id[_-]?token|
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/logic.rs b/src/cosh-ng/crates/cosh-shell/tests/logic.rs
+index 0502d66db..47c0e1189 100644
+--- a/src/cosh-ng/crates/cosh-shell/tests/logic.rs
++++ b/src/cosh-ng/crates/cosh-shell/tests/logic.rs
+@@ -5,3 +5,6 @@ mod support_tools;
+ mod session_recovery;
+ #[path = "logic/tools.rs"]
+ mod tools;
++
++#[path = "logic/redaction.rs"]
++mod redaction;
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/logic/redaction.rs b/src/cosh-ng/crates/cosh-shell/tests/logic/redaction.rs
+new file mode 100644
+index 000000000..01d6c6b4a
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-shell/tests/logic/redaction.rs
+@@ -0,0 +1,76 @@
++use cosh_shell::adapter::ClaudeCodeAdapter;
++use cosh_shell::ledger::build_command_blocks;
++use cosh_shell::parser::agent_request_after_confirmation;
++use cosh_shell::types::{CoshApprovalMode, ShellEvent, ShellEventKind};
++
++fn provider_prompt(command: &str) -> String {
++    let events = [
++        ShellEvent::command_started("redaction-logic", "command", command, "/repo", 1),
++        ShellEvent::command_finished(
++            ShellEventKind::CommandCompleted,
++            "redaction-logic",
++            "command",
++            0,
++            2,
++            "/unused/output.txt",
++        ),
++    ];
++    let ledger = build_command_blocks(&events);
++    assert!(ledger.errors.is_empty(), "redaction ledger valid");
++    assert!(ledger.blocks.len() == 1, "redaction command present");
++    let mut request =
++        agent_request_after_confirmation("redaction-logic", &ledger.blocks[0], &[], true)
++            .expect("confirmed redaction request");
++    request.context_blocks = ledger.blocks.clone();
++    ClaudeCodeAdapter::default()
++        .prepare_invocation(&request, CoshApprovalMode::Recommend)
++        .prompt
++}
++
++#[test]
++fn provider_prompt_redacts_extended_secret_assignments_and_flags() {
++    let cases = [
++        (
++            "SECRET_KEY=assignment_canary_4301",
++            "assignment_canary_4301",
++        ),
++        ("secret_key=lowercase_canary_4301", "lowercase_canary_4301"),
++        ("private_key='private span canary'", "private span canary"),
++        ("access_key=access_canary_4301", "access_canary_4301"),
++        ("client_secret=client_canary_4301", "client_canary_4301"),
++        (
++            "aws_session_token=session_canary_4301",
++            "session_canary_4301",
++        ),
++        ("--auth-token flag_canary_4301", "flag_canary_4301"),
++        (
++            "--access-key=access_flag_canary_4301",
++            "access_flag_canary_4301",
++        ),
++        ("--private-key 'private flag span'", "private flag span"),
++        (
++            "--client-secret=client_flag_canary_4301",
++            "client_flag_canary_4301",
++        ),
++    ];
++    let leaked = cases
++        .iter()
++        .filter(|(argument, canary)| {
++            provider_prompt(&format!("printf benign-redaction-control {argument}"))
++                .contains(*canary)
++        })
++        .count();
++    assert!(leaked == 0, "provider command masking failures: {leaked}");
++}
++
++#[test]
++fn provider_prompt_preserves_non_secret_command_facts() {
++    let command = "printf benign-redaction-control --output report.txt --limit 7";
++    let prompt = provider_prompt(command);
++    assert!(prompt.contains(command), "ordinary command facts preserved");
++    assert!(prompt.contains("exit_code: 0"), "exit fact preserved");
++    assert!(
++        prompt.contains("terminal-output://redaction-logic/command"),
++        "output evidence identity preserved"
++    );
++}
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/shell_host.rs b/src/cosh-ng/crates/cosh-shell/tests/shell_host.rs
+index 2c22bee2c..9ab44de28 100644
+--- a/src/cosh-ng/crates/cosh-shell/tests/shell_host.rs
++++ b/src/cosh-ng/crates/cosh-shell/tests/shell_host.rs
+@@ -265,3 +265,6 @@ where
+     let config = shell_host_test_config(config);
+     shell_run_raw_relay_zsh_with_output_control(&config, input, output, event_observer)
+ }
++
++#[path = "shell_host/redaction.rs"]
++mod redaction;
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/shell_host/redaction.rs b/src/cosh-ng/crates/cosh-shell/tests/shell_host/redaction.rs
+new file mode 100644
+index 000000000..f1c613310
+--- /dev/null
++++ b/src/cosh-ng/crates/cosh-shell/tests/shell_host/redaction.rs
+@@ -0,0 +1,101 @@
++use super::*;
++use cosh_shell::adapter::ClaudeCodeAdapter;
++use cosh_shell::types::CoshApprovalMode;
++
++#[test]
++fn scripted_bash_redacts_command_facts_and_durable_output_evidence() {
++    assert!(
++        Command::new("bash").arg("--version").output().is_ok(),
++        "bash required for redaction PTY evidence"
++    );
++    let work_dir = tempfile::tempdir().expect("redaction PTY work dir");
++    let config = ShellHostConfig::new("redaction-pty", work_dir.path());
++    let cases = [
++        (
++            "printf '%s\\n' 'SECRET_KEY=pty_assignment_canary' 'benign-redaction-control'",
++            "pty_assignment_canary",
++        ),
++        (
++            "printf '%s\\n' 'private_key=\"private pty canary span\"' 'benign-redaction-control'",
++            "private pty canary span",
++        ),
++        (
++            "printf '%s\\n' --auth-token pty_flag_canary 'benign-redaction-control'",
++            "pty_flag_canary",
++        ),
++        (
++            "printf '%s\\n' 'access_key=pty_access_canary' 'benign-redaction-control'",
++            "pty_access_canary",
++        ),
++    ];
++    let mut inputs = cases
++        .iter()
++        .map(|(command, _)| ScriptedInput::command(*command))
++        .collect::<Vec<_>>();
++    inputs.push(ScriptedInput::command(
++        "printf '%s\\n' 'benign-redaction-control'",
++    ));
++    let output = run_scripted_bash(&config, &inputs).expect("redaction scripted PTY");
++    let events = read_shell_events(&output.journal_path).expect("redaction journal replay");
++    let ledger = build_command_blocks(&events);
++    assert!(ledger.errors.is_empty(), "redaction PTY ledger valid");
++    let blocks = ledger
++        .blocks
++        .iter()
++        .filter(|block| (1..=inputs.len()).any(|index| block.id == format!("cmd-{index}")))
++        .collect::<Vec<_>>();
++    assert!(
++        blocks.len() == inputs.len(),
++        "all redaction PTY commands captured"
++    );
++    assert!(
++        blocks
++            .iter()
++            .enumerate()
++            .all(|(index, block)| block.id == format!("cmd-{}", index + 1)),
++        "scripted command order retained"
++    );
++    assert!(
++        blocks.iter().all(|block| block.exit_code == 0),
++        "PTY commands executed"
++    );
++
++    let mut request = agent_request_after_confirmation("redaction-pty", blocks[0], &[], true)
++        .expect("redaction PTY confirmed request");
++    request.context_blocks = blocks.iter().map(|block| (**block).clone()).collect();
++    let prompt = ClaudeCodeAdapter::default()
++        .prepare_invocation(&request, CoshApprovalMode::Recommend)
++        .prompt;
++    let prompt_leaks = cases
++        .iter()
++        .filter(|(_, canary)| prompt.contains(*canary))
++        .count();
++
++    let mut durable_leaks = 0;
++    let mut preserved_outputs = 0;
++    for block in &blocks {
++        let path = block
++            .output
++            .terminal_output_ref
++            .as_deref()
++            .expect("redaction output evidence ref");
++        let persisted = std::fs::read_to_string(path).expect("redaction evidence readback");
++        durable_leaks += cases
++            .iter()
++            .filter(|(_, canary)| persisted.contains(*canary))
++            .count();
++        preserved_outputs += usize::from(persisted.contains("benign-redaction-control"));
++    }
++    assert!(
++        preserved_outputs == inputs.len(),
++        "ordinary PTY output retained on every durable evidence ref"
++    );
++    assert!(
++        prompt.contains("benign-redaction-control"),
++        "ordinary provider context retained"
++    );
++    assert!(
++        prompt_leaks == 0 && durable_leaks == 0,
++        "PTY masking failures: provider={prompt_leaks}, durable={durable_leaks}"
++    );
++}

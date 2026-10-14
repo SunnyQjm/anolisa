@@ -1,0 +1,77 @@
+[
+  {
+    "case": "final-history",
+    "head": "0f8a763dd9db8916c2780b6eb45d340579d93e9f",
+    "source_sha256": "cfc2f6354e52c7c572117e7ed7f3f0f36cb4f9d572ca23b83f3f097cb5609ade",
+    "cast_offset_ms": 6426,
+    "last_source_event_at_or_before_point": 45,
+    "viewport": [
+      100,
+      32
+    ],
+    "png_dimensions": [
+      979,
+      739
+    ],
+    "screenshot": "casts/final-history/idle-original-ps1.png",
+    "screenshot_sha256": "06e225e7614c6114ed5a0c53f5bc17868fa7ab62105b21294e05248d5947f329",
+    "cursor": [
+      17,
+      31
+    ],
+    "line": "original@bash:~$",
+    "color_grid": "\u001b[32moriginal@bash:~$\u001b[39m",
+    "no_input_after_restore": true,
+    "derived_intermediate": "temporary terminal-grid raster; original cast and CLI views unchanged"
+  },
+  {
+    "case": "final-edit",
+    "head": "0f8a763dd9db8916c2780b6eb45d340579d93e9f",
+    "source_sha256": "afaeb9b46f3ad4d5bbd62ef76c2bfe213dbaedaf184b25eba74af94ab271b899",
+    "cast_offset_ms": 6555,
+    "last_source_event_at_or_before_point": 44,
+    "viewport": [
+      100,
+      32
+    ],
+    "png_dimensions": [
+      979,
+      739
+    ],
+    "screenshot": "casts/final-edit/idle-original-ps1.png",
+    "screenshot_sha256": "3faea24f34aff2d4d58392dc73dfea898449933f849d7c18fb0ab84647c2c41b",
+    "cursor": [
+      17,
+      31
+    ],
+    "line": "original@bash:~$",
+    "color_grid": "\u001b[32moriginal@bash:~$\u001b[39m",
+    "no_input_after_restore": true,
+    "derived_intermediate": "temporary terminal-grid raster; original cast and CLI views unchanged"
+  },
+  {
+    "case": "final-typed-controls",
+    "head": "0f8a763dd9db8916c2780b6eb45d340579d93e9f",
+    "source_sha256": "faf519c7822a3048d7404ac001e219e57a1741f7cb11ed1fe3517fa2efb0093d",
+    "cast_offset_ms": 5112,
+    "last_source_event_at_or_before_point": 57,
+    "viewport": [
+      100,
+      32
+    ],
+    "png_dimensions": [
+      979,
+      739
+    ],
+    "screenshot": "casts/final-typed-controls/idle-original-ps1.png",
+    "screenshot_sha256": "2a87d0f2b092bfb17445b2b10b5d99eb2aa84dbda64b658cbdb38fcdc37e03a7",
+    "cursor": [
+      17,
+      31
+    ],
+    "line": "original@bash:~$",
+    "color_grid": "\u001b[32moriginal@bash:~$\u001b[39m",
+    "no_input_after_restore": true,
+    "derived_intermediate": "temporary terminal-grid raster; original cast and CLI views unchanged"
+  }
+]

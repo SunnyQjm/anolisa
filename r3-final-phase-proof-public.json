@@ -1,0 +1,227 @@
+[
+  {
+    "route": "default",
+    "shell_mode": "enhanced-native",
+    "adapter": "cosh-core",
+    "argv": [
+      "/cache/cargo-target/4da9a156626bf48ceaaf/debug/cosh-shell",
+      "raw",
+      "cosh-core"
+    ],
+    "binary_sha256": {
+      "cosh-shell": "275a2cbac1fa307fd2cd105a8d4cc290ddbd60df12ca50681932daee035666a8",
+      "cosh-core": "3d478d934bf3145d9eda520ef5ab908bf4519df41d9f2d3243e659c293e2253a"
+    },
+    "real_provider": false,
+    "model": "loopback SSE; no tools",
+    "core_seen": true,
+    "phases": [
+      {
+        "name": "STARTUP",
+        "requests": 0,
+        "ready": true
+      },
+      {
+        "name": "ENABLED_ROUTE_READY",
+        "requests": 0,
+        "output_bytes": 1187,
+        "ready": true
+      },
+      {
+        "name": "ENABLED_CORE_READY",
+        "requests": 1,
+        "output_bytes": 2169,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_READY",
+        "requests": 1,
+        "output_bytes": 3312,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_NO_PROVIDER",
+        "requests": 1,
+        "output_bytes": 4043,
+        "ready": true
+      },
+      {
+        "name": "RESTORE_IDLE_ORIGINAL_PS1",
+        "requests": 1,
+        "ready": true,
+        "original_prompt": "original@bash:~$ ",
+        "no_new_input": true
+      },
+      {
+        "name": "RESTORED_CORE_READY",
+        "requests": 2,
+        "output_bytes": 6239,
+        "ready": true
+      }
+    ],
+    "restored_by_slash": true,
+    "error": null,
+    "shell_exit": 0,
+    "provider_request_count": 2,
+    "remaining_pids": [],
+    "check_controls": false,
+    "restore_input": "edit",
+    "outer_termios_restored": true
+  },
+  {
+    "route": "default",
+    "shell_mode": "enhanced-native",
+    "adapter": "cosh-core",
+    "argv": [
+      "/cache/cargo-target/4da9a156626bf48ceaaf/debug/cosh-shell",
+      "raw",
+      "cosh-core"
+    ],
+    "binary_sha256": {
+      "cosh-shell": "275a2cbac1fa307fd2cd105a8d4cc290ddbd60df12ca50681932daee035666a8",
+      "cosh-core": "3d478d934bf3145d9eda520ef5ab908bf4519df41d9f2d3243e659c293e2253a"
+    },
+    "real_provider": false,
+    "model": "loopback SSE; no tools",
+    "core_seen": true,
+    "phases": [
+      {
+        "name": "STARTUP",
+        "requests": 0,
+        "ready": true
+      },
+      {
+        "name": "ENABLED_ROUTE_READY",
+        "requests": 0,
+        "output_bytes": 1187,
+        "ready": true
+      },
+      {
+        "name": "ENABLED_CORE_READY",
+        "requests": 1,
+        "output_bytes": 2169,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_READY",
+        "requests": 1,
+        "output_bytes": 3312,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_QUERY_READY",
+        "requests": 1,
+        "output_bytes": 4304,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_INVALID_READY",
+        "requests": 1,
+        "output_bytes": 5340,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_STILL_OFF_READY",
+        "requests": 1,
+        "output_bytes": 6340,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_NO_PROVIDER",
+        "requests": 1,
+        "output_bytes": 7071,
+        "ready": true
+      },
+      {
+        "name": "RESTORE_IDLE_ORIGINAL_PS1",
+        "requests": 1,
+        "ready": true,
+        "original_prompt": "original@bash:~$ ",
+        "no_new_input": true
+      },
+      {
+        "name": "RESTORED_CORE_READY",
+        "requests": 2,
+        "output_bytes": 9027,
+        "ready": true
+      }
+    ],
+    "restored_by_slash": true,
+    "error": null,
+    "shell_exit": 0,
+    "provider_request_count": 2,
+    "remaining_pids": [],
+    "check_controls": true,
+    "restore_input": "typed",
+    "outer_termios_restored": true
+  },
+  {
+    "route": "default",
+    "shell_mode": "enhanced-native",
+    "adapter": "cosh-core",
+    "argv": [
+      "/cache/cargo-target/4da9a156626bf48ceaaf/debug/cosh-shell",
+      "raw",
+      "cosh-core"
+    ],
+    "binary_sha256": {
+      "cosh-shell": "275a2cbac1fa307fd2cd105a8d4cc290ddbd60df12ca50681932daee035666a8",
+      "cosh-core": "3d478d934bf3145d9eda520ef5ab908bf4519df41d9f2d3243e659c293e2253a"
+    },
+    "real_provider": false,
+    "model": "loopback SSE; no tools",
+    "core_seen": true,
+    "phases": [
+      {
+        "name": "STARTUP",
+        "requests": 0,
+        "ready": true
+      },
+      {
+        "name": "ENABLED_ROUTE_READY",
+        "requests": 0,
+        "output_bytes": 1187,
+        "ready": true
+      },
+      {
+        "name": "ENABLED_CORE_READY",
+        "requests": 1,
+        "output_bytes": 2169,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_READY",
+        "requests": 1,
+        "output_bytes": 3312,
+        "ready": true
+      },
+      {
+        "name": "DISABLED_NO_PROVIDER",
+        "requests": 1,
+        "output_bytes": 4043,
+        "ready": true
+      },
+      {
+        "name": "RESTORE_IDLE_ORIGINAL_PS1",
+        "requests": 1,
+        "ready": true,
+        "original_prompt": "original@bash:~$ ",
+        "no_new_input": true
+      },
+      {
+        "name": "RESTORED_CORE_READY",
+        "requests": 2,
+        "output_bytes": 6052,
+        "ready": true
+      }
+    ],
+    "restored_by_slash": true,
+    "error": null,
+    "shell_exit": 0,
+    "provider_request_count": 2,
+    "remaining_pids": [],
+    "check_controls": false,
+    "restore_input": "history",
+    "outer_termios_restored": true
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "REPORT.md": "r3-REPORT.md",
+  "final-source-proof.json": "r3-final-source-proof.json",
+  "final-phase-proof-public.json": "r3-final-phase-proof-public.json",
+  "idle-ps1-proof.json": "r3-idle-ps1-proof.json",
+  "preflight.json": "r3-preflight.json",
+  "independent-review-final.md": "r3-independent-review-final.md",
+  "range-diff.txt": "r3-range-diff.txt",
+  "casts/final-history/transcript.cast": "r3-casts__final-history__transcript.cast",
+  "casts/final-history/idle-original-ps1.png": "r3-casts__final-history__idle-original-ps1.png",
+  "casts/final-edit/transcript.cast": "r3-casts__final-edit__transcript.cast",
+  "casts/final-edit/idle-original-ps1.png": "r3-casts__final-edit__idle-original-ps1.png",
+  "casts/final-typed-controls/transcript.cast": "r3-casts__final-typed-controls__transcript.cast",
+  "casts/final-typed-controls/idle-original-ps1.png": "r3-casts__final-typed-controls__idle-original-ps1.png"
+}

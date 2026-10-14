@@ -1,0 +1,33 @@
+{
+  "head": "0f8a763dd9db8916c2780b6eb45d340579d93e9f",
+  "tree": "dc6e3a0c61b5481c8a3315da7af63bb9809ec479",
+  "base": "8cabc9eca25b0eff35fa526cc436ac278060c849",
+  "commit_count": 1,
+  "changed_paths": [
+    "src/cosh-ng/crates/cosh-shell/src/raw_input/relay/candidate.rs",
+    "src/cosh-ng/crates/cosh-shell/src/raw_input/relay_tests.rs",
+    "src/cosh-ng/crates/cosh-shell/src/raw_input/relay_tests/routing_recovery.rs",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/mode_tests.rs",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/marker/bash.sh",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/mode.rs",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/mode/routing_recovery.rs"
+  ],
+  "source_sha256": {
+    "src/cosh-ng/crates/cosh-shell/src/raw_input/relay/candidate.rs": "48219035b4573628ddd33a8c89f0a8775310c6f03b11f2f42da43502a9ebd582",
+    "src/cosh-ng/crates/cosh-shell/src/raw_input/relay_tests.rs": "3a1973752515d551245b9a505e9b586ee66140294adc34007fe52e71e8774c8e",
+    "src/cosh-ng/crates/cosh-shell/src/raw_input/relay_tests/routing_recovery.rs": "19f67179c36398b9501bd3e04ace0a910f9ffb45c30ab092fd29bff6b6983477",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/mode_tests.rs": "cabddee86ec42ba4eef6d0cbd7a85585b3deee739f66d0d6efd9125d6974f08b",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/marker/bash.sh": "f3fa6ca1221bacb901790fbaf3b44b32c3d7d5f73652649786b9c44361b270da",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/mode.rs": "b2dd7b7befa7be264810d4feaf14265261b4b9955afb7c0def4140203788de51",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/mode/routing_recovery.rs": "7f9330b9562847c8fa295cc3f47ac9ff5efdf810f49124cab66379658923413a"
+  },
+  "binary_sha256": {
+    "cosh-shell": "275a2cbac1fa307fd2cd105a8d4cc290ddbd60df12ca50681932daee035666a8",
+    "cosh-core": "3d478d934bf3145d9eda520ef5ab908bf4519df41d9f2d3243e659c293e2253a"
+  },
+  "driver_sha256": "f3003222cb78fc5c5fb96b307d8380d27ffd88ec202e9e3b285474e547a4ab13",
+  "case_sha256": "5cf39a00d024173e1a111abaf8f730aa8b693ffa6c2bfcefe474453e1fe5c8ef",
+  "scope": "debug ALinux4 arm64 Rust1.97.1 / actual Core+PTY loopback model; not real provider/RPM/release",
+  "cosh_subtree": "3378673de0968440002ed67a0601f3faf795a658",
+  "rebase_coshtree_unchanged": true
+}

@@ -438,14 +438,28 @@ pub fn gather_system_info() -> Result<SystemInfo> {
     })
 }
 
-fn read_file_trimmed(path: &str) -> Result<String> {
-    fs::read_to_string(path)
-        .with_context(|| format!("failed to read {path}"))
-        .map(|s| s.trim().to_string())
+fn read_kernel_version() -> Result<String> {
+    read_kernel_version_from("/proc/sys/kernel/osrelease")
 }
 
-fn read_kernel_version() -> Result<String> {
-    read_file_trimmed("/proc/sys/kernel/osrelease")
+/// Path-injectable form of [`read_kernel_version`] (the `eval_*_at` idiom) so
+/// the raw-byte handling is assertable against a fixture instead of the live
+/// `/proc`.
+///
+/// Read as bytes and decoded lossily: the file is the byte array
+/// `init_uts_ns.name.release`, handed to the reader verbatim (v6.6
+/// `kernel/utsname_sysctl.c`:93-99), and that array is composed from build
+/// inputs — `KERNELRELEASE` is `VERSION.PATCHLEVEL.SUBLEVEL` plus
+/// `EXTRAVERSION`/`LOCALVERSION`, written into `include/config/kernel.release`
+/// (v6.6 `Makefile`:368-370, :1173-1180) and only length-checked, a `wc -c`
+/// against 64, before it becomes `UTS_RELEASE` (v6.6 `Makefile`:1232-1239) —
+/// so nothing checks its encoding. A strict read rejected the whole file on one
+/// such byte, which made [`gather_system_info`] fail and took every command
+/// with it, although the version is reported and compared as a `major.minor`
+/// prefix that a replacement character cannot impersonate.
+fn read_kernel_version_from(path: &str) -> Result<String> {
+    let bytes = fs::read(path).with_context(|| format!("failed to read {path}"))?;
+    Ok(String::from_utf8_lossy(&bytes).trim().to_string())
 }
 
 fn read_os_distro() -> String {
@@ -1485,14 +1499,14 @@ fn read_speed_mbps(dir: &Path) -> u64 {
 /// CNI: Calico's `cali*`, Cilium's `lxc<id>` and `cilium_host`; a pair created
 /// by hand carries whatever names its creator passed) and no bus device, so it
 /// is recognised by what it lacks: no `device` symlink (it is not backed by a
-/// bus device), no `DEVTYPE=` line in its uevent (every driver that derives a
-/// reading from another device declares one: `DEVTYPE=vlan`, `bridge`, `bond`,
-/// `macvlan`, `wireguard`), and the driver's fixed [`VETH_SPEED_MBPS`]. The
-/// speed condition keeps the DEVTYPE-less devices that report no rate at all
-/// out of this branch (a sit/ip6tnl tunnel, a macvlan: `ip6_tnl_get_iflink`
-/// returns the underlying link and their `speed` is unreadable), and the
-/// link test below keeps the DEVTYPE-less devices that link to themselves out
-/// of it (dummy, ifb, team).
+/// bus device), no `DEVTYPE=` line in its uevent (the drivers that declare one:
+/// `DEVTYPE=vlan`, `bridge`, `bond`, `wireguard`), no `lower_` adjacency link
+/// (see below), and the driver's fixed [`VETH_SPEED_MBPS`]. The speed
+/// condition keeps the DEVTYPE-less devices that report no rate at all out of
+/// this branch (a sit/ip6tnl tunnel: `ip6_tnl_get_iflink` returns the
+/// underlying link and their `speed` is unreadable), and the link test below
+/// keeps the DEVTYPE-less devices that link to themselves out of it (dummy,
+/// ifb, team).
 ///
 /// The link test is `iflink`, which names the interface's peer inside the
 /// PEER's namespace (`veth_get_iflink`, v6.6 drivers/net/veth.c:1538-1550,
@@ -1501,8 +1515,20 @@ fn read_speed_mbps(dir: &Path) -> u64 {
 /// links to itself cannot be one. That is the test a pair sharing one
 /// namespace passes just like the cross-namespace pair; the index is not
 /// compared with anything here, because it belongs to the peer's namespace.
+///
+/// The adjacency link is what separates a veth end from the macvlan/ipvlan/
+/// macvtap family. Those declare no `DEVTYPE=` either, have no bus device, and
+/// on a 10 GbE parent they show 10000 Mbps — but that is the parent's
+/// negotiated rate, which the driver forwards
+/// (`macvlan_ethtool_get_link_ksettings` reads the lower device's ksettings,
+/// v6.6 drivers/net/macvlan.c:1077-1082; `ipvlan_ethtool_get_link_ksettings`,
+/// v6.6 drivers/net/ipvlan/ipvlan_main.c:402-407), not a driver default. They
+/// record the parent relationship as a `lower_<name>` symlink
+/// (`netdev_upper_dev_link()`, v6.6 net/core/dev.c:7509-7510), and no veth code
+/// creates one (`drivers/net/veth.c` never calls it), so a device with a
+/// `lower_` link reports the lower device's reading and is not a pair end.
 fn is_veth_end(dir: &Path, speed_mbps: u64) -> bool {
-    if speed_mbps != VETH_SPEED_MBPS || dir.join("device").exists() {
+    if speed_mbps != VETH_SPEED_MBPS || dir.join("device").exists() || has_lower_link(dir) {
         return false;
     }
     if let (Some(ifindex), Some(iflink)) = (
@@ -1513,11 +1539,35 @@ fn is_veth_end(dir: &Path, speed_mbps: u64) -> bool {
             return false;
         }
     }
-    match fs::read_to_string(dir.join("uevent")) {
-        Ok(uevent) => !uevent.lines().any(|line| line.starts_with("DEVTYPE=")),
+    // The uevent embeds the interface name in its `INTERFACE=` line, and a
+    // name the kernel accepts may be non-UTF-8 (`dev_valid_name` rejects only
+    // `/`, `:` and whitespace), so `read_to_string` rejected the whole file
+    // and answered "not a veth end" for a veth end: the caller's `iflink`
+    // test then decided it, a cross-namespace peer index can collide with a
+    // local one, and the pair's fixed 10000 Mbps was counted as the host's
+    // link speed. Decode lossily, like every other reader of kernel-provided
+    // text — the marker tested below is an ASCII line prefix, which a lossy
+    // decode keeps.
+    match fs::read(dir.join("uevent")) {
+        Ok(bytes) => !String::from_utf8_lossy(&bytes)
+            .lines()
+            .any(|line| line.starts_with("DEVTYPE=")),
         // An unreadable uevent is not evidence of a veth end.
         Err(_) => false,
     }
+}
+
+/// Whether `dir` lists a `lower_<name>` adjacency link: the kernel's record
+/// that another device runs over this one, whose link state this device
+/// reports (`netdev_upper_dev_link()` creates the symlink pair, v6.6
+/// net/core/dev.c:7509-7510). A veth end never has one; a macvlan, ipvlan or
+/// macvtap always does.
+fn has_lower_link(dir: &Path) -> bool {
+    fs::read_dir(dir).is_ok_and(|entries| {
+        entries
+            .filter_map(|e| e.ok())
+            .any(|entry| entry.file_name().to_string_lossy().starts_with("lower_"))
+    })
 }
 
 /// A sysfs attribute holding one unsigned number, `None` when the file is
@@ -1658,9 +1708,17 @@ fn process_name_matches(name: &str, pattern: &str) -> bool {
 /// (`postgres_exporter`, `node-exporter`, `postgres_exporter_v2`), so a service
 /// match reports PostgreSQL, MySQL, Redis or Node as running on a host that only
 /// scrapes metrics, and the database rules then fire.
+///
+/// The `prometheus` PREFIX clause covers the collectors that carry the
+/// server's name (`prometheus-node-exporter`, `prometheus-agent`); the server
+/// itself is the monitoring host's workload and is the entry
+/// `services::detect_services` lists as `Prometheus`, so the bare name must
+/// not be dropped as a helper of itself. The clause swallowed it and made
+/// that entry unreachable — the same way the runtime marker table made the
+/// RabbitMQ entry unreachable.
 pub(crate) fn is_monitoring_helper_name(name: &str) -> bool {
     let name = name.to_lowercase();
-    name.starts_with("prometheus")
+    (name.starts_with("prometheus") && name != "prometheus")
         || name
             .split(|c: char| !c.is_ascii_alphanumeric())
             .any(|token| token == "exporter")
@@ -1845,12 +1903,56 @@ const RUNTIME_SERVICE_MARKERS: &[(&str, &str)] = &[
     // under the same root but keep no ledger storage.
     ("org.apache.bookkeeper.server", "bookkeeper"),
     ("org.apache.bookkeeper.proto.BookieServer", "bookkeeper"),
-    ("org.apache.pulsar", "pulsar"),
+    // Pulsar maps its five daemon starters — the entry points `bin/pulsar`
+    // execs for `broker`, `standalone`, `proxy`, `websocket` and
+    // `functions-worker` (apache/pulsar bin/pulsar) — and NOT the bare
+    // `org.apache.pulsar` package root, for the reason the Kafka markers
+    // above spell out: the root is shared with the clients and every
+    // maintenance tool. `bin/pulsar-admin`, `bin/pulsar-perf` and
+    // `bin/pulsar-client` exec the JVM with the tool's own main class
+    // (org.apache.pulsar.admin.cli.PulsarAdminTool,
+    // org.apache.pulsar.testclient.PulsarPerfTestTool,
+    // org.apache.pulsar.client.cli.PulsarClientTool), so the tool's argv[0]
+    // is gone by the time the process is sampled and only the class is left
+    // to match. Mapping the root made a host that only runs a client or a
+    // load generator report "Pulsar" in `check.services` and classify as the
+    // streaming workload, firing the streaming and read-ahead rules on a host
+    // that stores no ledgers.
+    ("org.apache.pulsar.PulsarBrokerStarter", "pulsar"),
+    ("org.apache.pulsar.PulsarStandaloneStarter", "pulsar"),
+    (
+        "org.apache.pulsar.proxy.server.ProxyServiceStarter",
+        "pulsar",
+    ),
+    (
+        "org.apache.pulsar.websocket.service.WebSocketServiceStarter",
+        "pulsar",
+    ),
+    (
+        "org.apache.pulsar.functions.worker.FunctionWorkerStarter",
+        "pulsar",
+    ),
     ("pulsar", "pulsar"),
     ("org.apache.catalina", "tomcat"),
     ("catalina", "tomcat"),
     ("tomcat", "tomcat"),
     ("jenkins", "jenkins"),
+    // RabbitMQ runs on the Erlang VM: its launcher execs `beam.smp`, so the
+    // process is named after the VM and the broker can only be identified
+    // from the command line. The launcher passes the node name as
+    // `-sname rabbit@<host>` (RABBITMQ_NODENAME's default prefix is
+    // `rabbit`, and the same name repeats in the
+    // `-boot .../mnesia/rabbit@<host>/rabbit` path), which is the one token
+    // of a real cmdline that names the service: the
+    // `-pa .../rabbitmq_server-<v>/ebin` directory is matched by its
+    // basename (`ebin`) by design. Without this marker `has_process`
+    // ("rabbitmq") can never be true for the packaged daemon, so the table's
+    // ("rabbitmq", "RabbitMQ") entry was unreachable and a RabbitMQ host
+    // reported no service at all. A cluster whose node name was deliberately
+    // renamed (`-sname orders@host`) is not recognised — the marker matches
+    // the default prefix, exactly as the jar and main-class markers match
+    // upstream's own names.
+    ("rabbit", "rabbitmq"),
 ];
 
 /// Decide the service a generic-runtime process (java/python/node/...) runs
@@ -2282,6 +2384,34 @@ mod tests {
             .expect("a non-UTF-8 model name must not hide the processors");
         assert_eq!(cores, 2);
         assert!(model.starts_with("Test CPU "), "{model}");
+
+        fs::remove_dir_all(&dir).ok();
+    }
+
+    /// The release string is kernel text: `/proc/sys/kernel/osrelease` is the
+    /// byte array `init_uts_ns.name.release` handed to the reader verbatim
+    /// (v6.6 `kernel/utsname_sysctl.c`:93-99), and it is composed from build
+    /// inputs — `KERNELRELEASE` is `VERSION.PATCHLEVEL.SUBLEVEL` plus
+    /// `EXTRAVERSION`/`LOCALVERSION`, written into
+    /// `include/config/kernel.release` (v6.6 `Makefile`:368-370, :1173-1180)
+    /// and only length-checked before it becomes `UTS_RELEASE` (v6.6
+    /// `Makefile`:1232-1239, a `wc -c` against 64, no encoding check). One byte
+    /// outside UTF-8 therefore used to make `read_kernel_version()` fail,
+    /// aborting `gather_system_info()` and every command with it.
+    #[test]
+    fn read_kernel_version_survives_non_utf8_bytes() {
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_release_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir_all(&dir).unwrap();
+        let release = dir.join("osrelease");
+        std::fs::write(&release, b"6.6.0-vendor\xffbuild\n").unwrap();
+
+        let version = read_kernel_version_from(release.to_str().unwrap())
+            .expect("one byte outside UTF-8 in the release must not abort every command");
+        assert_eq!(version, "6.6.0-vendor\u{fffd}build");
 
         fs::remove_dir_all(&dir).ok();
     }
@@ -3267,12 +3397,71 @@ mod tests {
         fs::remove_dir_all(&dir).ok();
     }
 
+    /// `dev_valid_name` accepts any interface name without `/`, `:` or
+    /// whitespace, so a CNI (or an admin) can name a host end with non-UTF-8
+    /// bytes — the crate's own speed lookup is built from the raw name for the
+    /// same reason. The uevent file embeds that name in its `INTERFACE=` line,
+    /// so `read_to_string` rejected the whole file and the reader answered
+    /// "not a veth end" for a veth end: the caller's `iflink` test decided it
+    /// and lost to the peer-index collision, the pair's fixed 10000 Mbps was
+    /// counted as the host's link speed, and every 10 GbE rule sized its advice
+    /// for a link the machine does not have.
+    #[test]
+    fn network_info_ignores_a_veth_end_whose_name_holds_raw_bytes() {
+        use std::os::unix::ffi::OsStrExt;
+
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_net_veth_raw_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        fs::remove_dir_all(&dir).ok();
+
+        // eth0 is this namespace's first NIC (ifindex 2, backed by a bus
+        // device, so no veth marker): the local device the container-side peer
+        // index collides with.
+        let eth0 = dir.join("eth0");
+        fs::create_dir_all(&eth0).expect("create eth0");
+        fs::write(eth0.join("speed"), "1000\n").expect("write speed");
+        fs::write(eth0.join("ifindex"), "2\n").expect("write ifindex");
+        fs::write(eth0.join("iflink"), "2\n").expect("write iflink");
+        fs::create_dir_all(eth0.join("device")).expect("create the bus-device link");
+        fs::write(eth0.join("uevent"), "INTERFACE=eth0\nIFINDEX=2\n").expect("write uevent");
+
+        // The host end of a container pair, named with a raw 0xE9 byte: its
+        // peer is the container's eth0 (ifindex 2 in ITS namespace), so its
+        // iflink collides with this host's eth0. Its uevent carries the raw
+        // name, exactly as the kernel writes it.
+        let raw = dir.join(std::ffi::OsStr::from_bytes(b"lxc\xe9a1b2"));
+        fs::create_dir_all(&raw).expect("create the veth host end");
+        fs::write(raw.join("speed"), "10000\n").expect("write speed");
+        fs::write(raw.join("ifindex"), "4\n").expect("write ifindex");
+        fs::write(raw.join("iflink"), "2\n").expect("write iflink");
+        fs::write(raw.join("uevent"), b"INTERFACE=lxc\xe9a1b2\nIFINDEX=4\n").expect("write uevent");
+
+        let mut info = info_with_processes(&[]);
+        info.network = read_network_info_from(&dir).expect("read fake sysfs tree");
+        let names: Vec<&str> = info.network.iter().map(|n| n.name.as_str()).collect();
+        assert!(
+            !names.contains(&"lxc\u{fffd}a1b2"),
+            "a veth end whose name holds raw bytes must not decide the host link speed: {names:?}"
+        );
+        assert_eq!(
+            info.max_net_speed(),
+            1000,
+            "the host's own NIC is the only real link here: {names:?}"
+        );
+
+        fs::remove_dir_all(&dir).ok();
+    }
+
     /// The controls the veth marker must not catch: a DEVTYPE-less link that
     /// reports a real negotiated rate (a team of 10 GbE ports, which like a
     /// bond links to itself and so fails the marker's link test) and a
-    /// DEVTYPE-less link whose `speed` cannot be read at all (a macvlan or a
-    /// sit/ip6tnl tunnel, whose `iflink` names the device it runs over).
-    /// Neither is a veth end, so neither may be dropped.
+    /// DEVTYPE-less link whose `speed` cannot be read at all (the attribute
+    /// reads nothing while a device is down; a sit/ip6tnl tunnel has none
+    /// either, and its `iflink` names the device it runs over). Neither is a
+    /// veth end, so neither may be dropped.
     #[test]
     fn network_info_keeps_a_ten_gigabit_link_that_is_not_a_veth_end() {
         let dir = std::env::temp_dir().join(format!(
@@ -3296,11 +3485,11 @@ mod tests {
         fs::write(team0.join("iflink"), "3\n").expect("write iflink");
         fs::write(team0.join("uevent"), "INTERFACE=team0\nIFINDEX=3\n").expect("write uevent");
 
-        let macro_vlan = dir.join("mv0");
-        fs::create_dir_all(&macro_vlan).expect("create mv0");
-        fs::write(macro_vlan.join("ifindex"), "4\n").expect("write ifindex");
-        fs::write(macro_vlan.join("iflink"), "2\n").expect("write iflink");
-        fs::write(macro_vlan.join("uevent"), "INTERFACE=mv0\nIFINDEX=4\n").expect("write uevent");
+        let down = dir.join("sit0");
+        fs::create_dir_all(&down).expect("create sit0");
+        fs::write(down.join("ifindex"), "4\n").expect("write ifindex");
+        fs::write(down.join("iflink"), "2\n").expect("write iflink");
+        fs::write(down.join("uevent"), "INTERFACE=sit0\nIFINDEX=4\n").expect("write uevent");
 
         let mut info = info_with_processes(&[]);
         info.network = read_network_info_from(&dir).expect("read fake sysfs tree");
@@ -3310,7 +3499,7 @@ mod tests {
             "a DEVTYPE-less link that links to itself keeps its own reading: {names:?}"
         );
         assert!(
-            names.contains(&"mv0"),
+            names.contains(&"sit0"),
             "an unreadable speed is not evidence of a veth end: {names:?}"
         );
         assert_eq!(info.max_net_speed(), 10000);
@@ -3373,6 +3562,70 @@ mod tests {
             1000,
             "the driver's fixed rate must not decide the host link speed: {names:?}"
         );
+
+        fs::remove_dir_all(&dir).ok();
+    }
+
+    /// A macvlan on a 10 GbE parent reports its parent's rate: the driver
+    /// forwards the lower device's link ksettings
+    /// (`macvlan_ethtool_get_link_ksettings`, v6.6
+    /// drivers/net/macvlan.c:1077-1082). It also declares no `DEVTYPE=` in its
+    /// uevent, has no bus device, and names its parent through `iflink`
+    /// (`macvlan_dev_get_iflink`) — every shape the veth marker tests — so the
+    /// 10000 Mbps it shows was taken for a pair's default and the interface was
+    /// dropped. That left `network.len()` one interface short on a
+    /// multi-homed host, and the ARP-tuning family, which qualifies hosts by
+    /// `network.len() >= 2`, treated it as single-homed. The kernel records the
+    /// parent relationship as a `lower_<name>` adjacency link
+    /// (`netdev_upper_dev_link()`, v6.6 net/core/dev.c:7509-7510), and a veth
+    /// end never has one.
+    #[test]
+    fn network_info_keeps_a_macvlan_that_reads_its_parent_rate() {
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_net_macvlan_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        fs::remove_dir_all(&dir).ok();
+
+        // The 10 GbE NIC the macvlan runs over: a real link backed by a bus
+        // device, linked to itself.
+        let nic = dir.join("eth10g");
+        fs::create_dir_all(&nic).expect("create the NIC");
+        fs::write(nic.join("speed"), "10000\n").expect("write speed");
+        fs::write(nic.join("ifindex"), "2\n").expect("write ifindex");
+        fs::write(nic.join("iflink"), "2\n").expect("write iflink");
+        fs::create_dir_all(nic.join("device")).expect("create the bus-device link");
+
+        // The macvlan: the parent's 10000 Mbps, no DEVTYPE, and the adjacency
+        // link naming what it runs over.
+        let macvlan = dir.join("mv0");
+        fs::create_dir_all(&macvlan).expect("create the macvlan");
+        fs::write(macvlan.join("speed"), "10000\n").expect("write speed");
+        fs::write(macvlan.join("ifindex"), "7\n").expect("write ifindex");
+        fs::write(macvlan.join("iflink"), "2\n").expect("write iflink");
+        fs::write(macvlan.join("uevent"), "INTERFACE=mv0\nIFINDEX=7\n").expect("write uevent");
+        std::os::unix::fs::symlink(&nic, macvlan.join("lower_eth10g"))
+            .expect("link the lower device");
+
+        // Control: a veth end of the same shape, with no adjacency link.
+        let veth = dir.join("h1");
+        fs::create_dir_all(&veth).expect("create the veth end");
+        fs::write(veth.join("speed"), "10000\n").expect("write speed");
+        fs::write(veth.join("ifindex"), "8\n").expect("write ifindex");
+        fs::write(veth.join("iflink"), "9\n").expect("write iflink");
+        fs::write(veth.join("uevent"), "INTERFACE=h1\nIFINDEX=8\n").expect("write uevent");
+
+        let mut info = info_with_processes(&[]);
+        info.network = read_network_info_from(&dir).expect("read fake sysfs tree");
+        let mut names: Vec<&str> = info.network.iter().map(|n| n.name.as_str()).collect();
+        names.sort();
+        assert_eq!(
+            names,
+            ["eth10g", "mv0"],
+            "the macvlan keeps its parent's reading, the pair end stays out: {names:?}"
+        );
+        assert_eq!(info.max_net_speed(), 10000);
 
         fs::remove_dir_all(&dir).ok();
     }
@@ -4040,6 +4293,48 @@ mod tests {
     }
 
     #[test]
+    fn test_runtime_service_ignores_the_pulsar_client_tools() {
+        // `bin/pulsar-admin`, `bin/pulsar-perf` and `bin/pulsar-client` exec
+        // the JVM with the tool's own main class, so by the time the process
+        // is sampled its argv[0] is `java` and the `pulsar-*` name the tool
+        // filter looks for is gone — only the class is left to decide. Mapping
+        // the bare `org.apache.pulsar` package root (the way Kafka's markers
+        // deliberately do NOT map `org.apache.kafka`) classified a host that
+        // only runs a client or the load generator as a Pulsar broker:
+        // `check.services` reported "Pulsar" and the workload classified as
+        // streaming, so the streaming and read-ahead rules fired on a host
+        // that stores no ledgers.
+        for class in [
+            "org.apache.pulsar.admin.cli.PulsarAdminTool",
+            "org.apache.pulsar.testclient.PulsarPerfTestTool",
+            "org.apache.pulsar.client.cli.PulsarClientTool",
+            // The broker ships its own maintenance tools under the same root.
+            "org.apache.pulsar.broker.tools.BrokerTool",
+            "org.apache.pulsar.compaction.CompactorTool",
+            "org.apache.pulsar.PulsarVersionStarter",
+        ] {
+            let cmdline = format!("java\0-Xmx2g\0{class}\0--url\0pulsar://broker:6650");
+            assert_eq!(runtime_service_from_cmdline(&cmdline), None, "{class}");
+        }
+
+        // Every daemon `bin/pulsar` execs is still the service itself.
+        for class in [
+            "org.apache.pulsar.PulsarBrokerStarter",
+            "org.apache.pulsar.PulsarStandaloneStarter",
+            "org.apache.pulsar.proxy.server.ProxyServiceStarter",
+            "org.apache.pulsar.websocket.service.WebSocketServiceStarter",
+            "org.apache.pulsar.functions.worker.FunctionWorkerStarter",
+        ] {
+            let cmdline = format!("java\0-Xmx2g\0{class}\0--config\0/pulsar/conf/broker.conf");
+            assert_eq!(
+                runtime_service_from_cmdline(&cmdline),
+                Some("pulsar"),
+                "{class}"
+            );
+        }
+    }
+
+    #[test]
     fn test_runtime_service_matches_main_classes_and_jars() {
         // Zookeeper's main class.
         let cmdline = "java\0-Xmx1g\0org.apache.zookeeper.server.quorum.QuorumPeerMain";
@@ -4064,6 +4359,52 @@ mod tests {
         // Elasticsearch, including a versioned jar basename.
         let cmdline = "java\0-jar\0/usr/share/elasticsearch-8.12.0/lib/elasticsearch-8.12.0.jar";
         assert_eq!(runtime_service_from_cmdline(cmdline), Some("elasticsearch"));
+    }
+
+    /// Every canonical name the runtime markers resolve has to be reportable:
+    /// `read_processes` pushes that name into the same process list the report's
+    /// `services` field filters, so a marker without a matching table entry is a
+    /// service the engine detects (and, for hadoop, one a rule acts on) while a
+    /// host running only that service reports no service at all.
+    #[test]
+    fn every_runtime_marker_resolves_to_a_reported_service() {
+        for (_, service) in RUNTIME_SERVICE_MARKERS {
+            assert!(
+                !crate::services::detect_services(&info_with_processes(&[*service])).is_empty(),
+                "{service} is resolved by the runtime markers but the report cannot name it"
+            );
+        }
+    }
+
+    #[test]
+    fn test_runtime_service_reads_the_rabbitmq_erlang_node() {
+        // RabbitMQ's launcher execs the Erlang VM, so the process is
+        // `beam.smp` and the service is only visible in the command line.
+        // The node name gives it away (RABBITMQ_NODENAME defaults to
+        // `rabbit@<host>`), and the same token comes back from the launcher's
+        // own arguments: `-s rabbit boot` names RABBITMQ_BOOT_MODULE, whose
+        // default is `rabbit`, and the boot file lives under
+        // `.../mnesia/rabbit@<host>/rabbit`. The `-pa` directory names nothing
+        // (its basename is `ebin`), which is why the table's
+        // ("rabbitmq", "RabbitMQ") entry could never match before: the
+        // packaged daemon is never a process named `rabbitmq`.
+        let cmdline = concat!(
+            "/usr/lib/erlang/erts-13.2.6.5/bin/beam.smp\0-W\0w\0-MBas\0ageffcbf\0",
+            "-MHas\0ageffcbf\0-MBlmbcs\0512\0-MMmcs\030\0",
+            "-sname\0rabbit@node1\0-s\0rabbit\0boot\0",
+            "-boot\0/var/lib/rabbitmq/mnesia/rabbit@node1/rabbit\0",
+            "-pa\0/usr/lib/rabbitmq/lib/rabbitmq_server-3.13.7/ebin\0",
+            "-kernel\0prevent_overlapping_partitions\0false\0-noinput",
+        );
+        assert_eq!(runtime_service_from_cmdline(cmdline), Some("rabbitmq"));
+
+        // An unrelated Erlang application keeps its VM name: only the default
+        // RabbitMQ node/boot prefix is claimed.
+        let cmdline = concat!(
+            "/usr/lib/erlang/erts-13.2.6.5/bin/beam.smp\0-sname\0myapp@node1\0",
+            "-boot\0/var/lib/myapp/mnesia/myapp@node1/start\0-pa\0/opt/myapp/ebin",
+        );
+        assert_eq!(runtime_service_from_cmdline(cmdline), None);
     }
 
     #[test]
@@ -4130,8 +4471,9 @@ mod tests {
             "node-exporter",
             "postgres_exporter_v2",
             "exporter",
-            "prometheus",
+            // The collectors that carry the server's name.
             "prometheus-node-exporter",
+            "prometheus-agent",
             "/usr/local/bin/postgres_exporter",
         ] {
             assert!(is_monitoring_helper_name(helper), "{helper} is a collector");
@@ -4145,6 +4487,12 @@ mod tests {
             "etcd",
             "mongod",
             "httpd",
+            // The Prometheus server is the workload of a monitoring host — the
+            // services table lists it as `Prometheus` — not a collector of
+            // itself. The prefix clause used to drop it and made that entry
+            // unreachable.
+            "prometheus",
+            "/usr/local/bin/prometheus",
             "/usr/lib/postgresql/16/bin/postgres",
             "/usr/sbin/nginx",
         ] {

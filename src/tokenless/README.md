@@ -70,6 +70,8 @@ session. Short or already compact payloads may save only a few percent or pass
 through unchanged. See [Measuring Tokenless Savings](../../docs/user-guide/en/token-saving/tokenless/measuring-savings.md#run-the-repository-reference-workload)
 for the exact inputs, command, full output, and limitations.
 
+PostTool leaves the entire JSON response unchanged when its parser cannot preserve a numeric value. Otherwise, cleanup and record reduction can proceed; Core selects TOON only when decoding it recovers the same retained values and types.
+
 ## Applicable Scenarios & Expected Effects
 
 tokenless optimizes the tool-related content it handles—tool schemas, tool/API

@@ -45,6 +45,20 @@ const KNOWN_SERVICES: &[(&str, &str)] = &[
     ("minio", "MinIO"),
     ("pulsar", "Pulsar"),
     ("bookkeeper", "BookKeeper"),
+    // The canonical names RUNTIME_SERVICE_MARKERS resolves a JVM or a script
+    // to. `read_processes` pushes those names into the same process list this
+    // table filters, so without an entry the engine detected the service (and,
+    // for hadoop, acted on it) while the report named no service at all — the
+    // hole the mariadbd and valkey-server entries closed for their daemons.
+    // Appended rather than inserted so an existing host's report keeps its
+    // order.
+    ("cassandra", "Cassandra"),
+    ("hadoop", "Hadoop"),
+    ("hbase", "HBase"),
+    ("jenkins", "Jenkins"),
+    ("logstash", "Logstash"),
+    ("solr", "Solr"),
+    ("tomcat", "Tomcat"),
 ];
 
 pub fn detect_services(info: &SystemInfo) -> Vec<&'static str> {
@@ -123,6 +137,28 @@ mod tests {
         assert!(!info.has_process("postgres"));
         assert!(!info.has_process("mysqld"));
         assert!(!info.has_process("node"));
+    }
+
+    #[test]
+    fn test_detect_services_reports_the_prometheus_server() {
+        // The collector filter exists for the exporters named after their
+        // target and for the collectors that carry the server's own name
+        // (`prometheus-node-exporter`, `prometheus-agent`). The server itself
+        // is the workload of a monitoring host — this table lists it as
+        // `Prometheus` — and the over-broad prefix clause dropped it, so the
+        // entry could never match a live host.
+        let info = info_with(&["prometheus"]);
+        assert_eq!(detect_services(&info), vec!["Prometheus"]);
+        assert!(info.has_process("prometheus"));
+
+        // The collectors that share its name are still not the service.
+        let info = info_with(&["prometheus-agent", "prometheus-node-exporter"]);
+        assert!(
+            detect_services(&info).is_empty(),
+            "collectors are not the service: {:?}",
+            detect_services(&info)
+        );
+        assert!(!info.has_process("prometheus"));
     }
 
     #[test]

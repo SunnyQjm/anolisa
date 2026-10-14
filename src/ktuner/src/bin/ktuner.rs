@@ -625,6 +625,26 @@ fn tune_short_circuit<'a>(
     ))
 }
 
+/// The twins this plan's writes clear in the kernel, in plan order and
+/// deduplicated: the mutually exclusive partner of every parameter the plan
+/// applies, from the write path's own twin table ([`tuner::cleared_sibling`]),
+/// so the preview names what a real run clears instead of deriving the pair
+/// relationship a second time. The built-in rules never plan both halves of a
+/// pair, so a twin named here is cleared by the plan and not also applied by
+/// it. Empty when no applied parameter has a twin; the caller omits the key
+/// then, the same rule `fix --dry-run` follows.
+fn would_clear_json(applicable: &[Recommendation]) -> Vec<&'static str> {
+    let mut twins: Vec<&'static str> = Vec::new();
+    for rec in applicable {
+        if let Some(twin) = tuner::cleared_sibling(&rec.param) {
+            if !twins.contains(&twin) {
+                twins.push(twin);
+            }
+        }
+    }
+    twins
+}
+
 /// JSON body of the `tune --dry-run` preview. Pure so the status contract
 /// stays unit-testable without a live host.
 ///
@@ -636,7 +656,12 @@ fn tune_short_circuit<'a>(
 /// out — this environment filtered them (unwritable, or runtime-dangerous) or
 /// the operator's selection dropped them — with the reason, so the parameters
 /// a partial plan leaves behind are visible and not just counted. `blocked`
-/// stays their count.
+/// stays their count. `would_clear` names the mutually exclusive twins those
+/// writes zero — `fix --dry-run`'s key and meaning, for the whole plan: a
+/// write clears its twin in the kernel whether or not the plan selected the
+/// twin, so a selection that leaves the twin out does not leave the kernel
+/// alone, and the preview saying so is the same "one table, named once" rule
+/// the single-parameter preview follows.
 fn dry_run_output<'a>(
     in_scope: &[Recommendation],
     applicable: &[Recommendation],
@@ -652,6 +677,10 @@ fn dry_run_output<'a>(
         "would_apply": recs_json,
         "would_skip": would_skip,
     });
+    let would_clear = would_clear_json(applicable);
+    if !would_clear.is_empty() {
+        body["would_clear"] = json!(would_clear);
+    }
     if let Some((key, unmatched)) = selection.unmatched_report(in_scope) {
         body[key] = unmatched;
     }
@@ -703,6 +732,11 @@ fn dry_run_preview<'a>(
 /// 1 on the same host, and the filtered entries are exactly the difference
 /// between the two — without them in the body, a caller cannot reconcile a
 /// real `tune` with `check` or with its own dry-run preview.
+///
+/// `cleared` names the mutually exclusive twins the writes zeroed as a kernel
+/// side effect — the twins the ledger recorded, so `rollback` brings them
+/// back. The key is absent when no write cleared anything, like the
+/// preview's `would_clear`.
 fn tune_output<'a>(
     in_scope: &[Recommendation],
     outcome: &tuner::ApplyOutcome,
@@ -736,6 +770,9 @@ fn tune_output<'a>(
         // persist.
         "boot_unit_enabled": outcome.boot_unit_enabled,
     });
+    if !outcome.cleared.is_empty() {
+        body["cleared"] = json!(outcome.cleared);
+    }
     if let Some((key, unmatched)) = selection.unmatched_report(in_scope) {
         body[key] = unmatched;
     }
@@ -948,6 +985,9 @@ fn fix_with(param: &str, dry_run: bool, is_root: bool, eval: &rules::EvalResult)
 /// assertable without a live write: every field comes from the recorded
 /// original, the write outcome and the re-gathered diagnosis, never from the
 /// plan.
+///
+/// `cleared` names the twin the write zeroed, in `fix --dry-run`'s
+/// `would_clear` shape; it is absent when the write cleared nothing.
 fn fix_output(
     param: &str,
     fix: &tuner::AppliedFix,
@@ -972,6 +1012,9 @@ fn fix_output(
         // whose unit is not enabled is not replayed after a reboot.
         "boot_unit_enabled": fix.boot_unit_enabled,
     });
+    if let Some(twin) = &fix.cleared {
+        output["cleared"] = json!([twin]);
+    }
     if fix.outcome.clamped {
         output["requested"] = json!(rec.recommended_value);
         output["note"] = json!("内核实际生效值与推荐值不同（已按实际生效值记录并持久化，可回滚）");
@@ -1160,7 +1203,10 @@ fn drifted_entries(entries: Vec<tuner::RollbackPreview>) -> Vec<tuner::RollbackP
 /// by param (BTreeMap order); `live` and `drifted` arrive as `Option`s so an
 /// unreadable path publishes JSON `null` instead of a guessed value, and
 /// `category` as one so a record that carries none publishes `null` the same
-/// way — the keys stay present on every entry.
+/// way — the keys stay present on every entry. `cleared_by` follows them: the
+/// ledger key of the entry whose write zeroed this one, `null` for every entry
+/// no twin cleared, and never absent, so a consumer reads the reason a row
+/// holds an `applied` of 0 without branching on key presence.
 fn rollback_list_output(entries: &[tuner::RollbackPreview]) -> serde_json::Value {
     json!({
         "count": entries.len(),
@@ -1174,28 +1220,47 @@ fn rollback_list_output(entries: &[tuner::RollbackPreview]) -> serde_json::Value
                     "category": entry.category,
                     "live": entry.live,
                     "drifted": entry.drifted,
+                    "cleared_by": entry.cleared_by,
                 })
             })
             .collect::<Vec<_>>(),
     })
 }
 
-/// JSON body of `ktuner rollback`. One builder for both shapes: a full
+/// JSON body of `ktuner rollback`. One builder for every shape: a full
 /// rollback keeps exactly the four keys it always had, while restoring a single
 /// parameter adds `param` — the ledger key it retired, spelled the way
 /// `rollback --list` publishes it, so the entry can be reconciled with the
 /// preview. Keys stay in alphabetical order (serde_json's map is sorted):
-/// `failed` < `param` < `restored` < `skipped` < `status`.
+/// `boot_unit_enabled` < `failed` < `failures` < `missing` < `param` <
+/// `params` < `restored` < `skipped` < `status`.
 fn rollback_output(param: Option<&str>, outcome: &tuner::RollbackOutcome) -> serde_json::Value {
     let status = tuner::classify_rollback(outcome);
     let mut body = json!({
         "restored": outcome.restored,
-        "failed": outcome.failed,
-        "skipped": outcome.skipped,
+        "failed": outcome.failed(),
+        "skipped": outcome.skipped(),
         "status": format!("{status:?}"),
     });
     if let Some(param) = param {
         body["param"] = json!(param);
+    }
+    // A count says how many parameters are still tuned, never which ones, so a
+    // caller that had to undo one of them (or explain the exit code) had to
+    // re-run `rollback --list` as root to find out. Name them the way `tune`
+    // names the parameters it failed to write, in the same {param, error}
+    // shape. Both keys appear only when they have something to say, like
+    // `unmatched_exclude`, `unclassified` and `boot_unit_enabled` below, so a
+    // rollback that left nothing keeps the body it has always had.
+    if !outcome.failures.is_empty() {
+        body["failures"] = json!(outcome
+            .failures
+            .iter()
+            .map(|failure| json!({ "param": failure.param, "error": failure.error }))
+            .collect::<Vec<_>>());
+    }
+    if !outcome.missing.is_empty() {
+        body["missing"] = json!(outcome.missing);
     }
     // A partial rollback regenerates the boot replay for the entries it keeps,
     // and a refused `systemctl enable` there was dropped: the run reported
@@ -1219,7 +1284,9 @@ fn rollback_output(param: Option<&str>, outcome: &tuner::RollbackOutcome) -> ser
 /// caller can read back the batch it asked for. A mutually exclusive twin
 /// restored with an entry is counted in `restored` but not named here, exactly
 /// as the single-parameter body does not name it; whether the batch restored
-/// everything is `status`'s answer, not the array's.
+/// everything is `status`'s answer, not the array's. The reports of what the
+/// batch left (`failures`, `missing`) come from the shared base, so a batch
+/// carries them exactly as a full rollback does.
 fn rollback_params_output(keys: &[String], outcome: &tuner::RollbackOutcome) -> serde_json::Value {
     let mut body = rollback_output(None, outcome);
     body["params"] = json!(keys);
@@ -1575,6 +1642,22 @@ mod tests {
 
     use super::*;
 
+    /// An outcome whose failure list has `n` entries: the body tests pin the
+    /// keys and the names, so the fixture only has to be well formed.
+    fn test_failures(n: usize) -> Vec<tuner::ApplyFailure> {
+        (0..n)
+            .map(|i| tuner::ApplyFailure {
+                param: format!("vm.ktuner_failed_{i}"),
+                error: "write refused".to_string(),
+            })
+            .collect()
+    }
+
+    /// An outcome's missing list of length `n`, the path-absent entries.
+    fn test_missing(n: usize) -> Vec<String> {
+        (0..n).map(|i| format!("vm.ktuner_missing_{i}")).collect()
+    }
+
     #[test]
     fn rollback_exit_code_reports_complete_and_incomplete_outcomes() {
         for (name, restored, failed, skipped, expected) in [
@@ -1589,8 +1672,9 @@ mod tests {
         ] {
             let outcome = tuner::RollbackOutcome {
                 restored,
-                failed,
-                skipped,
+                failures: test_failures(failed),
+                missing: test_missing(skipped),
+                leftovers: Vec::new(),
                 boot_unit_enabled: true,
             };
             assert_eq!(rollback_exit_code(&outcome), expected, "{name}");
@@ -1612,6 +1696,7 @@ mod tests {
             category,
             live: live.map(str::to_string),
             drifted,
+            cleared_by: None,
         }
     }
 
@@ -1649,7 +1734,7 @@ mod tests {
         assert_eq!(
             rollback_list_output(&kept),
             json!({ "count": 1, "pending": [
-                {"applied": "0", "category": null, "drifted": true, "live": "20", "param": "vm.dirty_ratio", "previous": "20"}
+                {"applied": "0", "category": null, "cleared_by": null, "drifted": true, "live": "20", "param": "vm.dirty_ratio", "previous": "20"}
             ]})
         );
         assert_eq!(
@@ -1799,6 +1884,7 @@ mod tests {
                     {
                         "applied": "1",
                         "category": "performance",
+                        "cleared_by": null,
                         "drifted": false,
                         "live": "1",
                         "param": "vm.swappiness",
@@ -1807,6 +1893,7 @@ mod tests {
                     {
                         "applied": "none",
                         "category": null,
+                        "cleared_by": null,
                         "drifted": null,
                         "live": null,
                         "param": "block/sda/scheduler",
@@ -1817,10 +1904,10 @@ mod tests {
         );
     }
 
-    /// The regression this feature owes: the three keys beyond the recorded
-    /// triple are the ONLY change to the published shape. Stripping them from
-    /// the output must reproduce, field for field, what `rollback --list`
-    /// emitted before they existed.
+    /// The regression this feature owes: the keys beyond the recorded triple
+    /// are the ONLY change to the published shape. Stripping them from the
+    /// output must reproduce, field for field, what `rollback --list` emitted
+    /// before they existed.
     #[test]
     fn rollback_list_output_adds_only_the_readings_and_category() {
         let entries = vec![
@@ -1847,6 +1934,7 @@ mod tests {
             object.remove("live");
             object.remove("drifted");
             object.remove("category");
+            object.remove("cleared_by");
         }
         assert_eq!(
             out,
@@ -1864,7 +1952,7 @@ mod tests {
     fn rollback_list_output_keys_are_alphabetical() {
         // The README's "Object keys are emitted in alphabetical order" is a
         // hard contract for consumers: the serialized entry must carry
-        // applied < category < drifted < live < param < previous.
+        // applied < category < cleared_by < drifted < live < param < previous.
         let entries = vec![preview_entry(
             "vm.swappiness",
             "1",
@@ -1875,7 +1963,7 @@ mod tests {
         )];
         assert_eq!(
             serde_json::to_string(&rollback_list_output(&entries)).unwrap(),
-            r#"{"count":1,"pending":[{"applied":"1","category":"security","drifted":false,"live":"1","param":"vm.swappiness","previous":"60"}]}"#
+            r#"{"count":1,"pending":[{"applied":"1","category":"security","cleared_by":null,"drifted":false,"live":"1","param":"vm.swappiness","previous":"60"}]}"#
         );
     }
 
@@ -1883,8 +1971,9 @@ mod tests {
     fn rollback_list_output_serializes_unknown_readings_as_null() {
         // A path that could not be read has no value to publish and no
         // comparison to report, and a record that carries no category has none
-        // to publish: the keys stay present with null and are never dropped,
-        // so a consumer never branches on key presence.
+        // to publish, and an entry no twin cleared has no clearer to name: the
+        // keys stay present with null and are never dropped, so a consumer
+        // never branches on key presence.
         let entries = vec![preview_entry("vm.swappiness", "1", "60", None, None, None)];
         let out = rollback_list_output(&entries);
         let entry = &out["pending"][0];
@@ -1893,7 +1982,80 @@ mod tests {
         assert!(entry
             .get("category")
             .is_some_and(serde_json::Value::is_null));
-        assert_eq!(entry.as_object().unwrap().len(), 6, "entry keys: {entry}");
+        assert!(entry
+            .get("cleared_by")
+            .is_some_and(serde_json::Value::is_null));
+        assert_eq!(entry.as_object().unwrap().len(), 7, "entry keys: {entry}");
+    }
+
+    #[test]
+    fn rollback_list_output_names_the_clearer_of_a_zeroed_twin() {
+        // Writing one half of a mutually exclusive sysctl pair zeroes the
+        // other in the kernel, and the ledger records the zeroed half with
+        // `applied = "0"` so a rollback can bring it back. Read on its own
+        // that row says ktuner chose to zero a knob nobody mentioned;
+        // `cleared_by` names the entry whose write put the 0 there — in the
+        // spelling the other row publishes as `param`, so the two are
+        // reconcilable without knowing the pair table.
+        let cleared = |param: &str, clearer: &str| tuner::RollbackPreview {
+            cleared_by: Some(clearer.to_string()),
+            ..preview_entry(
+                param,
+                "0",
+                "20",
+                Some(rules::Category::Performance),
+                Some("0"),
+                Some(false),
+            )
+        };
+        let clearer = preview_entry(
+            "vm.dirty_bytes",
+            "1073741824",
+            "0",
+            Some(rules::Category::Performance),
+            Some("1073741824"),
+            Some(false),
+        );
+        let out = rollback_list_output(&[cleared("vm.dirty_ratio", "vm.dirty_bytes"), clearer]);
+        assert_eq!(out["pending"][0]["cleared_by"], json!("vm.dirty_bytes"));
+        // The half that did the clearing was asked for: it names nobody, and
+        // carries the key as null rather than dropping it.
+        assert!(out["pending"][1]
+            .get("cleared_by")
+            .is_some_and(serde_json::Value::is_null));
+    }
+
+    #[test]
+    fn rollback_list_output_names_the_other_half_for_both_zeroed_halves() {
+        // The ledger can hold both halves zeroed — writing either one zeroes
+        // the other — and then each row's 0 has an explanation in the listing.
+        // A zero the caller did ask for is the only case left with nothing to
+        // name, so the key is not a synonym for `applied == "0"`.
+        let entries = vec![
+            tuner::RollbackPreview {
+                cleared_by: Some("vm.dirty_ratio".to_string()),
+                ..preview_entry(
+                    "vm.dirty_bytes",
+                    "0",
+                    "1073741824",
+                    None,
+                    Some("0"),
+                    Some(false),
+                )
+            },
+            tuner::RollbackPreview {
+                cleared_by: Some("vm.dirty_bytes".to_string()),
+                ..preview_entry("vm.dirty_ratio", "0", "20", None, Some("0"), Some(false))
+            },
+            // A recorded 0 outside any pair: the value the caller asked for.
+            preview_entry("vm.swappiness", "0", "60", None, Some("0"), Some(false)),
+        ];
+        let out = rollback_list_output(&entries);
+        assert_eq!(out["pending"][0]["cleared_by"], json!("vm.dirty_ratio"));
+        assert_eq!(out["pending"][1]["cleared_by"], json!("vm.dirty_bytes"));
+        assert!(out["pending"][2]
+            .get("cleared_by")
+            .is_some_and(serde_json::Value::is_null));
     }
 
     #[test]
@@ -2077,6 +2239,7 @@ mod tests {
             failed: vec![],
             clamped: vec![],
             boot_unit_enabled: true,
+            cleared: Vec::new(),
         };
         let output = tune_output(&in_scope, &outcome, 30, 35, &[]);
         assert_eq!(output["applied"], json!(1));
@@ -2099,6 +2262,32 @@ mod tests {
         // A host with nothing filtered reports the same keys, empty list.
         let clean = tune_output(&[rec("vm.swappiness", true)], &outcome, 30, 35, &[]);
         assert_eq!(clean["would_skip"], json!([]));
+    }
+
+    #[test]
+    fn tune_output_names_the_twins_its_writes_cleared() {
+        // Writing one knob of a mutually exclusive pair zeroes the other, and
+        // the ledger records it so `rollback` can bring it back. The real
+        // run's body names those twins, the way the preview's `would_clear`
+        // does, or a caller sees a second parameter change that nothing in
+        // the output accounts for.
+        let in_scope = vec![rec("vm.dirty_bytes", true), rec("vm.swappiness", true)];
+        let outcome = tuner::ApplyOutcome {
+            applied: 2,
+            failed: vec![],
+            clamped: vec![],
+            boot_unit_enabled: true,
+            cleared: vec!["vm.dirty_ratio".to_string()],
+        };
+        let output = tune_output(&in_scope, &outcome, 30, 35, &[]);
+        assert_eq!(output["cleared"], json!(["vm.dirty_ratio"]));
+        // Nothing cleared: the key is absent and the body is the one it was.
+        let quiet = tuner::ApplyOutcome {
+            cleared: Vec::new(),
+            ..outcome
+        };
+        let output = tune_output(&in_scope, &quiet, 30, 35, &[]);
+        assert!(output.get("cleared").is_none(), "{output}");
     }
 
     #[test]
@@ -2161,6 +2350,56 @@ mod tests {
             output["would_skip"],
             json!([{ "param": "vm.nr_hugepages", "reason": "unwritable" }])
         );
+    }
+
+    #[test]
+    fn dry_run_output_names_the_twins_the_plan_clears() {
+        // A write zeroes its mutually exclusive twin in the kernel whether or
+        // not the plan selected the twin (mm/page-writeback.c, mm/util.c), and
+        // the ledger records that cleared original — so a preview that stays
+        // silent about it hides a change the run makes. `fix --dry-run` names
+        // its one twin in `would_clear`; the whole-plan preview names every
+        // twin its writes clear, in plan order and once each, from the same
+        // table the write path records from.
+        let recs = vec![
+            rec("vm.dirty_bytes", true),
+            rec("vm.swappiness", true),
+            rec("vm.overcommit_ratio", true),
+        ];
+        let output = dry_run_output(&recs, &recs, &[]);
+        assert_eq!(
+            output["would_clear"],
+            json!(["vm.dirty_ratio", "vm.overcommit_kbytes"])
+        );
+        // The single-parameter preview answers the same thing for the same
+        // parameter, so a script reading either one learns the same pair.
+        assert_eq!(
+            fix_dry_run_output(&rec("vm.dirty_bytes", true))["would_clear"],
+            json!(["vm.dirty_ratio"])
+        );
+        // A parameter the plan carries twice names its twin once: the list is
+        // the set of twins the plan clears, not one entry per write.
+        let duplicate = vec![
+            rec("vm.dirty_background_ratio", true),
+            rec("vm.dirty_background_ratio", true),
+        ];
+        assert_eq!(
+            dry_run_output(&duplicate, &duplicate, &[])["would_clear"],
+            json!(["vm.dirty_background_bytes"])
+        );
+        // A plan whose parameters have no twin keeps the shape it always had:
+        // the key is absent, exactly like `fix --dry-run`'s.
+        let plain = vec![rec("vm.swappiness", true)];
+        let output = dry_run_output(&plain, &plain, &[]);
+        assert!(output.get("would_clear").is_none(), "{output}");
+        // The skipped entries' params do not contribute: only the writes the
+        // plan would actually make clear a twin.
+        let in_scope = vec![
+            rec("vm.overcommit_kbytes", true),
+            rec("vm.swappiness", false),
+        ];
+        let output = dry_run_output(&in_scope, &in_scope[..1], &[]);
+        assert_eq!(output["would_clear"], json!(["vm.overcommit_ratio"]));
     }
 
     #[test]
@@ -2394,6 +2633,7 @@ mod tests {
             failed: vec![],
             clamped: vec![],
             boot_unit_enabled: false,
+            cleared: Vec::new(),
         };
         let output = tune_output(&in_scope, &unarmed, 30, 34, &[]);
         assert_eq!(
@@ -2404,6 +2644,7 @@ mod tests {
 
         let armed = tuner::ApplyOutcome {
             boot_unit_enabled: true,
+            cleared: Vec::new(),
             ..unarmed
         };
         let output = tune_output(&in_scope, &armed, 30, 34, &[]);
@@ -2421,6 +2662,7 @@ mod tests {
             failed: vec![],
             clamped: vec![],
             boot_unit_enabled: true,
+            cleared: Vec::new(),
         };
         let output = tune_output(&in_scope, &outcome, 30, 35, &["fs/file-max".to_string()]);
         assert_eq!(output["applied"], json!(1));
@@ -2768,6 +3010,7 @@ mod tests {
             failed: vec![],
             clamped: vec![],
             boot_unit_enabled: true,
+            cleared: Vec::new(),
         };
         let output = tune_output(
             &in_scope,
@@ -2903,6 +3146,7 @@ mod tests {
             failed: vec![],
             clamped: vec![],
             boot_unit_enabled: true,
+            cleared: Vec::new(),
         };
         let real = tune_output(&in_scope, &outcome, 30, 35, &[]);
         assert_eq!(real["would_skip"], skip);
@@ -3268,6 +3512,7 @@ mod tests {
                 clamped: false,
             },
             boot_unit_enabled: false,
+            cleared: None,
         };
         let after = evaluation(vec![rec.clone()]);
         let output = fix_output("vm.swappiness", &unarmed, &after, &rec);
@@ -3286,6 +3531,10 @@ mod tests {
             "an unarmed boot replay must be visible here too: {output}"
         );
         assert!(output.get("note").is_none(), "no clamp, no note: {output}");
+        assert!(
+            output.get("cleared").is_none(),
+            "a write without a twin names none: {output}"
+        );
 
         let clamped = tuner::AppliedFix {
             outcome: tuner::WriteOutcome {
@@ -3304,6 +3553,31 @@ mod tests {
                 .as_str()
                 .is_some_and(|note| note.contains("持久化")),
             "a clamped write keeps its note: {output}"
+        );
+    }
+
+    #[test]
+    fn fix_output_names_the_twin_its_write_cleared() {
+        // `fix --dry-run` previews the twin in `would_clear`; the real fix
+        // names the one the ledger recorded, in the same shape, so one parser
+        // reads both.
+        let rec = rec("vm.dirty_bytes", true);
+        let fix = tuner::AppliedFix {
+            recorded_previous: Some("0".to_string()),
+            outcome: tuner::WriteOutcome {
+                effective: "1073741824".to_string(),
+                clamped: false,
+            },
+            boot_unit_enabled: true,
+            cleared: Some("vm.dirty_ratio".to_string()),
+        };
+        let after = evaluation(vec![]);
+        let output = fix_output("vm.dirty_bytes", &fix, &after, &rec);
+        assert_eq!(output["cleared"], json!(["vm.dirty_ratio"]));
+        assert_eq!(
+            output["cleared"],
+            fix_dry_run_output(&rec)["would_clear"],
+            "the run names what the preview announced"
         );
     }
 
@@ -4105,8 +4379,9 @@ mod tests {
         // two-space indent, no trailing newline here — the CLI adds one).
         let full = tuner::RollbackOutcome {
             restored: 5,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         let body = rollback_output(None, &full);
@@ -4127,20 +4402,118 @@ mod tests {
         ] {
             let outcome = tuner::RollbackOutcome {
                 restored,
-                failed,
-                skipped,
+                failures: test_failures(failed),
+                missing: test_missing(skipped),
+                leftovers: Vec::new(),
                 boot_unit_enabled: true,
             };
-            assert_eq!(
-                rollback_output(None, &outcome),
-                json!({
-                    "restored": restored,
-                    "failed": failed,
-                    "skipped": skipped,
-                    "status": status,
-                })
-            );
+            let mut expected = json!({
+                "restored": restored,
+                "failed": failed,
+                "skipped": skipped,
+                "status": status,
+            });
+            // The counts agree with the reports, which arrive only when they
+            // have something to say.
+            if failed > 0 {
+                expected["failures"] = json!(test_failures(failed)
+                    .iter()
+                    .map(|failure| json!({
+                        "param": failure.param,
+                        "error": failure.error
+                    }))
+                    .collect::<Vec<_>>());
+            }
+            if skipped > 0 {
+                expected["missing"] = json!(test_missing(skipped));
+            }
+            assert_eq!(rollback_output(None, &outcome), expected);
         }
+    }
+
+    /// An outcome that left entries names them: the counts stay what they
+    /// were, and the two reports arrive beside them in the {param, error}
+    /// shape `tune` uses for the same news.
+    #[test]
+    fn rollback_output_names_the_entries_a_rollback_left() {
+        let outcome = tuner::RollbackOutcome {
+            restored: 1,
+            failures: test_failures(2),
+            missing: test_missing(1),
+            leftovers: Vec::new(),
+            boot_unit_enabled: true,
+        };
+        assert_eq!(
+            serde_json::to_string_pretty(&rollback_output(None, &outcome)).unwrap(),
+            "{\n  \"failed\": 2,\n  \"failures\": [\n    {\n      \"error\": \"write refused\",\n      \"param\": \"vm.ktuner_failed_0\"\n    },\n    {\n      \"error\": \"write refused\",\n      \"param\": \"vm.ktuner_failed_1\"\n    }\n  ],\n  \"missing\": [\n    \"vm.ktuner_missing_0\"\n  ],\n  \"restored\": 1,\n  \"skipped\": 1,\n  \"status\": \"Partial\"\n}"
+        );
+    }
+
+    /// Every invocation shape reports them, because every shape is built on
+    /// the same base: the plain rollback, the single positional, the batch,
+    /// and the bodies `--exclude` and `--category` wrap. A caller that named
+    /// one parameter reads the same two keys as one that rolled back
+    /// everything.
+    #[test]
+    fn rollback_body_names_the_entries_in_every_shape() {
+        let outcome = tuner::RollbackOutcome {
+            restored: 0,
+            failures: test_failures(1),
+            missing: test_missing(1),
+            leftovers: Vec::new(),
+            boot_unit_enabled: true,
+        };
+        let one = ["vm.swappiness".to_string()];
+        let two = ["vm.swappiness".to_string(), "vm.dirty_ratio".to_string()];
+        let excluded = ["vm.swappiness".to_string()];
+        for (shape, body) in [
+            ("plain", rollback_body(0, &[], &outcome)),
+            ("single positional", rollback_body(1, &one, &outcome)),
+            ("batch", rollback_body(2, &two, &outcome)),
+            // `--exclude` and `--category` answer with the full-rollback body
+            // plus their own reports, added by the same wrapper.
+            (
+                "exclude",
+                with_unmatched_exclude(rollback_body(0, &[], &outcome), &excluded),
+            ),
+        ] {
+            assert_eq!(
+                body["failures"],
+                json!([{ "param": "vm.ktuner_failed_0", "error": "write refused" }]),
+                "{shape}: the failed entries are named"
+            );
+            assert_eq!(
+                body["missing"],
+                json!(["vm.ktuner_missing_0"]),
+                "{shape}: the missing entries are named"
+            );
+            // The counts keep their meaning: `failed` counts the entries the
+            // report names, and a clean rollback's untouched body stays clean.
+            assert_eq!(body["failed"], json!(1), "{shape}: failed count");
+            assert_eq!(body["skipped"], json!(1), "{shape}: skipped count");
+        }
+    }
+
+    /// A rollback that left nothing answers exactly as it did before the
+    /// reports existed: the keys appear only when they have something to say,
+    /// the rule `unmatched_exclude`, `unclassified` and `boot_unit_enabled`
+    /// follow.
+    #[test]
+    fn rollback_output_hides_the_reports_when_nothing_was_left() {
+        let clean = tuner::RollbackOutcome {
+            restored: 3,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
+            boot_unit_enabled: true,
+        };
+        let body = rollback_output(None, &clean);
+        assert!(body.get("failures").is_none(), "{body}");
+        assert!(body.get("missing").is_none(), "{body}");
+        assert_eq!(
+            serde_json::to_string_pretty(&body).unwrap(),
+            "{\n  \"failed\": 0,\n  \"restored\": 3,\n  \"skipped\": 0,\n  \"status\": \"Full\"\n}"
+        );
     }
 
     #[test]
@@ -4150,8 +4523,9 @@ mod tests {
         // `fix` publish, and an armed replay keeps the body unchanged.
         let unarmed = tuner::RollbackOutcome {
             restored: 1,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: false,
         };
         for body in [
@@ -4163,6 +4537,7 @@ mod tests {
         }
 
         let armed = tuner::RollbackOutcome {
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
             ..unarmed
         };
@@ -4179,8 +4554,9 @@ mod tests {
         // `restored` may be 2 while `param` names the entry the caller chose.
         let twins = tuner::RollbackOutcome {
             restored: 2,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         let body = rollback_output(Some("vm.dirty_bytes"), &twins);
@@ -4194,14 +4570,15 @@ mod tests {
         );
         let skipped = tuner::RollbackOutcome {
             restored: 0,
-            failed: 0,
-            skipped: 1,
+            failures: test_failures(0),
+            missing: test_missing(1),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         assert_eq!(
             serde_json::to_string_pretty(&rollback_output(Some("vm.swappiness"), &skipped))
                 .unwrap(),
-            "{\n  \"failed\": 0,\n  \"param\": \"vm.swappiness\",\n  \"restored\": 0,\n  \"skipped\": 1,\n  \"status\": \"Nothing\"\n}"
+            "{\n  \"failed\": 0,\n  \"missing\": [\n    \"vm.ktuner_missing_0\"\n  ],\n  \"param\": \"vm.swappiness\",\n  \"restored\": 0,\n  \"skipped\": 1,\n  \"status\": \"Nothing\"\n}"
         );
     }
 
@@ -4240,8 +4617,9 @@ mod tests {
         // the ledger entry that was addressed.
         let twins = tuner::RollbackOutcome {
             restored: 2,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         assert_eq!(
@@ -4255,14 +4633,15 @@ mod tests {
         );
         let skipped = tuner::RollbackOutcome {
             restored: 0,
-            failed: 0,
-            skipped: 1,
+            failures: test_failures(0),
+            missing: test_missing(1),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         assert_eq!(
             serde_json::to_string_pretty(&rollback_body(1, &["vm.swappiness".to_string()], &skipped))
                 .unwrap(),
-            "{\n  \"failed\": 0,\n  \"param\": \"vm.swappiness\",\n  \"restored\": 0,\n  \"skipped\": 1,\n  \"status\": \"Nothing\"\n}"
+            "{\n  \"failed\": 0,\n  \"missing\": [\n    \"vm.ktuner_missing_0\"\n  ],\n  \"param\": \"vm.swappiness\",\n  \"restored\": 0,\n  \"skipped\": 1,\n  \"status\": \"Nothing\"\n}"
         );
     }
 
@@ -4274,8 +4653,9 @@ mod tests {
         // of each positional, in the order given.
         let outcome = tuner::RollbackOutcome {
             restored: 3,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         let keys = vec![
@@ -4300,8 +4680,9 @@ mod tests {
         // vocabulary and counts as the single-parameter form.
         let partial = tuner::RollbackOutcome {
             restored: 1,
-            failed: 1,
-            skipped: 1,
+            failures: test_failures(1),
+            missing: test_missing(1),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         let body = rollback_body(
@@ -4320,6 +4701,8 @@ mod tests {
                 "skipped": 1,
                 "status": "Partial",
                 "params": ["vm.swappiness", "vm.vfs_cache_pressure"],
+                "failures": [{ "param": "vm.ktuner_failed_0", "error": "write refused" }],
+                "missing": ["vm.ktuner_missing_0"],
             })
         );
         assert!(body.get("param").is_none(), "{body}");
@@ -4348,8 +4731,9 @@ mod tests {
         // reserved for the single-positional body, byte for byte.
         let outcome = tuner::RollbackOutcome {
             restored: 1,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         for keys in [
@@ -4385,8 +4769,9 @@ mod tests {
         // no `param`/`params` key: the batch shape must not leak into it.
         let full = tuner::RollbackOutcome {
             restored: 5,
-            failed: 0,
-            skipped: 0,
+            failures: test_failures(0),
+            missing: test_missing(0),
+            leftovers: Vec::new(),
             boot_unit_enabled: true,
         };
         assert_eq!(rollback_body(0, &[], &full), rollback_output(None, &full));

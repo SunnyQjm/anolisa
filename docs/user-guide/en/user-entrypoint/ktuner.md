@@ -89,18 +89,25 @@ sudo ktuner rollback --list --category net   # preview that same set
 
 `sudo ktuner fix <param> --dry-run` previews that one write in the same shape
 as `tune --dry-run` (`dry_run`, `status`, `blocked`, `would_apply`,
-`would_skip`) and exits `0` without writing anything, so a parameter can be
-inspected before it is changed. It needs no root, reports a mutually exclusive
-twin the kernel would zero in `would_clear` when the parameter has one, and
-refuses exactly like `sudo ktuner fix <param>` — same stderr JSON, same exit
-code — when the parameter is outside the plan, unwritable, or
-runtime-dangerous, so the preview cannot disagree with the command it
-previews.
+`would_skip`, plus `would_clear` on either preview when a write zeroes a
+mutually exclusive twin) and exits `0` without writing anything, so a
+parameter can be inspected before it is changed. It needs no root, and refuses
+exactly like `sudo ktuner fix <param>` — same stderr JSON, same exit code —
+when the parameter is outside the plan, unwritable, or runtime-dangerous, so
+the preview cannot disagree with the command it previews.
+
+A real `tune` or `fix` names the mutually exclusive twins its writes zeroed in
+`cleared`, in the shape of `would_clear`: exactly the twins the ledger recorded
+for `rollback` to restore. The key is absent when nothing was cleared.
 
 All output is JSON on stdout; errors are JSON on stderr. Exit codes: `0` success,
 `1` check found recommendations or rollback left values unrestored, `2` command error.
 Rollback returns `1` for failed writes or missing paths, including partial restoration;
-its JSON counts remain on stdout and the ledger is kept for retry. An empty ledger
+its JSON counts remain on stdout and the ledger is kept for retry. The body also names
+what it left: `failures` carries one `{"param", "error"}` per entry whose restore did
+not land, and `missing` lists the entries whose recorded path is gone. Both keys appear
+only when they have something to say, so a complete rollback's body is unchanged, and
+every invocation shape reports them the same way. An empty ledger
 is a successful no-op (`0`); an unreadable or missing ledger is a command error (`2`).
 `sudo ktuner rollback <param>` follows the same contract for the entry it names —
 plus the mutually exclusive twin recorded with it, restored together because writing
@@ -174,9 +181,9 @@ kernel from zeroing a mutually exclusive twin when the other half is written.
 
 For network conf parameters, interface identity is case-sensitive. Both `net/ipv4/conf/Br0.100/forwarding` and `net.ipv4.conf.Br0.100.forwarding` address the same interface; `br0.100` is a different identity. IPv6 follows the same rule. Persisted records for interfaces with literal dots use slash-first sysctl.d keys so systemd preserves those dots. This supports existing valid records or custom library recommendations; built-in rules do not currently generate per-VLAN recommendations.
 
-`sudo ktuner rollback --list` reports the live state as well: each pending entry adds `live` (the value read from the entry's path right now, or `null` when the path cannot be read — a device that is gone, a module that is not loaded), `drifted` (whether `live` still matches the recorded `applied`; `null` when there is no live value to compare), and `category` (the rule-layer category the entry was recorded with — the same lowercase spelling `check` uses; `null` when the record carries none, e.g. a record written before the field existed or one an import supplied). These fields are additions to the existing shape — `count`, `pending` and the recorded `param`/`applied`/`previous` values are unchanged — and an unreadable value is not an error: the command still exits `0`. Values are rendered and compared the same way as everywhere else in ktuner, so a sysfs option list or a multi-value sysctl is not mistaken for drift. `sudo ktuner rollback --list --drifted` narrows that listing to the entries whose recorded value no longer matches the kernel — the changes something else undid; entries whose path cannot be read are not listed (the plain `--list` still shows them), and `--drifted` without `--list` is a usage error.
+`sudo ktuner rollback --list` reports the live state as well: each pending entry adds `live` (the value read from the entry's path right now, or `null` when the path cannot be read — a device that is gone, a module that is not loaded), `drifted` (whether `live` still matches the recorded `applied`; `null` when there is no live value to compare), `category` (the rule-layer category the entry was recorded with — the same lowercase spelling `check` uses; `null` when the record carries none, e.g. a record written before the field existed or one an import supplied), and `cleared_by` (the ledger key of the entry whose write zeroed this one when the kernel did that as the side effect of a mutually exclusive pair — spelled the way that entry's own row publishes its `param`, so the two reconcile; `null` for an entry no recorded twin cleared, which is a zero the caller asked for, and for a twin whose clearer this listing does not carry). A row with an `applied` of `0` that nothing asked for would otherwise read as though ktuner had chosen to disable the knob. These fields are additions to the existing shape — `count`, `pending` and the recorded `param`/`applied`/`previous` values are unchanged — and an unreadable value is not an error: the command still exits `0`. Values are rendered and compared the same way as everywhere else in ktuner, so a sysfs option list or a multi-value sysctl is not mistaken for drift. `sudo ktuner rollback --list --drifted` narrows that listing to the entries whose recorded value no longer matches the kernel — the changes something else undid; entries whose path cannot be read are not listed (the plain `--list` still shows them), and `--drifted` without `--list` is a usage error.
 
-`sudo ktuner rollback --list <param>…` narrows that preview to what `rollback <param>…` would restore: each named entry plus the mutually exclusive twin recorded with it, in the same shape and order as the full listing. A name the ledger does not record is the same command error (`2`) the restore reports.
+`sudo ktuner rollback --list <param>…` narrows that preview to what `rollback <param>…` would restore: each named entry plus the mutually exclusive twin recorded with it, in the same shape and order as the full listing — both halves of a pair come along, so a zeroed half's `cleared_by` names a row this listing carries. A name the ledger does not record is the same command error (`2`) the restore reports.
 
 `sudo ktuner rollback --exclude <param>…` restores every recorded entry except the named ones in one transaction, and `sudo ktuner rollback --list --exclude <param>…` previews that same set (with `--drifted` narrowing what remains). An excluded entry stays in the ledger, and so does the half of a mutually exclusive pair recorded with it — writing either knob zeroes the other in the kernel (`v6.6 mm/page-writeback.c:518`, `v6.6 mm/util.c:810`), so the pair is one restore unit and an exclusion on either half keeps it whole. The body keeps the full-rollback keys; an `--exclude` name that addresses no ledger entry is echoed in `unmatched_exclude` instead of failing the run, exactly as `tune --exclude` reports an inert exclusion. With every entry excluded nothing is restored, the body reports the empty-ledger answer (`status "Nothing"`, exit `0`), and the ledger keeps the excluded records. `rollback <param>…` and `--exclude` are opposite instructions, so carrying both is a usage error (`2`, stderr JSON).
 

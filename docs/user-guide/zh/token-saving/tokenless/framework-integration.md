@@ -5,6 +5,8 @@
 Tokenless 通过 Plugin、Hook 和 Extension 接入具体 Agent 产品。本文只说明产品 Adapter。
 Python SDK 及其 AgentScope 专用子文档放在 [Python SDK 指南](sdk.md) 下。
 
+当解析器无法保留某个 JSON 数字的值时，PostTool 会保持整个响应原样。其他响应仍可进行清理和 Record Reduction；Core 仅在 TOON 解码后保留相同的值与类型时采用它。
+
 ## Agent Adapter 支持矩阵
 
 | Agent 产品 | 值 | Tool Ready | 命令重写行为 | 响应交付方式 | TOON | Schema |

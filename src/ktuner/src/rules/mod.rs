@@ -454,6 +454,10 @@ fn eval_swappiness(
         || info.has_process("mariadbd")
         || info.has_process("mongod")
         || info.has_process("clickhouse")
+        // oracle is the one OLTP database is_database_present already counts;
+        // its guidance pins vm.swappiness=1 (MOS 2099693.1), so it must not
+        // fall through to the big-memory branch's 10.
+        || info.has_process("oracle")
         || info.has_process("redis-server")
         // Valkey is the Linux Foundation's fork of Redis 7.2.4 - a drop-in
         // `valkey-server` binary with the same event-loop, memory-resident
@@ -558,7 +562,11 @@ fn eval_dirty_ratio(
         // MariaDB 10.4+ runs as mariadbd — the same OLTP database as mysqld.
         || info.has_process("mariadbd")
         || info.has_process("mongod")
-        || info.has_process("clickhouse");
+        || info.has_process("clickhouse")
+        // oracle is the one OLTP database is_database_present already counts;
+        // its redo/undo write bursts are the same dirty-page spikes this
+        // bound heads off.
+        || info.has_process("oracle");
     let is_latency_sensitive = is_db || *workload == WorkloadType::IoLatency;
 
     // dirty_ratio and dirty_bytes are mutually exclusive in the kernel (setting
@@ -911,6 +919,13 @@ fn eval_accept_redirects_at(
     1
 }
 
+/// The SysRq functions ktuner considers safe to leave enabled: sync (16),
+/// remount-read-only (32) and reboot/poweroff (128).
+/// `Documentation/admin-guide/sysrq.rst` lists the bit of every function; the
+/// others (2 log level, 4 keyboard/SAK, 8 dumps, 64 signalling, 256 RT nicing)
+/// are the ones the rule exists to take away.
+const SAFE_SYSRQ_MASK: i64 = 176;
+
 fn eval_sysrq(info: &SystemInfo, recs: &mut Vec<Recommendation>) -> usize {
     eval_sysrq_at(info, recs, "/proc/sys/kernel/sysrq")
 }
@@ -929,22 +944,43 @@ fn eval_sysrq_at(info: &SystemInfo, recs: &mut Vec<Recommendation>, path: &str) 
     }
     // sysrq is a mask; -1 enables every function, so it must be read signed
     // or the unsigned fallback maps it to 0 (disabled) and skips the rule.
-    let current = read_sysctl_i64(path);
-    // sysrq=1 means all functions enabled; high values also enable all
-    if current != 0 && current != 176 {
-        // 176 = safe subset (sync + remount-ro + reboot)
-        recs.push(Recommendation {
-            param: "kernel.sysrq".to_string(),
-            current_value: current.to_string(),
-            recommended_value: "176".to_string(),
-            reason: "SysRq 功能过于开放，限制为安全子集（同步+只读重挂载+重启）防止滥用"
-                .to_string(),
-            confidence: Confidence::Medium,
-            category: Category::Security,
-            writable: true,
-        });
+    if let Some(rec) = sysrq_recommendation(read_sysctl_i64(path)) {
+        recs.push(rec);
     }
     1
+}
+
+/// Value-driven core of the sysrq rule (the `*_recommendation` idiom), split
+/// from the file probe so the mask arithmetic is assertable against values.
+///
+/// `kernel.sysrq` is a SET of functions, and the recommendation REPLACES it, so
+/// "not `176`" is not the same as "too open": a mask built only from the safe
+/// subset's own bits — a host that kept `16` (sync) or `16|32` and withheld the
+/// rest — grants nothing outside it, and writing `176` would ADD the functions
+/// the operator withheld (remount-read-only, reboot/poweroff) while dropping
+/// none. A Security finding whose reason promises a restriction must not widen
+/// the capability it judges, so the mask is reduced only when it carries a bit
+/// outside the subset.
+fn sysrq_recommendation(current: i64) -> Option<Recommendation> {
+    // 0 disables every function; 176 IS the safe subset.
+    if current == 0 || current == SAFE_SYSRQ_MASK {
+        return None;
+    }
+    // `& !176` keeps exactly the bits outside the subset, and a two's-complement
+    // `-1` (every function enabled) keeps all of them, so this is also the
+    // "maximally open" case the signed read exists for.
+    if current & !SAFE_SYSRQ_MASK == 0 {
+        return None;
+    }
+    Some(Recommendation {
+        param: "kernel.sysrq".to_string(),
+        current_value: current.to_string(),
+        recommended_value: "176".to_string(),
+        reason: "SysRq 功能过于开放，限制为安全子集（同步+只读重挂载+重启）防止滥用".to_string(),
+        confidence: Confidence::Medium,
+        category: Category::Security,
+        writable: true,
+    })
 }
 
 // ─── Network Performance Rules ───────────────────────────────────────────────
@@ -1857,7 +1893,15 @@ fn eval_vfs_cache_pressure(info: &SystemInfo, recs: &mut Vec<Recommendation>) ->
         || info.has_process("zookeeper")
         || info.has_process("consul")
         || info.has_process("elasticsearch")
-        || info.has_process("opensearch");
+        || info.has_process("opensearch")
+        // TiDB is the classifier's OLTP database and TiKV its distributed KV
+        // store (`classify`'s has_db -> IoLatency); the sibling rules that
+        // take that verdict (eval_swappiness, eval_dirty_ratio) already
+        // advise those hosts, while this list - the only place the VFS cache
+        // advice is gated - stayed silent and left them on the default
+        // reclaim pressure.
+        || info.has_process("tidb-server")
+        || info.has_process("tikv-server");
     if !is_db_or_cache {
         return 1;
     }
@@ -1969,7 +2013,18 @@ fn eval_read_ahead_kb(info: &SystemInfo, recs: &mut Vec<Recommendation>) -> usiz
         // MariaDB 10.4+ runs as mariadbd — the same OLTP database as mysqld.
         || info.has_process("mariadbd")
         || info.has_process("mongod")
-        || info.has_process("clickhouse");
+        || info.has_process("clickhouse")
+        // oracle is the one OLTP database is_database_present already counts;
+        // its random-IO-dominated access pattern is the same reason the
+        // window shrinks for the sibling databases.
+        || info.has_process("oracle")
+        // TiDB is the classifier's OLTP database and TiKV its distributed KV
+        // store (`classify`'s has_db -> IoLatency): the two remaining members
+        // of the database class this hand-rolled list skipped, so their disks
+        // kept the default window while the sibling gates that take the
+        // classification already sized their other knobs.
+        || info.has_process("tidb-server")
+        || info.has_process("tikv-server");
 
     for disk in &info.disks {
         // The window this rule resizes belongs to the device a filesystem is
@@ -2248,7 +2303,19 @@ fn eval_numa_balancing_at(info: &SystemInfo, recs: &mut Vec<Recommendation>, pat
         // MariaDB 10.4+ runs as mariadbd — the same OLTP database as mysqld.
         || info.has_process("mariadbd")
         || info.has_process("mongod")
-        || info.has_process("clickhouse");
+        || info.has_process("clickhouse")
+        // oracle is the one OLTP database is_database_present already counts;
+        // Oracle 12.2+ disables automatic NUMA balancing itself at instance
+        // startup (MOS 2060885.1) — the kernel's migration hinting faults on
+        // SGA pages are exactly the stalls =0 heads off.
+        || info.has_process("oracle")
+        // TiDB is the classifier's OLTP database and TiKV its distributed KV
+        // store (`classify`'s has_db -> IoLatency); both were still missing
+        // from this hand-rolled list, so a TiDB or TiKV host kept the
+        // kernel's page-migration hinting on while the sibling gates that
+        // take the classification already sized its other knobs.
+        || info.has_process("tidb-server")
+        || info.has_process("tikv-server");
     if !is_db {
         return 1;
     }
@@ -2495,20 +2562,38 @@ fn eval_send_redirects_at(
 /// redirect path reachable at all (see [`eval_send_redirects_at`]). An
 /// unreadable or missing tree reports `false`, so a rule that promises to stop
 /// redirects it cannot prove are possible stays quiet.
+///
+/// The path comes from the directory entry itself, never from its display form:
+/// `dev_valid_name` accepts any interface name without `/`, `:` or whitespace,
+/// so an entry name can carry non-UTF-8 bytes, and a `&str` round trip through
+/// `to_string_lossy` rewrites them to U+FFFD — the read then misses the file it
+/// was aimed at and the interface is counted as not forwarding.
 fn any_interface_forwards(conf_root: &std::path::Path) -> bool {
     let Ok(entries) = std::fs::read_dir(conf_root) else {
         return false;
     };
     for entry in entries.filter_map(|entry| entry.ok()) {
-        let forwarding = entry.path().join("forwarding");
         // The forwarding slot is the plain proc_dointvec int behind
         // ctl_forward_entry (no bounds), and IN_DEV_FORWARD is a truthiness
         // test — read it signed so a -1 interface counts as forwarding.
-        if read_sysctl_i64(&forwarding.to_string_lossy()) != 0 {
+        if read_sysctl_i64_path(&entry.path().join("forwarding")) != 0 {
             return true;
         }
     }
     false
+}
+
+/// Signed reader for a path the caller already holds, for the conf-tree walks
+/// whose directory entry names — interface names — can be non-UTF-8.
+///
+/// The `&str` readers beside it take a name that a caller has already turned
+/// into text; walking a tree with them can only go through `to_string_lossy`,
+/// which resolves to no file at all and reads as the value 0.
+fn read_sysctl_i64_path(path: &std::path::Path) -> i64 {
+    std::fs::read_to_string(path)
+        .ok()
+        .and_then(|raw| raw.trim().parse().ok())
+        .unwrap_or(0)
 }
 
 fn eval_perf_event_paranoid(info: &SystemInfo, recs: &mut Vec<Recommendation>) -> usize {
@@ -2730,45 +2815,76 @@ fn eval_dirty_writeback_centisecs(info: &SystemInfo, recs: &mut Vec<Recommendati
     1
 }
 
+/// The daemons whose presence means the host routes traffic for someone else.
+///
+/// The list must stay the union of the daemon classes that forward: a routing
+/// suite alone is not the only shape, and a host that fails this check gets
+/// `net.ipv4.ip_forward = 0` written, which cuts its peers off. Split out of
+/// [`host_needs_ip_forward`] so the list is assertable on a machine whose own
+/// interfaces happen to look bridged (the interface scan short-circuits the
+/// verdict there).
+const FORWARDING_DAEMONS: &[&str] = &[
+    // container runtimes
+    "docker",
+    "dockerd",
+    "kubelet",
+    "containerd",
+    "podman",
+    "conmon",
+    "crio",
+    "k3s",
+    "lxc",
+    "lxd",
+    // virtualization
+    "libvirtd",
+    "qemu",
+    "virtqemud",
+    "vhost",
+    // VPN / tunneling
+    "openvpn",
+    "wireguard",
+    "charon",
+    "strongswan",
+    "tincd",
+    "tailscaled",
+    // routing daemons
+    "bird",
+    "bird2",
+    "zebra",
+    "bgpd",
+    "ospfd",
+    "frr",
+    "quagga",
+    // NAT / DHCP gateways and access points: the inbound half of the same
+    // forwarding the container and routing daemons do outward. A LAN gateway
+    // or a hotspot runs dnsmasq (NetworkManager's shared mode starts it for
+    // the NAT) and hostapd for the radio; a VRRP router runs keepalived, which
+    // `eval_ip_nonlocal_bind` already treats as a router-class host; a VPN
+    // server runs pppd or xl2tpd behind the IKE daemon, and libreswan's pluto
+    // is the same IKE role as the strongswan `charon` above. None of them is a
+    // routing *suite*, so the list above never matched them: a gateway host
+    // was judged "no forwarding in use" and the write cut its LAN off.
+    "dnsmasq",
+    "hostapd",
+    "keepalived",
+    "pppd",
+    "xl2tpd",
+    "pluto",
+];
+
+/// Whether one of the daemons that forward traffic for others is running.
+fn runs_a_forwarding_daemon(info: &SystemInfo) -> bool {
+    FORWARDING_DAEMONS
+        .iter()
+        .any(|daemon| info.has_process(daemon))
+}
+
 /// Whether the host appears to legitimately need IP forwarding (router,
 /// hypervisor, container host, VPN/NAT gateway). Disabling forwarding on such a
 /// host silently breaks guest/pod/tunnel traffic, so we must be conservative
 /// and only suggest turning it off when we see no sign forwarding is in use.
 fn host_needs_ip_forward(info: &SystemInfo) -> bool {
-    const PROCS: &[&str] = &[
-        // container runtimes
-        "docker",
-        "dockerd",
-        "kubelet",
-        "containerd",
-        "podman",
-        "conmon",
-        "crio",
-        "k3s",
-        "lxc",
-        "lxd",
-        // virtualization
-        "libvirtd",
-        "qemu",
-        "virtqemud",
-        "vhost",
-        // VPN / tunneling
-        "openvpn",
-        "wireguard",
-        "charon",
-        "strongswan",
-        "tincd",
-        "tailscaled",
-        // routing daemons
-        "bird",
-        "bird2",
-        "zebra",
-        "bgpd",
-        "ospfd",
-        "frr",
-        "quagga",
-    ];
-    if PROCS.iter().any(|p| info.has_process(p)) {
+    if runs_a_forwarding_daemon(info) {
         return true;
     }
     // Bridge / tunnel / virtual interfaces are a strong signal of VM, container
@@ -3414,6 +3530,12 @@ fn runs_busy_polling_service(info: &SystemInfo) -> bool {
         || info.has_process("mariadbd")
         || info.has_process("mongod")
         || info.has_process("clickhouse")
+        // TiDB is the classifier's OLTP database and TiKV its distributed KV
+        // store (`classify`'s has_db -> IoLatency); a TiDB host's per-query
+        // round-trip to its region store is the request-path shape this gate
+        // lists, and both names were still missing from it.
+        || info.has_process("tidb-server")
+        || info.has_process("tikv-server")
 }
 
 /// Path-injectable form of [`eval_busy_poll`] (the `eval_*_at` idiom) so the
@@ -3422,11 +3544,13 @@ fn runs_busy_polling_service(info: &SystemInfo) -> bool {
 /// The gate lists every workload whose network round-trips sit on the
 /// request path: the caches (redis, memcached), the proxies (nginx), the
 /// OLTP databases (postgres, mysqld — MariaDB 10.4+ runs as mariadbd, the
-/// same OLTP shape — and mongod) and clickhouse. The OLTP databases appear
-/// in every sibling latency gate — eval_thp's `is_latency_sensitive`, the
-/// swappiness/dirty_ratio db lists, classify's IoLatency — but were missing
-/// here, so a database host never got the busy-polling advice its
-/// synchronous per-query round-trip profile asks for.
+/// same OLTP shape — and mongod), clickhouse, and TiDB with its TiKV region
+/// store, whose per-query round-trip is the distributed shape of the same
+/// class. The OLTP databases appear in every sibling latency gate —
+/// eval_thp's `is_latency_sensitive`, the swappiness/dirty_ratio db lists,
+/// classify's IoLatency — but were missing here, so a database host never
+/// got the busy-polling advice its synchronous per-query round-trip profile
+/// asks for.
 fn eval_busy_poll_at(info: &SystemInfo, recs: &mut Vec<Recommendation>, path: &str) -> usize {
     if !info.param_exists(path) {
         return 1;
@@ -3782,7 +3906,10 @@ fn eval_dirty_background_ratio_at(
             // MariaDB 10.4+ runs as mariadbd — the same OLTP database as mysqld.
             || info.has_process("mariadbd")
             || info.has_process("mongod")
-            || info.has_process("clickhouse");
+            || info.has_process("clickhouse")
+            // oracle is the one OLTP database is_database_present already
+            // counts; the same OLTP write-burst bound gates it in.
+            || info.has_process("oracle");
         if has_db || matches!(workload, WorkloadType::IoLatency) || current > 10 {
             recs.push(Recommendation {
                 param: "vm.dirty_background_ratio".to_string(),
@@ -4673,9 +4800,19 @@ fn swap_configured(path: &str) -> bool {
 /// host reported, i.e. the advice's "on an SSD" premise is provably false for
 /// the area it sizes.
 ///
-/// The area's device field is resolved against the whole-disk names in
-/// `info.disks` (`/dev/sdb2` against `sdb`, `/dev/nvme0n1p2` against
-/// `nvme0n1`); anything else — a swap file, a zram node, a device-mapper path —
+/// The area's device field resolves against the whole-disk inventory by name
+/// (`/dev/sdb2` against `sdb`, `/dev/nvme0n1p2` against `nvme0n1`) or as a
+/// holder of a disk: a device-mapper node that claims a whole disk is recorded
+/// in that disk's `holders` directory, named after the holding gendisk
+/// (`bd_link_disk_holder()`, v6.6 block/holder.c:33-48: "from holders
+/// directory of the @bdev to the holder @disk", `/sys/block/dm-0/slaves/sda`
+/// and `/sys/block/sda/holders/dm-0`), and the area's I/O goes to that disk,
+/// so it inherits its medium. The holder link is on the whole disk only while
+/// the mapper node claims the disk itself: a mapper node over one of its
+/// partitions, and a mapper node stacked on another mapper node, are in no
+/// directory of this inventory.
+///
+/// Anything else — a swap file, a zram node, a `/dev/mapper/<name>` alias —
 /// resolves to no disk and is left alone, so a medium this inventory cannot see
 /// keeps today's advice instead of losing it.
 ///
@@ -4694,21 +4831,26 @@ fn swap_on_a_rotational_disk(info: &SystemInfo, swaps_path: &str) -> bool {
         let Some(name) = area.strip_prefix(b"/dev/") else {
             return false;
         };
-        // A whole device or one of its partitions: nothing after the disk name
-        // (`/dev/sdb`), or a partition suffix (`2`, and `p2` as nvme/mmcblk
-        // write it). A bare prefix match would attribute `/dev/sdaa2` to a disk
-        // named `sda` and `/dev/sdb2bak` to `sdb`, and quietly drop the advice
-        // for the disk the area is really on.
         info.disks.iter().any(|disk| {
             disk.disk_type == DiskType::HDD
-                && name.strip_prefix(disk.name.as_bytes()).is_some_and(|rest| {
-                    rest.is_empty()
-                        || rest
-                            .strip_prefix(b"p")
-                            .unwrap_or(rest)
-                            .iter()
-                            .all(|byte| byte.is_ascii_digit())
-                })
+                && (disk
+                    .holders
+                    .iter()
+                    .any(|holder| holder.as_bytes() == name)
+                    // A whole device or one of its partitions: nothing after the
+                    // disk name (`/dev/sdb`), or a partition suffix (`2`, and
+                    // `p2` as nvme/mmcblk write it). A bare prefix match would
+                    // attribute `/dev/sdaa2` to a disk named `sda` and
+                    // `/dev/sdb2bak` to `sdb`, and quietly drop the advice for
+                    // the disk the area is really on.
+                    || name.strip_prefix(disk.name.as_bytes()).is_some_and(|rest| {
+                        rest.is_empty()
+                            || rest
+                                .strip_prefix(b"p")
+                                .unwrap_or(rest)
+                                .iter()
+                                .all(|byte| byte.is_ascii_digit())
+                    }))
         })
     })
 }
@@ -5917,28 +6059,57 @@ fn eval_hardlockup_panic(info: &SystemInfo, recs: &mut Vec<Recommendation>) -> u
     if !std::path::Path::new(path).exists() {
         return 1;
     }
-    // Hard-lockup detection relies on the NMI watchdog. ktuner separately
-    // recommends disabling nmi_watchdog for perf — if it is already off, this
-    // panic setting can never fire, so don't recommend a no-op.
-    let nmi = "/proc/sys/kernel/nmi_watchdog";
-    if std::path::Path::new(nmi).exists() && read_sysctl_u64(nmi) == 0 {
-        return 1;
-    }
     let _ = info;
-    let current = read_sysctl_u64(path);
-    if current == 0 {
-        recs.push(Recommendation {
-            param: "kernel.hardlockup_panic".to_string(),
-            current_value: "0".to_string(),
-            recommended_value: "1".to_string(),
-            reason: "CPU 硬锁死后不 panic 会导致系统假死无法自动恢复，应启用以触发自动重启"
-                .to_string(),
-            confidence: Confidence::High,
-            category: Category::Security,
-            writable: true,
-        });
+    // `None` when the kernel exposes no nmi_watchdog at all (aarch64): then
+    // there is no detector for the perf rule to disarm.
+    let nmi = "/proc/sys/kernel/nmi_watchdog";
+    let nmi_watchdog = std::path::Path::new(nmi)
+        .exists()
+        .then(|| read_sysctl_u64(nmi));
+    if let Some(rec) = hardlockup_panic_recommendation(read_sysctl_u64(path), nmi_watchdog) {
+        recs.push(rec);
     }
     1
+}
+
+/// Value-driven core of the hardlockup_panic rule (the `*_recommendation`
+/// idiom), so both watchdog states are assertable against values instead of
+/// the live /proc.
+///
+/// Hard-lockup detection rides on the NMI watchdog, so the panic setting only
+/// matters while that watchdog runs — and ktuner itself turns it off: the perf
+/// rule writes `kernel.nmi_watchdog = 0` on every host that reads 1. Judging
+/// the current value alone therefore let a plan contain both
+/// `nmi_watchdog = 0` (Medium, Performance) and `hardlockup_panic = 1`
+/// (High, Security), where the first write disarms the detector the second
+/// needs: the security advice could never fire, which is exactly the no-op the
+/// guard already refuses when the watchdog is off to begin with. The value the
+/// perf rule leaves alone (the legacy `2`, and any other mask) keeps the
+/// advice, as does a kernel with no nmi_watchdog to disarm.
+fn hardlockup_panic_recommendation(
+    current: u64,
+    nmi_watchdog: Option<u64>,
+) -> Option<Recommendation> {
+    if current != 0 {
+        return None;
+    }
+    match nmi_watchdog {
+        // Absent: nothing in the plan disarms the detector.
+        None => {}
+        // Off, or turned off by the perf rule in this same evaluation.
+        Some(0) | Some(1) => return None,
+        // A value the perf rule does not touch.
+        Some(_) => {}
+    }
+    Some(Recommendation {
+        param: "kernel.hardlockup_panic".to_string(),
+        current_value: "0".to_string(),
+        recommended_value: "1".to_string(),
+        reason: "CPU 硬锁死后不 panic 会导致系统假死无法自动恢复，应启用以触发自动重启".to_string(),
+        confidence: Confidence::High,
+        category: Category::Security,
+        writable: true,
+    })
 }
 
 // NOTE: kernel.softlockup_panic rule removed. A soft lockup is frequently a
@@ -6975,8 +7146,11 @@ fn interfaces_accepting_ra(conf_root: &std::path::Path) -> Vec<String> {
         // (v6.6 include/net/ipv6.h:537-544) honours a plain 1 only while the
         // interface does not forward, and `ip6_rcv_core()` (net/ipv6/
         // ip6_input.c:171-173) drops every IPv6 packet on an interface whose
-        // disable_ipv6 is set, so no RA reaches it at all.
-        let read = |file: &str| read_sysctl_i64(&entry.path().join(file).to_string_lossy());
+        // disable_ipv6 is set, so no RA reaches it at all. Every slot is read
+        // through the entry's own path — an interface name can be non-UTF-8,
+        // and the lossy form resolves to no file, which would drop the
+        // interface out of the reason instead of out of the list.
+        let read = |file: &str| read_sysctl_i64_path(&entry.path().join(file));
         if read("disable_ipv6") != 0 {
             continue;
         }
@@ -8000,6 +8174,14 @@ fn eval_min_slab_ratio(info: &SystemInfo, recs: &mut Vec<Recommendation>) -> usi
 /// behavior — the "never recommend a no-op" rule the hardlockup_panic and
 /// page-cluster gates already follow. An unreadable mode file counts as "off",
 /// so the rule stays quiet rather than promising a reclaim it cannot verify.
+///
+/// The plan that switches node reclaim off is the one this rule ships in:
+/// `eval_zone_reclaim_mode` recommends `vm.zone_reclaim_mode = 0` on every
+/// host with more than one NUMA node whose mode is non-zero — the exact state
+/// the guard above has just established — so testing the CURRENT mode alone
+/// only refuses the no-op on hosts where it was off to begin with, and the
+/// multi-NUMA host the rule exists for still got both entries with the
+/// min_slab write already inert. Judge the mode the plan leaves behind.
 fn eval_min_slab_ratio_at(
     info: &SystemInfo,
     recs: &mut Vec<Recommendation>,
@@ -8013,6 +8195,12 @@ fn eval_min_slab_ratio_at(
         return 1;
     }
     if read_sysctl_u64(zone_reclaim_path) == 0 {
+        return 1;
+    }
+    // The multi-NUMA plan zeroes the mode this rule just checked: the sibling
+    // recommendation is High-confidence performance advice, so the write this
+    // rule asks for would be neutralized by the plan it belongs to.
+    if info.numa_nodes > 1 {
         return 1;
     }
     let current = read_sysctl_u64(path);
@@ -9104,6 +9292,62 @@ mod tests {
     }
 
     #[test]
+    fn oracle_gates_the_database_tuning_rules() {
+        // oracle is the one OLTP database is_database_present already counts
+        // (the IPC gates) that these hand-rolled lists still skipped — the
+        // same cross-gate hole the THP rule closed in 64bd828e0. Oracle's
+        // own Linux guidance pins vm.swappiness=1 (MOS 2099693.1); with the
+        // gate missing, a big Oracle host fell through to the >=64GB branch
+        // and got 10, and the dirty/read-ahead bounds stayed silent though
+        // the sibling databases are gated on the same OLTP write-burst and
+        // random-IO argument.
+        let mut info = info_with_processes(&["oracle"]);
+        // Below the >=64GB branch of the swappiness and dirty rules, so only
+        // the database gate can produce a recommendation here.
+        info.memory_total_gb = 32;
+        info.sysctl.swappiness = 60;
+        info.sysctl.dirty_ratio = 20;
+        info.disks[0].disk_type = DiskType::NVMe;
+        info.disks[0].read_ahead_kb = 512;
+
+        let mut recs = Vec::new();
+        eval_swappiness(&info, &WorkloadType::Mixed, &mut recs);
+        let swap = recs
+            .iter()
+            .find(|r| r.param == "vm.swappiness")
+            .expect("oracle must gate the swappiness rule in");
+        assert_eq!(swap.recommended_value, "1");
+
+        let mut recs = Vec::new();
+        eval_dirty_ratio(&info, &WorkloadType::Mixed, &mut recs);
+        assert!(
+            recs.iter().any(|r| r.param == "vm.dirty_ratio"),
+            "oracle must gate the dirty_ratio rule in"
+        );
+
+        let mut recs = Vec::new();
+        eval_read_ahead_kb(&info, &mut recs);
+        assert!(
+            recs.iter()
+                .any(|r| r.param == "block/nvme0n1/read_ahead_kb"),
+            "oracle must gate the read-ahead rule in"
+        );
+
+        // The big-memory shape the issue reports: with the gate missing the
+        // rule falls through to its >=64GB branch and recommends 10 there;
+        // Oracle's guidance pins 1 (MOS 2099693.1).
+        let mut big = info_with_processes(&["oracle"]);
+        big.memory_total_gb = 64;
+        let mut recs = Vec::new();
+        eval_swappiness(&big, &WorkloadType::Mixed, &mut recs);
+        let swap = recs
+            .iter()
+            .find(|r| r.param == "vm.swappiness")
+            .expect("oracle must gate the swappiness rule in");
+        assert_eq!(swap.recommended_value, "1");
+    }
+
+    #[test]
     fn mariadb_daemon_gates_the_shared_memory_rules() {
         // The SysV/shared-memory sizing gates are on the canonical predicate
         // since 5c878f7ea: kernel.shmmax and vm.nr_hugepages belong to the same
@@ -9177,6 +9421,98 @@ mod tests {
             dirty_background_ratio.to_str().unwrap(),
         );
         assert!(recs.is_empty(), "mariadb-dump is not the database");
+
+        std::fs::remove_dir_all(&dir).ok();
+    }
+
+    #[test]
+    fn oracle_gates_the_numa_and_dirty_background_rules() {
+        // The two _at gates the issue names beside the classifier.
+        // kernel.numa_balancing: Oracle 12.2+ disables automatic NUMA
+        // balancing itself at instance startup (MOS 2060885.1) — the
+        // kernel's page-migration hinting faults on SGA pages are exactly
+        // the stalls kernel.numa_balancing=0 heads off. The dirty background
+        // ratio bound: the same OLTP write-burst bound eval_dirty_ratio
+        // applies. oracle is the one OLTP database is_database_present
+        // already counts that both hand-rolled lists still skipped.
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_oracle_gates_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir_all(&dir).unwrap();
+        let write = |name: &str, content: &str| {
+            let path = dir.join(name);
+            std::fs::write(&path, content).unwrap();
+            path
+        };
+        let numa_balancing = write("numa_balancing", "1\n");
+        let dirty_background_ratio = write("dirty_background_ratio", "10\n");
+
+        let mut info = info_with_processes(&["oracle"]);
+        // Below the >=64GB branch of the dirty_background rule, with more
+        // than one NUMA node so the balancing rule has a decision to make.
+        info.memory_total_gb = 32;
+        info.numa_nodes = 2;
+
+        let mut recs = Vec::new();
+        eval_numa_balancing_at(&info, &mut recs, numa_balancing.to_str().unwrap());
+        assert!(
+            recs.iter().any(|r| r.param == "kernel.numa_balancing"),
+            "oracle must gate the numa_balancing rule in"
+        );
+
+        let mut recs = Vec::new();
+        eval_dirty_background_ratio_at(
+            &info,
+            &WorkloadType::Mixed,
+            &mut recs,
+            dirty_background_ratio.to_str().unwrap(),
+        );
+        assert!(
+            recs.iter().any(|r| r.param == "vm.dirty_background_ratio"),
+            "oracle must gate the dirty_background_ratio rule in"
+        );
+
+        std::fs::remove_dir_all(&dir).ok();
+    }
+
+    /// profile::classify calls a TiDB host io-latency — TiDB is an OLTP
+    /// database and TiKV its distributed KV store — but this hand-rolled db
+    /// list still skips both process names, so a TiDB or TiKV host on more
+    /// than one NUMA node kept automatic balancing on while every sibling
+    /// database is taken off it. The gate takes no workload verdict, so the
+    /// classifier's own databases are the only thing that can turn it on.
+    #[test]
+    fn tidb_and_tikv_gate_the_numa_balancing_rule() {
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_tidb_numa_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        std::fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("numa_balancing");
+        std::fs::write(&path, "1\n").unwrap();
+
+        for name in ["tidb-server", "tikv-server"] {
+            let mut info = info_with_processes(&[name]);
+            info.numa_nodes = 2;
+            let mut recs = Vec::new();
+            eval_numa_balancing_at(&info, &mut recs, path.to_str().unwrap());
+            assert!(
+                recs.iter().any(|r| r.param == "kernel.numa_balancing"),
+                "{name} must gate the numa_balancing rule in"
+            );
+        }
+        // A workload outside the database class is left alone.
+        let mut info = info_with_processes(&["make"]);
+        info.numa_nodes = 2;
+        let mut recs = Vec::new();
+        eval_numa_balancing_at(&info, &mut recs, path.to_str().unwrap());
+        assert!(
+            recs.iter().all(|r| r.param != "kernel.numa_balancing"),
+            "a build job is not a database"
+        );
 
         std::fs::remove_dir_all(&dir).ok();
     }
@@ -9830,8 +10166,12 @@ mod tests {
         // valkey-server (the Redis 7.2.4 fork the sweep of 0b55cba16 added
         // everywhere else). zookeeper/consul and opensearch are the
         // classifier's own peers of etcd and elasticsearch, which the same
-        // sweep of the siblings never reached here. Every service the rule
-        // accepts must trigger the recommendation, and a build job must not.
+        // sweep of the siblings never reached here. TiDB and TiKV are the
+        // classifier's OLTP database and its distributed KV store (has_db ->
+        // IoLatency): the sweep of the latency classes reached them in the
+        // THP rule, but this list stayed silent for them. Every service the
+        // rule accepts must trigger the recommendation, and a build job must
+        // not.
         for name in [
             "postgres",
             "mysqld",
@@ -9846,6 +10186,8 @@ mod tests {
             "consul",
             "elasticsearch",
             "opensearch",
+            "tidb-server",
+            "tikv-server",
         ] {
             let mut info = make_test_info();
             info.processes = vec![ProcessInfo {
@@ -10636,6 +10978,41 @@ mod tests {
         assert_eq!(rec.recommended_value, "128");
 
         std::fs::remove_dir_all(&dir).ok();
+    }
+
+    /// profile::classify calls a TiDB host io-latency — TiDB is an OLTP
+    /// database and TiKV its distributed KV store — but this hand-rolled db
+    /// list still skips both process names, so the host kept the default
+    /// read-ahead window on the disks the rule is written for. Both names are
+    /// in the sibling lists that take the classification (the THP gate, the
+    /// swappiness/dirty_ratio rules); this gate is the only place the window
+    /// is sized, so it stayed silent.
+    #[test]
+    fn tidb_and_tikv_gate_the_read_ahead_rule() {
+        for name in ["tidb-server", "tikv-server"] {
+            let mut info = info_with_processes(&[name]);
+            info.disks[0].disk_type = DiskType::NVMe;
+            info.disks[0].read_ahead_kb = 512;
+
+            let mut recs = Vec::new();
+            eval_read_ahead_kb(&info, &mut recs);
+            let rec = recs
+                .iter()
+                .find(|r| r.param == "block/nvme0n1/read_ahead_kb")
+                .unwrap_or_else(|| panic!("{name} must gate the read-ahead rule in"));
+            assert_eq!(rec.recommended_value, "128");
+        }
+        // A workload outside the database class keeps the window it has.
+        let mut info = info_with_processes(&["make"]);
+        info.disks[0].disk_type = DiskType::NVMe;
+        info.disks[0].read_ahead_kb = 512;
+        let mut recs = Vec::new();
+        eval_read_ahead_kb(&info, &mut recs);
+        assert!(
+            recs.iter()
+                .all(|r| r.param != "block/nvme0n1/read_ahead_kb"),
+            "a build job is not a database"
+        );
     }
 
     #[test]
@@ -11828,6 +12205,53 @@ mod tests {
     }
 
     #[test]
+    fn host_needs_ip_forward_counts_the_nat_and_vpn_daemons() {
+        // A host that forwards for its peers is not required to run a
+        // container runtime or a routing suite. A LAN gateway or hotspot runs
+        // dnsmasq (NetworkManager's shared mode starts it for the NAT) and
+        // hostapd for the radio; a VRRP router runs keepalived, which
+        // eval_ip_nonlocal_bind already recognizes as router-class; a VPN
+        // server runs pppd/xl2tpd behind its IKE daemon, and libreswan's pluto
+        // is the same role as the strongswan charon already in the list.
+        // Judging those hosts "no forwarding in use" writes
+        // net.ipv4.ip_forward = 0 and cuts the LAN, the hotspot or the VPN
+        // clients off.
+        for daemon in [
+            // Container/runtime, virtualization and tunnel daemons the list
+            // has always carried.
+            "docker",
+            "kubelet",
+            "libvirtd",
+            "openvpn",
+            "charon",
+            "bird",
+            // The gateway and VPN-endpoint daemons this change adds.
+            "dnsmasq",
+            "hostapd",
+            "keepalived",
+            "pppd",
+            "xl2tpd",
+            "pluto",
+        ] {
+            let mut info = make_test_info();
+            info.processes = vec![crate::detect::ProcessInfo {
+                name: daemon.to_string(),
+            }];
+            assert!(
+                runs_a_forwarding_daemon(&info),
+                "{daemon} forwards traffic for its peers"
+            );
+        }
+
+        // Control: an unrelated daemon does not claim forwarding.
+        let mut info = make_test_info();
+        info.processes = vec![crate::detect::ProcessInfo {
+            name: "nginx".to_string(),
+        }];
+        assert!(!runs_a_forwarding_daemon(&info));
+    }
+
+    #[test]
     fn test_inotify_watches() {
         let info = make_test_info();
         let mut recs = Vec::new();
@@ -12213,7 +12637,10 @@ mod tests {
     /// busy_read gates on "the same services as the twin", so every service
     /// that earns a 10 GbE host the busy_poll advice must earn it busy_read
     /// too: the twin's list grew the OLTP databases and valkey after the
-    /// busy_read gate copied it.
+    /// busy_read gate copied it, and TiDB and TiKV (the classifier's OLTP
+    /// database and its distributed KV store) are the remaining members of
+    /// that database class - a TiDB host's per-query round-trip to its region
+    /// store is the request-path shape this pair of rules exists for.
     #[test]
     fn busy_read_counts_every_service_its_twin_counts() {
         let dir = std::env::temp_dir().join(format!(
@@ -12238,6 +12665,8 @@ mod tests {
             "mariadbd",
             "mongod",
             "clickhouse",
+            "tidb-server",
+            "tikv-server",
         ] {
             let mut info = make_test_info();
             info.network = vec![NetInfo {
@@ -12951,6 +13380,38 @@ mod tests {
     }
 
     #[test]
+    fn hardlockup_panic_defers_to_the_watchdog_the_plan_disables() {
+        // The perf rule writes kernel.nmi_watchdog = 0 on EVERY host that
+        // reads 1 (eval_nmi_watchdog), and the hardlockup detector is driven
+        // by that watchdog: with the two entries in one plan the first write
+        // disarms the detector the second one needs, so the High-confidence
+        // security advice could never fire. The guard must therefore read the
+        // watchdog the way the plan leaves it, not the way it found it.
+        assert_eq!(
+            hardlockup_panic_recommendation(0, Some(1)).map(|rec| rec.recommended_value),
+            None,
+            "the plan disables the watchdog, so the panic setting cannot fire"
+        );
+        assert_eq!(
+            hardlockup_panic_recommendation(0, Some(0)).map(|rec| rec.recommended_value),
+            None,
+            "an already disabled watchdog is the case the guard always covered"
+        );
+        // A value the perf rule leaves alone, and a kernel without the knob:
+        // the detector stays armed either way.
+        assert_eq!(
+            hardlockup_panic_recommendation(0, Some(2)).map(|rec| rec.recommended_value),
+            Some("1".to_string())
+        );
+        assert_eq!(
+            hardlockup_panic_recommendation(0, None).map(|rec| rec.recommended_value),
+            Some("1".to_string())
+        );
+        // Already enabled: nothing to recommend.
+        assert!(hardlockup_panic_recommendation(1, None).is_none());
+    }
+
+    #[test]
     fn page_cluster_gates_on_the_swap_areas_own_medium() {
         // The reason promises a saving "on an SSD", but this knob sizes the
         // readahead of the swap AREA, not of the disks the host happens to own:
@@ -13044,12 +13505,57 @@ mod tests {
         )
         .unwrap();
         assert!(std::str::from_utf8(&std::fs::read(&mixed_encoding).unwrap()).is_err());
+        // Device-mapper areas: `dm-3` claims the rotational disk `sdb` (it is
+        // in that disk's holders), `dm-4` claims the SSD `sdc`, `dm-9` claims
+        // nothing the inventory reports, and `dm-30` is a different node from
+        // the `dm-3` holder a prefix comparison would resolve.
+        let on_a_mapper_over_hdd = dir.join("swaps-mapper-hdd");
+        std::fs::write(
+            &on_a_mapper_over_hdd,
+            [
+                header.as_slice(),
+                b"/dev/dm-3                                partition\t16776188\t0\t\t-2\n",
+            ]
+            .concat(),
+        )
+        .unwrap();
+        let on_a_mapper_over_ssd = dir.join("swaps-mapper-ssd");
+        std::fs::write(
+            &on_a_mapper_over_ssd,
+            [
+                header.as_slice(),
+                b"/dev/dm-4                                partition\t16776188\t0\t\t-2\n",
+            ]
+            .concat(),
+        )
+        .unwrap();
+        let on_an_unclaimed_mapper = dir.join("swaps-mapper-unclaimed");
+        std::fs::write(
+            &on_an_unclaimed_mapper,
+            [
+                header.as_slice(),
+                b"/dev/dm-9                                partition\t16776188\t0\t\t-2\n",
+            ]
+            .concat(),
+        )
+        .unwrap();
+        let on_a_longer_mapper_name = dir.join("swaps-mapper-longer-name");
+        std::fs::write(
+            &on_a_longer_mapper_name,
+            [
+                header.as_slice(),
+                b"/dev/dm-30                               partition\t16776188\t0\t\t-2\n",
+            ]
+            .concat(),
+        )
+        .unwrap();
 
         // make_test_info carries one NVMe disk; add the rotational disks the
         // HDD fixtures' areas name (`sda` is the shorter name `sdaa2` merely
-        // starts with).
+        // starts with), with the mapper node `dm-3` claiming `sdb`, and the SSD
+        // `sdc` that `dm-4` claims.
         let mut info = make_test_info();
-        for name in ["sdb", "sda"] {
+        for (name, holders) in [("sdb", vec!["dm-3".to_string()]), ("sda", vec![])] {
             info.disks.push(DiskInfo {
                 name: name.to_string(),
                 disk_type: DiskType::HDD,
@@ -13059,9 +13565,20 @@ mod tests {
                 read_ahead_kb: 128,
                 rq_affinity: 1,
                 hidden: false,
-                holders: vec![],
+                holders,
             });
         }
+        info.disks.push(DiskInfo {
+            name: "sdc".to_string(),
+            disk_type: DiskType::SSD,
+            scheduler: "mq-deadline".to_string(),
+            available_schedulers: vec!["none".to_string(), "mq-deadline".to_string()],
+            nr_requests: 128,
+            read_ahead_kb: 128,
+            rq_affinity: 1,
+            hidden: false,
+            holders: vec!["dm-4".to_string()],
+        });
 
         for (swaps, expected, why) in [
             (&on_nvme, true, "the swap area is on the NVMe disk"),
@@ -13090,6 +13607,26 @@ mod tests {
                 &mixed_encoding,
                 false,
                 "a non-UTF-8 sibling name does not hide the HDD area",
+            ),
+            (
+                &on_a_mapper_over_hdd,
+                false,
+                "the area's mapper node claims the rotational disk",
+            ),
+            (
+                &on_a_mapper_over_ssd,
+                true,
+                "the area's mapper node claims the SSD disk",
+            ),
+            (
+                &on_an_unclaimed_mapper,
+                true,
+                "a mapper node no reported disk holds claims no medium",
+            ),
+            (
+                &on_a_longer_mapper_name,
+                true,
+                "dm-30 is a different node from the dm-3 holder",
             ),
         ] {
             let mut recs = Vec::new();
@@ -13432,6 +13969,51 @@ mod tests {
                 }
             }
         }
+        std::fs::remove_dir_all(&dir).ok();
+    }
+
+    /// The per-interface `forwarding` slot is read through the directory
+    /// entry's raw name, not its lossy display form. `dev_valid_name` accepts
+    /// any name without `/`, `:` or whitespace, so an interface can carry
+    /// non-UTF-8 bytes; rebuilding the path from `to_string_lossy` (U+FFFD)
+    /// missed the file, the gate concluded the host forwards nothing, and both
+    /// redirect rules stayed quiet on a router that can still send them.
+    #[test]
+    fn redirect_gates_see_a_non_utf8_forwarding_interface() {
+        use std::os::unix::ffi::OsStrExt;
+
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_redirect_non_utf8_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(dir.join("all")).unwrap();
+        std::fs::create_dir_all(dir.join("default")).unwrap();
+        let all = dir.join("all/send_redirects");
+        let default = dir.join("default/send_redirects");
+        std::fs::write(&all, "1\n").unwrap();
+        std::fs::write(&default, "1\n").unwrap();
+        // Every ordinary entry forwards nothing.
+        for interface in ["all", "default", "lo"] {
+            let forwarding = dir.join(interface).join("forwarding");
+            std::fs::create_dir_all(forwarding.parent().unwrap()).unwrap();
+            std::fs::write(forwarding, "0\n").unwrap();
+        }
+        // The one forwarding interface carries a raw 0xFF byte in its name.
+        let raw = dir.join(std::ffi::OsStr::from_bytes(b"eth\xff0"));
+        std::fs::create_dir_all(&raw).unwrap();
+        std::fs::write(raw.join("forwarding"), "1\n").unwrap();
+
+        let info = make_test_info();
+        let mut recs = Vec::new();
+        eval_send_redirects_at(&info, &mut recs, all.to_str().unwrap(), &dir);
+        eval_default_send_redirects_at(&info, &mut recs, default.to_str().unwrap(), &dir);
+        assert_eq!(
+            recs.len(),
+            2,
+            "the forwarding interface is invisible only to the lossy path: {recs:?}"
+        );
         std::fs::remove_dir_all(&dir).ok();
     }
 
@@ -14405,6 +14987,41 @@ mod tests {
         std::fs::remove_dir_all(&dir).ok();
     }
 
+    /// The interfaces the `default` template write leaves accepting Router
+    /// Advertisements are found by walking `conf/`, and an entry name can carry
+    /// non-UTF-8 bytes. Reading the per-device slots through the entry name's
+    /// lossy form made every slot unreadable, so the interface was left out of
+    /// the reason entirely and the operator's per-interface plan missed it —
+    /// the advice then names fewer interfaces than the host actually runs.
+    #[test]
+    fn ra_reason_counts_a_non_utf8_interface() {
+        use std::os::unix::ffi::OsStrExt;
+
+        let dir = std::env::temp_dir().join(format!(
+            "ktuner_accept_ra_raw_{}_{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        let conf = dir.join("conf");
+        for iface in ["default", "all", "lo"] {
+            std::fs::create_dir_all(conf.join(iface)).unwrap();
+            std::fs::write(conf.join(iface).join("forwarding"), "0\n").unwrap();
+            std::fs::write(conf.join(iface).join("accept_ra"), "1\n").unwrap();
+        }
+        // The one interface that accepts RAs carries a raw 0xFF byte.
+        let raw = conf.join(std::ffi::OsStr::from_bytes(b"eth\xff0"));
+        std::fs::create_dir_all(&raw).unwrap();
+        std::fs::write(raw.join("forwarding"), "0\n").unwrap();
+        std::fs::write(raw.join("accept_ra"), "1\n").unwrap();
+
+        assert_eq!(
+            interfaces_accepting_ra(&conf).len(),
+            1,
+            "the non-UTF-8 interface accepts RAs and must be counted"
+        );
+        std::fs::remove_dir_all(&dir).ok();
+    }
+
     #[test]
     fn accept_ra_names_the_interfaces_the_template_write_cannot_reach() {
         // The recommendation writes the `default` template, which the kernel
@@ -14599,6 +15216,25 @@ mod tests {
             mode_on.to_str().unwrap(),
         );
         assert!(recs.is_empty(), "small memory still skips the rule");
+
+        // The multi-NUMA host is the one whose plan disables node reclaim:
+        // eval_zone_reclaim_mode recommends vm.zone_reclaim_mode = 0 whenever
+        // numa_nodes > 1 and the mode reads non-zero — the state this guard
+        // has just established. Recommending the min_slab write there ships an
+        // entry the plan itself neutralizes.
+        info.memory_total_gb = 256;
+        info.numa_nodes = 2;
+        let mut recs = Vec::new();
+        eval_min_slab_ratio_at(
+            &info,
+            &mut recs,
+            param.to_str().unwrap(),
+            mode_on.to_str().unwrap(),
+        );
+        assert!(
+            recs.is_empty(),
+            "the plan zeroes the mode on a multi-NUMA host, so the write is a no-op"
+        );
 
         std::fs::remove_dir_all(&dir).ok();
     }
@@ -15282,8 +15918,7 @@ mod tests {
         let mut recs = Vec::new();
         eval_bpf_jit_harden_at(path, jit, unprivileged, &mut recs);
         assert!(recs.is_empty(), "unparseable content is not the value 0");
-        std::fs::remove_file(path).ok();
-        std::fs::remove_dir(&dir).ok();
+        std::fs::remove_dir_all(&dir).ok();
     }
 
     /// The two switches that decide whether the recommended write has a
@@ -15828,14 +16463,27 @@ mod tests {
     fn test_sysrq_boundaries() {
         // 0 (sysrq fully disabled) and 176 (the safe subset itself:
         // sync + remount-ro + reboot) are already hardened and must NOT be
-        // flagged; every other value — including the signed -1 mask and the
-        // common 1/16/438 masks — must recommend 176.
+        // flagged. Neither must a mask built only from the subset's own bits
+        // (16 sync, 32 remount-ro, 128 reboot, and their combinations): it
+        // grants nothing outside the subset, so writing 176 would ADD the
+        // withheld functions instead of restricting anything. Every mask with
+        // a bit outside it — including the signed -1 mask and the common
+        // 1/8/438 values — must recommend 176.
         let info = make_test_info();
         for (value, expects_rec) in [
             (-1, true),
             (0, false),
             (1, true),
-            (16, true),
+            (2, true),
+            (8, true),
+            (64, true),
+            (256, true),
+            (16, false),
+            (32, false),
+            (128, false),
+            (48, false),
+            (144, false),
+            (160, false),
             (176, false),
             (438, true),
         ] {
@@ -15851,7 +16499,7 @@ mod tests {
             assert_eq!(
                 recs.len(),
                 usize::from(expects_rec),
-                "value {value}: only 0 (disabled) and 176 (safe subset) are hardened"
+                "value {value}: only a mask with a bit outside the safe subset is restricted"
             );
             if expects_rec {
                 assert_eq!(

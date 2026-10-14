@@ -1,0 +1,119 @@
+{
+  "records": [
+    {
+      "kernel_config": [
+        "# CONFIG_CHECKPOINT_RESTORE is not set"
+      ]
+    },
+    {
+      "case": "worker_child_enumeration",
+      "parent": 392884,
+      "child": 392902,
+      "worker_tid": 392901,
+      "children_files": [
+        {
+          "tid": "392884",
+          "errno": 2
+        },
+        {
+          "tid": "392901",
+          "errno": 2
+        }
+      ],
+      "children_api_found": false,
+      "stat_ppid": 392884,
+      "stat_found": true,
+      "child_pid_ns": "pid:[4026532180]",
+      "self_pid_ns": "pid:[4026532180]"
+    },
+    {
+      "mechanism_child_reaped": true
+    },
+    {
+      "case_inventory": 220,
+      "uid": 0
+    },
+    {
+      "case": "direct_children_original",
+      "argv": [
+        "/tmp/cosh-workspace-nonroot-20261014/runner",
+        "/cache/cargo-target/58e248f2ee9f1910f4c9/debug/deps/shell_host-1a7ad722502e9928",
+        "termios::parent_lifecycle::direct_children_scans_every_wrapper_thread",
+        "--exact",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "elapsed_seconds": 10.010648379990016,
+      "exit_code": 101,
+      "stdout": "\nrunning 1 test\ntest termios::parent_lifecycle::direct_children_scans_every_wrapper_thread ... FAILED\n\nfailures:\n\nfailures:\n    termios::parent_lifecycle::direct_children_scans_every_wrapper_thread\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 219 filtered out; finished in 10.01s\n\n",
+      "stderr": "COSH_PRIVILEGED_TARGET_RUN_UID_0\n\nthread 'termios::parent_lifecycle::direct_children_scans_every_wrapper_thread' (392905) panicked at crates/cosh-shell/tests/shell_host/termios.rs:576:9:\nworker-thread child 392907 was not discovered\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    },
+    {
+      "case": "timeout_original_serial",
+      "argv": [
+        "/tmp/cosh-workspace-nonroot-20261014/runner",
+        "/cache/cargo-target/58e248f2ee9f1910f4c9/debug/deps/shell_host-1a7ad722502e9928",
+        "termios::scripted_shell_exit_timeout_kills_foreground_group",
+        "--exact",
+        "--nocapture",
+        "--test-threads=1"
+      ],
+      "elapsed_seconds": 5.394855542996083,
+      "exit_code": 0,
+      "stdout": "\nrunning 1 test\ntest termios::scripted_shell_exit_timeout_kills_foreground_group ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 5.38s\n\n",
+      "stderr": "COSH_PRIVILEGED_TARGET_RUN_UID_0\n"
+    },
+    {
+      "case": "coupled_original_parallel",
+      "argv": [
+        "/tmp/cosh-workspace-nonroot-20261014/runner",
+        "/cache/cargo-target/58e248f2ee9f1910f4c9/debug/deps/shell_host-1a7ad722502e9928",
+        "termios::",
+        "--nocapture",
+        "--test-threads=2",
+        "--skip",
+        "termios::cosh_owned_timeout_recovery_restores_pty_without_visible_command",
+        "--skip",
+        "termios::parent_lifecycle::direct_children_scans_every_wrapper_thread",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_foreground_group_signal",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_input_eof",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_normal_exit",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sighup",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sigint",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sigquit",
+        "--skip",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sigterm",
+        "--skip",
+        "termios::parent_lifecycle::raw_passthrough_preserves_inherited_sigint_ignore",
+        "--skip",
+        "termios::parent_lifecycle::startup_path_probe_preserves_login_profile_terminal_semantics",
+        "--skip",
+        "termios::parent_lifecycle::startup_path_probe_preserves_precedence_before_fallback_directories",
+        "--skip",
+        "termios::parent_lifecycle::startup_path_probe_reaps_detached_profile_daemon",
+        "--skip",
+        "termios::parent_lifecycle::startup_path_probe_timeout_reaps_supervisor_descendants",
+        "--skip",
+        "termios::raw_relay_action_watchdog_turns_swallowed_exit_into_timeout_error",
+        "--skip",
+        "termios::raw_relay_host_preserves_user_tty_mutation_after_interrupt",
+        "--skip",
+        "termios::transparent_bash_preserves_user_stty_modes",
+        "--skip",
+        "termios::transparent_ctrl_backslash_is_not_synthesized_from_ctrl_c",
+        "--skip",
+        "termios::transparent_ctrl_d_exits_bash_and_zsh"
+      ],
+      "elapsed_seconds": 15.456381589989178,
+      "exit_code": 101,
+      "stdout": "\nrunning 2 tests\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal ... FAILED\ntest termios::scripted_shell_exit_timeout_kills_foreground_group ... FAILED\n\nfailures:\n\nfailures:\n    termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal\n    termios::scripted_shell_exit_timeout_kills_foreground_group\n\ntest result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 218 filtered out; finished in 15.44s\n\n",
+      "stderr": "COSH_PRIVILEGED_TARGET_RUN_UID_0\n\nthread 'termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal' (393017) panicked at crates/cosh-shell/tests/shell_host/termios.rs:277:13:\ncosh-shell child bash did not appear\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\nthread 'termios::scripted_shell_exit_timeout_kills_foreground_group' (393018) panicked at crates/cosh-shell/tests/shell_host/termios.rs:695:5:\nassertion failed: started.elapsed() < Duration::from_secs(8)\n"
+    }
+  ]
+}

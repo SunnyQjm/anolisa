@@ -1,0 +1,219 @@
+{
+  "decision": "Go",
+  "scope": "#7545 test-only Linux arm64 shell-host fixture acceptance; not release/merge approval",
+  "head": "52745f8b3f5eb79ec75b70493f860417accf7a0e",
+  "tree": "6cb94baf9b89b28e7c79f0a300cdbe8037ee3d63",
+  "base": "b75eff716d8c42ba17b8355b47373430d25d2505",
+  "termios_sha256": "8522f486157117ddae6d16d00dcc5b1f649de8731f067aac89b27feb8aa25f83",
+  "environment_run": "20261014T201027Z-0e0298e5",
+  "container": "cosh-7545-shell-host-20261015",
+  "backend": "container",
+  "architecture": "aarch64",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "preflight_run": "20261014T203632Z-341b4aef",
+  "preflight": {
+    "cargo_root": "src/cosh-ng",
+    "clippy": {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "detail": null,
+      "ok": true
+    },
+    "commit_lint": [],
+    "fmt": {
+      "command": "cargo fmt --check",
+      "detail": null,
+      "ok": true
+    },
+    "gates": [
+      {
+        "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-test-inventory.sh",
+        "detail": null,
+        "ok": true
+      }
+    ],
+    "ok": true,
+    "schema_version": 1,
+    "tests": {
+      "command": null,
+      "detail": "not-run; ok does not cover tests, run planned scopes separately",
+      "ok": null
+    },
+    "upstream_drift": []
+  },
+  "final_tests": [
+    {
+      "run": "20261014T203903Z-d08176b2",
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::parent_lifecycle::direct_children_scans_every_wrapper_thread",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "summary": "ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 0.00s"
+    },
+    {
+      "run": "20261014T203934Z-a098a378",
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "summary": "ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 0.07s"
+    },
+    {
+      "run": "20261014T203934Z-6a14b053",
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_foreground_group_signal",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "summary": "ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 0.20s"
+    },
+    {
+      "run": "20261014T203935Z-5c031d5f",
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::scripted_shell_exit_timeout_kills_foreground_group",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "summary": "ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 5.38s"
+    },
+    {
+      "run": "20261014T203942Z-88fa0b6a",
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "--",
+        "--test-threads=4"
+      ],
+      "exit_code": 0,
+      "summary": "ok. 219 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 206.01s"
+    }
+  ],
+  "full_inventory": 220,
+  "full_passed": 219,
+  "full_failed": 0,
+  "full_ignored": 1,
+  "full_test_threads": 4,
+  "binaries": {
+    "cosh-shell": {
+      "exists": true,
+      "sha256": "466bcade8c0461096497eec9b7528f76907800e1d8675b3b69f3585c1b16d089"
+    },
+    "cosh-ui-worker": {
+      "exists": true,
+      "sha256": "a54fe36068760758acbf9370461ea5276dce70feddf31c3add6f41a33787e046"
+    },
+    "cosh-core": {
+      "exists": false,
+      "sha256": null
+    },
+    "deps/shell_host-1eb4c0f2572229f5": {
+      "exists": true,
+      "sha256": "269ae37ba9ea05c4ccf07313412c444298930918728500c99ab0212ab8d88f3e"
+    }
+  },
+  "valid_compiled_controls": "compiled-controls-result.json",
+  "cache_mask_failure": "final-restoration-cache-mask.json",
+  "first_restore_failure_run": "20261014T203532Z-5f605715",
+  "classification": "execution artifact contamination: failed test ELF exactly equals last compiling mutant; not flake or source failure",
+  "restoration": "owned cargo clean --package cosh-shell then actual fresh compilation from exact HEAD; all final scope passed",
+  "source_before_after_equal": true,
+  "guest_cosh_scope_clean": true,
+  "owned_cosh_build_test_processes_after": [],
+  "cleanup_down_run": "20261014T204412Z-e3e22b85",
+  "cleanup_state": "cleaned",
+  "cleanup_status_readback_run": "20261014T204434Z-05eec90e",
+  "cleanup_status_exit_code": 1,
+  "actual_container_inventory_present": false,
+  "remaining_container_cache": "owned cache retained as evidence; Root resources unchanged",
+  "not_run": [
+    "fullscreen TUI explicitly ignored default case",
+    "full crate tests",
+    "workspace tests",
+    "release/RPM",
+    "real provider",
+    "x86_64 matrix",
+    "canonical accept screenshots/WebM"
+  ],
+  "timing": "host doctor contention preserved; isolated functional assertions only, no performance claim",
+  "artifacts": "evidence/ contains full argv/stdout/stderr and manifests; runs/ contains standard CLI results/checksums",
+  "preflight_source_binding": {
+    "outer_host_envelope_commit": null,
+    "actual_guest_private_git_head": "52745f8b3f5eb79ec75b70493f860417accf7a0e",
+    "actual_guest_private_git_tree": "6cb94baf9b89b28e7c79f0a300cdbe8037ee3d63",
+    "guest_stamp": "evidence/final-guest-head.txt",
+    "source_manifest": "evidence/final-guest-after.json",
+    "explanation": "outer envexec run invoked from non-Git workspace cwd; guest preflight uses explicit private GIT_DIR/GIT_WORK_TREE and accurate final HEAD"
+  }
+}

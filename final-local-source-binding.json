@@ -1,0 +1,11 @@
+{
+  "head": "52745f8b3f5eb79ec75b70493f860417accf7a0e",
+  "tree": "6cb94baf9b89b28e7c79f0a300cdbe8037ee3d63",
+  "base": "b75eff716d8c42ba17b8355b47373430d25d2505",
+  "cosh_subtree": "1208918dd57ea0328281e02eaa28a6d4089c861c",
+  "status": "",
+  "branch": "fix/cosh-ng/shell-host-fixture-portability",
+  "worktree": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7545-shell-host-fixture",
+  "termios_sha256": "8522f486157117ddae6d16d00dcc5b1f649de8731f067aac89b27feb8aa25f83",
+  "diff": "1 file changed, 16 insertions(+), 9 deletions(-)"
+}

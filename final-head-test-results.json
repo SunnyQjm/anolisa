@@ -1,0 +1,175 @@
+[
+  {
+    "data": {
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::parent_lifecycle::direct_children_scans_every_wrapper_thread",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "duration_seconds": 30.504726,
+      "exit_code": 0,
+      "scope": "shell-host",
+      "stderr": "   Compiling cosh-shell v0.27.0 (/work/repo/src/cosh-ng/crates/cosh-shell)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 30.21s\n     Running tests/shell_host.rs (/cache/cargo-target/297f7061fc679d973bb7/debug/deps/shell_host-1eb4c0f2572229f5)\n",
+      "stdout": "\nrunning 1 test\ntest termios::parent_lifecycle::direct_children_scans_every_wrapper_thread ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 0.00s\n\n",
+      "target_cache_key": "297f7061fc679d973bb7",
+      "workdir": "/work/repo/src/cosh-ng"
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/shell-host-fixture-7545-20261015/runs/20261014T203903Z-d08176b2",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  {
+    "data": {
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "duration_seconds": 0.752489,
+      "exit_code": 0,
+      "scope": "shell-host",
+      "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.39s\n     Running tests/shell_host.rs (/cache/cargo-target/297f7061fc679d973bb7/debug/deps/shell_host-1eb4c0f2572229f5)\n",
+      "stdout": "\nrunning 1 test\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 0.07s\n\n",
+      "target_cache_key": "297f7061fc679d973bb7",
+      "workdir": "/work/repo/src/cosh-ng"
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/shell-host-fixture-7545-20261015/runs/20261014T203934Z-a098a378",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  {
+    "data": {
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::parent_lifecycle::raw_cli_restores_parent_termios_after_foreground_group_signal",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "duration_seconds": 0.883277,
+      "exit_code": 0,
+      "scope": "shell-host",
+      "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.38s\n     Running tests/shell_host.rs (/cache/cargo-target/297f7061fc679d973bb7/debug/deps/shell_host-1eb4c0f2572229f5)\n",
+      "stdout": "\nrunning 1 test\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_foreground_group_signal ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 0.20s\n\n",
+      "target_cache_key": "297f7061fc679d973bb7",
+      "workdir": "/work/repo/src/cosh-ng"
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/shell-host-fixture-7545-20261015/runs/20261014T203934Z-6a14b053",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  {
+    "data": {
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "termios::scripted_shell_exit_timeout_kills_foreground_group",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "duration_seconds": 6.117928,
+      "exit_code": 0,
+      "scope": "shell-host",
+      "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.40s\n     Running tests/shell_host.rs (/cache/cargo-target/297f7061fc679d973bb7/debug/deps/shell_host-1eb4c0f2572229f5)\n",
+      "stdout": "\nrunning 1 test\ntest termios::scripted_shell_exit_timeout_kills_foreground_group ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 219 filtered out; finished in 5.38s\n\n",
+      "target_cache_key": "297f7061fc679d973bb7",
+      "workdir": "/work/repo/src/cosh-ng"
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/shell-host-fixture-7545-20261015/runs/20261014T203935Z-5c031d5f",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  {
+    "data": {
+      "command": [
+        "sh",
+        "-c",
+        "cd \"$1\" && shift && exec \"$@\"",
+        "cosh-lab-test",
+        "/work/repo/src/cosh-ng",
+        "/tmp/cosh-7545-cargo-capture",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "--",
+        "--test-threads=4"
+      ],
+      "duration_seconds": 206.740724,
+      "exit_code": 0,
+      "scope": "shell-host",
+      "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.41s\n     Running tests/shell_host.rs (/cache/cargo-target/297f7061fc679d973bb7/debug/deps/shell_host-1eb4c0f2572229f5)\n",
+      "stdout": "\nrunning 220 tests\ntest foreground::raw_relay_host_interrupts_node_repl_and_restores_terminal ... ok\ntest foreground::raw_relay_host_applies_resize_actions ... ok\ntest foreground::raw_relay_host_keeps_background_command_continuity ... ok\ntest foreground::raw_relay_host_forwards_ctrl_c_and_keeps_shell_usable ... ok\ntest foreground::raw_relay_host_interrupts_python_repl_and_restores_terminal ... ok\ntest foreground::raw_relay_preserves_terminal_control_sequences_but_cleans_output_ref ... ok\ntest foreground::raw_relay_zsh_job_control_suspend_fg_and_interrupt ... ok\ntest governance::raw_relay_host_can_render_inline_guidance_before_shell_exit ... ok\ntest governance::raw_relay_host_intercepts_natural_language_via_bash_hook ... ok\ntest governance::raw_relay_inline_governance_blocks_agent_execution_events ... ok\ntest handoff::raw_relay_bash_agent_git_handoff_does_not_enter_the_implicit_pager ... ok\ntest handoff::raw_relay_bash_handoff_does_not_assign_readonly_user_variables ... ok\ntest handoff::raw_relay_bash_handoff_does_not_promote_a_shell_local_pager_to_the_environment ... ok\ntest handoff::raw_relay_bash_handoff_hides_an_exported_readonly_pager ... ok\ntest handoff::raw_relay_bash_handoff_keeps_a_pager_change_the_command_made_itself ... ok\ntest handoff::raw_relay_bash_handoff_keeps_an_export_attribute_change_the_command_made ... ok\ntest handoff::raw_relay_bash_handoff_preserves_top_level_shell_state ... ok\ntest handoff::raw_relay_bash_handoff_preserves_user_scratch_variables ... ok\ntest handoff::raw_relay_bash_history_records_original_handoff_command ... ok\ntest handoff::raw_relay_bash_inherit_policy_still_reaches_an_explicit_pager ... ok\ntest handoff::raw_relay_bash_pager_policy_does_not_outlive_the_handoff_command ... ok\ntest handoff::raw_relay_bash_public_config_renders_hint_card_for_waiting_handoff ... ok\ntest handoff::raw_relay_bash_secret_handoff_survives_a_bypass_prefixed_race ... ok\ntest handoff::raw_relay_bash_secret_handoff_survives_a_command_ahead_race ... ok\ntest handoff::raw_relay_bash_user_typed_pager_assignments_are_not_a_handoff ... ok\ntest handoff::raw_relay_handoff_provenance_does_not_set_child_environment ... ok\ntest handoff::raw_relay_zsh_agent_git_handoff_does_not_enter_the_implicit_pager ... ok\ntest handoff::raw_relay_zsh_approved_handoff_wrapper_does_not_leak_to_output ... ok\ntest handoff::raw_relay_zsh_handoff_hides_an_exported_readonly_pager ... ok\ntest handoff::raw_relay_zsh_handoff_keeps_an_export_attribute_change_the_command_made ... ok\ntest handoff::raw_relay_zsh_handoff_restores_declaration_state_without_clobbering_the_command ... ok\ntest handoff::raw_relay_zsh_history_records_original_handoff_command ... ok\ntest handoff::raw_relay_zsh_secret_handoff_survives_a_bypass_prefixed_race ... ok\ntest handoff::raw_relay_zsh_secret_handoff_survives_a_command_ahead_race ... ok\ntest heavy::raw_relay_host_runs_fullscreen_programs_and_keeps_shell_usable ... ignored, fullscreen TUI programs can block the default package gate; run manually for PTY smoke\ntest handoff::raw_relay_zsh_user_typed_pager_assignments_are_not_a_handoff ... ok\ntest handoff::routing_c3_provider_no_regression_approved_handoff_does_not_leak ... ok\ntest heavy::raw_relay_host_runs_batchmode_ssh_without_swallowing_shell ... ok\ntest heavy::raw_relay_host_runs_less_and_restores_terminal ... ok\ntest input_intent::ambiguous_tool_inputs_remain_shell_owned ... ok\ntest input_intent::classification_ignores_user_ifs ... ok\ntest input_intent::classification_is_locale_independent ... ok\ntest input_intent::command_veto_matrix_is_consistent ... ok\ntest heavy::raw_relay_host_runs_top_and_keeps_shell_usable ... ok\ntest input_intent::composed_natural_language_matrix_is_consistent ... ok\ntest input_intent::han_core_boundaries_are_locale_independent ... ok\ntest input_intent::invalid_utf8_is_unsafe ... ok\ntest input_intent::long_ascii_input_avoids_per_byte_subprocess_cost ... ok\ntest input_intent::max_non_ascii_input_needs_no_byte_subprocess ... ok\ntest heavy::raw_relay_host_shows_isolated_sudo_prompt_and_keeps_shell_usable ... ok\ntest input_intent::routing_c1_classifier_validates_full_utf8_before_han ... ok\ntest input_intent::routing_c2_matcher_table_covers_supported_quote_removal_subset ... ok\ntest input_intent::strong_natural_language_matrix_is_consistent ... ok\ntest input_intent::routing_c1_classifier_han_tier_matrix ... ok\ntest heavy::raw_relay_zsh_tty_password_prompt_ctrl_c_keeps_shell_usable ... ok\ntest marker::marker_json_escape_removes_raw_controls_and_preserves_utf8 ... ok\ntest marker::isolated_bash_ignores_inherited_prompt_and_history_filters ... ok\ntest marker::isolated_zsh_preserves_inputrc_override ... ok\ntest input_intent::input_limit_is_measured_in_bytes ... ok\ntest marker::routing_c1_missing_path_han_tier_a_stays_shell_owned ... ok\ntest marker::routing_c1_stale_history_repeated_han_prompt_routes_twice ... ok\ntest marker::routing_c1_cnf_han_tier_a_routes_to_agent ... ok\ntest marker::routing_c1_zsh_ascii_question_unmatched_routes_to_agent ... ok\ntest marker::routing_c1_tier_b_side_effect_stays_native ... ok\ntest marker::routing_c1_zsh_glob_qualifier_stays_native ... ok\ntest marker::routing_c1_valid_han_command_stays_native ... ok\ntest marker::routing_c2_bash_quote_cnf_routes_to_agent ... ok\ntest marker::routing_c2_delegate_unsupported_escape_and_matched_glob ... ok\ntest marker::routing_c2_expansion_drift_and_matched_arguments_stay_native ... ok\ntest marker::routing_c2_long_mixed_language_prompts_route_to_agent ... ok\ntest marker::routing_c2_nested_provenance_marks_only_the_outer_missing_command ... ok\ntest marker::routing_c2_zsh_quote_cnf_routes_to_agent ... ok\ntest marker::routing_c4_zsh_stubs_intercept_bypass_only_commands ... ok\ntest marker::routing_c2_nested_provenance_rejects_same_token_from_shell_function ... ok\ntest marker::routing_c2_valid_quoted_command_and_inner_whitespace_keep_their_owners ... ok\ntest marker::shell_host_bash_alias_expanded_commands_keep_preexec_markers ... ok\ntest marker::shell_host_bash_alias_guard_survives_polluted_ifs ... ok\ntest marker::shell_host_bash_captured_debug_trap_keeps_path_generation_trusted ... ok\ntest marker::shell_host_bash_combined_debug_trap_fails_closed_for_path_generation ... ok\ntest marker::shell_host_bash_debug_trap_children_never_see_exported_extdebug ... ok\ntest marker::shell_host_bash_isolated_mode_omits_history_file_markers ... ok\ntest marker::shell_host_bash_login_identity_intercepts_natural_language_input ... ok\ntest marker::shell_host_bash_missing_natural_language_routes_without_command_block ... ok\ntest marker::shell_host_bash_missing_path_counterproofs_stay_native ... ok\ntest marker::shell_host_bash_missing_path_without_input_relay_fails_in_shell ... ok\ntest marker::shell_host_bash_preserves_bashopts_without_enabling_extdebug ... ok\ntest marker::shell_host_bash_preserves_user_missing_handler_contract ... ok\ntest marker::shell_host_bash_prompt_hook_does_not_enable_extdebug ... ok\ntest marker::shell_host_bash_prompt_hook_observes_only_bounded_capture ... ok\ntest marker::shell_host_bash_sensitive_missing_emits_raw_free_provenance ... ok\ntest marker::shell_host_bash_sensitive_missing_path_without_input_relay_stays_redacted ... ok\ntest marker::shell_host_bash_shebang_less_prompt_hook_array_form_avoids_debugger_reexec ... ok\ntest marker::shell_host_bash_shebang_less_prompt_hook_avoids_debugger_reexec ... ok\ntest marker::shell_host_bash_stale_history_guard_still_intercepts_deduped_repeats ... ok\ntest marker::shell_host_bash_success_then_missing_keeps_routing_provenance ... ok\ntest marker::shell_host_bash_tracks_history_file_changed_by_prompt_command ... ok\ntest marker::shell_host_bash_tracks_native_history_file_changes ... ok\ntest marker::shell_host_bash_valid_cue_matrix_wins_over_natural_language ... ok\ntest marker::shell_host_bash_valid_cue_named_function_wins_over_natural_language ... ok\ntest marker::shell_host_linux_bash_ambiguous_phrase_stays_in_shell ... ok\ntest marker::shell_host_han_control_operator_stays_shell_owned ... ok\ntest marker::shell_host_han_parameter_expansion_routes_to_agent ... ok\ntest marker::shell_host_han_re_evaluated_parameter_expansion_stays_shell_owned ... ok\ntest marker::shell_host_linux_bash_ignores_inherited_system_missing_handler ... ok\ntest marker::shell_host_preserves_native_prompt_command_output ... ok\ntest marker::shell_host_linux_bash_natural_language_routes_directly_to_agent ... ok\ntest marker::shell_host_marker_control_cwd_keeps_json_frame_intact ... ok\ntest marker::shell_host_missing_cksum_keeps_raw_free_sensitive_provenance ... ok\ntest marker::shell_host_pty_cannot_read_private_marker_token ... ok\ntest marker::shell_host_pty_statusful_precmd_marker_completes_inflight_command ... ok\ntest marker::shell_host_rejects_forged_osc_markers_without_session_token ... ok\ntest marker::shell_host_runs_bash_pty_and_emits_command_events ... ok\ntest marker::shell_host_zsh_adapter_emits_shared_command_events ... ok\ntest marker::shell_host_zsh_ai_disabled_keeps_missing_natural_language_in_shell ... ok\ntest marker::shell_host_zsh_ambiguous_phrase_stays_in_shell ... ok\ntest marker::shell_host_sensitive_natural_language_routes_to_agent_with_flag ... ok\ntest marker::shell_host_zsh_later_preexec_hook_fails_closed_for_path_generation ... ok\ntest marker::shell_host_zsh_nested_missing_is_not_treated_as_top_level_input ... ok\ntest marker::shell_host_zsh_preserves_user_missing_handler_contract ... ok\ntest marker::shell_host_zsh_valid_cue_matrix_wins_over_natural_language ... ok\ntest marker::shell_host_zsh_missing_natural_language_closes_started_command ... ok\ntest native::enhanced_assisted_integration_remains_the_default ... ok\ntest marker::shell_secret_detectors_match_canonical_shapes_and_boundaries ... ok\ntest native::enhanced_bash_functrace_keeps_prompt_internals_bounded ... ok\ntest native::enhanced_bash_xtrace_bounds_internal_hooks_and_preserves_user_state ... ok\ntest native::enhanced_matches_bash_trap_and_option_oracle ... ok\ntest native::enhanced_history_disabled_emits_redacted_boundaries_and_keeps_shell_ownership ... ok\ntest native::enhanced_prompt_boundary_survives_user_ps1_reassignment ... ok\ntest native::enhanced_prompt_wrappers_do_not_assign_readonly_user_variables ... ok\ntest native::enhanced_prompt_wrappers_preserve_user_variables ... ok\ntest native::enhanced_routes_without_global_debug_tracing ... ok\ntest native::enhanced_zsh_xtrace_bounds_internal_hooks_and_preserves_user_state ... ok\ntest native::enhanced_shift_tab_publishes_status_rows_when_symbols_enabled ... ok\ntest native::enhanced_shift_tab_toggles_shell_only_routing_without_restarting_bash ... ok\ntest native::enhanced_zsh_xtrace_hides_assistance_state_path ... ok\ntest native::line_interactive_host_can_invoke_claude_adapter_through_governance ... ok\ntest native::line_interactive_host_routes_input_to_bash_and_journal ... ok\ntest native::line_interactive_host_runs_shell_command_with_non_ascii_path ... ok\ntest native::native_integration_leaves_zsh_startup_and_input_owned_by_zsh ... ok\ntest native::native_integration_leaves_bash_hooks_and_input_owned_by_bash ... ok\ntest parity::bash_secondary_prompt_watchdog_reaps_unclosed_continuation ... ok\ntest parity::enhanced_bash_errexit_context_keeps_interactive_session_alive ... ok\ntest native::bash_startup_files_reach_user_prompt_in_native_and_enhanced_sessions ... ok\ntest parity::bash_secondary_prompt_stays_shell_owned ... ok\ntest parity::secondary_prompt_oracle_rejects_wrong_order_and_duplicates ... ok\ntest parity::enhanced_bash_keeps_three_background_jobs_concurrent ... ok\ntest parity::enhanced_bash_preserves_last_argument_across_prompt_boundary ... ok\ntest redaction::scripted_bash_redacts_command_facts_and_durable_output_evidence ... ok\ntest relay::raw_relay_bash_excludes_secrets_from_history_and_journal ... ok\ntest relay::raw_relay_bash_guards_each_slash_in_shell_owned_batch ... ok\ntest relay::raw_relay_bash_ctrl_u_and_multiline_paste_execute_only_retained_input ... ok\ntest relay::raw_relay_bash_intercepts_history_recalled_slash_with_enter_and_ctrl_o ... ok\ntest relay::raw_relay_bash_invalid_utf8_never_enters_event_provenance ... ok\ntest relay::raw_relay_bash_preserves_carriage_return_debug_output_before_guard_shadow ... ok\ntest relay::raw_relay_bash_preserves_partial_debug_output_before_guard_shadow ... ok\ntest relay::raw_relay_bash_preserves_same_read_foreground_stdin_bytes ... ok\ntest relay::raw_relay_bash_renders_direct_slash_submission_exactly_once ... ok\ntest relay::raw_relay_bash_renders_recalled_slash_submission_exactly_once ... ok\ntest relay::raw_relay_bash_renders_wrapped_ascii_slash_submission_exactly_once ... ok\ntest relay::raw_relay_bash_routes_recalled_and_indented_natural_language ... ok\ntest relay::raw_relay_bash_slash_route_switch_off_keeps_rust_intercept ... ok\ntest relay::raw_relay_bash_up_recalls_intercepted_slash_command ... ok\ntest relay::raw_relay_bash_shell_opaque_bytes_ignore_slash_route ... ok\ntest relay::raw_relay_bash_verbose_mode_hides_both_guard_echoes ... ok\ntest relay::raw_relay_bash_vi_mode_guards_slash_without_mutating_commands ... ok\ntest relay::raw_relay_bash_xtrace_hides_guard_protocol_and_sentinel ... ok\ntest relay::raw_relay_capture_ack_replays_same_read_multiline_suffix ... ok\ntest relay::raw_relay_capture_chain_discards_old_generation_suffix ... ok\ntest relay::raw_relay_capture_eof_discards_old_generation_suffix ... ok\ntest relay::raw_relay_capture_owned_input_overflow_is_visible_and_discarded ... ok\ntest relay::raw_relay_capture_target_gone_discards_old_suffix_then_installs_new_target ... ok\ntest relay::raw_relay_hold_mode_drops_input_without_writing_to_bash ... ok\ntest parity::bash_prompt_command_attributes_and_child_environment_follow_integration_contract ... ok\ntest relay::raw_relay_hold_mode_still_observes_ctrl_c ... ok\ntest relay::raw_relay_zsh_buffers_fragmented_intercept_candidates ... ok\ntest relay::raw_relay_zsh_excludes_secrets_from_history_and_journal ... ok\ntest relay::raw_relay_zsh_preserves_session_history ... ok\ntest relay::removed_draft_alias_preserves_native_shell_routing ... ok\ntest relay::routing_c3_driver_result_is_not_silently_discarded ... ok\ntest relay::routing_c3_eof_error_preserves_reader_error ... ok\ntest relay::routing_c3_eof_partial_line_has_no_synthetic_pty_write ... ok\ntest relay::routing_c3_eof_session_shutdown_is_bounded_in_zsh ... ok\ntest relay::routing_c3_eof_session_shutdown_kills_hup_ignoring_foreground_group ... ok\ntest relay::routing_c3_eof_submitted_no_drift_waits_for_command ... ok\ntest relay::routing_c3_explicit_draft_remains_the_only_multiline_agent_entry ... ok\ntest relay::routing_c3_mirror_dirty_eof_never_appends_exit ... ok\ntest relay::routing_c3_mirror_oversize_eof_never_appends_exit ... ok\ntest relay::routing_c3_paste_active_eof_never_executes_or_appends_exit ... ok\ntest relay::routing_c3_signal_status_kill_reaches_all_consumers ... ok\ntest relay::routing_c3_signal_status_reaches_all_consumers ... ok\ntest relay::routing_c3_typed_passthrough_keeps_cjk_shell_owned ... ok\ntest relay::routing_c3_unwrapped_paste_uses_shell_newline_semantics ... ok\ntest relay::routing_c3_valid_slash_intercepts_fragmented_input ... ok\ntest relay::routing_c3_wrapped_paste_stays_shell_owned ... ok\ntest relay::terminal_screen_redraw_erases_typed_line_and_cursor_ghost ... ok\ntest relay::xtrace_secret_scan_treats_cr_as_a_record_boundary ... ok\ntest relay::routing_c4_bash_route_enters_native_history_file ... ok\ntest termios::parent_lifecycle::direct_children_scans_every_wrapper_thread ... ok\ntest relay::routing_c4_history_privacy_secret_slash_never_persists ... ok\ntest relay::routing_c4_zsh_rust_route_uses_shared_event_contract ... ok\ntest termios::cosh_owned_timeout_recovery_restores_pty_without_visible_command ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_child_shell_signal ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_foreground_group_signal ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_input_eof ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_normal_exit ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sighup ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sigint ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sigquit ... ok\ntest termios::parent_lifecycle::raw_cli_restores_parent_termios_after_wrapper_sigterm ... ok\ntest termios::parent_lifecycle::raw_passthrough_preserves_inherited_sigint_ignore ... ok\ntest termios::parent_lifecycle::startup_path_probe_preserves_login_profile_terminal_semantics ... ok\ntest termios::parent_lifecycle::startup_path_probe_preserves_precedence_before_fallback_directories ... ok\ntest termios::parent_lifecycle::startup_path_probe_reaps_detached_profile_daemon ... ok\ntest termios::parent_lifecycle::startup_path_probe_timeout_reaps_supervisor_descendants ... ok\ntest termios::raw_relay_action_watchdog_turns_swallowed_exit_into_timeout_error ... ok\ntest termios::raw_relay_host_preserves_user_tty_mutation_after_interrupt ... ok\ntest termios::scripted_shell_exit_timeout_kills_foreground_group ... ok\ntest termios::transparent_bash_preserves_user_stty_modes ... ok\ntest termios::transparent_ctrl_backslash_is_not_synthesized_from_ctrl_c ... ok\ntest termios::transparent_ctrl_d_exits_bash_and_zsh ... ok\n\ntest result: ok. 219 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 206.01s\n\n",
+      "target_cache_key": "297f7061fc679d973bb7",
+      "workdir": "/work/repo/src/cosh-ng"
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/shell-host-fixture-7545-20261015/runs/20261014T203942Z-88fa0b6a",
+      "schema_version": 1
+    },
+    "ok": true
+  }
+]

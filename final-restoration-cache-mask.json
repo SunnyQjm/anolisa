@@ -1,0 +1,6 @@
+{
+  "failed_run": "20261014T203532Z-5f605715",
+  "actual_test_binary_sha256": "7ca46792acdc20b030910c19a11e7d7f4feaf585ec6bae366ad4d8e777a6607b",
+  "equals_last_mutant": true,
+  "reason": "Cargo reused mutant ELF after older-mtime unchanged bind source; no Compiling in exact log"
+}

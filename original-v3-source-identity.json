@@ -1,0 +1,13 @@
+{
+  "commit": "9259918118e9577edb23e1e426294f0cb26ef611",
+  "path": "src/cosh-ng/crates/cosh-shell/tests/shell_host/termios.rs",
+  "sha256": "d82aa6ebad29cb4f16d77d5fb5d3a425923bf1d5fa4f0d8cb7986f911c1b7abc",
+  "original_result": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/root-925991-full-workspace-20261015.json",
+  "original_result_sha256": "e92e289fa62842b81f414da8ac8ca90421c6e2d91a1ecf966258d3a1221f4788",
+  "original_command": [
+    "bash",
+    "-lc",
+    "set -e; test -x /tmp/cosh-workspace-nonroot-20261014/runner; cd /work/repo/src/cosh-ng; export CARGO_TARGET_DIR=/cache/cargo-target/58e248f2ee9f1910f4c9 CARGO_INCREMENTAL=0 CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUNNER=/tmp/cosh-workspace-nonroot-20261014/runner; /cache/cargo-home/bin/cargo +1.97.1 test --workspace --locked -- --test-threads=4"
+  ],
+  "exit_code": 101
+}

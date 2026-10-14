@@ -1,0 +1,7 @@
+{
+  "diagnostic_live_or_zombie_processes_remaining": 0,
+  "diagnostic_scripts_remaining": 0,
+  "source_and_original_binary_unchanged": true,
+  "root_shared_environment_retained": true,
+  "evidence": "final-readback.json + kernel-and-cleanup.json"
+}

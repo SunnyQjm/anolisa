@@ -1,0 +1,7 @@
+{
+  "owned_container": "cosh-7545-shell-host-20261015",
+  "actual_inventory_present": false,
+  "inventory_file": "final-container-inventory.json",
+  "source_unchanged": true,
+  "host_clean": true
+}

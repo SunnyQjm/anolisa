@@ -1,0 +1,25 @@
+{
+  "scope": "test-only prompt; no production binary rebuild",
+  "product_commit": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+  "canonical_old_sha256": "3feb609bf0d5bbf477002d899cd0c073fe778a30db5b6802686c89dde476ef89",
+  "canonical_new_sha256": "01eb6a5bdea6e9dbfca05be4ae1718e202fde80e2353dfc0e5dadf692e5a860d",
+  "installed_old_sha256": "abe7541fdb2900bd0a22b6dcb4684fbef3e817eb75312cdd2704d7ef9e73b501",
+  "installed_new_sha256": "c588c6d718bed1c7d27bb6b15d88a4064dbaad8a9e9a86a5e82d41f94ccdd0a4",
+  "historical_failures_retained": 4,
+  "fresh_real_provider_attempts_per_architecture": 1,
+  "fresh_case_id": "HANDOFF-2142-RPM-REAL",
+  "fresh_checks": [
+    "exact nonce reversal in Agent body",
+    "first failed command unchanged",
+    "printf/rev separate shell tool",
+    "follow-up Agent body",
+    "independent shell recovery output",
+    "installed RPM and Role identity",
+    "fresh auth",
+    "4 canonical points",
+    "evidence verify"
+  ],
+  "prelaunch_error": "local workdir prerequisite missing; stopped before provider; logs preserved",
+  "supplemental_final_png": "same sanitized cast final frame only; canonical shell-recovered snapshot captures command send",
+  "release_gate": "No-Go; full release scope excluded"
+}

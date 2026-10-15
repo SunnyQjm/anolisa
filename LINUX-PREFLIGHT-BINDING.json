@@ -1,0 +1,44 @@
+{
+  "W": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7759-handoff-nonce-tool",
+  "source_HEAD": "b5468b03ac0a90074feb6886f34b26f776965c54",
+  "component_tree": "ab0525d85b2a59e00e19c1168b3b0a8f2b3d9b1c",
+  "source_manifest_sha256": "1c7c2f120dc2b5a50f8ce035bba723be194be746420c3d2a384f1c92e4bc3890",
+  "forward_files": [
+    {
+      "path": "linux-validation/create_forward.py",
+      "sha256": "d2ad2db77ed2f3370c485df731f9135056fb6001243ffd396418b71570c01f96"
+    },
+    {
+      "path": "linux-validation/run_cli.py",
+      "sha256": "d47e5661902d5e48c984c8fd27309ca721cf003a88d93e980104632f4fd3f3ba"
+    },
+    {
+      "path": "linux-validation/forward/cargo",
+      "sha256": "901ad1c50d24b37dff5726857034c48f2f46b32a4cab21da1d39dd61ddb13faa"
+    },
+    {
+      "path": "linux-validation/forward/bash",
+      "sha256": "901ad1c50d24b37dff5726857034c48f2f46b32a4cab21da1d39dd61ddb13faa"
+    },
+    {
+      "path": "linux-validation/runtime/scripts/cosh-lab-container",
+      "sha256": "59ca3e84d6599c8286443bcc066a6bf53fd8f4f675035617bfe4537499794e46"
+    }
+  ],
+  "semantics": "cargo original argv with fixed +1.97.1; bash original argv; envexec stdout/stderr/exit forwarded unchanged; no gate skip; readonly source",
+  "reused_old_run": false,
+  "reused_shared_mutable_cache": false,
+  "environment_overrides": [
+    "CARGO_NET_OFFLINE=true with checksum-verified complete public dependency cache",
+    "unset unrelated inherited CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUNNER"
+  ],
+  "prerequisite_failures_retained": [
+    "standard-preflight-fixed: missing offline vt100 and rg",
+    "dnf ripgrep unavailable; used SHA-verified previously-built native Linux ripgrep tool"
+  ],
+  "repository_dependencies_changed": false,
+  "gate_argv_modified": false,
+  "generator_reproduces_actual_wrappers_byte_for_byte": true,
+  "public_dependency_imports": "PUBLIC-DEPENDENCY-IMPORTS.json",
+  "original_gate_argv_preserved": true
+}

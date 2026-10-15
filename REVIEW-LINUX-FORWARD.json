@@ -1,0 +1,78 @@
+{
+  "findings_count": 0,
+  "findings": [],
+  "scope": "Local read-only review of linux-validation/forward/{cargo,bash}, linux-validation/run_cli.py, runtime standard preflight/bridge and saved binding/receipts; no container/cloud invocation",
+  "conclusion": "No blocking pass-forgery, omitted gate or swallowed command exit found in current forwarding wiring. Running Clippy is not yet a passed preflight.",
+  "verified": {
+    "binding_file_hashes_match": true,
+    "exact_container_run": "20261015T171152Z-e98b372e",
+    "guest": "ALinux4 aarch64",
+    "toolchain": "rustc/clippy/rustfmt 1.97.1 toolchain receipts",
+    "source": "1294 file hashes checked, source manifest1c7c2f120dc2b5a50f8ce035bba723be194be746420c3d2a384f1c92e4bc3890; /work/repo mount ro",
+    "original_gate_commands": [
+      "cargo fmt --check",
+      "cargo clippy --workspace --all-targets -- -D warnings",
+      "bash -c crates/cosh-shell/scripts/check-layout.sh",
+      "bash -c scripts/check-test-inventory.sh"
+    ],
+    "forwarding": "cargo inserts fixed +1.97.1; bash args preserved. Original process PATH restored before invoking env exec, avoiding recursive forwarding. envexec result stdout/stderr emitted and its exit_code used, including nonzero remote-command results. Missing/invalid result or null exit fails nonzero.",
+    "counter": "flock plus monotonic labels and exclusive output creation prevent old result reuse in current artifacts",
+    "actual_failure_propagation": "step002 Clippy exit101 and steps003/004 gate exits2/127 appear in standard-preflight-fixed data as false; no green laundering",
+    "environment_correction": "Bridge still exports inherited /opt/cosh-7608 runner and CARGO_NET_OFFLINE=true. Current forwarding command applies env -u CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUNNER CARGO_NET_OFFLINE=false before original command, so stale runner/offline scope does not apply to invoked cargo/gate process. Other task-private bridge compiler/cache/env settings remain explicit environment adaptation.",
+    "rg": "CLI uploaded native rg and saved remote SHA f071f62b96b972e44911d1ccededb17b380eb60d63585b1c5db0b4e00c9e00c0; original missing-rg failures preserved",
+    "preflight_scope": "Standard issuefix preflight retains original fmt/workspace-all-targets-Clippy/two configured gates. Its tests field explicitly not-run; this is not workspace-test acceptance."
+  },
+  "status_at_review": {
+    "step006_result_bytes": 0,
+    "step006_pass_claim": false,
+    "standard_preflight_ready_result_bytes": 0
+  },
+  "limitations": [
+    "Static and saved-receipt review only; no remote execution, no overall preflight success claimed.",
+    "Forwarding transmits text stdout/stderr through JSON/Python text mode; not a byte-for-byte binary stream or live streaming guarantee.",
+    "MACOS-BASELINE-BLOCKER records same baseline/fixed E0425; Linux success, if later established, will not claim macOS defect repaired.",
+    "Top-level envelope ok=true does not mean preflight passed; consume data.ok and individual steps.",
+    "Prior generator-sync limitation is closed by incremental_offline_review; earlier online status retained as historical record, latest effective mode is offline=true."
+  ],
+  "reviewed_files_sha256": {
+    "LINUX-PREFLIGHT-BINDING.json": "8f00b74d9358c7af51e67dc8fe7d9688ebe519c6e862c1b1a5ee2ec75ba8aa20",
+    "linux-validation/forward/cargo": "5b5fab554ba6dcd36c43e6055342f388813a7c30d9e6cd54f38d8b335c320a68",
+    "linux-validation/forward/bash": "5b5fab554ba6dcd36c43e6055342f388813a7c30d9e6cd54f38d8b335c320a68",
+    "linux-validation/run_cli.py": "d47e5661902d5e48c984c8fd27309ca721cf003a88d93e980104632f4fd3f3ba",
+    "linux-validation/runtime/src/cosh_lab/issuefix.py": "46fbcd7745e2bf8e8b4fe6decc864cb73eaaff3d3b9328abc6e5b14aea319e24",
+    "linux-validation/runtime/scripts/cosh-lab-container": "59ca3e84d6599c8286443bcc066a6bf53fd8f4f675035617bfe4537499794e46"
+  },
+  "incremental_offline_review": {
+    "findings_count": 0,
+    "findings": [],
+    "generator_difference_closed": true,
+    "independent_check": "AST literal script bytes equal both effective forward files; all refreshed binding SHA values match actual files.",
+    "effective_env": "CARGO_NET_OFFLINE=true; inherited CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUNNER still explicitly unset; original cargo/gate argv and fixed +1.97.1 unchanged",
+    "public_dependencies": {
+      "lock_sha256": "f3e07df2534be0498e46868f5427c6d207df50a2049b370e85cdd1cf212c4115",
+      "imports": 3,
+      "package_entries": 470,
+      "independent_check": "Every recorded package checksum equals current Cargo.lock checksum; all three saved envexec import receipts exit0",
+      "scope": "Public crate package archives for new task cache; no reuse of compiled artifacts or old run asserted",
+      "limitation": "This increment cross-checked recorded package checksums and import receipts, not independent rehash of all original archive member bytes."
+    },
+    "network_failure": {
+      "step006_exit_code": 101,
+      "classification": "Registry acquisition failure before Clippy compile; not a product compilation verdict",
+      "cancellation": "NETWORK-PREP-CANCELLATION.json preserves task CLI SIGINT/cancellation-chain intent and affected PID; no product provider run cancellation. This review does not independently assert remote process-zero from that summary alone."
+    },
+    "current_status": {
+      "standard_preflight_offline_complete_result_bytes": 0,
+      "passed": false,
+      "interpretation": "Pending result at review; no unreturned Clippy/gates promoted to PASS"
+    },
+    "files_sha256": {
+      "LINUX-PREFLIGHT-BINDING.json": "52299d099036432a7c7f5ed25e1ca004c416e8fb4539a42df2b40fd77be03ba4",
+      "PUBLIC-DEPENDENCY-IMPORTS.json": "7738911440f5f253283beef781692bd7ad012d678fabeb65b2367c3346219ca0",
+      "linux-validation/create_forward.py": "d2ad2db77ed2f3370c485df731f9135056fb6001243ffd396418b71570c01f96",
+      "linux-validation/forward/cargo": "901ad1c50d24b37dff5726857034c48f2f46b32a4cab21da1d39dd61ddb13faa",
+      "linux-validation/forward/bash": "901ad1c50d24b37dff5726857034c48f2f46b32a4cab21da1d39dd61ddb13faa",
+      "linux-validation/NETWORK-PREP-CANCELLATION.json": "3260150a44f78d70d8f09ba4a1faa5915f9a0f085fcb21f94558f9b2bbee721c"
+    }
+  }
+}

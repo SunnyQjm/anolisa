@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-15T16:52:57.431218+00:00",
+  "checks": {
+    "RED-final-checker": {
+      "exit": 1,
+      "expected": 1
+    },
+    "GREEN-final-checker": {
+      "exit": 0,
+      "expected": 0
+    }
+  },
+  "checker_sha256": "cbdbd00c06bb8d0cbdb02b434db56f22e7fc0fda2b2db025e762b0a8415f6c57",
+  "scope": "local structural contract and actual generation only; real provider fresh execution pending",
+  "historical_original_failures": 4,
+  "historical_failures_relabelled": false
+}

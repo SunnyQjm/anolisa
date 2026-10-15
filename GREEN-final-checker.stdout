@@ -1,0 +1,21 @@
+{
+  "canonical_sha256": "01eb6a5bdea6e9dbfca05be4ae1718e202fde80e2353dfc0e5dadf692e5a860d",
+  "installed_sha256": "c588c6d718bed1c7d27bb6b15d88a4064dbaad8a9e9a86a5e82d41f94ccdd0a4",
+  "canonical_only_one_prompt_field_changed": true,
+  "actual_generator_inherits_prompt": true,
+  "existing_dual_arch_GREEN_body_equivalent_except_ID_title": true,
+  "oracle_mutations_rejected": [
+    "wrong_ack",
+    "removed_nonce",
+    "weaker_wait",
+    "timeout",
+    "extra_retry",
+    "first_command",
+    "missing_point",
+    "scripted_mode",
+    "followup_removed",
+    "recovery_removed"
+  ],
+  "printf_rev_controls": 3,
+  "merged": false
+}

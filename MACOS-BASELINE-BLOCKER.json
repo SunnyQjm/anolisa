@@ -1,0 +1,23 @@
+{
+  "results": {
+    "fixed": {
+      "ok": false,
+      "fmt": true,
+      "gates": true,
+      "clippy_failure": "E0425 spawn_silent_daemon checkpoint.rs:1801 macOS cosh-platform lib test",
+      "preflight_sha256": "8ddd6697484a8f9bb28119a7b437597b0daab8aaefa3e8ae0bfbd5742d7e9787"
+    },
+    "main_baseline": {
+      "ok": false,
+      "fmt": true,
+      "gates": true,
+      "clippy_failure": "E0425 spawn_silent_daemon checkpoint.rs:1801 macOS cosh-platform lib test",
+      "preflight_sha256": "76769c640b1e6a1222bb5a23c72f4edb7da490aaf9eced949edee51713b6c0ca"
+    }
+  },
+  "rust_toolchain": "1.97.1 isolated task install",
+  "source_cosh_ng_diff_vs_origin_main": [],
+  "classification": "preexisting non-Linux test compilation; no Rust source changed in this test-only fix",
+  "reviewed_yaml_restored_sha256": "01eb6a5bdea6e9dbfca05be4ae1718e202fde80e2353dfc0e5dadf692e5a860d",
+  "PR_published": false
+}

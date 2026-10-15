@@ -1,0 +1,19 @@
+{
+  "issue": 7759,
+  "base_commit": "b5468b03ac0a90074feb6886f34b26f776965c54",
+  "old_source_commit": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+  "canonical_sha256": "3feb609bf0d5bbf477002d899cd0c073fe778a30db5b6802686c89dde476ef89",
+  "involved_path_byte_identical_to_original_FAIL_source": true,
+  "original_installed_first_and_replay_runs": [
+    "20261015T145312Z-c6f10156",
+    "20261015T145315Z-c8b947ab",
+    "20261015T150248Z-6cd23d55",
+    "20261015T150251Z-b21e9376"
+  ],
+  "existing_diagnostic_GREEN_runs": [
+    "20261015T151406Z-29e1c36f",
+    "20261015T151409Z-3d54f12b"
+  ],
+  "original_case_IDs_preserved": true,
+  "merged": false
+}

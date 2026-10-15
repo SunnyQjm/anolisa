@@ -1,0 +1,68 @@
+{
+  "findings_count": 0,
+  "findings": [],
+  "scope": "Independent local read-only review of one fresh installed original-ID run per architecture; no remote actions/reexecution",
+  "conclusion": "Both new-prompt installed original-ID runs have valid behavioral GREEN evidence. No blocking discrepancy found.",
+  "runs": [
+    {
+      "architecture": "aarch64",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/provider7759-resources/runs/20261015T165714Z-4ec652fd",
+      "case_sha256": "c588c6d718bed1c7d27bb6b15d88a4064dbaad8a9e9a86a5e82d41f94ccdd0a4",
+      "nonce_from_actual_prompt": "de95640c9031e242b289f09bd006d2f0",
+      "Agent_ACK": "0f2d600db90f982b242e1309c04659ed",
+      "exact_first_command_failed": true,
+      "calculation_command": "printf 'de95640c9031e242b289f09bd006d2f0' | rev",
+      "Agent_followup": true,
+      "independent_shell_return_line_in_sanitized_cast": true,
+      "installed_identity_command_exit0": true,
+      "fresh_auth_run_id": "20261015T165609Z-3d15e199",
+      "binary_sha256": "0176a3427df44b16a04485ab3da8847c5ac197fbf28462eaa2e3043340b710c6",
+      "rpm_sha256": "8cccfa8d2a0b9e011c26a36b8bcf5e07ff976b6340ea9eaa68f6666db9d1dc1d",
+      "transcript_sha256": "59e663a2cda93322689c7dcf5b4adae7c51c471994e7d773b0c5df5aaed17445",
+      "cast_sha256": "91c47cdfa1ca3cf101906f5f1f91d480d210a5b2c8e7f7191eaf34eb91ea4505",
+      "four_point_image_hashes_match": true,
+      "evidence_verify": true
+    },
+    {
+      "architecture": "x86_64",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/provider7759-resources/runs/20261015T165714Z-a340e129",
+      "case_sha256": "c588c6d718bed1c7d27bb6b15d88a4064dbaad8a9e9a86a5e82d41f94ccdd0a4",
+      "nonce_from_actual_prompt": "8df2fcb8366ba66b702c857e37bd0897",
+      "Agent_ACK": "7980db73e758c207b66ab6638bcf2fd8",
+      "exact_first_command_failed": true,
+      "calculation_command": "printf '8df2fcb8366ba66b702c857e37bd0897' | rev",
+      "Agent_followup": true,
+      "independent_shell_return_line_in_sanitized_cast": true,
+      "installed_identity_command_exit0": true,
+      "fresh_auth_run_id": "20261015T165609Z-f16234f3",
+      "binary_sha256": "b11bd7081653a7be4a3c4689b061c61745453c7180c6471dc2f9579663f0ac82",
+      "rpm_sha256": "e27c82cf186fa8b4181a77bfa2f0b7f49d287c75e4e6bc3b0cc695b80e7bbab7",
+      "transcript_sha256": "17618a22c991c9938582f0749d6b1a4bf0ea970b9167094c3d8a9fe1c16a7d85",
+      "cast_sha256": "aee6d6568ea77e9bf34afa47a91f18808404c1bbac42e77537761a77d8182b80",
+      "four_point_image_hashes_match": true,
+      "evidence_verify": true
+    }
+  ],
+  "visual_limitation": {
+    "confirmed_by_independent_image_view": true,
+    "artifact": "screenshots/shell-recovered.png in both original runs",
+    "limitation": "Captured after echo command submission and before its independent COSH_SHELL_RECOVERED output. This PNG alone does not demonstrate Shell execution recovery.",
+    "behavioral_proof": "Independent output line in transcript.txt and sanitized cast, followed by prompt and clean exit; not prompt echo matching.",
+    "nonblocking_recommendation": "Optionally render supplemental final-frame PNG from the same cast into a separate evidence folder; preserve original runs/index/oracle unchanged."
+  },
+  "prelaunch": {
+    "record": "PRELAUNCH-ERROR.json",
+    "classification": "Local missing-workdir prerequisite before provider invocation, not model/provider retry",
+    "preserved_empty_stdout_files": [
+      "aarch64-original-id-once.json",
+      "x86_64-original-id-once.json"
+    ],
+    "provider_attempts_per_arch_after_fix": 1
+  },
+  "limitations": [
+    "Historical four original-prompt installed FAIL remain FAIL; these GREENs bind new YAML SHA c588c6d718bed1c7d27bb6b15d88a4064dbaad8a9e9a86a5e82d41f94ccdd0a4.",
+    "Product binaries are frozen f81 installed RPMs; test prompt is unmerged #7759 adaptation, not a new product build.",
+    "request_count2 denotes frontend requests; no HTTP count, first-token/SLO or statistical reliability conclusion.",
+    "Only provided saved receipts/casts/images reviewed; no fresh cloud state, resource cleanup or overall release approval claimed."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "fresh installed case new prompt only; not an overall release result",
+  "product_commit": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+  "test_base_HEAD": "b5468b03ac0a90074feb6886f34b26f776965c54",
+  "new_test_canonical_sha256": "01eb6a5bdea6e9dbfca05be4ae1718e202fde80e2353dfc0e5dadf692e5a860d",
+  "new_derived_installed_sha256": "c588c6d718bed1c7d27bb6b15d88a4064dbaad8a9e9a86a5e82d41f94ccdd0a4",
+  "strict_hard_oracles_changed": false,
+  "historical_failures_retained": 4,
+  "fresh_provider_attempts_per_architecture": 1,
+  "final_test_commit": "c0d5cac2deabff1ec6b89c891cba3e337aa892bb",
+  "PR": "https://github.com/agentic-os-org/ANOLISA/pull/7760",
+  "release_gate": "No-Go",
+  "committed_canonical_equals_executed_test_source": true,
+  "source_base": "b5468b03ac0a90074feb6886f34b26f776965c54",
+  "merged": false
+}

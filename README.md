@@ -1,0 +1,3 @@
+Evidence for issue #7759. Product binaries are immutable f81 installed RPMs. The new test prompt has its own SHA. Historical four original failures remain failures. Final recovery screenshots are supplemental replays of the same sanitized cast; canonical point indices are unchanged. Local prelaunch workdir error occurred before any provider request. Full release acceptance is outside this test-only PR.
+
+The raw fresh-provider proof was recorded before commit. VERSION-BINDING.json maps its exact executed YAML bytes to the final committed test HEAD and this PR. Earlier review snapshots explicitly leave then-pending gates pending; LINUX-PREFLIGHT-COMMITTED.json records their actual final result.

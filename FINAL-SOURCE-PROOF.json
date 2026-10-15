@@ -1,0 +1,46 @@
+{
+  "all_tracked_sha_match": 6798,
+  "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+  "tracked_clean": true,
+  "lock_sha256": "f3e07df2534be0498e46868f5427c6d207df50a2049b370e85cdd1cf212c4115",
+  "elf_archive_sha256": "a2a3fae64a7463096b93a066eb56bfdd909835d7cc7910fb39bdc04b8fce532a",
+  "guest_source_guard": {
+    "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+    "parents": [
+      "d029216f2e6080f62e60487b3be8937216683455",
+      "37c1529396712bdbe1c780f258a0b7980776d90a"
+    ],
+    "source_files": 6798,
+    "manifest_sha256": "2da79077adda6ecbe118cf111020979abcf97230c08ba9e8de1cf55868a4ed0d",
+    "read_only_source": true,
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "architecture": "aarch64",
+    "target_dir": "/cache/cargo-target/858a382717a222974a17",
+    "binaries": {
+      "/cache/cargo-target/858a382717a222974a17/debug/cosh-shell": {
+        "sha256": "72e5df6f98c2fbdb65d8e703a4dd4fd7917f1e174ca5927686db6044db2a5428",
+        "ELF_machine": 183,
+        "size": 142254296
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-56f2c0145fa49a2f": {
+        "sha256": "72e5df6f98c2fbdb65d8e703a4dd4fd7917f1e174ca5927686db6044db2a5428",
+        "ELF_machine": 183,
+        "size": 142254296
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9": {
+        "sha256": "2c0c3aa04ac9bf9abfa1034eb64fe8047d0be8c57adfa13ed838fc1bd52f15da",
+        "ELF_machine": 183,
+        "size": 127293360
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0": {
+        "sha256": "a88026fe95e11a645b44257a08259c1b76fd565a830da2d8f503084f46757b03",
+        "ELF_machine": 183,
+        "size": 199039208
+      }
+    },
+    "guard_sha256": "341eb145da4047e8f2909d5e3667b2dccb9a1929183d8797d893d259ef4384fa"
+  }
+}

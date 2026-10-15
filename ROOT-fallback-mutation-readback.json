@@ -1,0 +1,74 @@
+{
+  "mutation-guard-removed": {
+    "metadata": {
+      "action": "guard-removed",
+      "compiled": true,
+      "changed_files": [
+        "crates/cosh-shell/src/agent/intercept.rs"
+      ],
+      "command": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "agent::intercept::tests::insight_intercept_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "expected_failures": [
+        "agent::intercept::tests::insight_intercept_ai_off_consumes_submission_without_freeform_dispatch",
+        "agent::intercept::tests::insight_intercept_ai_off_preserves_busy_run_and_existing_queue"
+      ],
+      "observed_failures": [
+        "agent::intercept::tests::insight_intercept_ai_off_consumes_submission_without_freeform_dispatch",
+        "agent::intercept::tests::insight_intercept_ai_off_preserves_busy_run_and_existing_queue"
+      ],
+      "executables": {
+        "/cache/pr6892-caller-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "d0474d0d311781b2ae8dcf67dc4d07f10e4fcde008af505aafc7dd97da8a7f6c",
+          "ELF_machine": 183
+        }
+      },
+      "stdout_sha256": "95ce186b29885db4254723acdaf498b8274b6d1882a18bdcd11a6a9db39ff6b8",
+      "stderr_sha256": "2358d48dea043ad4de51c1efdf8b38a7a8c025872946c4096d8a6680ca7b84fd"
+    },
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T050018Z-640357d6"
+  },
+  "mutation-restored-green": {
+    "metadata": {
+      "action": "restored-green",
+      "compiled": true,
+      "changed_files": [],
+      "command": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "agent::intercept::tests::insight_intercept_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "expected_failures": [],
+      "observed_failures": [],
+      "executables": {
+        "/cache/pr6892-caller-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "cb206732449c725c146c17acb4b46b4ba6600c0042af3bb3b05e73b1862db877",
+          "ELF_machine": 183
+        }
+      },
+      "stdout_sha256": "fe279efbe5b3cbc55744e1135f13290cd576134987142bd40587c1d41d677f56",
+      "stderr_sha256": "78cddb365669c08fb55094a69399914ed817e17a4a411643a219ee0098cfed74"
+    },
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T050148Z-ca2ee3bf"
+  }
+}

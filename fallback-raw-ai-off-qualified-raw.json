@@ -1,0 +1,29 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--test",
+      "raw_cli",
+      "passthrough::raw_cli_ai_off_consumes_agent_marker_without_adapter_or_shell_error",
+      "--",
+      "--exact",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 7.954604,
+    "exit_code": 0,
+    "scope": "raw-cli",
+    "stderr": "   Compiling cosh-shell v0.27.0 (/work/repo/src/cosh-ng/crates/cosh-shell)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.35s\n     Running tests/raw_cli.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/raw_cli-18a8fa36c9f91f53)\n",
+    "stdout": "\nrunning 1 test\ntest passthrough::raw_cli_ai_off_consumes_agent_marker_without_adapter_or_shell_error ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 0.26s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045949Z-2912e2d6",
+    "schema_version": 1
+  },
+  "ok": true
+}

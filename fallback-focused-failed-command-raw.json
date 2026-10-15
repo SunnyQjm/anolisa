@@ -1,0 +1,28 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--lib",
+      "--bins",
+      "agent::failed_command::tests",
+      "--",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 0.966344,
+    "exit_code": 0,
+    "scope": "unit",
+    "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.56s\n     Running unittests src/lib.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9)\n     Running unittests src/main.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0)\n     Running unittests src/bin/cosh-ui-worker.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_ui_worker-6582071fc11eeeb0)\n",
+    "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s\n\n\nrunning 41 tests\ntest agent::failed_command::tests::access_key_error_failure_is_not_cancel_classified_end_to_end ... ok\ntest agent::failed_command::tests::ai_disabled_auto_trigger_skips_agent_start_without_bookkeeping ... ok\ntest agent::failed_command::tests::ai_disabled_hook_consultation_does_not_start_agent ... ok\ntest agent::failed_command::tests::ai_disabled_natural_language_has_no_command_not_found_fallback ... ok\ntest agent::failed_command::tests::ai_disabled_user_confirmed_trigger_skips_agent_start_without_bookkeeping ... ok\ntest agent::failed_command::tests::auto_abnormal_signal_without_excerpt_downgrades_to_agent_prompt ... ok\ntest agent::failed_command::tests::auto_downgrades_build_failure_without_usable_excerpt ... ok\ntest agent::failed_command::tests::auto_keeps_new_failure_inputs_as_user_confirmed_actions ... ok\ntest agent::failed_command::tests::bare_interrupted_line_stays_silent_end_to_end ... ok\ntest agent::failed_command::tests::command_not_found_without_ready_catalog_expires_in_first_batch ... ok\ntest agent::failed_command::tests::credential_error_header_stays_analyzable_end_to_end ... ok\ntest agent::failed_command::tests::credential_prompt_output_stays_silent_end_to_end ... ok\ntest agent::failed_command::tests::explicit_failed_command_target_skips_internal_origins ... ok\ntest agent::failed_command::tests::failed_command_analysis_keeps_real_failures ... ok\ntest agent::failed_command::tests::failed_command_analysis_skips_user_interrupts_and_sigpipe ... ok\ntest agent::failed_command::tests::failed_command_analysis_uses_related_history_facts ... ok\ntest agent::failed_command::tests::failure_disposition_quiets_usage_help ... ok\ntest agent::failed_command::tests::failure_evidence_records_each_closed_analysis_profile ... ok\ntest agent::failed_command::tests::failure_evidence_records_structured_classifier_reasons ... ok\ntest agent::failed_command::tests::failure_output_excerpt_is_bounded ... ok\ntest agent::failed_command::tests::failure_output_excerpt_keeps_real_head_and_tail ... ok\ntest agent::failed_command::tests::failure_output_status_uses_typed_head_tail_truncation ... ok\ntest agent::failed_command::tests::generic_failure_is_silent_in_every_mode ... ok\ntest agent::failed_command::tests::interrupted_substring_failure_is_not_cancel_classified_end_to_end ... ok\ntest agent::failed_command::tests::invalid_utf8_existing_output_has_explicit_read_failed_status ... ok\ntest agent::failed_command::tests::manual_mode_does_not_render_failed_command_card ... ok\ntest agent::failed_command::tests::manual_mode_skips_user_interrupted_failed_command_card ... ok\ntest agent::failed_command::tests::oom_like_failed_command_has_no_sysom_hint_before_finalizer ... ok\ntest agent::failed_command::tests::phase12_failure_fixtures_cover_semantics_and_all_modes ... ok\ntest agent::failed_command::tests::proven_missing_user_handler_non_127_has_no_command_not_found_fallback ... ok\ntest agent::failed_command::tests::proven_missing_with_custom_output_produces_generic_agent_prompt ... ok\ntest agent::failed_command::tests::proven_missing_without_output_produces_generic_agent_prompt ... ok\ntest agent::failed_command::tests::proven_missing_without_rewrite_produces_generic_agent_prompt ... ok\ntest agent::failed_command::tests::provider_context_does_not_duplicate_overlapping_build_lines ... ok\ntest agent::failed_command::tests::provider_context_drops_oversized_optional_hints_before_budgeting_evidence ... ok\ntest agent::failed_command::tests::provider_context_keeps_mandatory_metadata_within_total_budget ... ok\ntest agent::failed_command::tests::provider_context_reports_complete_for_untruncated_permission_excerpt ... ok\ntest agent::failed_command::tests::provider_context_reports_redaction_from_the_injected_tail_excerpt ... ok\ntest agent::failed_command::tests::runtime_exception_evidence_uses_focused_profile ... ok\ntest agent::failed_command::tests::smart_build_failure_produces_agent_prompt_candidate ... ok\ntest agent::failed_command::tests::unsafe_missing_has_no_command_not_found_fallback ... ok\n\ntest result: ok. 41 passed; 0 failed; 0 ignored; 0 measured; 3029 filtered out; finished in 0.06s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045819Z-2f72e8a2",
+    "schema_version": 1
+  },
+  "ok": true
+}

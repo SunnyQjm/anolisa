@@ -1,0 +1,28 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--lib",
+      "--bins",
+      "agent::intercept::tests",
+      "--",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 0.951395,
+    "exit_code": 0,
+    "scope": "unit",
+    "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.54s\n     Running unittests src/lib.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9)\n     Running unittests src/main.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0)\n     Running unittests src/bin/cosh-ui-worker.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_ui_worker-6582071fc11eeeb0)\n",
+    "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s\n\n\nrunning 20 tests\ntest agent::intercept::tests::accepted_prompt_ghost_does_not_clear_pending_binding_before_binding ... ok\ntest agent::intercept::tests::ai_disabled_drops_pending_insight_binding_on_accept ... ok\ntest agent::intercept::tests::directly_submitting_personal_prompt_skips_tab_accepted_feedback ... ok\ntest agent::intercept::tests::dismissed_prompt_ghost_clears_pending_binding ... ok\ntest agent::intercept::tests::health_prompt_selection_does_not_create_personal_feedback ... ok\ntest agent::intercept::tests::identified_accept_is_feedback_not_a_standalone_agent_request ... ok\ntest agent::intercept::tests::matching_insight_suggestion_consumes_binding_once_and_uses_source_block ... ok\ntest agent::intercept::tests::memory_evidence_includes_recent_provider_safe_facts_not_boolean_marker ... ok\ntest agent::intercept::tests::mismatched_suggestion_clears_binding_and_falls_back_without_history ... ok\ntest agent::intercept::tests::missing_source_block_clears_binding_without_cross_binding ... ok\ntest agent::intercept::tests::ordinary_natural_language_does_not_render_path_notice ... ok\ntest agent::intercept::tests::path_prompt_notice_is_stable_and_redacts_sensitive_input ... ok\ntest agent::intercept::tests::personal_prompt_action_distinguishes_accept_and_dismiss ... ok\ntest agent::intercept::tests::personal_prompt_action_requires_exact_suggestion_id ... ok\ntest agent::intercept::tests::selecting_health_prompt_ignores_all_visible_personal_prompts ... ok\ntest agent::intercept::tests::selecting_second_personal_prompt_ignores_others_then_submits_selected ... ok\ntest agent::intercept::tests::session_mismatch_clears_binding_without_cross_binding ... ok\ntest agent::intercept::tests::shell_exit_marks_all_unresolved_personal_prompts_ignored ... ok\ntest agent::intercept::tests::smart_and_auto_failure_requests_share_the_same_bounded_evidence ... ok\ntest agent::intercept::tests::stopping_personal_recommendations_ignores_personal_and_preserves_health_binding ... ok\n\ntest result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 3045 filtered out; finished in 0.07s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035435Z-81075aa6",
+    "schema_version": 1
+  },
+  "ok": true
+}

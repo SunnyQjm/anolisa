@@ -1,0 +1,8 @@
+{
+  "backend": "container",
+  "name": "cosh-pr6892-fallback-aarch64",
+  "independent_container_present": false,
+  "owned_cache_present": false,
+  "elf_archive_sha256": "23102c1dee78ec528be498e2eedfec8dec1ef19b4b82b5dccc86f802769f65ed",
+  "raw_final_source_proof": "outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/FINAL-SOURCE-PROOF.json"
+}

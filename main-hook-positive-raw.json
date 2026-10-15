@@ -1,0 +1,28 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--lib",
+      "--bins",
+      "ai_disabled_hook_consultation_does_not_start_agent",
+      "--",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 0.711297,
+    "exit_code": 0,
+    "scope": "unit",
+    "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.41s\n     Running unittests src/lib.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9)\n     Running unittests src/main.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0)\n     Running unittests src/bin/cosh-ui-worker.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_ui_worker-6582071fc11eeeb0)\n",
+    "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest agent::failed_command::tests::ai_disabled_hook_consultation_does_not_start_agent ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3064 filtered out; finished in 0.01s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035437Z-1c2cb8a9",
+    "schema_version": 1
+  },
+  "ok": true
+}

@@ -1,0 +1,48 @@
+{
+  "all_tracked_sha_match": 6798,
+  "base_head": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "base_tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+  "tracked_status": " M src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n M src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\n",
+  "changed_files": [
+    "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs",
+    "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs"
+  ],
+  "lock_sha256": "f3e07df2534be0498e46868f5427c6d207df50a2049b370e85cdd1cf212c4115",
+  "tested_patch_sha256": "862c508f620499e5de06ab41e17d94edb1223a047f94a5c45d445ef7ec4103b9",
+  "elf_archive_sha256": "23102c1dee78ec528be498e2eedfec8dec1ef19b4b82b5dccc86f802769f65ed",
+  "guest_source_guard": {
+    "source_head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "source_tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+    "source_manifest_sha256": "6f92397b1fe944b4446e2dad22741db519f4310ac93a834d503f958023d368ff",
+    "all_tracked_sha_match": 6798,
+    "changed_files": [
+      "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs",
+      "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs"
+    ],
+    "read_only_source": true,
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "binaries": {
+      "/cache/cargo-target/858a382717a222974a17/debug/cosh-shell": {
+        "sha256": "4099c99d695fd8b2939593199861e7ea2fab6c9720df9428d6a6c40642b62fcd",
+        "ELF_machine": 183,
+        "size": 142195608
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-56f2c0145fa49a2f": {
+        "sha256": "4099c99d695fd8b2939593199861e7ea2fab6c9720df9428d6a6c40642b62fcd",
+        "ELF_machine": 183,
+        "size": 142195608
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9": {
+        "sha256": "2c0c3aa04ac9bf9abfa1034eb64fe8047d0be8c57adfa13ed838fc1bd52f15da",
+        "ELF_machine": 183,
+        "size": 127293360
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0": {
+        "sha256": "7a7f987911370332cb526cc3ee8e7a8bd445a4a1ddc56c2f57d8967d57d1a09e",
+        "ELF_machine": 183,
+        "size": 199097512
+      }
+    },
+    "target_dir": "/cache/cargo-target/858a382717a222974a17"
+  }
+}

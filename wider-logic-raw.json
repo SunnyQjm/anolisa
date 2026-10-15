@@ -1,0 +1,27 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--test",
+      "logic",
+      "--",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 28.488298,
+    "exit_code": 0,
+    "scope": "logic",
+    "stderr": "   Compiling cosh-shell v0.27.0 (/work/repo/src/cosh-ng/crates/cosh-shell)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 25.03s\n     Running tests/logic.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/logic-d794be120500433c)\n",
+    "stdout": "\nrunning 11 tests\ntest redaction::provider_prompt_preserves_non_secret_command_facts ... ok\ntest redaction::provider_prompt_redacts_extended_secret_assignments_and_flags ... ok\ntest session_recovery::active_and_selected_provider_sessions_are_both_protected ... ok\ntest session_recovery::picker_footer_keeps_resume_and_clear_semantics_distinct ... ok\ntest session_recovery::recovery_states_and_health_have_stable_user_labels ... ok\ntest tools::readonly_tool_does_not_interpret_shell_syntax_in_tokens ... ok\ntest tools::readonly_tool_executes_tokenized_command_without_shell ... ok\ntest tools::shell_expands_globs_so_verbatim_token_assertions_are_not_vacuous ... ok\ntest tools::user_approved_tool_has_no_default_timeout ... ok\ntest tools::user_approved_tool_honors_configured_timeout ... ok\ntest tools::user_approved_tool_runs_shell_syntax_through_bash ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.14s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035531Z-b9607e2a",
+    "schema_version": 1
+  },
+  "ok": true
+}

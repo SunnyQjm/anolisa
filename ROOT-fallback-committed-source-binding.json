@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-15T05:11:36.863928+00:00",
+  "head": "67ed7de19fb9499c5a8f0e719349b24968318295",
+  "tree": "072c240a5e640f1c8cd248d58845e17457ed18bd",
+  "parent": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "all_tested_source_hashes_match_commit": 6798,
+  "tested_manifest_sha256": "6f92397b1fe944b4446e2dad22741db519f4310ac93a834d503f958023d368ff",
+  "tracked_clean": true,
+  "only_commit_files": [
+    "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs",
+    "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs"
+  ],
+  "review": "fallback-review.json no blockers",
+  "preflight": "codegatesallPASS;original62char50conventionexceptionretained",
+  "source_equivalence_scope": "working-tree tests rebound to exact committed content;no source edit after tests"
+}

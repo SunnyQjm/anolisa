@@ -1,0 +1,28 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--lib",
+      "--bins",
+      "agent::intercept::tests::insight_intercept_",
+      "--",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 47.225455,
+    "exit_code": 0,
+    "scope": "unit",
+    "stderr": "   Compiling cosh-shell v0.27.0 (/work/repo/src/cosh-ng/crates/cosh-shell)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 46.80s\n     Running unittests src/lib.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9)\n     Running unittests src/main.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0)\n     Running unittests src/bin/cosh-ui-worker.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_ui_worker-6582071fc11eeeb0)\n",
+    "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s\n\n\nrunning 5 tests\ntest agent::intercept::tests::insight_intercept_ai_off_consumes_submission_without_freeform_dispatch ... ok\ntest agent::intercept::tests::insight_intercept_ai_off_preserves_busy_run_and_existing_queue ... ok\ntest agent::intercept::tests::insight_intercept_ai_off_preserves_health_ghost_routing ... ok\ntest agent::intercept::tests::insight_intercept_ai_off_preserves_unrelated_explicit_input_routing ... ok\ntest agent::intercept::tests::insight_intercept_ai_on_queues_bound_request ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 3065 filtered out; finished in 0.10s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045730Z-6314ba51",
+    "schema_version": 1
+  },
+  "ok": true
+}

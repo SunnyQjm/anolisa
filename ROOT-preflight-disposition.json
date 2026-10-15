@@ -1,0 +1,27 @@
+{
+  "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "raw_data_ok": false,
+  "disposition": "Only50-characterconvention;explicitallowedexceptionperpr-submit;repositoryhardheader120passes;retainoriginalauthorhistory",
+  "fmt": true,
+  "clippy_workspace_all_targets_Dwarnings": true,
+  "gates": [
+    {
+      "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+      "detail": null,
+      "ok": true
+    },
+    {
+      "command": "bash -c scripts/check-source-layout.sh",
+      "detail": null,
+      "ok": true
+    },
+    {
+      "command": "bash -c scripts/check-test-inventory.sh",
+      "detail": null,
+      "ok": true
+    }
+  ],
+  "upstream_drift": [],
+  "planned_tests": "separate nonzero actual runs;ROOT-control-verification.json",
+  "no_Rust_lint_allow_or_threshold_change": true
+}

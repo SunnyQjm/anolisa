@@ -1,0 +1,28 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--lib",
+      "--bins",
+      "runtime::insight::tests",
+      "--",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 0.690837,
+    "exit_code": 0,
+    "scope": "unit",
+    "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.40s\n     Running unittests src/lib.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9)\n     Running unittests src/main.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0)\n     Running unittests src/bin/cosh-ui-worker.rs (/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_ui_worker-6582071fc11eeeb0)\n",
+    "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s\n\n\nrunning 13 tests\ntest runtime::insight::tests::agent_prompt_arms_bound_agent_intercept_route ... ok\ntest runtime::insight::tests::agent_prompt_has_independent_first_use_guidance ... ok\ntest runtime::insight::tests::ai_disabled_drops_agent_prompt_insight_without_arming_ghost ... ok\ntest runtime::insight::tests::ai_disabled_keeps_shell_rewrite_insight ... ok\ntest runtime::insight::tests::all_insight_topics_have_english_and_chinese_presentation ... ok\ntest runtime::insight::tests::command_not_found_uses_generic_agent_fallback_copy ... ok\ntest runtime::insight::tests::failed_render_does_not_consume_first_use_guidance ... ok\ntest runtime::insight::tests::shell_rewrite_arms_native_shell_prompt_ghost ... ok\ntest runtime::insight::tests::shell_rewrite_guidance_is_shown_only_on_first_successful_render ... ok\ntest runtime::insight::tests::styled_and_plain_insight_have_identical_single_line_text ... ok\ntest runtime::insight::tests::unknown_process_uses_complete_generic_copy ... ok\ntest runtime::insight::tests::visible_ghost_is_not_replaced_by_command_insight ... ok\ntest runtime::insight::tests::zh_agent_insight_localizes_visible_copy_and_prompt ... ok\n\ntest result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 3052 filtered out; finished in 0.01s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+    "target_cache_key": "858a382717a222974a17"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035436Z-d2acc8c5",
+    "schema_version": 1
+  },
+  "ok": true
+}

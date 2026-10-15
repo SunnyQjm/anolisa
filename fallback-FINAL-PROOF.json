@@ -1,0 +1,427 @@
+{
+  "scope": "PR6892 P2 caller freeform fallback regression",
+  "base_head": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "tested_source": "b811 + frozen two-file uncommitted patch; actual tracked file hashes bind implementation",
+  "source": {
+    "all_tracked_sha_match": 6798,
+    "base_head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "base_tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+    "tracked_status": " M src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n M src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\n",
+    "changed_files": [
+      "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs",
+      "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs"
+    ],
+    "lock_sha256": "f3e07df2534be0498e46868f5427c6d207df50a2049b370e85cdd1cf212c4115",
+    "tested_patch_sha256": "862c508f620499e5de06ab41e17d94edb1223a047f94a5c45d445ef7ec4103b9",
+    "elf_archive_sha256": "23102c1dee78ec528be498e2eedfec8dec1ef19b4b82b5dccc86f802769f65ed",
+    "guest_source_guard": {
+      "source_head": "b811c9742c80ff781be34293d12f073a3a433d88",
+      "source_tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+      "source_manifest_sha256": "6f92397b1fe944b4446e2dad22741db519f4310ac93a834d503f958023d368ff",
+      "all_tracked_sha_match": 6798,
+      "changed_files": [
+        "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs",
+        "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs"
+      ],
+      "read_only_source": true,
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "binaries": {
+        "/cache/cargo-target/858a382717a222974a17/debug/cosh-shell": {
+          "sha256": "4099c99d695fd8b2939593199861e7ea2fab6c9720df9428d6a6c40642b62fcd",
+          "ELF_machine": 183,
+          "size": 142195608
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-56f2c0145fa49a2f": {
+          "sha256": "4099c99d695fd8b2939593199861e7ea2fab6c9720df9428d6a6c40642b62fcd",
+          "ELF_machine": 183,
+          "size": 142195608
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9": {
+          "sha256": "2c0c3aa04ac9bf9abfa1034eb64fe8047d0be8c57adfa13ed838fc1bd52f15da",
+          "ELF_machine": 183,
+          "size": 127293360
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "7a7f987911370332cb526cc3ee8e7a8bd445a4a1ddc56c2f57d8967d57d1a09e",
+          "ELF_machine": 183,
+          "size": 199097512
+        }
+      },
+      "target_dir": "/cache/cargo-target/858a382717a222974a17"
+    }
+  },
+  "RED": {
+    "state": "RED_READY_FOR_ROOT_PRODUCT_FIX",
+    "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "production_code": "unmodified b811, all 6798 source hashes match test-only RED manifest",
+    "test_sha256": "b4867e9ebe17aa026a777a0edebbee90590bd7473f5978a48162aa7e6a207f38",
+    "test_file": "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs",
+    "compiled": true,
+    "expected_failures": [
+      "insight_intercept_ai_off_consumes_submission_without_freeform_dispatch",
+      "insight_intercept_ai_off_preserves_busy_run_and_existing_queue"
+    ],
+    "positive_controls_passed": [
+      "insight_intercept_ai_on_queues_bound_request",
+      "insight_intercept_ai_off_preserves_unrelated_explicit_input_routing",
+      "insight_intercept_ai_off_preserves_health_ghost_routing"
+    ],
+    "exit_code": 101,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045239Z-7007a723",
+    "raw_receipt_sha256": "a586aca8f9c74d83898c5fcaa71cf369923ff1e02a6dc612e008a7846311e145",
+    "ELF_binding": {
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "binaries": {
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9": {
+          "sha256": "2c0c3aa04ac9bf9abfa1034eb64fe8047d0be8c57adfa13ed838fc1bd52f15da",
+          "ELF_machine": 183
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "f8e128c30bcc47d119f5a3000871f914a6f579f2f5d6394e12e1378d867dc8aa",
+          "ELF_machine": 183
+        }
+      }
+    },
+    "next": "Root may now change intercept.rs; tests and RED evidence frozen",
+    "initial_environment_failure": "first test attempt missing offline crates; excluded from behavioral RED"
+  },
+  "GREEN_counts": {
+    "caller-regression-GREEN": [
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 5,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "focused-intercept": [
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 25,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "focused-failed-command": [
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 41,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "focused-insight": [
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 13,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "main-hook-positive": [
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 1,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "wider-unit": [
+      {
+        "pass": 1625,
+        "fail": 0,
+        "ignored": 0
+      },
+      {
+        "pass": 3069,
+        "fail": 0,
+        "ignored": 1
+      },
+      {
+        "pass": 0,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "wider-logic": [
+      {
+        "pass": 11,
+        "fail": 0,
+        "ignored": 0
+      }
+    ],
+    "raw-ai-off-qualified": [
+      {
+        "pass": 1,
+        "fail": 0,
+        "ignored": 0
+      }
+    ]
+  },
+  "mutation": {
+    "guard-removed": {
+      "action": "guard-removed",
+      "compiled": true,
+      "changed_files": [
+        "crates/cosh-shell/src/agent/intercept.rs"
+      ],
+      "command": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "agent::intercept::tests::insight_intercept_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "expected_failures": [
+        "agent::intercept::tests::insight_intercept_ai_off_consumes_submission_without_freeform_dispatch",
+        "agent::intercept::tests::insight_intercept_ai_off_preserves_busy_run_and_existing_queue"
+      ],
+      "observed_failures": [
+        "agent::intercept::tests::insight_intercept_ai_off_consumes_submission_without_freeform_dispatch",
+        "agent::intercept::tests::insight_intercept_ai_off_preserves_busy_run_and_existing_queue"
+      ],
+      "executables": {
+        "/cache/pr6892-caller-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "d0474d0d311781b2ae8dcf67dc4d07f10e4fcde008af505aafc7dd97da8a7f6c",
+          "ELF_machine": 183
+        }
+      },
+      "stdout_sha256": "95ce186b29885db4254723acdaf498b8274b6d1882a18bdcd11a6a9db39ff6b8",
+      "stderr_sha256": "2358d48dea043ad4de51c1efdf8b38a7a8c025872946c4096d8a6680ca7b84fd"
+    },
+    "restored-green": {
+      "action": "restored-green",
+      "compiled": true,
+      "changed_files": [],
+      "command": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "agent::intercept::tests::insight_intercept_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "expected_failures": [],
+      "observed_failures": [],
+      "executables": {
+        "/cache/pr6892-caller-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "cb206732449c725c146c17acb4b46b4ba6600c0042af3bb3b05e73b1862db877",
+          "ELF_machine": 183
+        }
+      },
+      "stdout_sha256": "fe279efbe5b3cbc55744e1135f13290cd576134987142bd40587c1d41d677f56",
+      "stderr_sha256": "78cddb365669c08fb55094a69399914ed817e17a4a411643a219ee0098cfed74"
+    }
+  },
+  "standard_preflight": {
+    "cargo_root": "src/cosh-ng",
+    "clippy": {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "detail": null,
+      "ok": true
+    },
+    "commit_lint": [
+      {
+        "problems": [
+          "subject length 62 exceeds 50"
+        ],
+        "sha": "d029216f2e6080f62e60487b3be8937216683455",
+        "subject": "fix(cosh-ng): [shell] gate agent insights behind COSH_SHELL_AI"
+      }
+    ],
+    "fmt": {
+      "command": "cargo fmt --check",
+      "detail": null,
+      "ok": true
+    },
+    "gates": [
+      {
+        "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-source-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-test-inventory.sh",
+        "detail": null,
+        "ok": true
+      }
+    ],
+    "ok": false,
+    "schema_version": 1,
+    "tests": {
+      "command": null,
+      "detail": "not-run; ok does not cover tests, run planned scopes separately",
+      "ok": null
+    },
+    "upstream_drift": []
+  },
+  "scoped_gate": {
+    "architectures": [
+      "aarch64"
+    ],
+    "backends": [
+      "container"
+    ],
+    "cases": [],
+    "errors": [],
+    "execution_evidence": [],
+    "release_profile": null,
+    "runs": [
+      "20261015T045730Z-6314ba51",
+      "20261015T045818Z-9f8bde1e",
+      "20261015T045819Z-2f72e8a2",
+      "20261015T045820Z-e7c49287",
+      "20261015T045822Z-a3494f25",
+      "20261015T045823Z-25a279e1",
+      "20261015T045917Z-fb07b629",
+      "20261015T045949Z-2912e2d6"
+    ],
+    "scopes": [
+      "logic",
+      "raw-cli",
+      "unit"
+    ],
+    "verdict": "Go"
+  },
+  "cleanup": {
+    "down": {
+      "data": {
+        "already_absent": false,
+        "cleanup": {
+          "status": "cleaned"
+        },
+        "stderr": "",
+        "stdout": ""
+      },
+      "error": null,
+      "meta": {
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T050822Z-811653c2",
+        "schema_version": 1
+      },
+      "ok": true
+    },
+    "independent_down": {
+      "data": {
+        "already_absent": true,
+        "cleanup": {
+          "status": "cleaned"
+        }
+      },
+      "error": null,
+      "meta": {
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T050825Z-b0659492",
+        "schema_version": 1
+      },
+      "ok": true
+    },
+    "cache": {
+      "owned_cache_absent": true,
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/cache"
+    },
+    "processes": {
+      "data": {
+        "command": [
+          "python3",
+          "-c",
+          "import os,json;from pathlib import Path;found=[]\nfor p in Path('/proc').iterdir():\n if p.name.isdigit():\n  try:exe=os.readlink(p/'exe')\n  except OSError:continue\n  if Path(exe).name in ('cargo','rustc','rustfmt','rustdoc','clippy-driver','cosh-shell','cosh-core','cosh-ui-worker') or exe.startswith(('/cache/cargo-target/','/cache/pr6892-caller-mutation-target/','/opt/pr6892-review/')):found.append({'pid':p.name,'exe':exe})\nassert not found,found\nprint(json.dumps({'own_guest_test_build_processes':0}))"
+        ],
+        "exit_code": 0,
+        "failure_kind": null,
+        "probes": [
+          {
+            "exit_code": 0,
+            "ok": true,
+            "transport": "native"
+          }
+        ],
+        "stderr": "",
+        "stdout": "{\"own_guest_test_build_processes\": 0}\n",
+        "terminal_state_known": true,
+        "transport": "native"
+      },
+      "error": null,
+      "meta": {
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T050802Z-ced492e7",
+        "schema_version": 1
+      },
+      "ok": true
+    }
+  },
+  "limits": [
+    "aarch64 ALinux4 container only",
+    "FakeAdapter component and existing raw adapter contract, not real provider",
+    "one preexisting Gate4 test ignored",
+    "no RPM/x86/full release/8h rerun",
+    "no code push or PR mutation"
+  ],
+  "first_failures": [
+    "initial test invocation stopped on missing offline aho-corasick, tests not executed",
+    "rustfmt stdout transport sanitized an existing fixture; original HEAD prefix restored before successful compilation",
+    "ripgrep install TLS failure; recovered by checksum-verified public cache and offline build"
+  ],
+  "preflight_metadata": "original d029 historical subject 62 exceeds default50, raw data.ok=false retained; Root owns already recorded exception",
+  "ownership": "this task only intercept_tests.rs +195; Root owns intercept.rs +15"
+}

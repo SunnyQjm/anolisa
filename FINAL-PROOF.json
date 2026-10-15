@@ -1,0 +1,352 @@
+{
+  "source": {
+    "all_tracked_sha_match": 6798,
+    "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+    "tracked_clean": true,
+    "lock_sha256": "f3e07df2534be0498e46868f5427c6d207df50a2049b370e85cdd1cf212c4115",
+    "elf_archive_sha256": "a2a3fae64a7463096b93a066eb56bfdd909835d7cc7910fb39bdc04b8fce532a",
+    "guest_source_guard": {
+      "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+      "tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+      "parents": [
+        "d029216f2e6080f62e60487b3be8937216683455",
+        "37c1529396712bdbe1c780f258a0b7980776d90a"
+      ],
+      "source_files": 6798,
+      "manifest_sha256": "2da79077adda6ecbe118cf111020979abcf97230c08ba9e8de1cf55868a4ed0d",
+      "read_only_source": true,
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+      "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+      "architecture": "aarch64",
+      "target_dir": "/cache/cargo-target/858a382717a222974a17",
+      "binaries": {
+        "/cache/cargo-target/858a382717a222974a17/debug/cosh-shell": {
+          "sha256": "72e5df6f98c2fbdb65d8e703a4dd4fd7917f1e174ca5927686db6044db2a5428",
+          "ELF_machine": 183,
+          "size": 142254296
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-56f2c0145fa49a2f": {
+          "sha256": "72e5df6f98c2fbdb65d8e703a4dd4fd7917f1e174ca5927686db6044db2a5428",
+          "ELF_machine": 183,
+          "size": 142254296
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9": {
+          "sha256": "2c0c3aa04ac9bf9abfa1034eb64fe8047d0be8c57adfa13ed838fc1bd52f15da",
+          "ELF_machine": 183,
+          "size": 127293360
+        },
+        "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "a88026fe95e11a645b44257a08259c1b76fd565a830da2d8f503084f46757b03",
+          "ELF_machine": 183,
+          "size": 199039208
+        }
+      },
+      "guard_sha256": "341eb145da4047e8f2909d5e3667b2dccb9a1929183d8797d893d259ef4384fa"
+    }
+  },
+  "standard_preflight": {
+    "cargo_root": "src/cosh-ng",
+    "clippy": {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "detail": null,
+      "ok": true
+    },
+    "commit_lint": [
+      {
+        "problems": [
+          "subject length 62 exceeds 50"
+        ],
+        "sha": "d029216f2e6080f62e60487b3be8937216683455",
+        "subject": "fix(cosh-ng): [shell] gate agent insights behind COSH_SHELL_AI"
+      }
+    ],
+    "fmt": {
+      "command": "cargo fmt --check",
+      "detail": null,
+      "ok": true
+    },
+    "gates": [
+      {
+        "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-source-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-test-inventory.sh",
+        "detail": null,
+        "ok": true
+      }
+    ],
+    "ok": false,
+    "schema_version": 1,
+    "tests": {
+      "command": null,
+      "detail": "not-run; ok does not cover tests, run planned scopes separately",
+      "ok": null
+    },
+    "upstream_drift": []
+  },
+  "scoped_gate": {
+    "architectures": [
+      "aarch64"
+    ],
+    "backends": [
+      "container"
+    ],
+    "cases": [],
+    "errors": [],
+    "execution_evidence": [],
+    "release_profile": null,
+    "runs": [
+      "20261015T035249Z-d1245db6",
+      "20261015T035435Z-81075aa6",
+      "20261015T035436Z-d2acc8c5",
+      "20261015T035437Z-1c2cb8a9",
+      "20261015T035438Z-388c4afa",
+      "20261015T035531Z-b9607e2a",
+      "20261015T035728Z-912c7e83"
+    ],
+    "scopes": [
+      "logic",
+      "raw-cli",
+      "unit"
+    ],
+    "verdict": "Go"
+  },
+  "tests": {
+    "focused_failed_command": 41,
+    "focused_intercept": 20,
+    "focused_insight": 13,
+    "main_hook_positive": 1,
+    "wider_unit_pass": 4689,
+    "wider_unit_ignored": 1,
+    "logic_pass": 11,
+    "qualified_raw_pass": 1,
+    "unqualified_raw_probe_count": 0,
+    "counts_are_not_unique_source_case_totals": true
+  },
+  "mutations": {
+    "failed-command": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "1e89da93ac11c2c2741ede489febfaba83a6d5c1ae02e94441cdf09d7ea7289b",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "failed-command",
+      "changed_files": [
+        "crates/cosh-shell/src/agent/failed_command.rs"
+      ],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "ai_disabled_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "compiled": true,
+      "expected_failures": [
+        "ai_disabled_auto_trigger_skips_agent_start_without_bookkeeping",
+        "ai_disabled_user_confirmed_trigger_skips_agent_start_without_bookkeeping"
+      ],
+      "observed_failures": [
+        "agent::failed_command::tests::ai_disabled_auto_trigger_skips_agent_start_without_bookkeeping",
+        "agent::failed_command::tests::ai_disabled_user_confirmed_trigger_skips_agent_start_without_bookkeeping"
+      ],
+      "stdout_sha256": "227f8b7ebd742b04a35cbc9754f62c16aa382a8a48ffa18506e398bd97a8750b",
+      "stderr_sha256": "da4569cb9661a166752b0dd4c836dfb5f654051573a2419ef6283e883114be13",
+      "root_source_untouched": true,
+      "copy_file_sha256": {
+        "crates/cosh-shell/src/agent/failed_command.rs": "5269a10691cd69515005c68e78d0a0a6f8594e4b6f7f4c7292de7de66bf4173e"
+      }
+    },
+    "render-insight": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "441f16ea3e12a56c99fed741f61fdba5c2ed839c1756053ae9a6adbade809d22",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "render-insight",
+      "changed_files": [
+        "crates/cosh-shell/src/runtime/insight.rs"
+      ],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "runtime::insight::tests::ai_disabled_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "compiled": true,
+      "expected_failures": [
+        "ai_disabled_drops_agent_prompt_insight_without_arming_ghost"
+      ],
+      "observed_failures": [
+        "runtime::insight::tests::ai_disabled_drops_agent_prompt_insight_without_arming_ghost"
+      ],
+      "stdout_sha256": "6f014eb24eb7fa8e5e95ebafd30663348574c383773ab408249b581627f94c86",
+      "stderr_sha256": "f637f323532d3a2706ce653090dd342c861d3217257c20dd146e223938c86d09",
+      "root_source_untouched": true,
+      "copy_file_sha256": {
+        "crates/cosh-shell/src/runtime/insight.rs": "2444e0237ab586ba858a227e0bd20c1a1edcdf0c1c22e2a0ce0274ec896981a0"
+      }
+    },
+    "accept-insight": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "9701316bb9a5978b57f506b95c3a36e6881fb0d454a78edd64ff8628f4fbbf6e",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "accept-insight",
+      "changed_files": [
+        "crates/cosh-shell/src/agent/intercept.rs"
+      ],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "ai_disabled_drops_pending_insight_binding_on_accept",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "compiled": true,
+      "expected_failures": [
+        "ai_disabled_drops_pending_insight_binding_on_accept"
+      ],
+      "observed_failures": [
+        "agent::intercept::tests::ai_disabled_drops_pending_insight_binding_on_accept"
+      ],
+      "stdout_sha256": "0bd5da79fb037d2b5104f5e210001502d66ac7f60b0913b475900b95c86e429e",
+      "stderr_sha256": "9e395f3b1ddab0eb34e7b53dba36ae2f41a466d6154a419b0c5443e1b3c62db3",
+      "root_source_untouched": true,
+      "copy_file_sha256": {
+        "crates/cosh-shell/src/agent/intercept.rs": "7cca555325123807e480e2930cb9bf434f8ec517fa888e0f8d69e5f7f049a280"
+      }
+    },
+    "restored-green": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "f6ccb16ab5996ec8f6c9025085f049288b1e17dba0111aa4e39378dee863a0ff",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "restored-green",
+      "changed_files": [],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "ai_disabled_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "compiled": true,
+      "expected_failures": [],
+      "observed_failures": [],
+      "stdout_sha256": "fe7c0d3d19cb16401ad35ec3f0a9f4b71408d04c393c58c16e68f21c46328410",
+      "stderr_sha256": "f4abe2740d0ec10047098a890686d3a1fd8cc155819705b07e6691eb240b50b7",
+      "root_source_untouched": true,
+      "copy_file_sha256": {}
+    }
+  },
+  "cleanup": {
+    "guest_test_build_processes_zero": {
+      "data": {
+        "command": [
+          "python3",
+          "-c",
+          "import os,json;from pathlib import Path;found=[]\nfor p in Path('/proc').iterdir():\n if p.name.isdigit():\n  try:exe=os.readlink(p/'exe')\n  except OSError:continue\n  if Path(exe).name in ('cargo','rustc','cosh-shell','cosh-core') or Path(exe).name.startswith('cosh_shell-'):found.append({'pid':p.name,'exe':exe})\nassert not found,found\nprint(json.dumps({'own_guest_test_build_processes':0}))"
+        ],
+        "exit_code": 0,
+        "failure_kind": null,
+        "probes": [
+          {
+            "exit_code": 0,
+            "ok": true,
+            "transport": "native"
+          }
+        ],
+        "stderr": "",
+        "stdout": "{\"own_guest_test_build_processes\": 0}\n",
+        "terminal_state_known": true,
+        "transport": "native"
+      },
+      "error": null,
+      "meta": {
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T040821Z-8721f8b6",
+        "schema_version": 1
+      },
+      "ok": true
+    },
+    "environment_down": {
+      "data": {
+        "already_absent": false,
+        "cleanup": {
+          "status": "cleaned"
+        },
+        "stderr": "",
+        "stdout": ""
+      },
+      "error": null,
+      "meta": {
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T040834Z-b6edf770",
+        "schema_version": 1
+      },
+      "ok": true
+    },
+    "independent_absent": {
+      "data": {
+        "already_absent": true,
+        "cleanup": {
+          "status": "cleaned"
+        }
+      },
+      "error": null,
+      "meta": {
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T040840Z-cacb0465",
+        "schema_version": 1
+      },
+      "ok": true
+    },
+    "cache": {
+      "owned_cache_absent": true,
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/cache"
+    }
+  },
+  "boundary": "aarch64 Linux Rust1.97.1 component/unit/logic/raw adapter contract; no real provider, x86, RPM or release acceptance",
+  "metadata_disposition": "Root explicitly records historical subject exception under repository 120-character hard limit; original standard preflight data.ok=false retained"
+}

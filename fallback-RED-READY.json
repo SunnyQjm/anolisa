@@ -1,0 +1,35 @@
+{
+  "state": "RED_READY_FOR_ROOT_PRODUCT_FIX",
+  "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "production_code": "unmodified b811, all 6798 source hashes match test-only RED manifest",
+  "test_sha256": "b4867e9ebe17aa026a777a0edebbee90590bd7473f5978a48162aa7e6a207f38",
+  "test_file": "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs",
+  "compiled": true,
+  "expected_failures": [
+    "insight_intercept_ai_off_consumes_submission_without_freeform_dispatch",
+    "insight_intercept_ai_off_preserves_busy_run_and_existing_queue"
+  ],
+  "positive_controls_passed": [
+    "insight_intercept_ai_on_queues_bound_request",
+    "insight_intercept_ai_off_preserves_unrelated_explicit_input_routing",
+    "insight_intercept_ai_off_preserves_health_ghost_routing"
+  ],
+  "exit_code": 101,
+  "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045239Z-7007a723",
+  "raw_receipt_sha256": "a586aca8f9c74d83898c5fcaa71cf369923ff1e02a6dc612e008a7846311e145",
+  "ELF_binding": {
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "binaries": {
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-c94dba2a735759b9": {
+        "sha256": "2c0c3aa04ac9bf9abfa1034eb64fe8047d0be8c57adfa13ed838fc1bd52f15da",
+        "ELF_machine": 183
+      },
+      "/cache/cargo-target/858a382717a222974a17/debug/deps/cosh_shell-f9a39553762a3cc0": {
+        "sha256": "f8e128c30bcc47d119f5a3000871f914a6f579f2f5d6394e12e1378d867dc8aa",
+        "ELF_machine": 183
+      }
+    }
+  },
+  "next": "Root may now change intercept.rs; tests and RED evidence frozen",
+  "initial_environment_failure": "first test attempt missing offline crates; excluded from behavioral RED"
+}

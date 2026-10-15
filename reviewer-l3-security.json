@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "pr": 6892,
+  "review_level": "L3",
+  "method": "manual L3 security review",
+  "tool_scan_performed": false,
+  "binding": {
+    "worktree": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-6789-pr6892-conflict",
+    "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+    "parent1": "d029216f2e6080f62e60487b3be8937216683455",
+    "parent2_main": "37c1529396712bdbe1c780f258a0b7980776d90a",
+    "clean": true,
+    "relative_main_numstat": "6\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/failed_command.rs\n66\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/failed_command_tests.rs\n7\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n23\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\n53\t0\tsrc/cosh-ng/crates/cosh-shell/src/runtime/insight.rs",
+    "resolved_file_sha256": "70c2c4f65013f12da3b8e8f625f5168b4d718068e82f7deb816c883b27095d72"
+  },
+  "findings_count": 0,
+  "blocking_findings_count": 0,
+  "findings": [],
+  "script_discovery": {
+    "dedicated_script_found": false,
+    "searched": [
+      "AGENTS.md",
+      "SECURITY.md",
+      ".github",
+      "scripts",
+      "specs",
+      "src/cosh-ng/scripts",
+      "cosh-issue-fix/reference/pr-submit.md"
+    ],
+    "result": "No dedicated project L3 scanner entry found; pr-submit requires L3 but provides no command. Lockfile base64 substring hits excluded."
+  },
+  "checks": [
+    {
+      "category": "command injection",
+      "result": "no finding",
+      "evidence": "No new executable shell strings, eval/subprocess launch or argument interpolation; added product paths only return early or clear Insight binding."
+    },
+    {
+      "category": "credentials and data disclosure",
+      "result": "no finding",
+      "evidence": "No credentials, auth loading, private file reads, telemetry or new logs; AI-off exits occur before failure request/evidence construction at failed-command choke point."
+    },
+    {
+      "category": "destructive actions and privilege",
+      "result": "no finding",
+      "evidence": "No filesystem/service/package/uid/ACL/security-policy mutation; no approval bypass."
+    },
+    {
+      "category": "assertions and positive controls",
+      "result": "no finding",
+      "evidence": "All pre-conflict tests/helper preserved byte-for-byte; main false/true hook control, AI-off no-output/no-queue assertions, and ShellRewrite positive branch retained."
+    },
+    {
+      "category": "lifecycle and pending state",
+      "result": "no merge regression",
+      "evidence": "Guard ordering and candidate take/Insight-binding clear unchanged from original PR; no new EOF/timeout/chunk parser. Scope does not assert global cancellation or outer fallback zero requests."
+    }
+  ],
+  "limitations": [
+    "未运行构建、Rust测试、fmt/clippy/layout/inventory门禁或真实provider；测试由原验收chat负责。",
+    "insight accept 单测直接调用 helper；外层 render_intercept_agent_guidance 在 None 时仍可走 generic intercepted-input fallback。该外层逻辑及限制在 parent1 已存在，本次 merge 不引入；本审查不把 helper None 等同整个外层调用链零 provider 请求证明。正常 AI-off render 路径不会武装新的 AgentPrompt。",
+    "AI-off 不是在本补丁中实现的全局取消机制；不宣称停止已运行或清空既有排队的全部 Agent 请求。",
+    "未找到 anolisa-auto-review/rules 镜像，未验证评审机 rules 镜像同步。",
+    "未执行项目专用安全扫描工具；L3为人工源码审查。"
+  ],
+  "verdict": "no security findings in reviewed merge/delta; manual review only"
+}

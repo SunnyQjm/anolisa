@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "issue": 6789,
+  "pr": 6892,
+  "reviewer": "/root/review_checkpoint_7550",
+  "reviewed_at": "2026-10-15T03:37:45.219101+00:00",
+  "binding": {
+    "worktree": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-6789-pr6892-conflict",
+    "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+    "tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+    "parent1": "d029216f2e6080f62e60487b3be8937216683455",
+    "parent2_main": "37c1529396712bdbe1c780f258a0b7980776d90a",
+    "clean": true,
+    "relative_main_numstat": "6\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/failed_command.rs\n66\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/failed_command_tests.rs\n7\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n23\t0\tsrc/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\n53\t0\tsrc/cosh-ng/crates/cosh-shell/src/runtime/insight.rs",
+    "resolved_file_sha256": "70c2c4f65013f12da3b8e8f625f5168b4d718068e82f7deb816c883b27095d72"
+  },
+  "scope": "independent read-only merge resolution, full original PR delta versus current merged main, behavior and organization review",
+  "findings_count": 0,
+  "blocking_findings_count": 0,
+  "findings": [],
+  "verdict": "no blocking findings in merge resolution",
+  "preservation_checks": {
+    "stage2_equals_parent1": true,
+    "stage3_equals_parent2": true,
+    "merged_exact_concatenation_of_common_prefix_and_both_append_blocks": true,
+    "relative_main_files": 5,
+    "relative_main_added": 155,
+    "relative_main_deleted": 0,
+    "production_files_identical_to_original_pr": true
+  },
+  "review_notes": [
+    "保存 stage2 与 parent1 原文完全相同，保存 stage3 与 parent2 原文完全相同。",
+    "合并文件逐字节等于共同前缀 + PR 两个完整 AI-off 测试 + 单个分隔换行 + main 完整 hook helper/测试。",
+    "相对 main 仅原五文件 +155/-0；三个 production 文件相对原 PR parent1 没有内容差异，未由冲突解决新增产品逻辑。",
+    "start_agent_for_block 的 AI-off 返回位于 analyzed/throttle/output/request 构造之前，Auto/UserConfirmed 共用该入口；相关调用点均仍进入该函数。",
+    "render_pending_command_insight 只丢 AgentPrompt，保留 ShellRewrite NativeShell 分支，候选已 take 后返回不会遗留 pending candidate；原候选消耗策略未扩大。",
+    "agent_request_from_pending_insight 对 Insight binding 的 AI-off 清理仍在取 binding/构造 bound request 之前，Health 等其他 binding 不被该条件删除。",
+    "main start_agent_for_hook_consultation 的 AI-off guard 完整保留；新增 main 测试遍历 false/true 并用 active-run queue 验证正控可观测，不是假空路径。",
+    "测试属于不 spawn 的 private component checks；FakeAdapter + active-run queue 仅证明构造/入队边界，不能替代真实 provider 运行验收。",
+    "未新增 root module、pub API、依赖方向或外部依赖；failed_command.rs 826 行，已有 large-file inventory owner/split plan，未触及1000行增长门槛；intercept.rs 568、runtime/insight.rs 608 行。"
+  ],
+  "rules": [
+    "applicable user and repository AGENTS.md",
+    "src/cosh-ng/AGENTS.md",
+    "karpathy-guidelines/SKILL.md",
+    "cosh-issue-fix/reference/behavior-review.md",
+    "cosh-issue-fix/reference/pr-submit.md",
+    "specs/cosh-ng-code-organization/decisions.md",
+    "specs/cosh-ng-code-organization/large-file-inventory.md",
+    "previously-read outer specs/cosh-ng-code-organization/standard.md"
+  ],
+  "limitations": [
+    "未运行构建、Rust测试、fmt/clippy/layout/inventory门禁或真实provider；测试由原验收chat负责。",
+    "insight accept 单测直接调用 helper；外层 render_intercept_agent_guidance 在 None 时仍可走 generic intercepted-input fallback。该外层逻辑及限制在 parent1 已存在，本次 merge 不引入；本审查不把 helper None 等同整个外层调用链零 provider 请求证明。正常 AI-off render 路径不会武装新的 AgentPrompt。",
+    "AI-off 不是在本补丁中实现的全局取消机制；不宣称停止已运行或清空既有排队的全部 Agent 请求。",
+    "未找到 anolisa-auto-review/rules 镜像，未验证评审机 rules 镜像同步。",
+    "未执行项目专用安全扫描工具；L3为人工源码审查。"
+  ],
+  "commands_run": [
+    "git rev-parse/show/diff/status",
+    "git diff --check HEAD^2 HEAD",
+    "read-only source reads and searches",
+    "Python exact-byte preservation assertions"
+  ],
+  "mutations": "only reviewer report artifacts outside repository"
+}

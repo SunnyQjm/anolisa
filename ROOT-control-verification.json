@@ -1,0 +1,182 @@
+{
+  "mutation-failed-command": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035731Z-3a862d12",
+    "metadata": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "1e89da93ac11c2c2741ede489febfaba83a6d5c1ae02e94441cdf09d7ea7289b",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "failed-command",
+      "changed_files": [
+        "crates/cosh-shell/src/agent/failed_command.rs"
+      ],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "ai_disabled_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "compiled": true,
+      "expected_failures": [
+        "ai_disabled_auto_trigger_skips_agent_start_without_bookkeeping",
+        "ai_disabled_user_confirmed_trigger_skips_agent_start_without_bookkeeping"
+      ],
+      "observed_failures": [
+        "agent::failed_command::tests::ai_disabled_auto_trigger_skips_agent_start_without_bookkeeping",
+        "agent::failed_command::tests::ai_disabled_user_confirmed_trigger_skips_agent_start_without_bookkeeping"
+      ],
+      "stdout_sha256": "227f8b7ebd742b04a35cbc9754f62c16aa382a8a48ffa18506e398bd97a8750b",
+      "stderr_sha256": "da4569cb9661a166752b0dd4c836dfb5f654051573a2419ef6283e883114be13",
+      "root_source_untouched": true,
+      "copy_file_sha256": {
+        "crates/cosh-shell/src/agent/failed_command.rs": "5269a10691cd69515005c68e78d0a0a6f8594e4b6f7f4c7292de7de66bf4173e"
+      }
+    },
+    "counts": [
+      "test result: FAILED. 6 passed; 2 failed; 0 ignored; 0 measured; 3057 filtered out; finished in 0.07s"
+    ]
+  },
+  "mutation-render-insight": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035854Z-8a5963f2",
+    "metadata": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "441f16ea3e12a56c99fed741f61fdba5c2ed839c1756053ae9a6adbade809d22",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "render-insight",
+      "changed_files": [
+        "crates/cosh-shell/src/runtime/insight.rs"
+      ],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "runtime::insight::tests::ai_disabled_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "compiled": true,
+      "expected_failures": [
+        "ai_disabled_drops_agent_prompt_insight_without_arming_ghost"
+      ],
+      "observed_failures": [
+        "runtime::insight::tests::ai_disabled_drops_agent_prompt_insight_without_arming_ghost"
+      ],
+      "stdout_sha256": "6f014eb24eb7fa8e5e95ebafd30663348574c383773ab408249b581627f94c86",
+      "stderr_sha256": "f637f323532d3a2706ce653090dd342c861d3217257c20dd146e223938c86d09",
+      "root_source_untouched": true,
+      "copy_file_sha256": {
+        "crates/cosh-shell/src/runtime/insight.rs": "2444e0237ab586ba858a227e0bd20c1a1edcdf0c1c22e2a0ce0274ec896981a0"
+      }
+    },
+    "counts": [
+      "test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 3063 filtered out; finished in 0.02s"
+    ]
+  },
+  "mutation-accept-insight": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035944Z-d47c6b2f",
+    "metadata": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "9701316bb9a5978b57f506b95c3a36e6881fb0d454a78edd64ff8628f4fbbf6e",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "accept-insight",
+      "changed_files": [
+        "crates/cosh-shell/src/agent/intercept.rs"
+      ],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "ai_disabled_drops_pending_insight_binding_on_accept",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "compiled": true,
+      "expected_failures": [
+        "ai_disabled_drops_pending_insight_binding_on_accept"
+      ],
+      "observed_failures": [
+        "agent::intercept::tests::ai_disabled_drops_pending_insight_binding_on_accept"
+      ],
+      "stdout_sha256": "0bd5da79fb037d2b5104f5e210001502d66ac7f60b0913b475900b95c86e429e",
+      "stderr_sha256": "9e395f3b1ddab0eb34e7b53dba36ae2f41a466d6154a419b0c5443e1b3c62db3",
+      "root_source_untouched": true,
+      "copy_file_sha256": {
+        "crates/cosh-shell/src/agent/intercept.rs": "7cca555325123807e480e2930cb9bf434f8ec517fa888e0f8d69e5f7f049a280"
+      }
+    },
+    "counts": [
+      "test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3064 filtered out; finished in 0.02s"
+    ]
+  },
+  "mutation-restored-green": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T040033Z-2fd8d1f8",
+    "metadata": {
+      "executables": {
+        "/cache/pr6892-mutation-target/debug/deps/cosh_shell-f9a39553762a3cc0": {
+          "sha256": "f6ccb16ab5996ec8f6c9025085f049288b1e17dba0111aa4e39378dee863a0ff",
+          "ELF_machine": 183
+        }
+      },
+      "mutation": "restored-green",
+      "changed_files": [],
+      "argv": [
+        "cargo",
+        "+1.97.1",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "ai_disabled_",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "compiled": true,
+      "expected_failures": [],
+      "observed_failures": [],
+      "stdout_sha256": "fe7c0d3d19cb16401ad35ec3f0a9f4b71408d04c393c58c16e68f21c46328410",
+      "stderr_sha256": "f4abe2740d0ec10047098a890686d3a1fd8cc155819705b07e6691eb240b50b7",
+      "root_source_untouched": true,
+      "copy_file_sha256": {}
+    },
+    "counts": [
+      "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 3057 filtered out; finished in 0.04s"
+    ]
+  },
+  "raw_qualified": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035728Z-912c7e83",
+    "counts": [
+      "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 0.14s"
+    ]
+  }
+}

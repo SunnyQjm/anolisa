@@ -1,0 +1,65 @@
+[
+  {
+    "label": "focused-failed-command",
+    "scope": "unit",
+    "filter": "agent::failed_command::tests",
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035249Z-d1245db6",
+    "error": null
+  },
+  {
+    "label": "focused-intercept",
+    "scope": "unit",
+    "filter": "agent::intercept::tests",
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035435Z-81075aa6",
+    "error": null
+  },
+  {
+    "label": "focused-insight",
+    "scope": "unit",
+    "filter": "runtime::insight::tests",
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035436Z-d2acc8c5",
+    "error": null
+  },
+  {
+    "label": "main-hook-positive",
+    "scope": "unit",
+    "filter": "ai_disabled_hook_consultation_does_not_start_agent",
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035437Z-1c2cb8a9",
+    "error": null
+  },
+  {
+    "label": "wider-unit",
+    "scope": "unit",
+    "filter": null,
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035438Z-388c4afa",
+    "error": null
+  },
+  {
+    "label": "wider-logic",
+    "scope": "logic",
+    "filter": null,
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035531Z-b9607e2a",
+    "error": null
+  },
+  {
+    "label": "raw-ai-off-existing",
+    "scope": "raw-cli",
+    "filter": "raw_cli_ai_off_consumes_agent_marker_without_adapter_or_shell_error",
+    "exit": 0,
+    "ok": true,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T035600Z-38d8580a",
+    "error": null
+  }
+]

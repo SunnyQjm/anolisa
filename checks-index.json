@@ -1,0 +1,19 @@
+[
+  {
+    "label": "standard-preflight",
+    "exit": 1,
+    "data_ok": false
+  },
+  {
+    "label": "focused-failed-command",
+    "scope": "unit",
+    "filter": "agent::failed_command::tests",
+    "exit": 1,
+    "ok": false,
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-b811-after111/runs/20261015T034559Z-1d09677a",
+    "error": {
+      "code": "test-failure",
+      "message": "test scope unit exited 101"
+    }
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "label": "caller-regression-GREEN",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045730Z-6314ba51",
+    "counts": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s",
+      "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 3065 filtered out; finished in 0.10s",
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+    ]
+  },
+  {
+    "label": "focused-intercept",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045818Z-9f8bde1e",
+    "counts": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s",
+      "test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 3045 filtered out; finished in 0.06s",
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+    ]
+  },
+  {
+    "label": "focused-failed-command",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045819Z-2f72e8a2",
+    "counts": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s",
+      "test result: ok. 41 passed; 0 failed; 0 ignored; 0 measured; 3029 filtered out; finished in 0.06s",
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+    ]
+  },
+  {
+    "label": "focused-insight",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045820Z-e7c49287",
+    "counts": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s",
+      "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 3057 filtered out; finished in 0.01s",
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+    ]
+  },
+  {
+    "label": "main-hook-positive",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045822Z-a3494f25",
+    "counts": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1625 filtered out; finished in 0.00s",
+      "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3069 filtered out; finished in 0.01s",
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+    ]
+  },
+  {
+    "label": "wider-unit",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045823Z-25a279e1",
+    "counts": [
+      "test result: ok. 1625 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.90s",
+      "test result: ok. 3069 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 32.95s",
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+    ]
+  },
+  {
+    "label": "wider-logic",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045917Z-fb07b629",
+    "counts": [
+      "test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.15s"
+    ]
+  },
+  {
+    "label": "raw-ai-off-qualified",
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/runs/20261015T045949Z-2912e2d6",
+    "counts": [
+      "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 0.26s"
+    ]
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "pr": 6892,
+  "reviewer": "/root/review_checkpoint_7550",
+  "reviewed_at": "2026-10-15T04:57:26.389593+00:00",
+  "scope": "incremental caller-level P2 fix plus five caller-level tests versus b811",
+  "head": "b811c9742c80ff781be34293d12f073a3a433d88",
+  "head_tree": "e2866588aa9ea39fcf8a7e20c33eceed90fc9cf5",
+  "tracked_status": "M src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n M src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs",
+  "files": {
+    "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs": {
+      "sha256": "d555355a1e76b2613d3854d3a4e7cef8f4e642b413a5dae49295a28853bf7293",
+      "git_blob": "19e6cab647f869c02df61adac3694acf0c6798dd",
+      "lines": 583
+    },
+    "src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs": {
+      "sha256": "b4867e9ebe17aa026a777a0edebbee90590bd7473f5978a48162aa7e6a207f38",
+      "git_blob": "90505957b200916179a47d18a5ba0669fd270bce",
+      "lines": 890
+    }
+  },
+  "diff_sha256": "862c508f620499e5de06ab41e17d94edb1223a047f94a5c45d445ef7ec4103b9",
+  "full_diff": "diff --git a/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs b/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\nindex a390fe5b5..19e6cab64 100644\n--- a/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n+++ b/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs\n@@ -39,6 +39,21 @@ pub(crate) fn render_intercept_agent_guidance<W: Write>(\n             continue;\n         }\n \n+        let disabled_insight_submission = state.personalization.ai_disabled\n+            && matches!(\n+                (\n+                    prompt_ghost_suggestion_id(event),\n+                    state.pending_input_ghost_binding.as_ref(),\n+                ),\n+                (Some(suggestion_id), Some(PendingInputGhostBinding::Insight(binding)))\n+                    if suggestion_id.is_none_or(|id| id == binding.suggestion_id)\n+            );\n+        if disabled_insight_submission {\n+            // Consume the submission before it can fall back to a free-form request.\n+            state.pending_input_ghost_binding = None;\n+            continue;\n+        }\n+\n         // Before handling this input, drive the background-compaction poll at\n         // this safe boundary: harvest a finished compactor, render its\n         // completion notice, and resume any user request that was held back\ndiff --git a/src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs b/src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\nindex 701a674da..90505957b 100644\n--- a/src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\n+++ b/src/cosh-ng/crates/cosh-shell/src/agent/intercept_tests.rs\n@@ -693,3 +693,198 @@ fn ai_disabled_drops_pending_insight_binding_on_accept() {\n     );\n     assert!(state.pending_input_ghost_binding.is_none());\n }\n+\n+fn insight_intercept_state(ai_disabled: bool) -> InlineState {\n+    let mut state = InlineState {\n+        pending_input_ghost_binding: Some(PendingInputGhostBinding::Insight(Box::new(\n+            insight_binding(\"suggestion-1\"),\n+        ))),\n+        ..Default::default()\n+    };\n+    state.personalization.ai_disabled = ai_disabled;\n+    state\n+}\n+\n+#[test]\n+fn insight_intercept_ai_off_consumes_submission_without_freeform_dispatch() {\n+    for component in [\"prompt_ghost:suggestion-1\", \"prompt_ghost\"] {\n+        let mut state = insight_intercept_state(true);\n+        let mut event = candidate_event(\"suggestion-1\", None, Some(\"analyze edited failure\"));\n+        event.component = Some(component.to_string());\n+        let mut output = Vec::new();\n+\n+        render_intercept_agent_guidance(\n+            &[event],\n+            &[source_block()],\n+            &AdapterInstance::Fake(FakeAgentAdapter),\n+            &mut state,\n+            &mut output,\n+            0,\n+        )\n+        .expect(\"consume disabled insight submission\");\n+\n+        assert!(state.pending_input_ghost_binding.is_none(), \"{component}\");\n+        assert!(\n+            state.agent_run.active.is_none(),\n+            \"{component}: unexpected active run\"\n+        );\n+        assert!(\n+            state.agent_run.queued_requests.is_empty(),\n+            \"{component}: unexpected queue\"\n+        );\n+        let rendered = String::from_utf8_lossy(&output);\n+        assert!(!rendered.contains(\"Thinking\"), \"{component}: {rendered}\");\n+        assert!(output.is_empty(), \"{component}: {rendered}\");\n+    }\n+}\n+\n+#[test]\n+fn insight_intercept_ai_off_preserves_busy_run_and_existing_queue() {\n+    let mut state = insight_intercept_state(true);\n+    let (active, _approval_receiver) =\n+        crate::agent::run::test_support::test_active_run_with_id(\"already-active\");\n+    let queued_request = active.request.clone();\n+    state.agent_run.active = Some(active);\n+    state\n+        .agent_run\n+        .queue_request(crate::agent::run::PendingAgentRequest {\n+            request: queued_request,\n+            origin: AgentRunOrigin::Standard,\n+            intent: AgentStartIntent::UserInitiated,\n+            class: crate::agent::run::PendingRequestClass::Normal,\n+            selectable_after_event_index: Some(42),\n+            before_held_text: false,\n+        });\n+    let mut output = Vec::new();\n+\n+    render_intercept_agent_guidance(\n+        &[candidate_event(\n+            \"suggestion-1\",\n+            None,\n+            Some(\"analyze edited failure\"),\n+        )],\n+        &[source_block()],\n+        &AdapterInstance::Fake(FakeAgentAdapter),\n+        &mut state,\n+        &mut output,\n+        0,\n+    )\n+    .expect(\"consume insight while busy\");\n+\n+    assert!(state.pending_input_ghost_binding.is_none());\n+    assert_eq!(\n+        state.agent_run.active.as_ref().unwrap().request.id,\n+        \"already-active\"\n+    );\n+    assert_eq!(state.agent_run.queued_requests.len(), 1);\n+    let queued = &state.agent_run.queued_requests[0];\n+    assert_eq!(queued.request.id, \"already-active\");\n+    assert_eq!(queued.selectable_after_event_index, Some(42));\n+    assert_eq!(queued.origin, AgentRunOrigin::Standard);\n+    assert!(output.is_empty(), \"{}\", String::from_utf8_lossy(&output));\n+}\n+\n+#[test]\n+fn insight_intercept_ai_on_queues_bound_request() {\n+    let mut state = insight_intercept_state(false);\n+    let (active, _approval_receiver) =\n+        crate::agent::run::test_support::test_active_run_with_id(\"already-active\");\n+    state.agent_run.active = Some(active);\n+    let mut output = Vec::new();\n+\n+    render_intercept_agent_guidance(\n+        &[candidate_event(\n+            \"suggestion-1\",\n+            None,\n+            Some(\"analyze edited failure\"),\n+        )],\n+        &[source_block()],\n+        &AdapterInstance::Fake(FakeAgentAdapter),\n+        &mut state,\n+        &mut output,\n+        0,\n+    )\n+    .expect(\"queue enabled insight submission\");\n+\n+    assert!(state.pending_input_ghost_binding.is_none());\n+    assert_eq!(state.agent_run.queued_requests.len(), 1);\n+    let queued = &state.agent_run.queued_requests[0];\n+    assert_eq!(queued.origin, AgentRunOrigin::InsightPrompt);\n+    assert_eq!(queued.request.command_block.id, \"cmd-1\");\n+    assert_eq!(\n+        queued.request.user_input.as_deref(),\n+        Some(\"analyze edited failure\")\n+    );\n+}\n+\n+#[test]\n+fn insight_intercept_ai_off_preserves_unrelated_explicit_input_routing() {\n+    for component in [\"prompt_ghost:other-suggestion\", \"natural_language\"] {\n+        let mut state = insight_intercept_state(true);\n+        let (active, _approval_receiver) =\n+            crate::agent::run::test_support::test_active_run_with_id(\"already-active\");\n+        state.agent_run.active = Some(active);\n+        let mut event = candidate_event(\"other-suggestion\", None, Some(\"inspect my project\"));\n+        event.component = Some(component.to_string());\n+        let mut output = Vec::new();\n+\n+        render_intercept_agent_guidance(\n+            &[event],\n+            &[source_block()],\n+            &AdapterInstance::Fake(FakeAgentAdapter),\n+            &mut state,\n+            &mut output,\n+            0,\n+        )\n+        .expect(\"preserve unrelated explicit input\");\n+\n+        assert_eq!(state.agent_run.queued_requests.len(), 1, \"{component}\");\n+        let queued = &state.agent_run.queued_requests[0];\n+        assert_eq!(queued.origin, AgentRunOrigin::Standard, \"{component}\");\n+        assert_eq!(\n+            queued.request.user_input.as_deref(),\n+            Some(\"inspect my project\")\n+        );\n+        assert_eq!(\n+            crate::types::request_context_binding(&queued.request),\n+            AgentContextBinding::FreeForm\n+        );\n+        assert!(queued.request.context_blocks.is_empty(), \"{component}\");\n+        assert_eq!(\n+            state.agent_run.active.as_ref().unwrap().request.id,\n+            \"already-active\"\n+        );\n+    }\n+}\n+\n+#[test]\n+fn insight_intercept_ai_off_preserves_health_ghost_routing() {\n+    let mut state = insight_intercept_state(true);\n+    state.pending_input_ghost_binding = Some(PendingInputGhostBinding::Health(\n+        AgentContextBinding::StartupHealthFollowUp,\n+    ));\n+    let (active, _approval_receiver) =\n+        crate::agent::run::test_support::test_active_run_with_id(\"already-active\");\n+    state.agent_run.active = Some(active);\n+    let mut output = Vec::new();\n+\n+    render_intercept_agent_guidance(\n+        &[candidate_event(\n+            \"suggestion-1\",\n+            None,\n+            Some(\"inspect host health\"),\n+        )],\n+        &[source_block()],\n+        &AdapterInstance::Fake(FakeAgentAdapter),\n+        &mut state,\n+        &mut output,\n+        0,\n+    )\n+    .expect(\"preserve health ghost submission\");\n+\n+    assert_eq!(state.agent_run.queued_requests.len(), 1);\n+    assert_eq!(\n+        crate::types::request_context_binding(&state.agent_run.queued_requests[0].request),\n+        AgentContextBinding::StartupHealthFollowUp\n+    );\n+}\n",
+  "findings_count": 0,
+  "blocking_findings_count": 0,
+  "findings": [],
+  "verdict": "no blocking findings in reviewed increment",
+  "checks": [
+    "新增调用层门控位于已处理事件 key 插入之后、compaction poll 之前；被消费事件不会进入 helper None -> generic fallback，也不会消费 pending question 或触发 compaction 恢复副作用。",
+    "消费条件精确要求 ai_disabled、pending Insight、有效 prompt_ghost marker，并匹配 suggestion id；legacy 无 id marker消费当前 Insight。AI-on、非匹配 id、natural_language 与 Health 不进入新门控。",
+    "匹配事件清空 pending_input_ghost_binding 并 continue；handled key 记账防同一 event 重放，既有 active run 和队列不由该分支停止、追加或清空。",
+    "AI-on 正控验证 bound InsightPrompt 请求入队及原 command block/user_input；非匹配 ghost/natural_language 正控验证 Standard/FreeForm；Health 正控验证 StartupHealthFollowUp。",
+    "idle 负控覆盖带 id 与 legacy 无 id，断言 active None、queue empty、output empty；busy 负控验证已有 run id、既有 queue id/route/index保持。",
+    "新增测试直接调用 render_intercept_agent_guidance，覆盖维护者指出的外层 fallback，较旧 helper-only 测试有效。测试均为无spawn private component tests，未新增依赖、public API、module或owner边界。",
+    "生产文件本轮从568增至583行，低于700/1000门槛；测试文件从696增至891行，production阈值不应用于独立测试文件。",
+    "人工L3：无新增 shell命令执行、动态参数拼接、凭据读取/日志、文件/权限/资源修改；门控收窄非用户新增请求，不放宽审批或执行权限。",
+    "共享作者分支按本轮明确约束禁止force/rewrite；正常followup commit保留他人历史。一般AGENTS同PR fixup规则与该明确要求有冲突，以本轮要求优先，需在PR/commit说明历史保留理由。"
+  ],
+  "limitations": [
+    "未重复运行构建、Rust tests、变异、fmt/clippy、preflight或真实provider。RED-READY.json来自原验收owner，本review只读取其2FAIL/3PASS与源码hash绑定，未复核其全部raw内容。",
+    "FakeAdapter/component状态断言不是provider proof；不能宣称零真实HTTP请求或端到端真实模型验收。",
+    "未添加compaction活动/完成、pending question及事件重放的动态测试，本轮对这些路径结论来自门控位置和直接continue的静态检查。",
+    "非匹配ghost继续旧fallback，旧helper在AI-off情况下可清空未匹配pending Insight；本轮承诺保持其路由，不宣称修复所有陈旧ghost状态。",
+    "只消费本次匹配提交，不停止或清空已运行/已有排队请求；busy保持是预期合同。",
+    "工作树另有untracked .cosh-lab/验收产物，未读取/修改其内容；tracked dirty仅指定两文件。",
+    "未发现可定位的anolisa-auto-review/rules镜像，因此镜像与台账逐字节一致性未验证；适用AGENTS和仓库台账相对本review初始b811一致，JSON记录其hash。",
+    "未找到指定L3扫描脚本，执行的是人工源码L3 review，非工具扫描。"
+  ],
+  "rules_binding": {
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-6789-pr6892-conflict/AGENTS.md": "a02720bdbbeb5c84df565545411d0fe5d8612be2ed2cd5b3b1f4589674100479",
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-6789-pr6892-conflict/src/cosh-ng/AGENTS.md": "438f587280a675230f2bbd4f3413753f0de1a38b519519f9bd1c115bf15d53f2",
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-6789-pr6892-conflict/specs/cosh-ng-code-organization/decisions.md": "10e6e7b6af9dc8e29769809d4486920e2bc92a2825e5c0ab700b6b9edaea85ee",
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-6789-pr6892-conflict/specs/cosh-ng-code-organization/large-file-inventory.md": "08db78a574d91585e8f3a861773e1b83f56ab6ddc9a9f9768fb214f44efa1659",
+    "/Users/quejianming/vscode/cosh-shell-dev/specs/cosh-ng-code-organization/standard.md": "80506e5e038cbccebf624a10a526d2ff0fb6f05095cfe09823f9a0f7f1844a76",
+    "/Users/quejianming/vscode/cosh-shell-dev/specs/cosh-ng-code-organization/review.md": "1717bf588e8a05cfe7b86e9890011c0e0289e67838b2c442cf161191b93837a1"
+  },
+  "rules_mirror_consistency": "not verified: dedicated mirror not found",
+  "manual_l3": {
+    "method": "manual source review",
+    "tool_scan_performed": false,
+    "dedicated_script_found": false,
+    "findings_count": 0,
+    "categories": [
+      "command injection",
+      "credentials/data disclosure",
+      "destructive operations",
+      "privilege/approval boundary",
+      "assertion fidelity",
+      "fallback/queue/pending state"
+    ]
+  },
+  "external_evidence_read": {
+    "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/acceptance/pr6892-review-fallback-after165/RED-READY.json",
+    "sha256": "b1668b40b04d297e51629965b3a6e4f8fe93b1547170faf361cd8ca3329e6dbc",
+    "test_source_matches_reviewed": true,
+    "status": "owner RED 2 negative failures / 3 positive passes; not re-executed by reviewer"
+  },
+  "history_decision": "normal followup commit authorized for shared branch; no force/rewrite",
+  "mutations": "only fallback-review.md/json outside repository"
+}

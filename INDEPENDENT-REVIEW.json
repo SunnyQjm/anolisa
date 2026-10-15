@@ -1,0 +1,12 @@
+{
+  "reviewer": "/root/bundle_review",
+  "blocking_findings": 0,
+  "verified": [
+    "HEAD/tree and 6798 tracked file hashes including Cargo.lock",
+    "final ELF and mutation archive/member SHA",
+    "independent environment already_absent and own cache absent",
+    "ARM container unit/logic/raw-cli scoped Go",
+    "original standard preflight data.ok=false retained for 62>50 historical title"
+  ],
+  "boundary": "Root metadata exception does not rewrite raw result or establish release Go"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "file": "src/cosh-ng/crates/cosh-shell/src/agent/failed_command.rs",
+    "merge_blob": "13704f5a68884f8eb9c34b6d200957cc0df47dc0",
+    "frozen_v4_blob": "13704f5a68884f8eb9c34b6d200957cc0df47dc0",
+    "equal": true
+  },
+  {
+    "file": "src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs",
+    "merge_blob": "a390fe5b537c6c2bf6d52fcad1f066ef76bce915",
+    "frozen_v4_blob": "a390fe5b537c6c2bf6d52fcad1f066ef76bce915",
+    "equal": true
+  },
+  {
+    "file": "src/cosh-ng/crates/cosh-shell/src/runtime/insight.rs",
+    "merge_blob": "9decd56c617dd29ed4664d5bdfb3cacc120ecf54",
+    "frozen_v4_blob": "9decd56c617dd29ed4664d5bdfb3cacc120ecf54",
+    "equal": true
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "REPORT.md": "c0595bf7cedaad5acff30ef33f919f7fbf8b12a86f7b1f10c9c758d19576a2c5",
+  "FINAL-PROOF.json": "576bf93ad22449e8fbc6d340b800d82188dd1bff2fb01752b51f147e1bbafc25",
+  "RED-READY.json": "b1668b40b04d297e51629965b3a6e4f8fe93b1547170faf361cd8ca3329e6dbc",
+  "SOURCE-MANIFEST.json": "6f92397b1fe944b4446e2dad22741db519f4310ac93a834d503f958023d368ff",
+  "green-source.patch": "862c508f620499e5de06ab41e17d94edb1223a047f94a5c45d445ef7ec4103b9",
+  "FINAL-SOURCE-PROOF.json": "13e72ea83924059a55bab13e702d1257fc8d86f0a115ff387ba77aa6f310815d",
+  "standard-preflight.json": "8668d2ec6fdcec5262a275666ffbb543b5b15bc11340185d62ba9d7197e58aeb",
+  "final-scoped-gate.json": "4a3b298124ae0e29b5b33f1f6ff25099c936d127d4f52a56bb3cd02dee7a956e",
+  "caller-mutation-logs.tar.gz": "676df02ca3e6c6e86d211a4409be58c8f6e07248696e0ddc4d185aa787aa8952",
+  "final-elf.tar.gz": "23102c1dee78ec528be498e2eedfec8dec1ef19b4b82b5dccc86f802769f65ed",
+  "FINAL-CACHE-ZERO.json": "f1b958eaeab335d4acbabf069fbc2a53e3fcfc8f78786afc04b468ec1e7e5703",
+  "final-env-down-independent.json": "f26e041e416ab4382a6ff61d0c0781a65993178382d203e9fa84560bc8bb6726",
+  "TEST-REVIEW.json": "fedc84b017c14ed9242e10c4a880f8a516c8fa413e29aca798eeb5d32c773425",
+  "RUNTIME-PINS.json": "789d0aa3d68b336c173e88b20534b58490f6dd7ad1d4ed0394d9f6a7714739a9",
+  "INDEPENDENT-REVIEW.json": "dc06876ba74d6ef30b4e01a0e742c81a5cb408fdd0576b318b1f40e78fae6c18",
+  "GREEN-READY.json": "05a5e3287a81e7b718945f636064d5e77c779a79a050b2007cb4b8c908297120"
+}

@@ -1,0 +1,26 @@
+diff --git a/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs b/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs
+index a390fe5b5..19e6cab64 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/agent/intercept.rs
+@@ -39,6 +39,21 @@ pub(crate) fn render_intercept_agent_guidance<W: Write>(
+             continue;
+         }
+ 
++        let disabled_insight_submission = state.personalization.ai_disabled
++            && matches!(
++                (
++                    prompt_ghost_suggestion_id(event),
++                    state.pending_input_ghost_binding.as_ref(),
++                ),
++                (Some(suggestion_id), Some(PendingInputGhostBinding::Insight(binding)))
++                    if suggestion_id.is_none_or(|id| id == binding.suggestion_id)
++            );
++        if disabled_insight_submission {
++            // Consume the submission before it can fall back to a free-form request.
++            state.pending_input_ghost_binding = None;
++            continue;
++        }
++
+         // Before handling this input, drive the background-compaction poll at
+         // this safe boundary: harvest a finished compactor, render its
+         // completion notice, and resume any user request that was held back

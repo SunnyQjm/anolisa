@@ -1,0 +1,10 @@
+{
+  "original_commit": "d029216f2e6080f62e60487b3be8937216683455",
+  "original_subject": "fix(cosh-ng): [shell] gate agent insights behind COSH_SHELL_AI",
+  "characters": 62,
+  "repo_hard_header_max": 120,
+  "repo_hard_header_pass": true,
+  "workflow_convention": 50,
+  "decision": "retain originalauthorhistory;50convention exception explicitlyrecorded per pr-submit;enforce actualrepo120;noRustlintallow/thresholdchange",
+  "new_merge_subject": "chore(cosh-ng): sync main for ai-off gates"
+}

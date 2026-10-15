@@ -1,0 +1,10 @@
+{
+  "docker_exit": 1,
+  "matching_container_names": "",
+  "archive_sha256": "a2a3fae64a7463096b93a066eb56bfdd909835d7cc7910fb39bdc04b8fce532a",
+  "actual_runtime": "container",
+  "container_list_exit": 0,
+  "owned_container_present": false,
+  "owned_cache_present": false,
+  "docker_default_context_not_applicable": true
+}

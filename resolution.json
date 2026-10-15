@@ -1,0 +1,10 @@
+{
+  "old_head": "d029216f2e6080f62e60487b3be8937216683455",
+  "main": "37c1529396712bdbe1c780f258a0b7980776d90a",
+  "conflicts": [
+    "src/cosh-ng/crates/cosh-shell/src/agent/failed_command_tests.rs"
+  ],
+  "resolution": "retain both PR AI-off auto/user-confirmed tests and main hook-consultation test/helper byte-for-byte",
+  "new_test_file_sha256": "70c2c4f65013f12da3b8e8f625f5168b4d718068e82f7deb816c883b27095d72",
+  "no_new_product_behavior": true
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "existing6789 AIoff acceptance defense;userauthorizedongoingreviewfix",
+  "root_cause": "OptionNone conflates disabledrejection/absentbinding;callerfallback dispatch",
+  "alternatives": [
+    {
+      "name": "callerconsumptionbeforepoll",
+      "decision": "preferred:smalllocalguard;noAPIchange"
+    },
+    {
+      "name": "helpertristateenum",
+      "decision": "validbutlargerAPI/testschangeunnecessary"
+    },
+    {
+      "name": "allinterceptAIoffglobalgate",
+      "decision": "outofscopepolicyexpansion"
+    }
+  ],
+  "planned_boundary": "AIoff pendingInsight and promptghost submission;reject attributed currentInsight (matching-id/legacy-no-id),preserve differentbinding/AIon/ordinaryinput existingroutes",
+  "test_first": "originalacceptanceownsintercept_tests.rs;RootawaitREDbeforeproductedit",
+  "final_scope": "mustrebuild/rebind newdualRPM;oldv4longsourceunchanged/historical"
+}

@@ -1,0 +1,8 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running unittests src/main.rs (/cache/cargo-target/58e248f2ee9f1910f4c9/debug/deps/cosh_shell-f9a39553762a3cc0)
+
+running 1 test
+test raw_input::card_capture::prompt_draft::tests::composer_enter_preserves_arguments_multiline_drafts_and_other_routes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3059 filtered out; finished in 0.01s
+

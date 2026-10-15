@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "issue": 7558,
+  "reviewer": "/root/review_checkpoint_7550",
+  "reviewed_at": "2026-10-15T00:51:47.044797+00:00",
+  "review_level": "L3",
+  "method": "manual L3 security review",
+  "tool_scan_performed": false,
+  "script_discovery": {
+    "dedicated_project_l3_script_found": false,
+    "searched": [
+      "AGENTS.md",
+      "SECURITY.md",
+      ".github",
+      "scripts",
+      "specs",
+      "src/cosh-ng/scripts",
+      "cosh-issue-fix/reference/pr-submit.md",
+      "cosh-issue-fix/scripts"
+    ],
+    "result": "Only pr-submit.md requirement found; no dedicated project L3 scan entry identified. Product security modules and unrelated tokenless L3 benchmark are not scan entry points."
+  },
+  "rules": [
+    "cosh-issue-fix/reference/pr-submit.md step 5",
+    "cosh-issue-fix/reference/behavior-review.md",
+    "applicable AGENTS.md",
+    "SECURITY.md",
+    "docs/developer-guide/en/cosh-ng/security-heuristics.md"
+  ],
+  "binding": {
+    "worktree": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7558-draft-canonical-v2",
+    "head": "4257775c007998896cbf554e16718ff674ad423a",
+    "head_tree": "869221b156ba8455dcb29cfd0bf84b0961f664e6",
+    "base": "4257775c007998896cbf554e16718ff674ad423a",
+    "changed_file": "specs/shell-e2e-validation/cases/han-nl-routing.yaml",
+    "file_sha256": "7eecce13fee0abcf79c23ca60d514e4a8051e1a4f9c62cf0d1bfff0b83c5dedc",
+    "file_blob": "866bb559c6a2fb880b6678e08a62227486e09416",
+    "patch_status": "working-tree change, uncommitted at review",
+    "patch_numstat": "24\t1\tspecs/shell-e2e-validation/cases/han-nl-routing.yaml",
+    "diff_text_sha256": "14367c7e4b4e920ced361226d842e1d9b1a1552225d1ec96576280cc80f36db5"
+  },
+  "checks": [
+    {
+      "category": "command_injection",
+      "result": "no finding",
+      "evidence": "Only new shell command is a fixed printf format with constant RC and quoted \"$?\"; no externally controlled command text, eval, command substitution, chained command, or redirection is introduced."
+    },
+    {
+      "category": "credentials",
+      "result": "no finding",
+      "evidence": "Added YAML contains no tokens, passwords, private keys, credential paths, network endpoint or authentication changes; personal credentials and old hooks were not read."
+    },
+    {
+      "category": "destructive_actions",
+      "result": "no finding",
+      "evidence": "Added events wait for output, print prior exit status, wait for quiet, and enter the existing empty ?? draft; no filesystem write, deletion, installation, reboot, service mutation or external message is added."
+    },
+    {
+      "category": "assertion_weakening",
+      "result": "no finding",
+      "evidence": "Original suffix, waits, timeouts, contains/not_contains and five points are byte-identical after removing only the two added contains and one added point. New native error and rc127 checks strengthen the fixture before the supported draft entry."
+    },
+    {
+      "category": "input_echo_false_positive",
+      "result": "no finding",
+      "evidence": "Input printf format __DRAFT_NATIVE_%s__<%s> with arguments RC and \"$?\" does not contain contiguous expected __DRAFT_NATIVE_RC__<127>. /draft input does not contain the expected Zsh error. Original suffix predicates are unchanged."
+    },
+    {
+      "category": "privilege_boundary",
+      "result": "no finding",
+      "evidence": "No uid/gid, sudo, ACL, mode, approval policy, shell route implementation or production parser change. Isolated-shell environment and real cosh-core adapter declaration remain unchanged."
+    },
+    {
+      "category": "evidence_claim_boundary",
+      "result": "no finding",
+      "evidence": "Native-before-?? phase proof is limited to observed UI; no exec trace or provider request counter exists. Old 5a6 overlay runs are not exact current-head runtime validation."
+    }
+  ],
+  "findings_count": 0,
+  "findings": [],
+  "blocking_findings_count": 0,
+  "verdict": "no security findings in reviewed single-YAML diff",
+  "limitations": [
+    "Manual review, not SAST/secret-scan tool execution.",
+    "No Rust tests, live PTY/provider cases, remote resources or security attack experiments executed by this reviewer.",
+    "Exact PR-head preflight and required gates remain Root responsibility.",
+    "Review-machine rules mirror not discovered; synchronization not verified.",
+    "No claim of absent Agent process/provider requests from UI phase observations.",
+    "Report files only; no repository, environment, lockfile or resource mutation."
+  ],
+  "prior_behavior_review_artifact": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/root-7558-canonical/reviewer-behavior-rules-review.md"
+}

@@ -1,0 +1,11 @@
+{
+  "PR_source": "ac3d175d90f55ae4403e54a9e3df1d3043e31273",
+  "base": "4257775c007998896cbf554e16718ff674ad423a",
+  "case_sha256": "7eecce13fee0abcf79c23ca60d514e4a8051e1a4f9c62cf0d1bfff0b83c5dedc",
+  "changes": "one YAML only; product src/cosh-ng identical to base",
+  "preflight": "LinuxRust1.97.1fmt/clippy/layout/inventory data.ok=true",
+  "focused": "currentbase removedalias1PASS/composerroute1PASS",
+  "dynamic_scope": "previousfrozen5a6 source dualarch testoverlay PASS andlegacynegative; explicitly not PR-head fullrawCLI/RPM/provider acceptance",
+  "review": "manualL3findings0;behavior/organizationnoblockers;reviewservermirror unavailable",
+  "release_gate": "No-Go"
+}

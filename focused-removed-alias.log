@@ -1,0 +1,9 @@
+   Compiling cosh-shell v0.27.0 (/work/pr-7558/src/cosh-ng/crates/cosh-shell)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 45.72s
+     Running unittests src/main.rs (/cache/cargo-target/58e248f2ee9f1910f4c9/debug/deps/cosh_shell-f9a39553762a3cc0)
+
+running 1 test
+test slash::parser::tests::removed_draft_alias_is_unknown ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 3059 filtered out; finished in 0.00s
+

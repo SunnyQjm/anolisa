@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "issue": 7608,
+  "reviewer": "/root/review_checkpoint_7550",
+  "reviewed_at": "2026-10-15T06:07:01.866930+00:00",
+  "head": "2e5f39e059f84cfecd7c521a49c08dc97e0c31d7",
+  "head_tree": "a5ec46b4b0dd83c33bb3dd71f232b8c39fc55425",
+  "base_component_tree": "ab0525d85b2a59e00e19c1168b3b0a8f2b3d9b1c",
+  "staged_component_tree": "5fc519069e748c675af5568ebc07ad7c3c4bea2e",
+  "staged_file": "src/cosh-ng/crates/cosh-shell/tests/raw_cli/heavy.rs",
+  "file_sha256": "09f95fe0fd594baa6120eb97ce1ed8ba071c0f8605fe98e0980af132f969675d",
+  "diff_sha256": "3af167225a8a56bcec9779e489f5abcac29f757e5e53d77879675849e6d9fc68",
+  "prior_diff_sha256_matches": true,
+  "latest_main_sync_matches": true,
+  "upstream_changed_files": [
+    ".github/scripts/generate_release_notes.py",
+    ".github/scripts/test_release_notes.py",
+    ".github/workflows/release.yaml",
+    ".github/workflows/repository-metadata.yml"
+  ],
+  "rules_changed": false,
+  "rules_mirror_verified": false,
+  "findings_count": 0,
+  "blocking_findings_count": 0,
+  "findings": [],
+  "verdict": "no blocking findings; latest-main incremental review",
+  "checks": [
+    "staged diff SHA256与原review.diff_sha256完全一致；heavy.rs源码SHA与原review、latest-main-sync一致。",
+    "上游仅四个.github发布/Python文件；AGENTS、src/cosh-ng、组织台账没有变化。main原组件tree为ab0525d85b2a59e00e19c1168b3b0a8f2b3d9b1c；带补丁组件tree为5fc519069e748c675af5568ebc07ad7c3c4bea2e（sync字段表示后者，和原index tree一致）。",
+    "行为/组织/人工L3结论沿用原审查：六字面谓词保留、仅取消彼此顺序要求；timeout、产品协议及全部后续断言未变。",
+    "fresh-standalone-controls fixed两正控exit0/十二负控exit1，全部source_sha256绑定当前staged源码；未读取旧token或旧wire内容。",
+    "读取validation2目标exact PTY测试exit0/1pass，以及四个qualified adjacent各1pass；零选择的旧heavy-family结果明确不计入。",
+    "原standard-preflight与同步后standard-preflight-latestmain均data.ok=true；fmt/workspace all-target clippy及gate成功。tests.detail明确not-run，测试由独立focused记录支持。"
+  ],
+  "limitations": [
+    "本review未执行构建、测试、门禁或新扫描；只读核查既有产物与当前git状态。",
+    "人工L3不是工具扫描；规则镜像未核实。",
+    "fixture仍是compact JSON字面片段检查，不是完整JSON结构/重复键/任意空白的协议解析器。",
+    "focused测试和synthetic控制不能升级为全workspace、真实provider或release验收。",
+    "review绑定本次staged状态；后续源码、patch或上游变化需要重新评审。"
+  ],
+  "evidence_sha256": {
+    "review.json": "b873d027dad9a334975e9519172a41142c18a795bdfd58aa9a17e44cf42cf7e8",
+    "latest-main-sync.json": "960cda2c9a89e2b74c086b9c6d5a3d13c8c19c5eb25f5d4a456cab8a3b867483",
+    "fresh-standalone-controls.json": "dbc4aec797138cc09cdb09c8086b83ba84f9970cd924c507643285d420cdb34a",
+    "validation2/input-wait.json": "48bf01e5ebec664759c03ea225ff855b0b72a775f7cedbbfac9bb8b68905f7c0",
+    "validation2/ADJACENT-EXACT-SUMMARY.json": "03c9fb514b75c8fdb29600d01499af555a3f38668d142aaef74b8b0714f1670e",
+    "validation2/standard-preflight.json": "afd188260ff75feacfa81af4938c0814547df3b3cd4027b88989b1e4db62db3b",
+    "validation2/standard-preflight-latestmain.json": "afd188260ff75feacfa81af4938c0814547df3b3cd4027b88989b1e4db62db3b"
+  },
+  "validation_readback": {
+    "fresh_fixed_positive": 2,
+    "fresh_fixed_negative": 12,
+    "exact_target_summary": [
+      "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 6.43s"
+    ],
+    "adjacent_tests": [
+      {
+        "test": "raw_cli_host_executed_shell_timeout_interrupts_and_returns_result",
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060402Z-b4199a4b",
+        "summary": [
+          "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 7.73s"
+        ]
+      },
+      {
+        "test": "raw_cli_host_executed_password_prompt_timeout_defers_notice_until_prompt",
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060412Z-0f0a9828",
+        "summary": [
+          "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 7.73s"
+        ]
+      },
+      {
+        "test": "raw_cli_host_executed_fullscreen_timeout_defers_notice_until_exit_alt_screen",
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060422Z-bfda5e81",
+        "summary": [
+          "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 13.72s"
+        ]
+      },
+      {
+        "test": "raw_cli_host_executed_shell_timeout_uses_zh_language_env",
+        "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060436Z-a50f4dac",
+        "summary": [
+          "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 7.71s"
+        ]
+      }
+    ],
+    "prior_preflight_data_ok": true,
+    "latestmain_preflight_data_ok": true,
+    "latestmain_preflight_tests": {
+      "command": null,
+      "detail": "not-run; ok does not cover tests, run planned scopes separately",
+      "ok": null
+    }
+  },
+  "manual_l3": {
+    "findings_count": 0,
+    "tool_scan_performed": false,
+    "scope": "same reviewed staged diff; no security-relevant upstream delta"
+  },
+  "mutations": "only review-latestmain.md/json outside repository"
+}

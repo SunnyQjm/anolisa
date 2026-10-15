@@ -1,0 +1,90 @@
+{
+  "PR": 7628,
+  "source": "6d55454573efa4bbc899871b090dd84ac0ccc9ba",
+  "files": [
+    {
+      "file": "ADJACENT-EXACT-SUMMARY.json",
+      "sha256": "03c9fb514b75c8fdb29600d01499af555a3f38668d142aaef74b8b0714f1670e"
+    },
+    {
+      "file": "COMMITTED-IDENTITY.json",
+      "sha256": "669023283724d573fb751624b65bce336a292f1109db33dc010b32ceb52f0d40"
+    },
+    {
+      "file": "ELF-BINDING.json",
+      "sha256": "ba00f68734d67432a75c0a349e60ecb2d8f3398661337df57082a887496c2161"
+    },
+    {
+      "file": "QUALIFIED-VALIDATION-SUMMARY.json",
+      "sha256": "e17f2872c32a37c277adc8e91553d934a8cbc40dd2322d50c2800d1cf1abf9a0"
+    },
+    {
+      "file": "README.md",
+      "sha256": "1e1d961d4d56a8a7b0a37132c812d48f4f08ae89061f00a17281f7af609a0a5d"
+    },
+    {
+      "file": "ROOT-VALIDATION-CLEANUP.json",
+      "sha256": "1344d34638fd5d56245596b7b5272f1d37a7be2120850d874318ba0a58b7d765"
+    },
+    {
+      "file": "adjacent-qualified-raw_cli_host_executed_fullscreen_timeout_defers_notice_until_exit_alt_screen-result.json",
+      "sha256": "db8a9232e355050f56ea509595618c094adcff64017e42f0110e1ad7501b81ce"
+    },
+    {
+      "file": "adjacent-qualified-raw_cli_host_executed_password_prompt_timeout_defers_notice_until_prompt-result.json",
+      "sha256": "401a7083b2b50582fdfb30ba9645e6a64b687f1065642acbf7c032f0c1dceef8"
+    },
+    {
+      "file": "adjacent-qualified-raw_cli_host_executed_shell_timeout_interrupts_and_returns_result-result.json",
+      "sha256": "2ee346434d727beab421cb6e46b36602ceea5aaf82ba70459ed45f44515ff1de"
+    },
+    {
+      "file": "adjacent-qualified-raw_cli_host_executed_shell_timeout_uses_zh_language_env-result.json",
+      "sha256": "3a54c30455db9d25d067f2ccad2760960632b7faeeb5adb0e7dd122c0495cc51"
+    },
+    {
+      "file": "fresh-standalone-controls.json",
+      "sha256": "dbc4aec797138cc09cdb09c8086b83ba84f9970cd924c507643285d420cdb34a"
+    },
+    {
+      "file": "input-wait-result.json",
+      "sha256": "76ef947a9a1c7261bbf6e76b6829f3125461f2985a1940089b898035b436e023"
+    },
+    {
+      "file": "latest-main-sync.json",
+      "sha256": "960cda2c9a89e2b74c086b9c6d5a3d13c8c19c5eb25f5d4a456cab8a3b867483"
+    },
+    {
+      "file": "review-latestmain.json",
+      "sha256": "9bb807dc22400f9452388713020ec8881745747ecc7ba14b37b7067eefce873f"
+    },
+    {
+      "file": "review-latestmain.md",
+      "sha256": "3eaa94caa6a19ed2fc982c102d598eea2f1802c55e166fecda5ff82c4fc2ade7"
+    },
+    {
+      "file": "review.json",
+      "sha256": "b873d027dad9a334975e9519172a41142c18a795bdfd58aa9a17e44cf42cf7e8"
+    },
+    {
+      "file": "review.md",
+      "sha256": "4a0905958169198a82d40e9cdf090abcc749b4cc3342cdae0e9b904b8769ed4d"
+    },
+    {
+      "file": "standard-preflight-committed.json",
+      "sha256": "afd188260ff75feacfa81af4938c0814547df3b3cd4027b88989b1e4db62db3b"
+    },
+    {
+      "file": "standard-preflight-latestmain.json",
+      "sha256": "afd188260ff75feacfa81af4938c0814547df3b3cd4027b88989b1e4db62db3b"
+    },
+    {
+      "file": "standard-preflight.json",
+      "sha256": "afd188260ff75feacfa81af4938c0814547df3b3cd4027b88989b1e4db62db3b"
+    },
+    {
+      "file": "verify-committed-source.json",
+      "sha256": "da0ffbc32a9cdb6b5f79cc6846dacdbecc05e2c3b37016eb1e6922283cab6ef5"
+    }
+  ]
+}

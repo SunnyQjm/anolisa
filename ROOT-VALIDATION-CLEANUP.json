@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-15T06:10:08.114893+00:00",
+  "run": "20261015T055252Z-033c7893",
+  "own_container_absent": true,
+  "own_cache_absent": true,
+  "other_containers_untouched": true,
+  "ELF_archive_preserved": true,
+  "standard_cleanup": {
+    "data": {
+      "already_absent": false,
+      "cleanup": {
+        "status": "cleaned"
+      },
+      "stderr": "",
+      "stdout": ""
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060935Z-0426f220",
+      "schema_version": 1
+    },
+    "ok": true
+  }
+}

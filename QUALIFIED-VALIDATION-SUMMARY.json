@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-15T06:06:32.923289+00:00",
+  "rows": [
+    {
+      "label": "input-wait",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T055536Z-f8fd1dc3",
+      "passed": 1,
+      "failed": 0,
+      "scope": "scripted fixture with actualPTY;notproductionprovider"
+    },
+    {
+      "label": "adjacent-qualified-raw_cli_host_executed_shell_timeout_interrupts_and_returns_result",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060402Z-b4199a4b",
+      "passed": 1,
+      "failed": 0,
+      "scope": "scripted fixture with actualPTY;notproductionprovider"
+    },
+    {
+      "label": "adjacent-qualified-raw_cli_host_executed_password_prompt_timeout_defers_notice_until_prompt",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060412Z-0f0a9828",
+      "passed": 1,
+      "failed": 0,
+      "scope": "scripted fixture with actualPTY;notproductionprovider"
+    },
+    {
+      "label": "adjacent-qualified-raw_cli_host_executed_fullscreen_timeout_defers_notice_until_exit_alt_screen",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060422Z-bfda5e81",
+      "passed": 1,
+      "failed": 0,
+      "scope": "scripted fixture with actualPTY;notproductionprovider"
+    },
+    {
+      "label": "adjacent-qualified-raw_cli_host_executed_shell_timeout_uses_zh_language_env",
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060436Z-a50f4dac",
+      "passed": 1,
+      "failed": 0,
+      "scope": "scripted fixture with actualPTY;notproductionprovider"
+    }
+  ],
+  "total_qualified": 5,
+  "zero_selection_excluded": "heavy-family 0tests;preservednotcounted",
+  "adjacent_first_qualification_failure": "another cosh-lab command running, exit1 beforetests;retained;serializedqualification5PASS",
+  "environment_preparation": [
+    "initialsymlinkuploadrejected",
+    "initialofflineRGmissing;fixedpublicchecksumimport"
+  ],
+  "toolchain": "Linuxaarch64Rust1.97.1",
+  "fullworkspace": "notrunforstandalone;notrequiredbytestonlyscope;v5separateactive",
+  "review": "static0/manualL30;rulesmirrorunverified"
+}

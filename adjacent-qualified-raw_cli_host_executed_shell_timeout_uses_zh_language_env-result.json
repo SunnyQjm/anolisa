@@ -1,0 +1,29 @@
+{
+  "data": {
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--package",
+      "cosh-shell",
+      "--test",
+      "raw_cli",
+      "heavy::raw_cli_host_executed_shell_timeout_uses_zh_language_env",
+      "--",
+      "--exact",
+      "--test-threads=1"
+    ],
+    "duration_seconds": 8.542853,
+    "exit_code": 0,
+    "scope": "raw-cli",
+    "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.50s\n     Running tests/raw_cli.rs (/cache/cargo-target/b12beb3133897a1bd221/debug/deps/raw_cli-18a8fa36c9f91f53)\nCOSH_PRIVILEGED_TARGET_RUN_UID_0\n",
+    "stdout": "\nrunning 1 test\ntest heavy::raw_cli_host_executed_shell_timeout_uses_zh_language_env ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 620 filtered out; finished in 7.71s\n\n",
+    "target_cache_key": "b12beb3133897a1bd221"
+  },
+  "error": null,
+  "meta": {
+    "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/input-wait-publication/validation2/runs/20261015T060436Z-a50f4dac",
+    "schema_version": 1
+  },
+  "ok": true
+}

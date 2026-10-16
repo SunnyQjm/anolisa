@@ -1,0 +1,82 @@
+{
+  "decision": "Go",
+  "scope": "#7489 history-only Linux Rust1.97.1 preflight; no test bodies",
+  "head": "c0658e0d8519c52b2ecb1cae5cc5662eef1362b7",
+  "tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+  "old_head": "60b68369eb0d573b0c9ba61106e04cab7ba56f0f",
+  "old_tree_equals_new": true,
+  "base": "b75eff716d8c42ba17b8355b47373430d25d2505",
+  "commits": 4,
+  "environment_run": "20261016T004839Z-9cd0060f",
+  "preflight_run": "20261016T005037Z-1a22f512",
+  "architecture": "aarch64",
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "preflight": {
+    "cargo_root": "src/cosh-ng",
+    "clippy": {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "detail": null,
+      "ok": true
+    },
+    "commit_lint": [],
+    "fmt": {
+      "command": "cargo fmt --check",
+      "detail": null,
+      "ok": true
+    },
+    "gates": [
+      {
+        "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-test-inventory.sh",
+        "detail": null,
+        "ok": true
+      }
+    ],
+    "ok": true,
+    "schema_version": 1,
+    "tests": {
+      "command": null,
+      "detail": "not-run; ok does not cover tests, run planned scopes separately",
+      "ok": null
+    },
+    "upstream_drift": []
+  },
+  "native_cargo_audit": "native-cargo-audit.json",
+  "all_native_cargo_exit_zero": true,
+  "inventory_counts": {
+    "cosh-core/lib": 189,
+    "cosh-core/bin": 1100,
+    "cosh-shell/bin": 3062,
+    "cosh-shell/lib": 1625
+  },
+  "overlap": {
+    "cosh-core": 4,
+    "cosh-shell": 696
+  },
+  "test_body_executed": false,
+  "source_files": 1294,
+  "source_before_guest_after_equal": true,
+  "original_seed_hashes_unchanged": true,
+  "cache_strategy": "cp -cR independent CoW inodes; owned cache only; original4d seed readonly, no Root58/f81 target touched",
+  "rustup_auto_self_update": "disable",
+  "cleanup": {
+    "state": "cleaned",
+    "down_run": "20261016T005540Z-6b75da13",
+    "actual_inventory_present": false,
+    "owned_name": "cosh-7489-history-20261016",
+    "guest_cosh_build_processes": []
+  },
+  "prior_launch_failure": "preflight-launch-arg-error.stderr: host wrapper artifact-root misplaced after --; env lookup rejected before execution, retained; corrected wrapper only",
+  "not_run": [
+    "test bodies/focused/full suites",
+    "provider",
+    "PTY/canonical acceptance",
+    "RPM/release",
+    "newHEAD CI (Root push pending)"
+  ],
+  "prior_tree_evidence": "old exact-tree preflight and621/0/1 remains separate historical evidence; not rerun or relabelled"
+}

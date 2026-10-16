@@ -1,0 +1,19 @@
+{
+  "old_head": "60b68369eb0d573b0c9ba61106e04cab7ba56f0f",
+  "new_head": "c0658e0d8519c52b2ecb1cae5cc5662eef1362b7",
+  "base": "b75eff716d8c42ba17b8355b47373430d25d2505",
+  "old_tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+  "new_tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+  "commits": {
+    "d2964b8c6f51ec229ba9f0d6a7c0e8fad13a696e": "7bea0cada3b0edc9da07921bcd88691c0761891b",
+    "4e5d79f7cd8df2553568b97705f836e238c3cdd3": "7bea0cada3b0edc9da07921bcd88691c0761891b",
+    "74e74e0b37480dd0bd0a754384324a2bfc193f6c": "b4d268c718e35dbe863aab2eeae49f09c456b3a6",
+    "12eeef0173c85f11a835a83b540c55ac0fbed9c5": "97ed670781795952560a653525ffc17e742b4521",
+    "60b68369eb0d573b0c9ba61106e04cab7ba56f0f": "c0658e0d8519c52b2ecb1cae5cc5662eef1362b7"
+  },
+  "source_tree_identical": true,
+  "backup_ref": "refs/codex/7489-before-history-20261016",
+  "raw_status": "?? .cosh-lab/",
+  "preserved_author_and_committer_metadata": true,
+  "preserved_original_assisted_and_signoff_trailers": true
+}

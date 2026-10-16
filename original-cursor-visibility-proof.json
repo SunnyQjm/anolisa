@@ -1,0 +1,38 @@
+[
+  {
+    "test": "ui_output_fault::committed_handoff_survives_gate_withdraw_write_failure_after_audit_resolution",
+    "source_head": "12eeef0173c85f11a835a83b540c55ac0fbed9c5",
+    "point": {
+      "col": 14,
+      "label": "native-prompt-recovered",
+      "offset": 2111,
+      "row": 31
+    },
+    "cursor_visible": false,
+    "last_visibility_offset": 1599
+  },
+  {
+    "test": "ui_output_fault::committed_handoff_survives_persistent_output_failure_and_recovers_without_input_leak",
+    "source_head": "12eeef0173c85f11a835a83b540c55ac0fbed9c5",
+    "point": {
+      "col": 14,
+      "label": "native-prompt-recovered",
+      "offset": 2351,
+      "row": 31
+    },
+    "cursor_visible": true,
+    "last_visibility_offset": 1724
+  },
+  {
+    "test": "ui_output_fault::committed_handoff_output_failure_preserves_existing_timeout_settlement",
+    "source_head": "12eeef0173c85f11a835a83b540c55ac0fbed9c5",
+    "point": {
+      "col": 14,
+      "label": "native-prompt-recovered",
+      "offset": 3147,
+      "row": 31
+    },
+    "cursor_visible": true,
+    "last_visibility_offset": 1724
+  }
+]

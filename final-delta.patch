@@ -1,0 +1,281 @@
+diff --git a/src/cosh-ng/crates/cosh-shell/src/hooks/runtime_tests/session_input.rs b/src/cosh-ng/crates/cosh-shell/src/hooks/runtime_tests/session_input.rs
+index f6c37901e..a5f01871b 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/hooks/runtime_tests/session_input.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/hooks/runtime_tests/session_input.rs
+@@ -131,3 +131,37 @@ fn manual_mode_records_silently() {
+         RuntimeHookDisplay::Silent
+     );
+ }
++
++#[test]
++fn painted_prompt_readiness_is_not_followup_user_input() {
++    for (component, message, expected) in [
++        ("shell_prompt_ready", "painted", false),
++        ("shell_prompt_ready", "occupied", true),
++        ("shell_prompt_input", "write", true),
++        ("shell_pty_input", "write", true),
++    ] {
++        let block = block_with_command("make all");
++        let mut input = ShellEvent::user_input_intercepted("session", "");
++        input.component = Some(component.to_string());
++        input.message = Some(message.to_string());
++        let events = vec![
++            ShellEvent::command_started("session", "cmd-1", "make all", "/tmp", 10),
++            ShellEvent::command_finished(
++                ShellEventKind::CommandFailed,
++                "session",
++                "cmd-1",
++                2,
++                20,
++                "/tmp/out",
++            ),
++            input,
++        ];
++        let mut state = InlineState::default();
++        record_blocks_followed_by_user_input(&events, &[block], &mut state);
++        assert_eq!(
++            state.hooks.block_followed_by_user_input("cmd-1"),
++            expected,
++            "{component}:{message}"
++        );
++    }
++}
+diff --git a/src/cosh-ng/crates/cosh-shell/src/runtime/controller.rs b/src/cosh-ng/crates/cosh-shell/src/runtime/controller.rs
+index fc05c882a..afb32dfe2 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/runtime/controller.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/runtime/controller.rs
+@@ -269,6 +269,10 @@ fn shell_handoff_timeout_recovery_action_with_timeout<W: Write>(
+     if !shell_busy && !shell_handoff_pending {
+         if let Some(timeout) = state.pending_shell_handoff_timeout_notice.take() {
+             render_shell_handoff_timeout_notice(state, output, timeout)?;
++            return Ok(Some(RawObserverAction::RestorePrompt {
++                ghost_text: None,
++                ghost_route: Default::default(),
++            }));
+         }
+         return Ok(None);
+     }
+diff --git a/src/cosh-ng/crates/cosh-shell/src/runtime/controller/tests.rs b/src/cosh-ng/crates/cosh-shell/src/runtime/controller/tests.rs
+index 4fe996052..2e393a580 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/runtime/controller/tests.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/runtime/controller/tests.rs
+@@ -264,7 +264,13 @@ fn shell_handoff_timeout_notice_is_deferred_until_foreground_is_idle() {
+     .expect("timeout notice");
+     let idle_text = String::from_utf8_lossy(&idle_output);
+ 
+-    assert_eq!(action, None);
++    assert_eq!(
++        action,
++        Some(RawObserverAction::RestorePrompt {
++            ghost_text: None,
++            ghost_route: Default::default(),
++        })
++    );
+     assert!(
+         idle_text.contains("Command exceeded configured shell handoff timeout (1s)."),
+         "{idle_text}"
+@@ -462,3 +468,40 @@ fn assert_gate_wrapping_preserves_only_physical_write_source() {
+         "an untagged writer with the same OS code is strict"
+     );
+ }
++
++#[test]
++fn deferred_handoff_timeout_notice_restores_native_prompt_without_input() {
++    let mut state = InlineState {
++        pending_shell_handoff_timeout_notice: Some(Duration::from_secs(2)),
++        ..InlineState::default()
++    };
++    let mut output = Vec::new();
++    let action = shell_handoff_timeout_recovery_action_with_timeout(
++        &mut state,
++        false,
++        &mut output,
++        Some(Duration::from_secs(2)),
++    )
++    .expect("idle timeout notice");
++    assert_eq!(
++        action,
++        Some(RawObserverAction::RestorePrompt {
++            ghost_text: None,
++            ghost_route: Default::default(),
++        })
++    );
++    assert!(String::from_utf8_lossy(&output).contains("handoff timeout (2s)."));
++    assert!(state.pending_shell_handoff_timeout_notice.is_none());
++    output.clear();
++    assert_eq!(
++        shell_handoff_timeout_recovery_action_with_timeout(
++            &mut state,
++            false,
++            &mut output,
++            Some(Duration::from_secs(2)),
++        )
++        .expect("settled timeout notice"),
++        None
++    );
++    assert!(output.is_empty());
++}
+diff --git a/src/cosh-ng/crates/cosh-shell/src/runtime/hooks.rs b/src/cosh-ng/crates/cosh-shell/src/runtime/hooks.rs
+index 9fb08de83..dcadf2555 100644
+--- a/src/cosh-ng/crates/cosh-shell/src/runtime/hooks.rs
++++ b/src/cosh-ng/crates/cosh-shell/src/runtime/hooks.rs
+@@ -170,7 +170,10 @@ fn command_end_event_index(events: &[ShellEvent], block: &CommandBlock) -> Optio
+ fn is_followup_user_input_event(event: &ShellEvent, block_id: &str) -> bool {
+     match event.kind {
+         ShellEventKind::CommandStarted => event.command_id.as_deref() != Some(block_id),
+-        ShellEventKind::UserInputIntercepted => true,
++        ShellEventKind::UserInputIntercepted => {
++            event.component.as_deref() != Some("shell_prompt_ready")
++                || event.message.as_deref() != Some("painted")
++        }
+         _ => false,
+     }
+ }
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/raw_cli/auth.rs b/src/cosh-ng/crates/cosh-shell/tests/raw_cli/auth.rs
+index bf8c29d27..0379bfa78 100644
+--- a/src/cosh-ng/crates/cosh-shell/tests/raw_cli/auth.rs
++++ b/src/cosh-ng/crates/cosh-shell/tests/raw_cli/auth.rs
+@@ -699,3 +699,8 @@ fn raw_cli_auth_non_ecs_aliyun_falls_back_to_manual_keys() {
+     // The successful startup result is reused after selecting the template.
+     assert_eq!(action_count(&requests, "prepare"), 1, "{requests}");
+ }
++
++#[test]
++fn raw_cli_marker_input_readiness_keeps_concurrent_drivers_separate() {
++    crate::support::raw_cli::assert_marker_input_readiness_paths_are_exclusive();
++}
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/raw_cli/failed_command.rs b/src/cosh-ng/crates/cosh-shell/tests/raw_cli/failed_command.rs
+index 9d21d400e..886096375 100644
+--- a/src/cosh-ng/crates/cosh-shell/tests/raw_cli/failed_command.rs
++++ b/src/cosh-ng/crates/cosh-shell/tests/raw_cli/failed_command.rs
+@@ -1005,14 +1005,12 @@ fn assert_failed_command_prompt_restore(
+     );
+     let home = fixture.to_string_lossy().into_owned();
+     let isolated_value = if isolated { "1" } else { RAW_CLI_UNSET_ENV };
+-    let mut input = vec![(b"make all\n".to_vec(), Duration::ZERO)];
++    let mut input = vec![(sentinel.as_str(), b"make all\n".as_slice())];
+     if mode == "smart" {
+-        input.push((b"\t\n".to_vec(), Duration::from_millis(2800)));
++        input.push(("Insight: The build or test command failed", b"\t\n"));
+     }
+-    input.push((
+-        b"echo PROMPT_FLOW_OK\nexit\n".to_vec(),
+-        Duration::from_millis(1800),
+-    ));
++    input.push(("failed with exit code 2.", b""));
++    input.push((sentinel.as_str(), b"echo PROMPT_FLOW_OK\nexit\n"));
+     let mut env = vec![
+         ("HOME", home.as_str()),
+         ("PATH", path.as_str()),
+@@ -1023,8 +1021,13 @@ fn assert_failed_command_prompt_restore(
+         ("COSH_POC_PS1", sentinel.as_str()),
+     ];
+     env.extend_from_slice(extra_env);
+-    let output =
+-        run_raw_cli_with_args_env_and_delayed_input("fake", &["--shell", shell], &env, input);
++    let output = run_raw_cli_with_args_env_current_dir_and_marker_input(
++        "fake",
++        &["--shell", shell],
++        &env,
++        Path::new(env!("CARGO_MANIFEST_DIR")),
++        &input,
++    );
+     let _ = fs::remove_dir_all(&fixture);
+ 
+     let normalized = strip_ansi_escape(&output);
+diff --git a/src/cosh-ng/crates/cosh-shell/tests/support/raw_cli.rs b/src/cosh-ng/crates/cosh-shell/tests/support/raw_cli.rs
+index 6b0b4aa71..a9833683e 100644
+--- a/src/cosh-ng/crates/cosh-shell/tests/support/raw_cli.rs
++++ b/src/cosh-ng/crates/cosh-shell/tests/support/raw_cli.rs
+@@ -630,7 +630,7 @@ fn run_raw_cli_marker_input_inner(
+ }
+ 
+ struct RawCliInputReadiness {
+-    directory: PathBuf,
++    _directory: tempfile::TempDir,
+     request_path: PathBuf,
+     token: String,
+     next_request: u64,
+@@ -638,19 +638,22 @@ struct RawCliInputReadiness {
+ 
+ impl RawCliInputReadiness {
+     fn new() -> Self {
+-        let nanos = SystemTime::now()
+-            .duration_since(UNIX_EPOCH)
+-            .expect("clock")
+-            .as_nanos();
+-        let directory = std::env::temp_dir().join(format!(
+-            "cosh-raw-cli-input-ready-{}-{nanos}",
+-            std::process::id()
+-        ));
+-        fs::create_dir_all(&directory).expect("create raw CLI input readiness directory");
+-        let request_path = directory.join("request");
+-        let token = format!("cosh-input-ready-{}-{nanos}", std::process::id());
++        let directory = tempfile::Builder::new()
++            .prefix("cosh-raw-cli-input-ready-")
++            .tempdir()
++            .expect("create exclusive raw CLI input readiness directory");
++        let request_path = directory.path().join("request");
++        let token = format!(
++            "cosh-input-ready-{}-{}",
++            std::process::id(),
++            directory
++                .path()
++                .file_name()
++                .expect("readiness directory name")
++                .to_string_lossy(),
++        );
+         Self {
+-            directory,
++            _directory: directory,
+             request_path,
+             token,
+             next_request: 0,
+@@ -696,12 +699,6 @@ impl RawCliInputReadiness {
+     }
+ }
+ 
+-impl Drop for RawCliInputReadiness {
+-    fn drop(&mut self) {
+-        let _ = fs::remove_dir_all(&self.directory);
+-    }
+-}
+-
+ fn run_raw_cli_with_args_env_current_dir_and_delayed_input_inner(
+     adapter: &str,
+     extra_args: &[&str],
+@@ -1308,3 +1305,34 @@ pub(crate) fn compact_terminal_words(text: &str) -> String {
+ fn display_width(text: &str) -> usize {
+     Span::raw(text).width()
+ }
++
++pub(crate) fn assert_marker_input_readiness_paths_are_exclusive() {
++    let barrier = std::sync::Arc::new(std::sync::Barrier::new(4));
++    let threads: Vec<_> = (0..4)
++        .map(|_| {
++            let barrier = barrier.clone();
++            std::thread::spawn(move || {
++                barrier.wait();
++                RawCliInputReadiness::new()
++            })
++        })
++        .collect();
++    let mut probes: Vec<_> = threads
++        .into_iter()
++        .map(|thread| thread.join().unwrap())
++        .collect();
++    let paths: std::collections::HashSet<_> =
++        probes.iter().map(|probe| &probe.request_path).collect();
++    assert_eq!(
++        paths.len(),
++        probes.len(),
++        "independent readiness writers must never alias"
++    );
++    for (index, probe) in probes.iter_mut().enumerate() {
++        probe.next_request = index as u64;
++        assert_eq!(probe.request(), index as u64 + 1);
++    }
++    let survivor = probes.pop().unwrap();
++    drop(probes);
++    assert_eq!(fs::read_to_string(&survivor.request_path).unwrap(), "4");
++}

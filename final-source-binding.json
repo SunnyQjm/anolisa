@@ -1,0 +1,21 @@
+{
+  "base": "b75eff716d8c42ba17b8355b47373430d25d2505",
+  "head": "12eeef0173c85f11a835a83b540c55ac0fbed9c5",
+  "head_tree": "f2af294c497f3b2a0a33b9b519878495cbc04930",
+  "objects": 1479,
+  "pack_bytes": 330769,
+  "pack_sha256": "d9ed675560aded75bf03c037ebae6bad39ba59397d9701958543c99ee1bb1775",
+  "status": "",
+  "scope": "exact commit/tree objects; source blobs for seven changed paths; no credentials or unrelated historical blobs",
+  "cosh_subtree": "36ac66f144896958bff3d536e9636f73412d4524",
+  "tracked_status": "",
+  "delta_files": [
+    "src/cosh-ng/crates/cosh-shell/src/hooks/runtime_tests/session_input.rs",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/controller.rs",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/controller/tests.rs",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/hooks.rs",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/auth.rs",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/failed_command.rs",
+    "src/cosh-ng/crates/cosh-shell/tests/support/raw_cli.rs"
+  ]
+}

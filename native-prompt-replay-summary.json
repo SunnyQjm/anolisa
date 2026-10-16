@@ -1,0 +1,86 @@
+[
+  {
+    "test": "ui_output_fault::committed_handoff_output_failure_preserves_existing_timeout_settlement",
+    "source_head": "60b68369eb0d573b0c9ba61106e04cab7ba56f0f",
+    "source_tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+    "shell_sha256": "bbe269506c70ca27ce65cff30528981bd0f03d4c26aa7679d1647e11ca27befe",
+    "worker_sha256": "df0a523e7cb8b8264b7ca6ea17ad8b7bcbfaf094c5c5e2e5884d368e4a2f59da",
+    "core_sha256": "4c49db7a2caf7600d07a52b7cc0dd44f8415d02b8724c3c834c0a31719a1259e",
+    "raw_sha256": "2cf632727470165cc611742791b0a671bc97945eb01c684872fb0eaecf2f9bfc",
+    "byte_point": {
+      "col": 14,
+      "label": "native-prompt-recovered",
+      "offset": 2769,
+      "row": 31
+    },
+    "execution": "supplemental-tmux-replay-of-original-PTY-bytes",
+    "timing": "synthetic; original byte order and geometry retained",
+    "screen": {
+      "cols": 40,
+      "rows": 32,
+      "x": 14,
+      "y": 31,
+      "cursor_visible": true,
+      "grid": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\n╭\u001b[1m · Shell recovery \u001b[0m────────────────────╮\n│ Command exceeded configured shell    │\n│ handoff timeout (2s).                │\n│ Sent interrupt to foreground PTY;    │\n│ waiting for shell evidence.          │\n╰──────────────────────────────────────╯\n\u001b[32mowner@host:~$\u001b[39m sleep 30; printf '%s\\n' sl\nice_effect >> '/tmp/cosh-slice-RSWupI/ef\nfect.txt'\n\n\u001b[32mowner@host:~$\u001b[39m\n",
+      "plain": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\n╭ · Shell recovery ────────────────────╮\n│ Command exceeded configured shell    │\n│ handoff timeout (2s).                │\n│ Sent interrupt to foreground PTY;    │\n│ waiting for shell evidence.          │\n╰──────────────────────────────────────╯\nowner@host:~$ sleep 30; printf '%s\\n' sl\nice_effect >> '/tmp/cosh-slice-RSWupI/ef\nfect.txt'\n\nowner@host:~$\n",
+      "history": "╭ · cosh-shell ────────────────────────╮\n│ Adapter: cosh-core · Shell: bash ·   │\n│ Approval: auto · Analysis: smart     │\n│ cwd: /tmp/cosh-slice-RSWupI          │\n│ /help · /mode · /hooks               │\n│ 💡 Run \"cosh-switch\" to switch       │\n│ between cosh-ng and copilot-shell    │\n╰──────────────────────────────────────╯\n\nowner@host:~$ sleep 600 & echo slice-bg:$!\n[1] 111830\nslice-bg:111830\n?? slice approval request\nowner@host:~$ ?? slice approval request\n⠙ Thinking... generating shell arguments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n┌ Approved req-1 ──────────────────────┐\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\n╭ · Shell recovery ────────────────────╮\n│ Command exceeded configured shell    │\n│ handoff timeout (2s).                │\n│ Sent interrupt to foreground PTY;    │\n│ waiting for shell evidence.          │\n╰──────────────────────────────────────╯\nowner@host:~$ sleep 30; printf '%s\\n' slice_effect >> '/tmp/cosh-slice-RSWupI/effect.txt'\n\nowner@host:~$ \n"
+    },
+    "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/raw-cli-three-closeout/concurrent-recovery-20261015/final-native-pty-evidence/111373-5/frame-0.png"
+  },
+  {
+    "test": "ui_output_fault::committed_handoff_survives_gate_withdraw_write_failure_after_audit_resolution",
+    "source_head": "60b68369eb0d573b0c9ba61106e04cab7ba56f0f",
+    "source_tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+    "shell_sha256": "bbe269506c70ca27ce65cff30528981bd0f03d4c26aa7679d1647e11ca27befe",
+    "worker_sha256": "df0a523e7cb8b8264b7ca6ea17ad8b7bcbfaf094c5c5e2e5884d368e4a2f59da",
+    "core_sha256": "4c49db7a2caf7600d07a52b7cc0dd44f8415d02b8724c3c834c0a31719a1259e",
+    "raw_sha256": "9d89914946290b994d3f36fb7c94c62bf53eeba1e1a1233b807a18b30a066f00",
+    "byte_point": {
+      "col": 14,
+      "label": "native-prompt-recovered",
+      "offset": 2119,
+      "row": 31
+    },
+    "execution": "supplemental-tmux-replay-of-original-PTY-bytes",
+    "timing": "synthetic; original byte order and geometry retained",
+    "screen": {
+      "cols": 40,
+      "rows": 32,
+      "x": 14,
+      "y": 31,
+      "cursor_visible": true,
+      "grid": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\n\u001b[32mowner@host:~$\u001b[39m sleep 1; printf '%s\\n' sli\nce_effect >> '/tmp/cosh-slice-K4itEX/eff\nect.txt'\n\u001b[32mowner@host:~$\u001b[39m\n",
+      "plain": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\nowner@host:~$ sleep 1; printf '%s\\n' sli\nce_effect >> '/tmp/cosh-slice-K4itEX/eff\nect.txt'\nowner@host:~$\n",
+      "history": "╭ · cosh-shell ────────────────────────╮\n│ Adapter: cosh-core · Shell: bash ·   │\n│ Approval: auto · Analysis: smart     │\n│ cwd: /tmp/cosh-slice-K4itEX          │\n│ /help · /mode · /hooks               │\n│ 💡 Run \"cosh-switch\" to switch       │\n│ between cosh-ng and copilot-shell    │\n╰──────────────────────────────────────╯\n\nowner@host:~$ sleep 600 & echo slice-bg:$!\n[1] 111476\nslice-bg:111476\n?? slice approval request\nowner@host:~$ ?? slice approval request\n⠙ Thinking... generating shell arguments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ ! Approval req-1 ────────────────────╮\n│ tool request · high risk             │\n│ └ Risk: write redirection            │\n│ $ sleep 1; printf '%s\\n' slice_eff   │\n│   ect >> '/tmp/cosh-slice-K4itEX/eff │\n│   ect.txt'                           │\n│ > [ Allow once ]   [ Deny ]          │\n│   [ Details ]                        │\n╰──────────────────────────────────────╯\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\nowner@host:~$ sleep 1; printf '%s\\n' slice_effect >> '/tmp/cosh-slice-K4itEX/effect.txt'\nowner@host:~$ \n"
+    },
+    "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/raw-cli-three-closeout/concurrent-recovery-20261015/final-native-pty-evidence/111373-4/frame-0.png"
+  },
+  {
+    "test": "ui_output_fault::committed_handoff_survives_persistent_output_failure_and_recovers_without_input_leak",
+    "source_head": "60b68369eb0d573b0c9ba61106e04cab7ba56f0f",
+    "source_tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+    "shell_sha256": "bbe269506c70ca27ce65cff30528981bd0f03d4c26aa7679d1647e11ca27befe",
+    "worker_sha256": "df0a523e7cb8b8264b7ca6ea17ad8b7bcbfaf094c5c5e2e5884d368e4a2f59da",
+    "core_sha256": "4c49db7a2caf7600d07a52b7cc0dd44f8415d02b8724c3c834c0a31719a1259e",
+    "raw_sha256": "e1a1cbc5971147f3e85ece625109706f0b2218ecef7c10143a0b19ae94a8cb68",
+    "byte_point": {
+      "col": 14,
+      "label": "native-prompt-recovered",
+      "offset": 2359,
+      "row": 31
+    },
+    "execution": "supplemental-tmux-replay-of-original-PTY-bytes",
+    "timing": "synthetic; original byte order and geometry retained",
+    "screen": {
+      "cols": 40,
+      "rows": 32,
+      "x": 14,
+      "y": 31,
+      "cursor_visible": true,
+      "grid": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\n\u001b[32mowner@host:~$\u001b[39m sleep 1; printf '%s\\n' sli\nce_effect >> '/tmp/cosh-slice-kAwVML/eff\nect.txt'\n\u001b[32mowner@host:~$\u001b[39m\n",
+      "plain": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\nowner@host:~$ sleep 1; printf '%s\\n' sli\nce_effect >> '/tmp/cosh-slice-kAwVML/eff\nect.txt'\nowner@host:~$\n",
+      "history": "╭ · cosh-shell ────────────────────────╮\n│ Adapter: cosh-core · Shell: bash ·   │\n│ Approval: auto · Analysis: smart     │\n│ cwd: /tmp/cosh-slice-kAwVML          │\n│ /help · /mode · /hooks               │\n│ 💡 Run \"cosh-switch\" to switch       │\n│ between cosh-ng and copilot-shell    │\n╰──────────────────────────────────────╯\n\nowner@host:~$ sleep 600 & echo slice-bg:$!\n[1] 111653\nslice-bg:111653\n?? slice approval request\nowner@host:~$ ?? slice approval request\n⠙ Thinking... generating shell arguments\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n┌ Approved req-1 ──────────────────────┐\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n╭ Agent ───────────────────────────────╮\n│ slice first done                     │\n╰──────────────────────────────────────╯\nowner@host:~$ sleep 1; printf '%s\\n' slice_effect >> '/tmp/cosh-slice-kAwVML/effect.txt'\nowner@host:~$ \n"
+    },
+    "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/raw-cli-three-closeout/concurrent-recovery-20261015/final-native-pty-evidence/111373-3/frame-0.png"
+  }
+]

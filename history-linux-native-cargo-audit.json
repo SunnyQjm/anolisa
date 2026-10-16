@@ -1,0 +1,130 @@
+{
+  "head": "c0658e0d8519c52b2ecb1cae5cc5662eef1362b7",
+  "tree": "0f29bc0fbe6d068dc99d53bb955b788bdbb05277",
+  "preflight_ok": true,
+  "all_native_cargo_exit_zero": true,
+  "native_commands": [
+    {
+      "log": "20261016T005038Z-559",
+      "argv": [
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 36,
+      "stderr_bytes": 0
+    },
+    {
+      "log": "20261016T005038Z-576",
+      "argv": [
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "log": "20261016T005041Z-588",
+      "argv": [
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 535
+    },
+    {
+      "log": "20261016T005122Z-4615",
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-core",
+        "--lib",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 15628,
+      "stderr_bytes": 522,
+      "inventory_count": 189
+    },
+    {
+      "log": "20261016T005122Z-4616",
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 80216,
+      "stderr_bytes": 421,
+      "inventory_count": 1100
+    },
+    {
+      "log": "20261016T005244Z-5780",
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 269720,
+      "stderr_bytes": 370,
+      "inventory_count": 3062
+    },
+    {
+      "log": "20261016T005244Z-5781",
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--lib",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 152163,
+      "stderr_bytes": 423,
+      "inventory_count": 1625
+    }
+  ],
+  "inventory_counts": {
+    "cosh-core/lib": 189,
+    "cosh-core/bin": 1100,
+    "cosh-shell/bin": 3062,
+    "cosh-shell/lib": 1625
+  },
+  "overlap": {
+    "cosh-core": 4,
+    "cosh-shell": 696
+  },
+  "test_body_executed": false,
+  "source_file_count": 1294,
+  "source_before_guest_after_equal": true,
+  "tracked_worktree_clean": true,
+  "existing_untracked_cosh_lab_preserved": true,
+  "seed_hashes_before_after_equal": true,
+  "seed_hashes_after": {
+    "rustup/settings.toml": "5eaa65519c2b7b73856919d10ba6aa6ab8f800370dd5401160966a167283cc9b",
+    "rustup/toolchains/1.97.1-aarch64-unknown-linux-gnu/bin/rustc": "a3d4dfcd867ddc1e7dca25f13f7236c72229a56f68aa511437c5bb72eb2dfe78",
+    "cargo-home/bin/rustup": "15f6e4ce9f583b929c996c91562bad6d4454f3281de858b02cdfdef615fac433",
+    "cargo-target/4d276cc998ef5796e462/.rustc_info.json": "073d8b58d8bedd10bd598a56b1016aafd03f67a1ad3dcf1158488f47cb233687"
+  },
+  "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)"
+}

@@ -1,0 +1,47 @@
+{
+  "head": "5632512832600f5efef47f658d7e015ec732e48a",
+  "tree": "099224aa3d762306d613e87005959d7dae79277a",
+  "subject": "fix(cosh-ng): [shell] preserve login PATH once",
+  "subject_length": 46,
+  "signed_off_by_present": true,
+  "source_sha_still_matches": true,
+  "working_tree_clean": true,
+  "preflight": "standard-preflight-final-commit.json",
+  "commit_lint_findings": [],
+  "cleanup": {
+    "data": {
+      "already_absent": false,
+      "cleanup": {
+        "status": "cleaned"
+      },
+      "stderr": "",
+      "stdout": ""
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/pr6808-audit-path-review/runs/20261016T010154Z-cc4940e3",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  "independent_backend_absence": {
+    "data": {
+      "cleanup": {
+        "status": "cleaned"
+      },
+      "exit_code": 1,
+      "state": "completed",
+      "stderr": "",
+      "stdout": ""
+    },
+    "error": {
+      "code": "environment-unavailable",
+      "message": "backend status failed"
+    },
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/pr6808-audit-path-review/runs/20261016T010155Z-5d7cbd86",
+      "schema_version": 1
+    },
+    "ok": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "base": "3a2452e71dfacc0df37532b079f6a01e3bce5e02",
+  "merge_base": "3a2452e71dfacc0df37532b079f6a01e3bce5e02",
+  "range": "3a2452e71dfacc0df37532b079f6a01e3bce5e02..HEAD",
+  "selected_count": 1,
+  "commits": [
+    {
+      "sha": "5632512832600f5efef47f658d7e015ec732e48a",
+      "subject": "fix(cosh-ng): [shell] preserve login PATH once",
+      "body": "Remove the duplicate Bash login profile probe. Accept one bounded,\nauthenticated startup PATH report from the managed shell before the\nfirst prompt, and share it with Core, provider and audit child commands.\nKeep the process-global PATH unchanged and retain inherited fallback\nfor missing, forged, invalid, late or explicitly disabled reports.\n\nInclude the login, transport and input-ownership contracts together with\nthe profile-only audit status, trace and export regression. Reuse the\nexisting trusted child-command builder without changing audit argument,\noutput, process-group or timeout limits.\n\nFixes: 3b2bd186aa0870cd4076d3807c7c69e72d79c361\n(\"feat(cosh-ng): [shell] load login PATH\")\n\nAssisted-by: Qoder:1.1.49\nAssisted-by: Codex:GPT-6\nSigned-off-by: SunnyQjm <mfeng@linux.alibaba.com>",
+      "subject_length": 46
+    }
+  ],
+  "finding_count": 0,
+  "CLI_semantics": "issuefix.py _commit_lint returns findings, not commit records",
+  "CLI_source_sha256": "46fbcd7745e2bf8e8b4fe6decc864cb73eaaff3d3b9328abc6e5b14aea319e24"
+}

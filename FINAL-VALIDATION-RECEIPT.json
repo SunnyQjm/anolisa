@@ -1,0 +1,40 @@
+{
+  "stage": "final-source-before-fold",
+  "source": "FINAL-SOURCE-SHA.json",
+  "same_test_byte_mutation": "FINAL-COMPILING-MUTATION.json",
+  "checks": {
+    "standard-preflight": {
+      "ok": true,
+      "counts": [],
+      "sha256": "36062f78e6eae4cdb9055538bb2fdacf06768c9eed194a8bbb847b652e3f0d7d"
+    },
+    "final-new-raw": {
+      "ok": true,
+      "counts": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 631 filtered out; finished in 1.28s"
+      ],
+      "sha256": "4c8b7619be0549208940dc7e59fbee80faef376864618a8a5dc7cecc1b5d74b3"
+    },
+    "final-audit-status": {
+      "ok": true,
+      "counts": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 631 filtered out; finished in 0.17s"
+      ],
+      "sha256": "6cbeb3d69a899795f0ddea140b7cf210ed4570e8a136b05a50ec1b79ea0c1122"
+    },
+    "final-audit-export": {
+      "ok": true,
+      "counts": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 631 filtered out; finished in 0.25s"
+      ],
+      "sha256": "d8023a067ba0457b641223e586f1d9422616012399a6378ab150d4cb85521138"
+    },
+    "final-audit-bin-unit": {
+      "ok": true,
+      "counts": [
+        "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 3073 filtered out; finished in 0.08s"
+      ],
+      "sha256": "eb9dab7cf72ac020b277d5d83a73b104d7e540c1dc058a37ab3e01fd93338bee"
+    }
+  }
+}

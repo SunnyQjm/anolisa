@@ -1,0 +1,24 @@
+{
+  "test_sha256": "f5a92750be93fcd7a7385790e1b94ef35536ba3e7b308b72f6c2e87c0aa2eb9a",
+  "same_test_bytes": true,
+  "private_copy_only": true,
+  "root_worktree_untouched": true,
+  "red": {
+    "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/pr6808-audit-path-review/mutation-red.json",
+    "sha256": "bd17fadb0fa9c9b0edafe803bebdbdfe51bf7305a891d904e1d702fd29c981c9",
+    "ok": false,
+    "counts": [
+      "test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 631 filtered out; finished in 1.38s"
+    ],
+    "compiled": true
+  },
+  "green": {
+    "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/pr6808-audit-path-review/mutation-restored-green.json",
+    "sha256": "f30f92ffeae678aaa0a8a41bacd66ea723e6a18ac4444a36e5e39bbf53bc7119",
+    "ok": true,
+    "counts": [
+      "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 631 filtered out; finished in 1.40s"
+    ],
+    "compiled": true
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "pr": 6808,
+  "reviewer": "/root/review_checkpoint_7550",
+  "reviewed_at": "2026-10-16T00:49:04.587667+00:00",
+  "head": "058e145ea161f61760dbdf8be77c36d3db411cdd",
+  "head_tree": "01da53ca4d0fdeabaf3ff6b09e157a2b639a510d",
+  "files_sha256": {
+    "src/cosh-ng/crates/cosh-shell/src/slash/audit.rs": "f77c2146c92d5d732151000316f11657e75e331db7afb1c8e656446315c520c6",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/native.rs": "f5a92750be93fcd7a7385790e1b94ef35536ba3e7b308b72f6c2e87c0aa2eb9a"
+  },
+  "diff_sha256": "798be759106e258c82a5ae0adc7d126fd1846a813895e544d481ba117ecfed7e",
+  "full_diff": "diff --git a/src/cosh-ng/crates/cosh-shell/src/slash/audit.rs b/src/cosh-ng/crates/cosh-shell/src/slash/audit.rs\nindex 13206691b..24efdb673 100644\n--- a/src/cosh-ng/crates/cosh-shell/src/slash/audit.rs\n+++ b/src/cosh-ng/crates/cosh-shell/src/slash/audit.rs\n@@ -1,7 +1,7 @@\n //! Thin bounded `/audit` facade over `cosh-cli audit`.\n \n use std::io::{Read, Write};\n-use std::process::{Command, Stdio};\n+use std::process::Stdio;\n use std::time::Duration;\n \n #[cfg(unix)]\n@@ -112,7 +112,7 @@ fn run_audit_cli_with_timeout(\n     timeout: Duration,\n ) -> Result<serde_json::Value, String> {\n     let deadline = std::time::Instant::now() + timeout;\n-    let mut command = Command::new(program);\n+    let mut command = crate::adapter::command_with_trusted_startup_path(program);\n     command\n         .args(arguments)\n         .stdin(Stdio::null())\ndiff --git a/src/cosh-ng/crates/cosh-shell/tests/raw_cli/native.rs b/src/cosh-ng/crates/cosh-shell/tests/raw_cli/native.rs\nindex 639e034a3..fff2ba716 100644\n--- a/src/cosh-ng/crates/cosh-shell/tests/raw_cli/native.rs\n+++ b/src/cosh-ng/crates/cosh-shell/tests/raw_cli/native.rs\n@@ -324,6 +324,57 @@ fn raw_cli_first_agent_request_finds_core_and_tools_through_profile_path() {\n     assert_eq!(fixture.read(\"profile-hits\").lines().count(), 1, \"{output}\");\n }\n \n+#[cfg(target_os = \"linux\")]\n+#[test]\n+fn raw_cli_audit_commands_use_the_login_profile_path_once() {\n+    let fixture = StartupPathFixture::new(\"startup-path-audit\", \"\");\n+    write_executable(\n+        &fixture.profile_bin.join(\"cosh-cli\"),\n+        r#\"#!/bin/sh\n+printf '%s\\n' \"$PATH\" >> \"$HOME/audit-paths\"\n+printf '%s\\n' \"$*\" >> \"$HOME/audit-calls\"\n+printf '%s' '{\"ok\":true,\"data\":{\"audit_path_fixture\":\"profile-only\"}}'\n+\"#,\n+    );\n+    let output = fixture.run_with_env(\n+        &[\n+            (\"PATH\", \"/usr/bin:/bin\"),\n+            (\"COSH_CLI_BIN\", RAW_CLI_UNSET_ENV),\n+        ],\n+        &[\n+            (\"startup-path$ \", b\"/audit status\\n\"),\n+            (\"startup-path$ \", b\"/audit trace current\\n\"),\n+            (\n+                \"startup-path$ \",\n+                b\"/audit export current /tmp/audit profile path\\n\",\n+            ),\n+            (\"startup-path$ \", b\"exit\\n\"),\n+        ],\n+    );\n+    let calls = fixture.read(\"audit-calls\");\n+    let calls = calls.lines().collect::<Vec<_>>();\n+    assert_eq!(\n+        calls.len(),\n+        3,\n+        \"all audit entrances must run: {calls:?}\\n{output}\"\n+    );\n+    assert_eq!(calls[0], \"audit status\", \"{output}\");\n+    assert!(calls[1].starts_with(\"audit trace \"), \"{calls:?}\\n{output}\");\n+    assert!(\n+        calls[2].starts_with(\"audit export --output /tmp/audit profile path --identity \"),\n+        \"{calls:?}\\n{output}\"\n+    );\n+    let paths = fixture.read(\"audit-paths\");\n+    assert_eq!(paths.lines().count(), 3, \"{output}\");\n+    for path in paths.lines() {\n+        assert!(\n+            path.starts_with(&format!(\"{}:\", fixture.profile_bin.display())),\n+            \"audit must inherit the managed login PATH: {path:?}\\n{output}\"\n+        );\n+    }\n+    assert_eq!(fixture.read(\"profile-hits\").lines().count(), 1, \"{output}\");\n+}\n+\n #[cfg(target_os = \"linux\")]\n #[test]\n fn raw_cli_disabled_startup_path_keeps_the_inherited_provider_path() {\n",
+  "findings_count": 0,
+  "blocking_findings_count": 0,
+  "findings": [],
+  "verdict": "no blocking findings in audit trusted startup PATH increment",
+  "checks": [
+    "三个/audit status/trace/export入口经render_audit_command -> resolve_arguments -> audit_program -> run_audit_cli -> run_audit_cli_with_timeout，统一替换一个Command构造点，不漏并行分支。",
+    "新构造器仍Command::new(program)，仅在OnceLock已有可信startup PATH时对单个child设置PATH；未修改全局环境，未重新source profile，未启动shell解析audit参数。与mcp及compact使用相同入口。",
+    "可信来源为managed Bash login startup observer；OSC handle_marker先校token/session，StartupEnvironmentGate只接受首prompt前首个有效report；PATH限8KiB/无控制字符、去relative/empty entries并去重，缺失/被禁用时保持继承PATH。",
+    "COSH_CLI_BIN仍由audit_program优先选择，helper不改变program值；绝对路径继续直接执行，相对裸命令按可信child PATH查找。覆盖的是路径解析，不是审批/身份提权。",
+    "args(arguments)、stdin null、stdout pipe、stderr null、3s deadline、256KiB上限、process_group(0)、timeout killpg/wait及output redaction全部未变；含空格destination保持单个Vec参数，不引入命令注入。",
+    "新真实PTY测试将父PATH固定/usr/bin:/bin并unset COSH_CLI_BIN，cosh-cli stand-in仅在login profile追加目录；调用3次、各自PATH前缀、profile-hits=1可判别旧ENOENT与新可执行路径。fixture RAII Drop清理自有home。",
+    "fixture从真实Bash login/raw shell调用/audit，适合既有raw_cli/native层；不使用fake PATH注入为产品结果，CLI stand-in仅限定PATH/入口合同。无新依赖、公开API、module或production大文件增长。",
+    "读取GREEN-FOCUSED-RECEIPT确认目标1/1与10个startupPATH控制各1/1，source hashes与当前两文件一致；本review不重新执行。",
+    "latestmain3a245从共同祖先到该main在audit.rs/launch_path.rs/native.rs无交集增量；最终rebase/fold后的exact diff仍需复核。"
+  ],
+  "limitations": [
+    "仅当前HEAD1a8fc942加dirty两文件的增量审查；未运行Cargo、容器、网络、真实provider或RPM验收。",
+    "测试stand-in记录$*会丢失argv分隔，且trace/export用starts_with，不能独立证明空格path为单argv或session identity精确；现有resolve_arguments单测与未改Command::args静态链路支持此边界，未作为新增阻断。",
+    "新PTY测试未在同一profile场景另测显式COSH_CLI_BIN覆盖；原audit fixtures设显式路径且helper保持program原值，本次不声称新增该动态正控。",
+    "可信PATH表示用户管理shell的启动PATH，不表示其中目录为root-owned；该补丁复用现有同用户执行边界，不提供更高权限安全认证。",
+    "本轮仅人工安全检查，无工具扫描；规则镜像一致性未核实。",
+    "源focused GREEN不能升级为真实provider、RPM、默认登录或release通过；后续同步main/fold后须新HEAD门禁。"
+  ],
+  "manual_security_review": {
+    "findings_count": 0,
+    "tool_scan_performed": false,
+    "scope": [
+      "command injection",
+      "explicit binary override",
+      "PATH provenance",
+      "process lifetime",
+      "credential disclosure",
+      "assertion fidelity"
+    ]
+  },
+  "evidence": {
+    "green_receipt_sha256": "15102cb7b039d81b366890f87040e5b9e73cb744878f1d5a1cf3177539773799",
+    "reviewer_reran_tests": false,
+    "source_hashes_match": true
+  },
+  "mutations": "only INDEPENDENT-AUDIT-PATH-REVIEW.json/md artifacts; no source/branch/remote changes",
+  "final_incremental_review": {
+    "reviewed_at": "2026-10-16T01:02:41.656510+00:00",
+    "head": "5632512832600f5efef47f658d7e015ec732e48a",
+    "base": "3a2452e71dfacc0df37532b079f6a01e3bce5e02",
+    "tree": "099224aa3d762306d613e87005959d7dae79277a",
+    "pre_fold_clean_head": "058e145ea161f61760dbdf8be77c36d3db411cdd",
+    "pre_fold_plus_reviewed_dirty_patch_exact": true,
+    "clean": true,
+    "commit_count": 1,
+    "metadata": "fix(cosh-ng): [shell] preserve login PATH once\n\nRemove the duplicate Bash login profile probe. Accept one bounded,\nauthenticated startup PATH report from the managed shell before the\nfirst prompt, and share it with Core, provider and audit child commands.\nKeep the process-global PATH unchanged and retain inherited fallback\nfor missing, forged, invalid, late or explicitly disabled reports.\n\nInclude the login, transport and input-ownership contracts together with\nthe profile-only audit status, trace and export regression. Reuse the\nexisting trusted child-command builder without changing audit argument,\noutput, process-group or timeout limits.\n\nFixes: 3b2bd186aa0870cd4076d3807c7c69e72d79c361\n(\"feat(cosh-ng): [shell] load login PATH\")\n\nAssisted-by: Qoder:1.1.49\nAssisted-by: Codex:GPT-6\nSigned-off-by: SunnyQjm <mfeng@linux.alibaba.com>",
+    "old_authors": [
+      "SunnyQjm <mfeng@linux.alibaba.com>|2026-10-09T11:33:57+08:00",
+      "SunnyQjm <mfeng@linux.alibaba.com>|2026-10-09T11:34:49+08:00"
+    ],
+    "findings_count": 0,
+    "blocking_findings_count": 0,
+    "checks": [
+      "最终HEAD单commit以latestmain3a245为父，clean。最终相对fold前HEAD058e的完整diff与初审dirty两文件patch逐字节相同。",
+      "058e干净commit tree不是受测dirty源码tree，二者不能直接等同；FINAL-COMMIT-BINDING记录受测dirty tree保留，且本review独立验证最终内容=058e+原已审patch、受测三文件hash全部一致。",
+      "原两提交作者SunnyQjm保留，最终AuthorDate保留初始fix时间；Qoder/Codex Assisted-by和Signed-off-by保留。",
+      "Fixes指向base main已有祖先3b2bd186，非intraPR提交；原两提交和P2 fold成一个原子修复，符合§13。",
+      "同字节test编译变异raw receipt SHA核对成功：退回旧Command构造编译成功1FAIL，恢复后编译成功1PASS。",
+      "读取最终记录：新PTY1/1、audit status/export各1/1、audit bin unit6/6；source preflight成功，不等同全workspace测试。"
+    ],
+    "limitations": [
+      "增量历史与source绑定复审，无重新Rust、容器、正式scanner、provider或RPM验收。",
+      "未重新全面审查原PR42文件；本次无额外新源码的结论通过058e+已审patch精确比对成立。",
+      "新HEAD CI、approval及未解决threads仍须核查，COMMENTED不等于APPROVED。",
+      "初审argv/显式override动态测试盲点及规则镜像未核实限制保留。"
+    ],
+    "evidence_sha256": {
+      "FINAL-COMMIT-BINDING.json": "a96146fd405728b2159baf69b4dd1c548e6fd3a46fcdcfbf7ef1d3b8b9c6b6e5",
+      "FINAL-SOURCE-SHA.json": "ba010f46c4e1e9e957115f6ffc45bcbeb5c573b71714c2e3c6924c03c31f4559",
+      "FINAL-VALIDATION-RECEIPT.json": "5aed2acf746f9c1036e6e40fa7cec9e99188509908dc8625b2e304c2b438fff7",
+      "FINAL-COMPILING-MUTATION.json": "de0b257d17fb889072a3e901364bf9495fca0af923082377343eef299ed8f320"
+    }
+  }
+}

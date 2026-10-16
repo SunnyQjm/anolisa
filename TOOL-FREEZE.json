@@ -1,0 +1,32 @@
+{
+  "scope": "private new tool version; old frozen source/results untouched",
+  "changed_definitions": [
+    "hold_prompt_sessions",
+    "run_timing_suite",
+    "environment_contention"
+  ],
+  "SLO_and_all_other_definitions_AST_identical": true,
+  "files": {
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/frozen-source-v5/o01_measure.py": "59537b39b73c97335bbd02e46c5b9c2ec1995ef090d8c84b5c78f11204c6d7f6",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/private-overlay/o01_measure.py": "6191ef29fee8c80facf4bedae451c5086b50834e34292a7887c094f30fd8cc45",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/private-overlay/test_o01_measure.py": "e15a56a7cdcf8691de4356736552d147fe07bac1e1d261ac76389bad26219947",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/private-overlay/o01_process_attribution.py": "c89e56108c8abd9c164e53cb9302a4a5b1db6265811779922d20a93642b1404b",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/o01-private-overlay.patch": "2910bc50017b2b61d631f39b389c3a032135a37cf70fcdd739529dc47aeaf4fb",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/build_overlay.py": "ca259525c6ed210bc345da591638ecb54c9a69efc524f6d4ad76d81d2b49624d",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/test_overlay_integration.py": "e4588b98195c62aa556d70e09e4705c74e51d685856455b842a48f277276f07b",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/linux-preflight.toml": "1d16f23c57b0714f95d0ca5c376725ea973f84e307388fa44794cfca5b37fdfb",
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py": "6141ee5672df68a4c8a9877f80122f6e174974f4fc43277b5fa490c776f5d128",
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/Cargo.lock": "f3e07df2534be0498e46868f5427c6d207df50a2049b370e85cdd1cf212c4115",
+    "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/specs/shell-e2e-validation/cases/handoff-token-claim.yaml": "01eb6a5bdea6e9dbfca05be4ae1718e202fde80e2353dfc0e5dadf692e5a860d"
+  },
+  "tool_commit": "e20a30f38cfd8bbd4232dfada4b7300a109e6609",
+  "tool_tree": "78f1a08926b02a0c4ba171d7ad8eb018b5c4aa03",
+  "tool_component_tree": "88e34872add79f0d3cccbcc22d633c11a4d877bd",
+  "tool_base": "3a2452e71dfacc0df37532b079f6a01e3bce5e02",
+  "product_source_commit": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+  "module_delta": "Only cgroup read: preserve bytes and remove one LF; do not normalize path whitespace",
+  "prior_tool_commit": "508eb5d9b2c905a358b8c4ce9ea6481519ad0d84",
+  "prior_aa42_or_v6_evidence_adopted": false,
+  "new_native_controls": "Root owned; receipt pending, not inferred from aa42",
+  "case_profile_binding": "Root binds new formal attempt independently"
+}

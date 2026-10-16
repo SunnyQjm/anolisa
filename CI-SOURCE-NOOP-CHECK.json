@@ -1,0 +1,27 @@
+{
+  "same_Rust_tree_lock_workflow_testgate": {
+    "origin/main": {
+      "src/cosh-ng/crates": "c982ad92ae8bd3a1ae88c38677e7c3e193072069",
+      "src/cosh-ng/Cargo.lock": "5b53c307806691c6ebef765776d5d95fe9037a2d",
+      ".github/workflows/ci.yaml": "f3a4554f0c000c3388ff155facee12e1d9ee8c4e",
+      "src/cosh-ng/scripts/run-test-gates.sh": "6073dbdadc5ae272bf652a3ab8af56c780f42338"
+    },
+    "508eb5d9b2c905a358b8c4ce9ea6481519ad0d84": {
+      "src/cosh-ng/crates": "c982ad92ae8bd3a1ae88c38677e7c3e193072069",
+      "src/cosh-ng/Cargo.lock": "5b53c307806691c6ebef765776d5d95fe9037a2d",
+      ".github/workflows/ci.yaml": "f3a4554f0c000c3388ff155facee12e1d9ee8c4e",
+      "src/cosh-ng/scripts/run-test-gates.sh": "6073dbdadc5ae272bf652a3ab8af56c780f42338"
+    },
+    "HEAD": {
+      "src/cosh-ng/crates": "c982ad92ae8bd3a1ae88c38677e7c3e193072069",
+      "src/cosh-ng/Cargo.lock": "5b53c307806691c6ebef765776d5d95fe9037a2d",
+      ".github/workflows/ci.yaml": "f3a4554f0c000c3388ff155facee12e1d9ee8c4e",
+      "src/cosh-ng/scripts/run-test-gates.sh": "6073dbdadc5ae272bf652a3ab8af56c780f42338"
+    }
+  },
+  "diff_paths": [
+    "src/cosh-ng/scripts/o01_process_attribution.py",
+    "src/cosh-ng/tests/test_o01_process_attribution.py"
+  ],
+  "classification": "Python-only diff is a no-op in failed Rust execution path; failure cause not yet established; not labelled flaky"
+}

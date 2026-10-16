@@ -1,0 +1,35 @@
+{
+  "module_sha256": "c89e56108c8abd9c164e53cb9302a4a5b1db6265811779922d20a93642b1404b",
+  "old_module_sha256": "aa42e64319bbf76fd44720908801b10aefee331fc5509e3d7b6a92eb9487d72e",
+  "collector_sha256": "e46bb7db22e0b3244e09ce76ac0c0f785cce57827ca63bdf8ca24b624e8da486",
+  "architectures": {
+    "aarch64": {
+      "raw_sha256": "aee2dd13c423d83e3e78626c10da57b6128373994217c9f6ab6ec1468e3dadf4",
+      "environment_ref": "20261015T062724Z-daed1b97",
+      "environment_manifest_sha256": "a9f1a05894b38cf1cb2c2dc129da5a1ca2c74127e7092cfed6f6d3e831b6eb09",
+      "architecture_and_transport_binding_verified": true,
+      "owned": 16,
+      "external_blocked": 8,
+      "negative_controls": 6,
+      "actual_sibling_RED_GREEN_restore": 3,
+      "owned_and_sibling_cleanup_zero": true,
+      "first_no_capture_sha256": "4faf3b346304e4c388dda73c601e2ce1104f1c379a419fd503b05a82f0b8b456",
+      "first_no_capture_not_claimed_green": true
+    },
+    "x86_64": {
+      "raw_sha256": "cca28f0a78b7ac733759a37a1ff5062fe4ee606d6be1b71a78d072c9ef0c5a35",
+      "environment_ref": "20261015T142012Z-6091f523",
+      "environment_manifest_sha256": "01f446efa2b2f1d19ccba1bb3cb7b6d5efac8a07e1ec25c0009e3e7c1defe57b",
+      "architecture_and_transport_binding_verified": true,
+      "owned": 16,
+      "external_blocked": 8,
+      "negative_controls": 6,
+      "actual_sibling_RED_GREEN_restore": 3,
+      "owned_and_sibling_cleanup_zero": true,
+      "first_no_capture_sha256": "4446f617caed1691b99a4b1869e4e7c1b47a8294004db624b804bb13872f35d4",
+      "first_no_capture_not_claimed_green": true
+    }
+  },
+  "scope": "independent check of native diagnostic receipts; scoped SIGSTOP/SIGCONT, not formal performance",
+  "first_no_capture_attempt_retained": true
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python3.12",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/private-overlay/o01_measure.py",
+    "aggregate",
+    "--run",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/long-v5-20261015/final-OSS-download/aarch64/result.json",
+    "--run",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/long-v5-20261015/final-OSS-download/x86_64/result.json",
+    "--output",
+    "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/original-results-aggregate.json"
+  ],
+  "exit_code": 2,
+  "entire_original_aggregate_equal": true,
+  "status": "Blocked/incomplete retained"
+}

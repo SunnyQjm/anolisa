@@ -1,0 +1,49 @@
+{
+  "run": 38830697225,
+  "attempts": [
+    1,
+    2
+  ],
+  "logs": {
+    "CI-first-raw-cli.log": {
+      "sha256": "d0d9801aeaffcdef3b6c8c99db4691c0b9ec4c5f279e603ad2f63624d3b1a67d",
+      "checkout_SHA": "8cd29f13c55c72eb3317adaad8e0197c5c73e6ad"
+    },
+    "CI-second-raw-cli.log": {
+      "sha256": "d03c145995e90d2e7d445ce6d29ce3f02ff6935937a218bfc7aedded0fbf1739",
+      "checkout_SHA": "8cd29f13c55c72eb3317adaad8e0197c5c73e6ad"
+    }
+  },
+  "synthetic_merge": "8cd29f13c55c72eb3317adaad8e0197c5c73e6ad",
+  "parents": [
+    "3a2452e71dfacc0df37532b079f6a01e3bce5e02",
+    "e20a30f38cfd8bbd4232dfada4b7300a109e6609"
+  ],
+  "merge_tree_equals_current_PR_head": "78f1a08926b02a0c4ba171d7ad8eb018b5c4aa03",
+  "source_objects": {
+    "3a2452e71dfacc0df37532b079f6a01e3bce5e02": {
+      "src/cosh-ng/crates": "c982ad92ae8bd3a1ae88c38677e7c3e193072069",
+      "src/cosh-ng/Cargo.lock": "5b53c307806691c6ebef765776d5d95fe9037a2d",
+      ".github/workflows/ci.yaml": "f3a4554f0c000c3388ff155facee12e1d9ee8c4e",
+      "src/cosh-ng/scripts/run-test-gates.sh": "6073dbdadc5ae272bf652a3ab8af56c780f42338"
+    },
+    "e20a30f38cfd8bbd4232dfada4b7300a109e6609": {
+      "src/cosh-ng/crates": "c982ad92ae8bd3a1ae88c38677e7c3e193072069",
+      "src/cosh-ng/Cargo.lock": "5b53c307806691c6ebef765776d5d95fe9037a2d",
+      ".github/workflows/ci.yaml": "f3a4554f0c000c3388ff155facee12e1d9ee8c4e",
+      "src/cosh-ng/scripts/run-test-gates.sh": "6073dbdadc5ae272bf652a3ab8af56c780f42338"
+    },
+    "8cd29f13c55c72eb3317adaad8e0197c5c73e6ad": {
+      "src/cosh-ng/crates": "c982ad92ae8bd3a1ae88c38677e7c3e193072069",
+      "src/cosh-ng/Cargo.lock": "5b53c307806691c6ebef765776d5d95fe9037a2d",
+      ".github/workflows/ci.yaml": "f3a4554f0c000c3388ff155facee12e1d9ee8c4e",
+      "src/cosh-ng/scripts/run-test-gates.sh": "6073dbdadc5ae272bf652a3ab8af56c780f42338"
+    }
+  },
+  "only_changed_paths": [
+    "src/cosh-ng/scripts/o01_process_attribution.py",
+    "src/cosh-ng/tests/test_o01_process_attribution.py"
+  ],
+  "statement": "actual CI synthetic checkout verified; failed Rust code/lock/workflow/gate unchanged vs base",
+  "root_cause": "not established; fixed-delay readiness remains a hypothesis"
+}

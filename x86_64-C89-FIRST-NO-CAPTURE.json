@@ -1,0 +1,4042 @@
+{
+  "scope": "diagnostic proof; SSH transport metadata omitted",
+  "architecture": "x86_64",
+  "source_raw_sha256": "4446f617caed1691b99a4b1869e4e7c1b47a8294004db624b804bb13872f35d4",
+  "result": {
+    "scope": "R2 c89 exactmodule native diagnostic only; includes actual moved-child suffixspace/tab/CR controls; notformal8h",
+    "module_sha256": "c89e56108c8abd9c164e53cb9302a4a5b1db6265811779922d20a93642b1404b",
+    "source": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+    "held_count": 8,
+    "seed_count": 8,
+    "owned_green_observations": 16,
+    "external_identicalargv_blocked_observations": 8,
+    "negative_controls_valid_positive_bracket": 6,
+    "all_negatives_blocked": true,
+    "all_owned_groups_removed": true,
+    "details": {
+      "owned": [
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        },
+        {
+          "original_busy_record": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "root_seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "candidate-update-probe",
+                "blocking": false,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": []
+          },
+          "old_held_busy_policy_contended": true
+        }
+      ],
+      "negative_controls": [
+        {
+          "name": "missing_sample_start",
+          "input": {
+            "pid": 194513,
+            "name": "dnf",
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {}
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 194513,
+                "name": "dnf",
+                "cpu_percent": 0.0
+              }
+            ]
+          },
+          "blocked": true
+        },
+        {
+          "name": "wrong_sample_start",
+          "input": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721015,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721015,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 194513,
+                "name": "dnf",
+                "start_ticks": 3721015,
+                "cpu_percent": 0.0
+              }
+            ]
+          },
+          "blocked": true
+        },
+        {
+          "name": "wrong_seed_start",
+          "input": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721001,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721001,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 194513,
+                "name": "dnf",
+                "start_ticks": 3721014,
+                "cpu_percent": 0.0
+              }
+            ]
+          },
+          "blocked": true
+        },
+        {
+          "name": "wrong_seed_group",
+          "input": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/outside-controlled-group",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/outside-controlled-group",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 194513,
+                "name": "dnf",
+                "start_ticks": 3721014,
+                "cpu_percent": 0.0
+              }
+            ]
+          },
+          "blocked": true
+        },
+        {
+          "name": "wrong_seed_inode",
+          "input": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312337
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "root": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                    "argv": [
+                      "-cosh"
+                    ],
+                    "after": {
+                      "pid": 194486,
+                      "name": "cosh",
+                      "ppid": 194484,
+                      "start_ticks": 3721000,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+                      "argv": [
+                        "-cosh"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  },
+                  "held_identity": {
+                    "pid": 194486,
+                    "start_ticks": 3721000,
+                    "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312337
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 194513,
+                "name": "dnf",
+                "start_ticks": 3721014,
+                "cpu_percent": 0.0
+              }
+            ]
+          },
+          "blocked": true
+        },
+        {
+          "name": "missing_seed_device",
+          "input": {
+            "pid": 194513,
+            "name": "dnf",
+            "start_ticks": 3721014,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_inode": 312336
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 194513,
+                  "name": "dnf",
+                  "start_ticks": 3721014,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 194513,
+                      "name": "dnf",
+                      "ppid": 194486,
+                      "start_ticks": 3721014,
+                      "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312336
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312336
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 194513,
+                "name": "dnf",
+                "start_ticks": 3721014,
+                "cpu_percent": 0.0
+              }
+            ]
+          },
+          "blocked": true
+        }
+      ],
+      "external": [
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "raw": {
+            "pid": 195326,
+            "name": "dnf",
+            "start_ticks": 3721187,
+            "cpu_percent": 0.0
+          },
+          "seeds": [
+            {
+              "pid": 194486,
+              "start_ticks": 3721000,
+              "cgroup": "0::/cosh-o01-194484-4be8af2c7e1544b19d637f92a13850df",
+              "cgroup_device": 25,
+              "cgroup_inode": 312336
+            },
+            {
+              "pid": 194590,
+              "start_ticks": 3721024,
+              "cgroup": "0::/cosh-o01-194484-6b124bdb275b4480be7f1d798a5626ea",
+              "cgroup_device": 25,
+              "cgroup_inode": 312518
+            },
+            {
+              "pid": 194692,
+              "start_ticks": 3721046,
+              "cgroup": "0::/cosh-o01-194484-2b125946b38b457e9ecbee7c3514ea3e",
+              "cgroup_device": 25,
+              "cgroup_inode": 312609
+            },
+            {
+              "pid": 194799,
+              "start_ticks": 3721071,
+              "cgroup": "0::/cosh-o01-194484-e96fca9895c84ba3ae407ef5e43f5440",
+              "cgroup_device": 25,
+              "cgroup_inode": 312700
+            },
+            {
+              "pid": 194905,
+              "start_ticks": 3721095,
+              "cgroup": "0::/cosh-o01-194484-4cc025a5049f4fdebc9036055aaee290",
+              "cgroup_device": 25,
+              "cgroup_inode": 312791
+            },
+            {
+              "pid": 195011,
+              "start_ticks": 3721118,
+              "cgroup": "0::/cosh-o01-194484-5d2c34da04cc4d88ac66ab0690ccfea7",
+              "cgroup_device": 25,
+              "cgroup_inode": 312882
+            },
+            {
+              "pid": 195117,
+              "start_ticks": 3721141,
+              "cgroup": "0::/cosh-o01-194484-085991a91c3841a392b9654a38e9aa2d",
+              "cgroup_device": 25,
+              "cgroup_inode": 312973
+            },
+            {
+              "pid": 195223,
+              "start_ticks": 3721164,
+              "cgroup": "0::/cosh-o01-194484-1c8d317d46464ec5b3af9804d3d9079d",
+              "cgroup_device": 25,
+              "cgroup_inode": 313064
+            }
+          ],
+          "result": {
+            "observations": [
+              {
+                "process": {
+                  "pid": 195326,
+                  "name": "dnf",
+                  "start_ticks": 3721187,
+                  "cpu_percent": 0.0
+                },
+                "classification": "foreign-or-unknown",
+                "blocking": true,
+                "evidence": {
+                  "child": {
+                    "stable": true,
+                    "before": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "cgroup_identity_before": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "command_before": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "exe": "/usr/bin/python3.11",
+                    "argv": [
+                      "/usr/bin/python3",
+                      "/usr/bin/dnf",
+                      "check-update",
+                      "cosh-ng"
+                    ],
+                    "after": {
+                      "pid": 195326,
+                      "name": "dnf",
+                      "ppid": 194484,
+                      "start_ticks": 3721187,
+                      "cgroup": "0::/user.slice/user-0.slice/session-437.scope"
+                    },
+                    "command_after": {
+                      "exe": "/usr/bin/python3.11",
+                      "argv": [
+                        "/usr/bin/python3",
+                        "/usr/bin/dnf",
+                        "check-update",
+                        "cosh-ng"
+                      ]
+                    },
+                    "cgroup_identity_after": {
+                      "cgroup_device": 25,
+                      "cgroup_inode": 312245
+                    },
+                    "cgroup_device": 25,
+                    "cgroup_inode": 312245
+                  }
+                }
+              }
+            ],
+            "blocking_processes": [
+              {
+                "pid": 195326,
+                "name": "dnf",
+                "start_ticks": 3721187,
+                "cpu_percent": 0.0
+              }
+            ]
+          }
+        }
+      ],
+      "sibling_controls": [
+        {
+          "suffix": "' '",
+          "held_group": "/sys/fs/cgroup/cosh-o01-194484-70028061565546969159f627eb13ea64",
+          "sibling_group": "/sys/fs/cgroup/cosh-o01-194484-70028061565546969159f627eb13ea64 ",
+          "observations": [],
+          "valid_RED_GREEN": false,
+          "sibling_removed": true
+        },
+        {
+          "suffix": "'\\t'",
+          "held_group": "/sys/fs/cgroup/cosh-o01-194484-5bcd7e43b7df41b78b1078f16095bf22",
+          "sibling_group": "/sys/fs/cgroup/cosh-o01-194484-5bcd7e43b7df41b78b1078f16095bf22\t",
+          "observations": [],
+          "valid_RED_GREEN": false,
+          "sibling_removed": true
+        },
+        {
+          "suffix": "'\\r'",
+          "held_group": "/sys/fs/cgroup/cosh-o01-194484-9a34500f12924c6ca0d5fde7eff3c890",
+          "sibling_group": "/sys/fs/cgroup/cosh-o01-194484-9a34500f12924c6ca0d5fde7eff3c890\r",
+          "observations": [],
+          "valid_RED_GREEN": false,
+          "sibling_removed": true
+        }
+      ]
+    }
+  }
+}

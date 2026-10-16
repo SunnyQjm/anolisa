@@ -1,0 +1,91 @@
+{
+  "at": "2026-10-16T00:44:35.371572+00:00",
+  "architectures": {
+    "aarch64": {
+      "raw": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/aarch64-ROOT-C89-LIVE-PAUSED.json",
+      "sha256": "aee2dd13c423d83e3e78626c10da57b6128373994217c9f6ab6ec1468e3dadf4",
+      "summary": {
+        "scope": "R2 c89 exactmodule native diagnostic only; includes actual moved-child suffixspace/tab/CR controls; notformal8h",
+        "module_sha256": "c89e56108c8abd9c164e53cb9302a4a5b1db6265811779922d20a93642b1404b",
+        "source": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+        "held_count": 8,
+        "seed_count": 8,
+        "owned_green_observations": 16,
+        "external_identicalargv_blocked_observations": 8,
+        "negative_controls_valid_positive_bracket": 6,
+        "all_negatives_blocked": true,
+        "all_owned_groups_removed": true
+      },
+      "actual_suffix_controls": [
+        {
+          "suffix": "' '",
+          "old_false_owned": true,
+          "new_blocked": true,
+          "path_preserved": true,
+          "restored_owned": true,
+          "cleanup": true
+        },
+        {
+          "suffix": "'\\t'",
+          "old_false_owned": true,
+          "new_blocked": true,
+          "path_preserved": true,
+          "restored_owned": true,
+          "cleanup": true
+        },
+        {
+          "suffix": "'\\r'",
+          "old_false_owned": true,
+          "new_blocked": true,
+          "path_preserved": true,
+          "restored_owned": true,
+          "cleanup": true
+        }
+      ]
+    },
+    "x86_64": {
+      "raw": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/o01-owned-probe-20261016/review-r2/x86_64-ROOT-C89-LIVE-PAUSED.json",
+      "sha256": "cca28f0a78b7ac733759a37a1ff5062fe4ee606d6be1b71a78d072c9ef0c5a35",
+      "summary": {
+        "scope": "R2 c89 exactmodule native diagnostic only; includes actual moved-child suffixspace/tab/CR controls; notformal8h",
+        "module_sha256": "c89e56108c8abd9c164e53cb9302a4a5b1db6265811779922d20a93642b1404b",
+        "source": "f81ffa2672f56849157bf400a0d3b012ed0f948a",
+        "held_count": 8,
+        "seed_count": 8,
+        "owned_green_observations": 16,
+        "external_identicalargv_blocked_observations": 8,
+        "negative_controls_valid_positive_bracket": 6,
+        "all_negatives_blocked": true,
+        "all_owned_groups_removed": true
+      },
+      "actual_suffix_controls": [
+        {
+          "suffix": "' '",
+          "old_false_owned": true,
+          "new_blocked": true,
+          "path_preserved": true,
+          "restored_owned": true,
+          "cleanup": true
+        },
+        {
+          "suffix": "'\\t'",
+          "old_false_owned": true,
+          "new_blocked": true,
+          "path_preserved": true,
+          "restored_owned": true,
+          "cleanup": true
+        },
+        {
+          "suffix": "'\\r'",
+          "old_false_owned": true,
+          "new_blocked": true,
+          "path_preserved": true,
+          "restored_owned": true,
+          "cleanup": true
+        }
+      ]
+    }
+  },
+  "sibling_suffix_actual_RED_GREEN": "space/tab/CR eachboth;oldaa42falseowned/newc89blocked;allcleanup0",
+  "scope": "diagnostic with taskownedprobe pause/resume only;notformal8h/sourcef81RPM unchanged"
+}

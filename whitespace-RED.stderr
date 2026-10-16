@@ -1,0 +1,35 @@
+......................FFF..
+======================================================================
+FAIL: test_whitespace_cgroup_sibling_preserves_membership_and_blocks (test_o01_process_attribution.AttributionTests.test_whitespace_cgroup_sibling_preserves_membership_and_blocks) (suffix="' '")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py", line 95, in test_whitespace_cgroup_sibling_preserves_membership_and_blocks
+    self.assert_blocked(result)
+  File "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py", line 63, in assert_blocked
+    self.assertEqual(len(result["blocking_processes"]), 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_whitespace_cgroup_sibling_preserves_membership_and_blocks (test_o01_process_attribution.AttributionTests.test_whitespace_cgroup_sibling_preserves_membership_and_blocks) (suffix="'\\t'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py", line 95, in test_whitespace_cgroup_sibling_preserves_membership_and_blocks
+    self.assert_blocked(result)
+  File "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py", line 63, in assert_blocked
+    self.assertEqual(len(result["blocking_processes"]), 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_whitespace_cgroup_sibling_preserves_membership_and_blocks (test_o01_process_attribution.AttributionTests.test_whitespace_cgroup_sibling_preserves_membership_and_blocks) (suffix="'\\r'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py", line 95, in test_whitespace_cgroup_sibling_preserves_membership_and_blocks
+    self.assert_blocked(result)
+  File "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7761-owned-update-probes/src/cosh-ng/tests/test_o01_process_attribution.py", line 63, in assert_blocked
+    self.assertEqual(len(result["blocking_processes"]), 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.074s
+
+FAILED (failures=3)

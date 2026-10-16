@@ -1,0 +1,29 @@
+{
+  "scope": "independent host readback of native RPM proof and downloaded artifacts; installed/canonical/lifecycle not covered by this proof",
+  "candidate_source_base": "2b4af68af60880790092011b96d204b33adb0c0b",
+  "candidate_tree": "ec6349fd690403b2e4003e846e3f8234daf1f6d0",
+  "all_19_reviewed_files_match_source0": true,
+  "source0_file_count": 1297,
+  "package_sha256": {
+    "cosh-ng-0.27.0-2.alnx4.src.rpm": "fdc3862d647c647edadbf49e45dc204380c0db5347096a7e1446b36c17d1058b",
+    "cosh-ng-0.27.0-2.alnx4.aarch64.rpm": "9ed33428634e68b7d4d8965db780720327c14c6143574f150b5b2be6b87afb4d",
+    "cosh-ng-0.27.1-2.alnx4.src.rpm": "2899c41b0e3cd5b23597a45a6cbd01518e3baa52789fc2f30dd9c85bba260bb5",
+    "cosh-ng-0.27.1-2.alnx4.aarch64.rpm": "53c1ba47ceaa0e0c2ba57438c172a868477dba89a81cfc042d4b04bb4591bbba"
+  },
+  "baseline_worker_in_payload": false,
+  "candidate_worker_in_payload": true,
+  "candidate_post_strip_elf_sha256": {
+    "cosh-shell": "e28e34ea5f9ece2fdeaf2e4254fc8096f2ad1bb4a9edcf3e9e2520de43778ee9",
+    "cosh-core": "866e28cc643c6871fc4312a66f3dab79deb8376e8130d484f4a32019ed0056d5",
+    "cosh-ui-worker": "76b7844d3c29ef5a5c843c005ba834661f4762e57c350edeee5c1b402d8f0407"
+  },
+  "added_payload_paths": [
+    "usr/lib/.build-id/52/d582fe47e744cccc14986cc01979d3c0ee22f5",
+    "usr/lib/.build-id/61/47758b7d0497e9c70757250a8af11611992879",
+    "usr/libexec/anolisa/cosh-ng/cosh-ui-worker"
+  ],
+  "removed_payload_paths": [
+    "usr/lib/.build-id/d1/b469013371e0ef050b85f1801e5a4543fad54c"
+  ],
+  "payload_difference_note": "The worker and its build-id link are added; the changed Shell build-id link is replaced. No additional application payload paths changed."
+}

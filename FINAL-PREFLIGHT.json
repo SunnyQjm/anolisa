@@ -1,0 +1,247 @@
+{
+  "verdict": "Go: exact native commit S6 gates and one-commit lint",
+  "native_commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+  "parent": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+  "tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+  "cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+  "native_git_commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7891-ui-worker-production",
+      "exit_code": 0,
+      "stdout": "b353d6185b2abe0b99460430ccd7954bd4ce21ad\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7891-ui-worker-production",
+      "exit_code": 0,
+      "stdout": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7891-ui-worker-production",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+        "HEAD"
+      ],
+      "cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7891-ui-worker-production",
+      "exit_code": 0,
+      "stdout": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--format=%H%x00%s%x00%b%x1e",
+        "585d71fd3f6a95a9d3fb5fec50ab721fcf767306..HEAD"
+      ],
+      "cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7891-ui-worker-production",
+      "exit_code": 0,
+      "stdout": "b353d6185b2abe0b99460430ccd7954bd4ce21ad\u0000feat(cosh-ng): [shell] ship approval worker\u0000Activate the existing eligible renderer in Linux release builds with\nfixed bounded policy and a trusted installed sibling. Keep approval,\naudit, execution and input authority in Host and preserve inline fallback.\nInstall the worker beside Shell and Core in the RPM.\n\nKeep a damaged handoff display lease until its native prompt flushes.\nDefer a second physical failure during prompt recovery, retain input\nHold and retry the original PS1 without another user input. Do not\nrepeat the approved effect or HostExecutedResult.\n\nVerify release processes and fault controls with the existing real\nCore/PTY fixtures. Final dual-architecture installed/provider package\nacceptance and explicit terminal takeback remain separate.\n\nSupplements: 4a4961e41917 (\"feat(cosh-ng): [shell] isolate approval UI\")\nFixes: 4a4961e41917 (\"feat(cosh-ng): [shell] isolate approval UI\")\n\nAssisted-by: Codex:0.144.6\nSigned-off-by: SunnyQjm <mfeng@linux.alibaba.com>\n\u001e\n",
+      "stderr": ""
+    }
+  ],
+  "commit_lint": {
+    "semantics": "fixed CLI returns findings only; [] means no problems, not no commits",
+    "findings": [],
+    "actual_range": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306..b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+    "actual_commit_count": 1,
+    "records": [
+      {
+        "sha": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+        "subject": "feat(cosh-ng): [shell] ship approval worker",
+        "subject_length": 43,
+        "body": "Activate the existing eligible renderer in Linux release builds with\nfixed bounded policy and a trusted installed sibling. Keep approval,\naudit, execution and input authority in Host and preserve inline fallback.\nInstall the worker beside Shell and Core in the RPM.\n\nKeep a damaged handoff display lease until its native prompt flushes.\nDefer a second physical failure during prompt recovery, retain input\nHold and retry the original PS1 without another user input. Do not\nrepeat the approved effect or HostExecutedResult.\n\nVerify release processes and fault controls with the existing real\nCore/PTY fixtures. Final dual-architecture installed/provider package\nacceptance and explicit terminal takeback remain separate.\n\nSupplements: 4a4961e41917 (\"feat(cosh-ng): [shell] isolate approval UI\")\nFixes: 4a4961e41917 (\"feat(cosh-ng): [shell] isolate approval UI\")\n\nAssisted-by: Codex:0.144.6\nSigned-off-by: SunnyQjm <mfeng@linux.alibaba.com>",
+        "signed_off_by_present": true
+      }
+    ],
+    "implementation_path": "/Users/quejianming/vscode/cosh-shell-dev/.agents/skills/cosh-issue-fix/scripts/cosh-lab/src/cosh_lab/issuefix.py",
+    "implementation_sha256": "46fbcd7745e2bf8e8b4fe6decc864cb73eaaff3d3b9328abc6e5b14aea319e24",
+    "max_subject": 50
+  },
+  "preflight": {
+    "data": {
+      "cargo_root": "src/cosh-ng",
+      "clippy": {
+        "command": "cargo clippy --workspace --all-targets -- -D warnings",
+        "detail": null,
+        "ok": true
+      },
+      "commit_lint": [],
+      "fmt": {
+        "command": "cargo fmt --check",
+        "detail": null,
+        "ok": true
+      },
+      "gates": [
+        {
+          "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+          "detail": null,
+          "ok": true
+        },
+        {
+          "command": "bash -c scripts/check-test-inventory.sh",
+          "detail": null,
+          "ok": true
+        }
+      ],
+      "ok": true,
+      "schema_version": 1,
+      "tests": {
+        "command": null,
+        "detail": "not-run; ok does not cover tests, run planned scopes separately",
+        "ok": null
+      },
+      "upstream_drift": []
+    },
+    "error": null,
+    "meta": {
+      "run_dir": null,
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  "native_cargo": [
+    {
+      "argv": [
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "native_inventory_count": 0,
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130326Z-45813f8b",
+      "raw_json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/cargo/2724f25b4e9e4cf29113abc53e35920e.json"
+    },
+    {
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-core",
+        "--lib",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "native_inventory_count": 189,
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130333Z-1f5a3f25",
+      "raw_json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/cargo/af6bd4f5bb3a45e1b43426175b48d80e.json"
+    },
+    {
+      "argv": [
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0,
+      "native_inventory_count": 0,
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130323Z-ddda061b",
+      "raw_json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/cargo/03d5ff7ac66d45699b6ed20cc43b6e4f.json"
+    },
+    {
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "native_inventory_count": 3092,
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130335Z-81b3b4e9",
+      "raw_json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/cargo/41a5952eaeb14f7eb40d92cde00c16b9.json"
+    },
+    {
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--lib",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "native_inventory_count": 1625,
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130336Z-03cd1000",
+      "raw_json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/cargo/b8e097c699834133b1d8402f3c44d876.json"
+    },
+    {
+      "argv": [
+        "test",
+        "--locked",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "--",
+        "--list"
+      ],
+      "exit_code": 0,
+      "native_inventory_count": 1100,
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130334Z-2d4b5044",
+      "raw_json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/cargo/b747c8b242114e13a7da1de597064202.json"
+    }
+  ],
+  "independent_linux_source_layout": {
+    "data": {
+      "command": [
+        "bash",
+        "-lc",
+        "set -e; cd /tmp/cosh-7891-final-candidate/src/cosh-ng; bash --version | head -1; bash scripts/check-source-layout.sh"
+      ],
+      "exit_code": 0,
+      "failure_kind": null,
+      "probes": [
+        {
+          "exit_code": 0,
+          "ok": true,
+          "transport": "native"
+        }
+      ],
+      "stderr": "",
+      "stdout": "GNU bash, version 5.2.15(1)-release (aarch64-koji-linux-gnu)\nwarning: crates/cosh-gateway/src/daemon/scheduler/poll.rs has 668 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/runtime/acp/tool_accumulator.rs has 663 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/runtime/acp_port/runtime.rs has 618 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/runtime/cosh_core_jsonl/codec.rs has 635 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/runtime/installed_acp_factory.rs has 602 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/storage/ledger/approval.rs has 659 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/storage/ledger/runtime_input_helpers.rs has 645 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/storage/ledger/types.rs has 646 lines (failure at: 700)\nwarning: crates/cosh-gateway/src/storage/sqlite.rs has 681 lines (failure at: 700)\nwarning: crates/cosh-gateway-app/src/main.rs has 694 lines (failure at: 700)\nwarning: crates/cosh-gateway-contracts/src/task.rs has 687 lines (failure at: 700)\nGateway source layout audit passed\n",
+      "terminal_state_known": true,
+      "transport": "native"
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130351Z-47963120",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  "source_equivalence_receipt": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/REBASE-585d-RECEIPT.json",
+  "native_commit_receipt": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/NATIVE-COMMIT.json",
+  "old_runs_relabelled": false,
+  "environment_retained": true,
+  "no_test_bodies_run_in_this_scope": true
+}

@@ -1,0 +1,275 @@
+{
+  "local_behavior_verdict": "Go for measured arm64 Linux source/installed RPM/scripted-PTY scope",
+  "overall_release_verdict": "Not claimed",
+  "source_binding": {
+    "base": "2b4af68af60880790092011b96d204b33adb0c0b",
+    "dirty": true,
+    "candidate_tree": "ec6349fd690403b2e4003e846e3f8234daf1f6d0",
+    "patch_sha256": "df0d825fc8494d008e78c1152dd42d4a95b4819f5c7a82db61e5a9ea4135020c",
+    "archive_sha256": "a637cc49e507b59ed212ef014abf661f75e8c408b720c047c3445fcb86d13a16"
+  },
+  "build_source_file_count": 1307,
+  "compiler": "Rust/Cargo 1.97.1 arm64 Linux private toolchain; no global self-update",
+  "environment": {
+    "run": "20261016T084049Z-5880afba",
+    "name": "cosh-7891-production-20261016",
+    "cpu": 2,
+    "memory_gb": 6,
+    "state": "cleaned; actual container inventory absent",
+    "slot_returned": true,
+    "cleanup": "standard down130601-c8f9f21b and independent actual all-container inventory absent"
+  },
+  "full_raw_cli": {
+    "first": {
+      "run": "20261016T110455Z-7da86edc",
+      "passed": 610,
+      "failed": 16,
+      "ignored": 1,
+      "exit": 101,
+      "preserved": true
+    },
+    "environment_delta": [
+      "fixture requires ignored physical src/cosh-ng/target directory",
+      "owned container zsh5.9-2.alnx4 and pcre8.45-5.alnx4 installed"
+    ],
+    "same_argv_rerun": {
+      "run": "20261016T114618Z-abd375a6",
+      "passed": 626,
+      "failed": 0,
+      "ignored": 1,
+      "seconds": 2346.92,
+      "exit": 0
+    },
+    "source_and_threshold_changes": false,
+    "flaky_claim": false
+  },
+  "focused": {
+    "R5_debug_named": 34,
+    "R5_production_named": 23,
+    "installed_named": 6,
+    "original_before_input_PS1_oracle": "original 4 physical-fault tests; installed second-prompt-EIO exact has original color/cwd/current cursor/visible caret assertions before new input",
+    "protocol_core_boundary": "Core lifecycle/capped fixtures are protocol-stub evidence, not actual production Core; approval real-Core PTYs separately measured"
+  },
+  "compiled_mutations": {
+    "heartbeat_3_to_1": "real release rebuilt mutant fails original idle12; fixed immutable R5 profile passes",
+    "pending_getter_false": "real release rebuilt mutant fails second-prompt-EIO exact; fixed R5 profile passes"
+  },
+  "trust_controls": "safe-copy positive; owner65534, group-writable deep ancestor, worker symlink each expected worker1/actual0 after original Core/card preconditions; restored positive",
+  "rpm": {
+    "builder": "original scripts/rpm-build.sh cosh-ng and unmodified spec workspace release build",
+    "versions_are_local_transaction_identifiers": true,
+    "baseline": {
+      "base": "a37dd32ae9f3d80b2a2388d38ca84ddb2d2d377e",
+      "source0_file_count": 1296,
+      "source0_match": true,
+      "worker_in_payload": false,
+      "rpm_sha256": "9ed33428634e68b7d4d8965db780720327c14c6143574f150b5b2be6b87afb4d"
+    },
+    "candidate": {
+      "source0_file_count": 1297,
+      "source0_match": true,
+      "worker_in_payload": true,
+      "rpm_sha256": "53c1ba47ceaa0e0c2ba57438c172a868477dba89a81cfc042d4b04bb4591bbba",
+      "post_strip_binary_sha256": {
+        "cosh-shell": "e28e34ea5f9ece2fdeaf2e4254fc8096f2ad1bb4a9edcf3e9e2520de43778ee9",
+        "cosh-core": "866e28cc643c6871fc4312a66f3dab79deb8376e8130d484f4a32019ed0056d5",
+        "cosh-ui-worker": "76b7844d3c29ef5a5c843c005ba834661f4762e57c350edeee5c1b402d8f0407"
+      }
+    },
+    "pre_strip_identity_boundary": "not retained: original rpmbuild rmbuild automatically removed BUILD; no payload reconstruction or altered --noclean build",
+    "transactions": [
+      "baseline-install",
+      "candidate-upgrade",
+      "candidate-reinstall",
+      "rollback-baseline",
+      "uninstall"
+    ],
+    "rollback_worker_and_exclusive_paths_absent": true,
+    "uninstall_package_and_payload_absent": true
+  },
+  "canonical": {
+    "runs": [
+      "20261016T125014Z-316465a4",
+      "20261016T125120Z-b240c26b"
+    ],
+    "actual_execution": "scripted-pty, production=true, ui_test_environment={}, actual installed real Shell/Core/worker, loopback HTTP model fixture; not real provider",
+    "points": 8,
+    "owner_renderer_commit": "6684b54820f9d3c475b80d6595bffeb8d64529f9",
+    "owner_verify_both": true,
+    "pixel_max_difference": 2,
+    "all8_png_opened": true,
+    "manifest_git_null_preserved": true,
+    "external_source_binding": "Source0 1297 hashes + actual RPM/installed three ELF + existing fixture and command-only YAML variant hashes + original 2b4/ec candidate binding",
+    "bash_returned_caption": "after explicit printf UI_BASH_READY;exit; not a before-input idle PS1 screenshot",
+    "sidecar_effect_count": 1,
+    "sidecar_request_count": 2,
+    "fault_distinct_workers": 3,
+    "same_worker_focus_roundtrip": [
+      "Allow once",
+      "Deny",
+      "Allow once"
+    ],
+    "post_capture_cosh_process_count": 0
+  },
+  "aggregate_standard_gate": {
+    "verdict": "Go",
+    "errors": [],
+    "original_argv_unchanged": true,
+    "nine_original_run_ids": [
+      "20261016T114618Z-abd375a6",
+      "20261016T125014Z-316465a4",
+      "20261016T125120Z-b240c26b",
+      "20261016T124606Z-451d38d7",
+      "20261016T124608Z-c1c6d154",
+      "20261016T124612Z-95b42a00",
+      "20261016T124621Z-d89d4635",
+      "20261016T124625Z-c6076e20",
+      "20261016T124641Z-0b2f0ed1"
+    ],
+    "json": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-local-installed-gate.json"
+  },
+  "first_failures_preserved": [
+    "activation real worker0 RED",
+    "RPM structural worker-install/files RED",
+    "baseline canonical timeout137 incomplete/unattributed",
+    "R3 prompt second EIO RED",
+    "R4 prompt cursor-line RED",
+    "first preflight Bash3/parallel envlock tooling failure",
+    "full raw first environment 16FAIL",
+    "first canonical variant invalid root/missing archive cwd before product execution",
+    "relative upload path tool failure",
+    "tar safe extraction absolute symlink refusal; only regular evidence extracted; package symlink identities retained in manifests"
+  ],
+  "not_claimed": [
+    "formal dual-architecture RPM",
+    "real provider",
+    "default login/systemd/default-shell acceptance",
+    "full workspace test bodies",
+    "performance SLO"
+  ],
+  "evidence": [
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/candidate-preflight-audit.json",
+      "sha256": "93ad4676093218f05f3fd43b1a2e34f5ac71cc6acedb90bd4553da36b5895d5c"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/candidate-full-raw-repaired-audit.json",
+      "sha256": "f65fe0849f489e735089d9416a78b85cbb554df21d927f687959100081c310bc"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/candidate-source-after-full-raw.json",
+      "sha256": "f6742c5fc001aa6c9e4d4db3d60c3ed9ceff0f3b3f4ac5f0dcf9aa3429c23783"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/compiled-controls.json",
+      "sha256": "f5b923efb62e5aa31a65310a1c4d347f120acd7b2fe0c9ec3c23d385880ad2f8"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/trust-r5-controls.json",
+      "sha256": "7025647c93361f989efc50b8bfb756e0867be6436cc4bb0634a0c3c2312a0472"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/r5-production-matrix-results.json",
+      "sha256": "485edb13b11b9dedc4194f4a1b132f4c02df293ab8331c8a57d66dd48ab63ee2"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/r5-debug-matrix-results.json",
+      "sha256": "4af245f0056e65570e4dcfc85cc1fa7ff62851eca882eb83e943abc66e66e71a"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/rpm-installed-identity-audit.json",
+      "sha256": "37f1e8a1227d791e011b342772ac0b936063f7c8127d059002c26660b225fc0e"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/rpm-installed-matrix-results.json",
+      "sha256": "f753c9b97294ae8ee0964a314cec93263ba539c484593d61c9561cccbd4ec6c1"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/canonical-installed/visual-review/review.json",
+      "sha256": "2129eca7adf37f824e7a36e62cb16248db9b52454d616c34b669ed8a25ae7f5a"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/canonical-installed/visual-review/report.md",
+      "sha256": "97bf83ffd622092a9e6c4ddda96582237f8866f3348fbbeb433ca92ce1fab665"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/canonical-owner-verify-resize.json",
+      "sha256": "18403f97cb69b616234313cbaf573505af2357facb101d355c8b4605a1014b68"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/canonical-owner-verify-fault.json",
+      "sha256": "4760bfedbad8f34e89a13afe665c3e7ae52d8d9bf1b45a21d48d13d424bfe5e3"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/rpm-artifacts/installed-proof.tar.gz",
+      "sha256": "1fe9e678d403fe62af16675fbb7c10fd6baecc9654eb4da0d543b12da50f32f1"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/rpm-artifacts/final-transactions.tar.gz",
+      "sha256": "db0a2d1414b8c7ed046e8dd5a8f5abdcff53645fd37049184298f0f02f232abd"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/local-installed-gate.json",
+      "sha256": "faa27afdc72d423a5c7625235545602563ba0357a99cdcad4fd808d15d7a3c88"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-candidate-source.json",
+      "sha256": "c6cdb73e362eb0ddf715271e8574c50ce8a2e61fd87fefc398a3a583ae125239"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-owned-cleanup-audit.json",
+      "sha256": "de22273bc8547bb8db06f6fe6cb63ed606fa2e7604c30dd8d6d2984640c1bb24"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-local-installed-gate.json",
+      "sha256": "21f3eae63b98cc3938f626291a07787b6db290e8efaa6fcb7852f4a845ab1415"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-local-installed-gate-command.json",
+      "sha256": "31f0240ed260b25c4b697c70e03f02b1dbb865c555098f9112ca752fe4d3a6cf"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/audit.json",
+      "sha256": "02d3e323f34a21c3b06415c1d1a73c6764d62afa44e001c641a7ac27aa114f0e"
+    },
+    {
+      "path": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-native-source-attestation.json",
+      "sha256": "6f6191e1c3d0d749b925739797db553083378e9b57278fffbe843283b3046770"
+    }
+  ],
+  "native_source_attestation": {
+    "native_commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+    "parent": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+    "tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+    "cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+    "tested_original_base": "2b4af68af60880790092011b96d204b33adb0c0b",
+    "tested_original_tree": "ec6349fd690403b2e4003e846e3f8234daf1f6d0",
+    "all_19_file_hashes_unchanged": true,
+    "all_1307_build_source_hashes_unchanged": true,
+    "full_patch_sha256": "df0d825fc8494d008e78c1152dd42d4a95b4819f5c7a82db61e5a9ea4135020c",
+    "binding_method": "native receipts and per-file equality, not rerun/relabel of old test/RPM/canonical run metadata",
+    "receipts": [
+      "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/REBASE-585d-RECEIPT.json",
+      "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/NATIVE-COMMIT.json"
+    ],
+    "exact_native_s6_audit": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/audit.json"
+  },
+  "final_native_s6": {
+    "verdict": "Go",
+    "exact_commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+    "parent": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+    "tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+    "cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+    "actual_linted_commit_count": 1,
+    "commit_lint_findings": [],
+    "audit": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/final-b353d-preflight/audit.json"
+  },
+  "resource_residue": {
+    "owned_container_present": false,
+    "rpm_package_installed": false,
+    "owned_installed_payload_remaining": [],
+    "post_capture_cosh_processes": [],
+    "cache_retained_for_evidence": true,
+    "root_other_resources_not_mutated": true
+  }
+}

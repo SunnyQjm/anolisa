@@ -1,0 +1,15 @@
+{
+  "commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+  "tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+  "parent": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+  "cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+  "single_native_commit": true,
+  "worktree_clean": true,
+  "reviewed_19_file_hashes_match": true,
+  "message": "feat(cosh-ng): [shell] ship approval worker\n\nActivate the existing eligible renderer in Linux release builds with\nfixed bounded policy and a trusted installed sibling. Keep approval,\naudit, execution and input authority in Host and preserve inline fallback.\nInstall the worker beside Shell and Core in the RPM.\n\nKeep a damaged handoff display lease until its native prompt flushes.\nDefer a second physical failure during prompt recovery, retain input\nHold and retry the original PS1 without another user input. Do not\nrepeat the approved effect or HostExecutedResult.\n\nVerify release processes and fault controls with the existing real\nCore/PTY fixtures. Final dual-architecture installed/provider package\nacceptance and explicit terminal takeback remain separate.\n\nSupplements: 4a4961e41917 (\"feat(cosh-ng): [shell] isolate approval UI\")\nFixes: 4a4961e41917 (\"feat(cosh-ng): [shell] isolate approval UI\")\n\nAssisted-by: Codex:0.144.6\nSigned-off-by: SunnyQjm <mfeng@linux.alibaba.com>",
+  "source_binding": "REBASE-585d-RECEIPT.json plus exact RPM Source0/readback; old execution runs retain original labels",
+  "pushed": true,
+  "remote_ref": "refs/heads/fix/cosh-7891-ui-worker-production",
+  "remote_commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+  "pull_request": "https://github.com/agentic-os-org/ANOLISA/pull/7979"
+}

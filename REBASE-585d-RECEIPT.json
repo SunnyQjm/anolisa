@@ -1,0 +1,19 @@
+{
+  "old_base": "2b4af68af60880790092011b96d204b33adb0c0b",
+  "new_base": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+  "old_candidate_tree": "ec6349fd690403b2e4003e846e3f8234daf1f6d0",
+  "new_candidate_tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+  "cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+  "all_19_file_hashes_unchanged": true,
+  "all_1307_source_hashes_unchanged": true,
+  "full_patch_sha256": "df0d825fc8494d008e78c1152dd42d4a95b4819f5c7a82db61e5a9ea4135020c",
+  "upstream_changed_paths": [
+    "src/agentsight/src/analyzer/token/extractor/openai.rs",
+    "src/agentsight/src/analyzer/unified.rs",
+    "src/agentsight/src/health/checker.rs",
+    "src/agentsight/src/token_breakdown/cli.rs"
+  ],
+  "native_rebase": true,
+  "used_stash": false,
+  "native_commit_created": false
+}

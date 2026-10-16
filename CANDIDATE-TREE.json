@@ -1,0 +1,44 @@
+{
+  "stage": "native committed; exact commit S6 and measured local acceptance Go; owned runtime cleaned; PR pending",
+  "base": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+  "candidate_tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+  "tracked_patch_sha256": "f010be7b3827d43a3df038e5f911f469683e7ad1df774f9006b91a61d6935f42",
+  "files": {
+    "src/cosh-ng/cosh-ng.spec.in": "f6c01cd24225669c11c4eee5583e364b7e567a63c78f8d8fc52d81622042f1f5",
+    "src/cosh-ng/crates/cosh-shell/src/approval/slice.rs": "2db9b773f4a83af466afa4e2c967667e3ad1d595fb6e0785a7090e83a0525c52",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/approval_ui.rs": "64fcfde0375d6c418e896bf9fa10f41ffb72eec524e405676dfb7ceacd5f6d62",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/approval_ui_tests.rs": "b6c1d0436a2a04a7936d59741e4106545b1147a06f98208b0c5cb9e222bbd1c7",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/controller.rs": "0056f713eff19dda90d30d6f452c133245960ae0f7f3a654db0e9e40b0a88c1b",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/controller/bootstrap.rs": "7e96895a25a375ad5d87df3859e7246365ccb1536862afedbb40289affcf0203",
+    "src/cosh-ng/crates/cosh-shell/src/runtime/logging.rs": "53ed80325ea3636eabb2f9f3c2c390cf923e93688745f8c4851b1300624bd157",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/model.rs": "8a19731e3fb1445f2db8c32e9c1eb9db308227f65d396fcb451b02eb50ff87ed",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/raw_relay/degraded.rs": "baeceb73a7a5a76b345bab2e68e62cf79508065091daeb2547db80173e5eefe0",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/raw_relay/degraded_tests.rs": "a36a97f9af4df934b8bec5be09b138cf4540b2007ee4c2d5afd3a3972a6ebf20",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/raw_relay/observer.rs": "050e9b928d321dc950771c6063317ab5398522ba14d24ea5c83b81cb81ac0243",
+    "src/cosh-ng/crates/cosh-shell/src/shell_host/raw_relay/pty_emit.rs": "e50bab3706cfb85fd092f31f7837c0219104923cc728e01a446ec6b4013965a1",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/ui_approval_slice.rs": "e75cff4e8a5fb63a9f8bc24c42a0c597500077dc147363c64be66586654cbb10",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/ui_output_fault.rs": "e8a5842249d4094f09c54a0834ddeb9df05867f7553a6f33f7d4ce7825b61594",
+    "src/cosh-ng/crates/cosh-shell/tests/support/ui_approval_slice.rs": "462c80a24c948d6fcf2c0dbf9e549c9aafa85827c17201c80f7557dae0d0f662",
+    "src/cosh-ng/crates/cosh-shell/tests/support/ui_output_fault.rs": "c5dfa1f0d5a89be6b188c8e9d8ce82207d3ff85e490721ee4b0cd17e21094230",
+    "src/cosh-ng/e2e/fixtures/ui_worker.py": "8b50259f1262a9cfc16b588e1164499310663a1e3f8fedc6580635683e47ec99",
+    "src/cosh-ng/tests/test-package-rpm.sh": "5797b4b25e371bd8aaaca5032f5016a671325e2a524503bcaf37d44ac5efd441",
+    "src/cosh-ng/docs/design/approval-worker-production.md": "b594d42b5fb4e1a06ca6acc9afe27ed92bd53b476d3d9c46d12aded87c50aab6"
+  },
+  "reviews": [
+    "review-r5-rules.md",
+    "review-r5-behavior.md"
+  ],
+  "complete_19_file_patch_sha256": "df0d825fc8494d008e78c1152dd42d4a95b4819f5c7a82db61e5a9ea4135020c",
+  "previous_candidate_tree": "ec6349fd690403b2e4003e846e3f8234daf1f6d0",
+  "rebase_proof": "All19 reviewed file hashes/fullpatch and all1307 guest source hashes unchanged; only4 upstream agentsight paths changed",
+  "tracked_patch_scope": "Historical 18 tracked paths before the design note was staged; not the current full staged diff. Use complete_19_file_patch_sha256 for the final candidate.",
+  "candidate_cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+  "rebased_from_base": "2b4af68af60880790092011b96d204b33adb0c0b",
+  "upstream_changed_paths": [
+    "src/agentsight/src/analyzer/token/extractor/openai.rs",
+    "src/agentsight/src/analyzer/unified.rs",
+    "src/agentsight/src/health/checker.rs",
+    "src/agentsight/src/token_breakdown/cli.rs"
+  ],
+  "native_commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad"
+}

@@ -1,0 +1,53 @@
+{
+  "owned_environment": "20261016T084049Z-5880afba",
+  "owned_container": "cosh-7891-production-20261016",
+  "standard_down": {
+    "data": {
+      "already_absent": false,
+      "cleanup": {
+        "status": "cleaned"
+      },
+      "stderr": "",
+      "stdout": ""
+    },
+    "error": null,
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130601Z-c8f9f21b",
+      "schema_version": 1
+    },
+    "ok": true
+  },
+  "standard_status_after_down": {
+    "data": {
+      "cleanup": {
+        "status": "cleaned"
+      },
+      "exit_code": 1,
+      "state": "completed",
+      "stderr": "",
+      "stdout": ""
+    },
+    "error": {
+      "code": "environment-unavailable",
+      "message": "backend status failed"
+    },
+    "meta": {
+      "run_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-7891-production/local-linux/runs/20261016T130621Z-8e852c8e",
+      "schema_version": 1
+    },
+    "ok": false
+  },
+  "status_boundary": "backend unavailable after removal is expected; actual inventory independently proves absence",
+  "actual_inventory_command": [
+    "/usr/local/bin/container",
+    "list",
+    "--all",
+    "--format",
+    "json"
+  ],
+  "actual_inventory_exit_code": 0,
+  "actual_inventory_sha256": "e0fbaa44324f760723eb064a0292d7496ecb0be3cf575565a0a6009b03fdb81d",
+  "owned_inventory_present": false,
+  "other_containers_not_mutated": true,
+  "cache_and_all_evidence_retained": true
+}

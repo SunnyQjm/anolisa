@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-10-16T13:13:28.986751+00:00",
+  "command": [
+    "/usr/local/bin/container",
+    "list",
+    "--all",
+    "--format",
+    "json"
+  ],
+  "exit_code": 0,
+  "stdout_sha256": "e0fbaa44324f760723eb064a0292d7496ecb0be3cf575565a0a6009b03fdb81d",
+  "owned_container_present": false,
+  "owned_run_label_present": false,
+  "mutations": []
+}

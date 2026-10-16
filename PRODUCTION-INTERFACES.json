@@ -1,0 +1,48 @@
+{
+  "stage": "PR7979 draft created; native clean b353d; exactS6 and measured arm64 aggregateGo; owned container absent; immutable assets/review/CI pending",
+  "worktree": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-7891-ui-worker-production",
+  "base": "585d71fd3f6a95a9d3fb5fec50ab721fcf767306",
+  "source_dirty": false,
+  "production_policy": {
+    "width": 40,
+    "max_rows": 24,
+    "heartbeat_interval_ms": 100,
+    "heartbeat_timeout_ms": 3000,
+    "handshake_render_backpressure_timeout_ms": 5000,
+    "shutdown_timeout_ms": 2000,
+    "failure_limit": 3,
+    "pending_revision_capacity": 1,
+    "activation": "Linux release current_exe trusted regular executable sibling; no debug environment lookup"
+  },
+  "U02a": {
+    "closed": false,
+    "support": "Existing generation and revision checks; direct child kill/reap and old socket drop; new socket pair per replacement",
+    "missing": "Actual old worker descendant retaining IPC and late frame witness across rebuild"
+  },
+  "U02b": {
+    "closed": false,
+    "approved_scope": "Only existing bounded handoff settlement, no automatic replay or general takeback platform",
+    "implemented": "Tagged physical error with actual emitted token; same Bash Hold; OSC/HostResult settlement precedes UI; native PS1 recovery lease through successful flush",
+    "runtime_status": "Full raw rerun626PASS/0FAIL/1originalignored after documented owned environment preconditions; production23/debug34; compiled controls; actual installed6 incl promptrefault; canonical2 and native RPM lifecycle passed. Runs retain original2b4/ec source labels; all19/1307 hashes and Cosh tree unchanged across native rebase. Final integrated dualarch/provider and Running/Unknown witnesses remain separate.",
+    "missing": "Root integrated dual-architecture frozen installed real-provider candidate binding; explicit Running/Unknown witness from acceptance owner"
+  },
+  "U02c": {
+    "closed": false,
+    "public_entry": null,
+    "missing": "No qualifying public explicit terminal takeback and new-byte-only consumer switch; do not substitute Ctrl-C/Esc or send-to-shell"
+  },
+  "root_owned": [
+    "New dual-architecture source/RPM freeze",
+    "Final installed same-candidate real-provider acceptance",
+    "Cloud/TTL/signing/resource ownership"
+  ],
+  "reports": [
+    "u02-persistent-tty-audit.md",
+    "u02-generation-takeback-audit.md"
+  ],
+  "candidate_tree": "cf23b75a2c151da8e85a16e44b3653422cbb4f7b",
+  "cosh_tree": "f1dbd5bd1cee77ee311a9a104aa539dcdd692afc",
+  "native_commit": "b353d6185b2abe0b99460430ccd7954bd4ce21ad",
+  "cleanup": "owned container removed; actual inventory absent",
+  "pull_request": "https://github.com/agentic-os-org/ANOLISA/pull/7979"
+}

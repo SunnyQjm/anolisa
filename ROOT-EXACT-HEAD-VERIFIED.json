@@ -1,0 +1,143 @@
+{
+  "at": "2026-10-17T19:01:04.486252+00:00",
+  "head": "66aee7e7df16648a5dd6cbeae4e9abd9a32117a4",
+  "tree": "d878164285d35552c4db38d339bdb7a976790503",
+  "native_Rust": "1.97.1",
+  "preflight_inner_ok": true,
+  "preflight": {
+    "cargo_root": "src/cosh-ng",
+    "clippy": {
+      "command": "cargo clippy --workspace --all-targets -- -D warnings",
+      "detail": null,
+      "ok": true
+    },
+    "commit_lint": [],
+    "fmt": {
+      "command": "cargo fmt --check",
+      "detail": null,
+      "ok": true
+    },
+    "gates": [
+      {
+        "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-source-layout.sh",
+        "detail": null,
+        "ok": true
+      },
+      {
+        "command": "bash -c scripts/check-test-inventory.sh",
+        "detail": null,
+        "ok": true
+      }
+    ],
+    "ok": true,
+    "schema_version": 1,
+    "tests": {
+      "command": null,
+      "detail": "not-run; ok does not cover tests, run planned scopes separately",
+      "ok": null
+    },
+    "upstream_drift": []
+  },
+  "exact_raw_tests": [
+    {
+      "raw": "focused-01.json",
+      "sha256": "7c7249be7ad77611bdf9d1ce078a10f91105fe2f31959a7d0147172f9dddf321",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-02.json",
+      "sha256": "5dae14964906b39769902cde0221a750207b2ef96afe3416ebd8522df7a48179",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-03.json",
+      "sha256": "3094cb0d0fd836265c61ecc0a81278e5f35c8da0fd2761506a430e328b87a572",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-04.json",
+      "sha256": "30bb4b86b8c30d50530dd492e85ad42f170547c70cc995083b6a2a7004d6c551",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-05.json",
+      "sha256": "0875fb27898328479bfbfe60623d8157b2516cee59d9acbbeb9f25be85e44236",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-06.json",
+      "sha256": "645d2b67a899209b6ecb53ee478fab8b07a6be07f67e1212b37b04cafa5d05d5",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-07.json",
+      "sha256": "bd4bad043096613dcaa1a17fdf9cc86da403416942ce94fa09b6355a75ad1c73",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "raw": "focused-08.json",
+      "sha256": "e3cddb9350a050712aead6272d810bd74941ec701be294f4aba7efabcde5ef9a",
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    }
+  ],
+  "host_source_files_SHA_mode_verified": 1267,
+  "host_worktree_clean": true,
+  "independent_layout_review": "../candidate-v9-layout/INDEPENDENT-REVIEW.json; identical two-file correction",
+  "fullraw_607": "different combined tree60eb includes #7628; not represented as this PR exact-head full suite",
+  "first_registry_failure": "unresolved in prior combined run; no classification as flaky, no release acceptance",
+  "release_gate": "No-Go",
+  "formal_current_head_review": "pending"
+}

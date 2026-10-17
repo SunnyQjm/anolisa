@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-17T18:58:19.331927+00:00",
+  "phase": "local reviewable PR refresh prepared; exacthead native gates pending; no upstream mutation",
+  "previous_candidate_source": "60eb2630dc951b4f5b8273badf279bae7850c0e9",
+  "old_upstream_head": "5632512832600f5efef47f658d7e015ec732e48a",
+  "base": "7828cc3a9f0de40e185ad1b4b26e28d39043ba28",
+  "head": "66aee7e7df16648a5dd6cbeae4e9abd9a32117a4",
+  "tree": "d878164285d35552c4db38d339bdb7a976790503",
+  "branch": "codex/cosh-6808-inline-main",
+  "source_worktree": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/candidate-v9/source",
+  "source_clean": true,
+  "component_tree": "9fb9d1b53adadb8d4330b7429038efbefc4af442",
+  "manifest_sha256": "aa22944c9b5f605414aec25a9b20cad5dcdd8ed80cb3c5eb838bbc6622b7b120",
+  "bundle_sha256": "5ca7604625768071368ef9a5a3bbcab0ffc77d3636e01b2c28ee4c6f22ba7a9e",
+  "source_delta_vs_tested_combination": "only removal of #7628 test JSON key-order fix in tests/raw_cli/heavy.rs; no source runtime difference from checked layout resolution",
+  "final_candidate_frozen": false,
+  "formal_review_required": true,
+  "upstream_mutated": false
+}

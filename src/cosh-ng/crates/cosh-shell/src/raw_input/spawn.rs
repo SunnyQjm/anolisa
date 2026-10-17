@@ -120,7 +120,7 @@ where
         let mut state = RawInputRelayState::with_shell_route(input_generation, shell_route);
         loop {
             sync_pending_draft_escape(&mut state);
-            let input = match receive_input(&read_rx, &mut state) {
+            let input = match receive_input(&read_rx, &mut state, &input_classifier) {
                 Ok(input) => input,
                 Err(RecvTimeoutError::Timeout) => {
                     flush_pending_deadlines(
@@ -168,6 +168,11 @@ where
                             &state,
                             &input_classifier,
                         );
+                        // A slash-bearing leading submission marks a slash
+                        // candidate batch; its deferred remainder keeps the
+                        // shell-owned delivery instead of waiting for a
+                        // route (#7897).
+                        state.deferred_split_slash_bearing = bytes.first() == Some(&b'/');
                         state.deferred_input = Some(InputRead::Bytes {
                             bytes: remainder,
                             received_at,

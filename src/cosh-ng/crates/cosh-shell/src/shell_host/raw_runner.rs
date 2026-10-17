@@ -26,6 +26,7 @@ use super::raw_relay::{read_raw_until_exit, DriverCompletion, RawActionWatchdog}
 
 mod interactive;
 pub(super) mod raw_mode_guard;
+mod startup_gate;
 mod wake;
 
 pub use interactive::{
@@ -389,13 +390,8 @@ where
         prompt_presentation = prompt_presentation.with_assistance_control(control.clone());
     }
     if config.integration.uses_markers() {
-        // #7768: release the input relay only once the path-routing gate is
-        // up. The shell writes the `precmd` marker (or paints the prompt)
-        // before the separate `prompt_ready` marker, and `main_prompt_gate`
-        // is raised by the latter. Starting the relay in between let startup
-        // type-ahead be processed while `is_path_prompt_ready()` was still
-        // false, so path-bearing prompts were refused routing and executed
-        // by the shell ("No such file or directory" / "command not found").
+        // #7768: hold the relay until the path-routing gate is up, closing the
+        // startup window between precmd/prompt and the prompt_ready marker.
         read_until_streaming_with_presentation(
             &mut session.master,
             &mut session.child,
@@ -403,14 +399,7 @@ where
             &mut output,
             &mut prompt_presentation,
             Duration::from_secs(5),
-            |parser| {
-                let shell_ready = if config.native_mode {
-                    parser.precmd_count() >= 1
-                } else {
-                    parser.prompt_count(config.prompt.as_bytes()) >= 1
-                };
-                shell_ready && main_prompt_gate.is_path_prompt_ready()
-            },
+            |parser| startup_gate::relay_release_ready(config, parser, &main_prompt_gate),
         )?;
     }
     let input_master = session.master.try_clone()?;

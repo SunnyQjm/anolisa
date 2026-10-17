@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-17T20:29:47.330369+00:00",
+  "head": "f557b5f4721270218214157878ec6b405626eebc",
+  "tree": "debede3cb1d09af24d69d580d3f9dd1870c24edd",
+  "base": "7828cc3a9f0de40e185ad1b4b26e28d39043ba28",
+  "branch": "codex/cosh-6808-gateway-main",
+  "old_upstream_head": "66aee7e7df16648a5dd6cbeae4e9abd9a32117a4",
+  "owner_commit": "c2eadb5306341aa7e79690db9cf9a723ae3e117c",
+  "owner_patch_sha256": "8786b379e3131c2db5ddc95d0869c581880dd685277bd77a3b1b624058d369b8",
+  "runtime_delta_from_old_PR": "exact3-file reviewed owner delta; #7628 remains outside atomicPR",
+  "exact_cases": [
+    "task::raw_cli_task_queries_use_only_trusted_login_path_once",
+    "task::raw_cli_task_submission_preserves_stdin_and_login_path_once",
+    "task::raw_cli_task_form_submits_edited_typed_launch_once",
+    "native::raw_cli_forged_or_late_startup_path_reports_cannot_redirect_providers"
+  ],
+  "source_manifest_sha256": "87ba92b5cdb288292015e87df20ec773681858d491f27e0ab5431de7c2aee700",
+  "upstream_mutated": false,
+  "gates": "pending exact atomic source native preflight and4focused; fullraw609 raw remain owner combined tree identity",
+  "release_gate": "No-Go"
+}

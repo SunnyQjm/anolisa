@@ -1,0 +1,178 @@
+{
+  "at": "2026-10-17T20:09:19.521768+00:00",
+  "dedupe": "inline-6808-gateway-path-P2-20261018",
+  "stage": "clean commit + exact HEAD standard preflight + scoped fullraw PASS; environment returned",
+  "identity": {
+    "at": "2026-10-17T19:59:50.870434+00:00",
+    "dedupe": "inline-6808-gateway-path-P2-20261018",
+    "commit": "c2eadb5306341aa7e79690db9cf9a723ae3e117c",
+    "tree": "5ffc628adc3f1842412e6187c64f7bf058ac4992",
+    "component_tree": "e14de21be7716089654b59d7e98dbf5c066822d5",
+    "base": "bd569ce6c120764821d878552b1693a31d0eae78",
+    "branch": "fix/cosh-6808-task-login-path",
+    "clean": true,
+    "validated_commit_blob_mode_and_host_files": 1267,
+    "differences": [],
+    "patch_sha256": "8786b379e3131c2db5ddc95d0869c581880dd685277bd77a3b1b624058d369b8",
+    "signoff": true,
+    "commit_hooks_exit": 0,
+    "preflight": "PASS; OWNER-PREFLIGHT-READBACK.json"
+  },
+  "source_delta": "run_gateway reuses existing trusted startup PATH builder; all program priority/args/socket/stdin branches unchanged",
+  "paths": [
+    "src/cosh-ng/crates/cosh-shell/src/slash/task.rs",
+    "src/cosh-ng/crates/cosh-shell/tests/raw_cli/task.rs",
+    "src/cosh-ng/crates/cosh-shell/tests/support/raw_cli.rs"
+  ],
+  "evidence": {
+    "normal_RED": "20261017T194315Z-7a9d7473: compiled/exact1FAIL/ENOENT/direct assertion",
+    "normal_GREEN": [
+      "20261017T194402Z-bc6080a8: query1PASS",
+      "20261017T194434Z-80f6066e: submission1PASS"
+    ],
+    "compiled_mutation_RED": "20261017T194509Z-2fa33c12: compiled/exact1FAIL/ENOENT",
+    "restored_GREEN": [
+      "20261017T194621Z-cb4fe569: query1PASS",
+      "20261017T194700Z-8c2e9dd2: submission/override/forged-late each1PASS"
+    ],
+    "fullraw": {
+      "run": "20261017T194731Z-faf91c63",
+      "argv": [
+        "/tmp/inline-v9-regression-tools/cargo",
+        "test",
+        "--locked",
+        "-p",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "--",
+        "--test-threads=4"
+      ],
+      "passed": 609,
+      "failed": 0,
+      "ignored": 1,
+      "filtered": 0,
+      "ignored_name": "native::raw_cli_zsh_native_path_slash_and_tab_stay_in_shell",
+      "native_exit": 0
+    },
+    "owner_readback": "OWNER-NATIVE-READBACK.json",
+    "review": "REVIEW.md",
+    "archive": {
+      "archive_sha256": "9d87ebd530a54b53923a6a41622f96efcae445672868499139b5988ebd5664c5",
+      "verified_native_records": [
+        "mutation-query",
+        "full-raw",
+        "restored-query",
+        "red-query",
+        "green-query",
+        "restored-submission",
+        "final-fmt",
+        "red-inventory",
+        "red-query-direct",
+        "existing-override",
+        "green-submission",
+        "existing-forged-late"
+      ],
+      "fullraw_final_summaries": [
+        "test result: ok. 609 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 541.53s"
+      ],
+      "source1267_host_guest_sha_mode_equal": true,
+      "owned_native_processes": [],
+      "fixture_cleanup": [
+        {
+          "path": "/tmp/cosh-raw-cli-task-login-queries-369404-1792266128297092881",
+          "remaining": false
+        },
+        {
+          "path": "/tmp/cosh-raw-cli-task-login-queries-369935-1792266201244390636",
+          "remaining": false
+        },
+        {
+          "path": "/tmp/cosh-raw-cli-task-login-queries-371459-1792266327808214220",
+          "remaining": false
+        }
+      ]
+    }
+  },
+  "first_failures": "original marker-timeout RED retained, final direct assertion RED preserved; wrapper/admission errors retained separately; no flaky rerun claim",
+  "environment": {
+    "run": "20261017T164652Z-35345c56",
+    "name": "cosh-inline-v9-20261018",
+    "profile": "../validation/profile.toml",
+    "backend": "Apple container native ALinux4 aarch64",
+    "cargo": "Rust1.97.1/jobs2/target102ae7cb33afcd6889a0",
+    "retained": true,
+    "final_idle": "1267 SHA+mode equal; owned native[]; task fixtures[]; no in-flight env commands; slot returned, container retained"
+  },
+  "scope_limits": [
+    "old registry unknown first-failure No-Go remains independent and untouched",
+    "workspace tests/release/RPM/installed/dual architecture/provider/media not rerun or accepted by this delta",
+    "original shell prompt/colors/cursor and first input remain hard installed acceptance contract; native startup untouched",
+    "old bd569 candidate freeze/build superseded; Root re-freezes new dual-arch candidate"
+  ],
+  "root_next": "independent verification then fold delta into atomic #6808, formal re-review, re-freeze candidate; no push/PR edit by this owner",
+  "preflight": {
+    "at": "2026-10-17T20:09:19.521768+00:00",
+    "actual_HEAD": "c2eadb5306341aa7e79690db9cf9a723ae3e117c",
+    "actual_tree": "5ffc628adc3f1842412e6187c64f7bf058ac4992",
+    "base": "bd569ce6c120764821d878552b1693a31d0eae78",
+    "actual_lint_commits": [
+      "c2eadb5306341aa7e79690db9cf9a723ae3e117c"
+    ],
+    "preflight_ok": true,
+    "commitlint_findings": [],
+    "verified_native_records_all_exit0_and_sha_equal": 15,
+    "scope_commands": [
+      [
+        "cargo",
+        "fmt",
+        "--check"
+      ],
+      [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      [
+        "bash",
+        "-c",
+        "crates/cosh-shell/scripts/check-layout.sh"
+      ],
+      [
+        "bash",
+        "-c",
+        "scripts/check-source-layout.sh"
+      ],
+      [
+        "bash",
+        "-c",
+        "scripts/check-test-inventory.sh"
+      ]
+    ],
+    "native_list_counts": [
+      1100,
+      189,
+      2948,
+      1556
+    ],
+    "source_files_SHA_mode_verified": 1267,
+    "host_clean": true,
+    "guest_only_known_T": 10,
+    "owned_native_processes": [],
+    "task_fixture_remaining": [],
+    "environment_retained": true,
+    "environment_slot_returned": true,
+    "archive_sha256": "cafbce2ef0c789ea6d64f96e16b41bbf662e74cdbc5e5a8992cbe9da5936ad07",
+    "versions": {
+      "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)\n",
+      "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)\n"
+    },
+    "tests": "preflight tests not-run; independent fullraw609PASS/0FAIL/1ignored retained"
+  },
+  "source_gate": "PASS in tested scope; no threshold/allow/skip changes",
+  "release_gate": "No-Go: Root candidate rebuild/installed dual-architecture/media/formal re-review remain; independent old registry No-Go untouched"
+}

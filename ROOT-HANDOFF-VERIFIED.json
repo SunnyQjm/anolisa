@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-17T20:28:16.454995+00:00",
+  "head": "c2eadb5306341aa7e79690db9cf9a723ae3e117c",
+  "tree": "5ffc628adc3f1842412e6187c64f7bf058ac4992",
+  "preflight_native_records_SHA_and_exit0_verified": 15,
+  "preflight_inner_data_ok": true,
+  "nonempty_lint_commit": [
+    "c2eadb5306341aa7e79690db9cf9a723ae3e117c"
+  ],
+  "fullraw_independent_raw_proof": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/candidate-v9/ROOT-GATEWAY-P2-RAW-PARTIAL-VERIFIED.json",
+  "host_files_mode_SHA_verified": 1267,
+  "owner_handoff": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/candidate-v9/task-gateway-path-p2/HANDOFF.json",
+  "owner_handoff_sha256": "908ca13fe6c71c2f20af87f4fa2c179ac119a9056d6d79dca9ab8a6f5f280e53",
+  "environment_handoff": "owner explicitly complete, idlecursor125, no processes/fixtures; Root resumes ownership",
+  "scope": "P2 source repair verified; whole installed/provider/release acceptance not claimed",
+  "release_gate": "No-Go"
+}

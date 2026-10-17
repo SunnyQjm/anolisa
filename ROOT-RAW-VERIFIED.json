@@ -1,0 +1,135 @@
+{
+  "at": "2026-10-17T20:00:58.836504+00:00",
+  "phase": "Root independent partial verification before source owner final handback",
+  "archive_sha256": "9d87ebd530a54b53923a6a41622f96efcae445672868499139b5988ebd5664c5",
+  "raw_records": [
+    {
+      "case": "red-query-direct",
+      "native_exit": 101,
+      "counts": [
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "2401520c60b998d2053727355ecd496f1addc9fc5d0bb77016b91bcd9d2691f4",
+      "raw_stderr_sha256": "39ca45367a3b43dd458e111e5b080847250ccd9e0f9c244624a3669d09b23dac"
+    },
+    {
+      "case": "green-query",
+      "native_exit": 0,
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "8e320e563461a37cb0df4f2fb0f2d38c216a4461f05190108b55a4803b885c40",
+      "raw_stderr_sha256": "026adebe68157c27c90b03bc7c840c5693515e5bffefdc15450a190e5b54d7f1"
+    },
+    {
+      "case": "green-submission",
+      "native_exit": 0,
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "64f43e98c826e4fc16cd40d6a289dde2b2dab640e0c708f53f60821e695bfddc",
+      "raw_stderr_sha256": "16decc3a76356922d354eadc0918f4dd780253c88cdbe6acff6b1e985deb9c74"
+    },
+    {
+      "case": "mutation-query",
+      "native_exit": 101,
+      "counts": [
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "26f5c95ac7695d534afc741d6050d967ee6455c24ff68043e3436384d215e664",
+      "raw_stderr_sha256": "6b46cb9179116ab42a1dbeeef829d8bbc77701bc405a048d06cae4920b16df89"
+    },
+    {
+      "case": "restored-query",
+      "native_exit": 0,
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "9554cd3b2fed61f7021565ffc9bd50f3f3b5eb5712bcd044cacd908d56b28d70",
+      "raw_stderr_sha256": "98ae1e452cfb3fea23d904414ca3dc7937e334b56653eda6eb9a88a53f0e055f"
+    },
+    {
+      "case": "restored-submission",
+      "native_exit": 0,
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "fb02ee12737815e8e3c15d1488651b3e0e933413dcb0469983e4a12554bf2d82",
+      "raw_stderr_sha256": "d16a14341d64e1894607cac5790e572560c8202174b41e13a28bbe0f798e357e"
+    },
+    {
+      "case": "existing-override",
+      "native_exit": 0,
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "b09497fd8cbeaa6dbc5943a04d67cf8380fa0bd89779200b2f339926880c73cd",
+      "raw_stderr_sha256": "2ce03ee11c56ea82aaa1ac966bfb8cc7d339e2c7db5472cb70a5150210440880"
+    },
+    {
+      "case": "existing-forged-late",
+      "native_exit": 0,
+      "counts": [
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ],
+      "raw_stdout_sha256": "b1331f8578a021e6c9c2ff4e1e9530e84bc6582ac0cba6324b035786e7e61525",
+      "raw_stderr_sha256": "388cb54564fd971c79c2a78f5fe43a0bbb87c552ed987b1046095374b32b0a25"
+    },
+    {
+      "case": "full-raw",
+      "native_exit": 0,
+      "counts": [
+        [
+          "609",
+          "0",
+          "1"
+        ]
+      ],
+      "raw_stdout_sha256": "10b01c975dccdbc5890efa3a59895f20eadc16ba914d07fa1c8e3689edf6ff75",
+      "raw_stderr_sha256": "2538286de8b130e7d1b1efe404db079b9dffc9a7f0a4fff5a069ffec3b606ff6"
+    }
+  ],
+  "fullraw": {
+    "passed": 609,
+    "failed": 0,
+    "ignored": 1
+  },
+  "source_patch_sha256": "8786b379e3131c2db5ddc95d0869c581880dd685277bd77a3b1b624058d369b8",
+  "code_review": "existing trusted startup-PATH builder for Gateway; import cleanup plus task/raw helper tests; no Root incremental findings",
+  "execution_scope": "actual Shell + Bash PTY; Gateway protocol fixture; not realGateway/Core/provider or installed RPM acceptance",
+  "preflight_and_commit": "await original owner final handback; no Root env commands or source edits",
+  "verification_probe_note": "initial Root parser wrongly searched Rust panic transcript in stdout; actual preserved Rust assertion/ENOENT transcript is in stderr; both streams now hash verified",
+  "product_release": "No-Go; registry/R7 and final34 gates remain"
+}

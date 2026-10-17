@@ -1,0 +1,81 @@
+{
+  "at": "2026-10-17T11:39:52.668294+00:00",
+  "verdict": "PASS_FOR_PARTIAL_TOOL_FREEZE_IDENTITY_ONLY",
+  "commit": "b2dc3ac7a179cad4b2ef8cd74cd38ef442336dd6",
+  "tree": "9522bd02b3d5a9f82da5401581d1ecfcae0635f7",
+  "clean": true,
+  "archive_file_count": 94,
+  "archive_bytes_modes_gitblobs_all_match": true,
+  "original_historical_files_byte_identical": [
+    "historical/worker-and-takeback-ca52/CASE-MATRIX.json",
+    "historical/worker-and-takeback-ca52/cases/ui-worker-production-installed.yaml",
+    "historical/worker-and-takeback-ca52/cases/ui-worker-production-real.yaml",
+    "historical/worker-and-takeback-ca52/cases/ui-takeback-production-installed.yaml"
+  ],
+  "exact_head_tool_tests": 71,
+  "controls": {
+    "positive_tests": 14,
+    "compiled_controls": [
+      {
+        "removed_guard": "explicit inline-first delivery mode required",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "exactly five inline payloads required; worker forbidden",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "complete no-worker monitor required",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "raw PS1 changed",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "first fresh ordinary command must execute once",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "physical Agent replies required",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "one tool result required",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "tool result decision/completion semantics mismatch",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      },
+      {
+        "removed_guard": "details focus-only false success",
+        "compiled": true,
+        "tests_run": 14,
+        "detected": true
+      }
+    ],
+    "restored_tests": 14,
+    "product_tests": 0
+  },
+  "product_execution": false,
+  "full_acceptance_ready": false,
+  "release_gate": "No-Go",
+  "pending": "independent semantic code review and explicit missing mechanisms in map; no installed input bound"
+}

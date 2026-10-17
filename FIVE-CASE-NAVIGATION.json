@@ -1,0 +1,610 @@
+{
+  "at": "2026-10-17T14:05:09.526912+00:00",
+  "scope": "PR8042 ARM installed Core deterministic loopback source/media only",
+  "source_commit": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "source_tree": "6bf348c21d80ea948cf616d43769cd34317ee55b",
+  "tool_commit": "84bbb552ef77805a0f4c56ebee5484d0e0a5309d",
+  "tool_tree": "12c82589b83c9f8c27d70c46cf7e77948be62808",
+  "canonical_sha256": "8f1cb06b22e9b2406a9ae2d0f6bd14a7d6c2722886ca931b6df32fe381dbfc68",
+  "binding_sha256": "fef82eb64445c3a609d155193fd4565b0e8f3669b447b4338e36ee9343852203",
+  "candidate_sha256": "3516e7292bec7870726c28b9843ca66a841b6008bbfce987c00a2d5303c6deb3",
+  "rpm_sha256": "635f2db62de1fab60b1818ec4c3e1a6423618f3396571cf96f734def343b3e4f",
+  "backend": "container/native",
+  "environment_run_id": "20261017T112139Z-2edc4099",
+  "profile": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/profile.toml",
+  "architecture": "aarch64",
+  "real_provider": false,
+  "final_delivery_candidate": false,
+  "cases": [
+    {
+      "scenario": "allow",
+      "case_id": "INL-PROD-ALLOW-001",
+      "canonical_run": "original-canonical-runs/20261017T134912Z-2cced2ab",
+      "execution": "PASS",
+      "integrity": "PASS",
+      "guest_directory": "installed-five-cases/allow-guest",
+      "guest_transfer_sha256": "95cfbedbce5e14d8751f2e0d4df8a97cd348d7187e0ff7b817941c7e76fafa50",
+      "guest_index": "installed-five-cases/ALLOW-GUEST-FILE-INDEX.json",
+      "selected_media_index": "installed-five-cases/ALLOW-MEDIA-POINT-INDEX-v2.json",
+      "selected_point_count": 5,
+      "root_independent_review": "PASS: see ROOT-ALLOW-CASE-VERIFIED.json (ALLOW: RAW-OUTCOME and EXACT-MEDIA)",
+      "guest_mechanism_summary": {
+        "requests": 3,
+        "effect_lines": [
+          "INL_EFFECT"
+        ],
+        "fresh_effect_lines": [
+          "INL_FRESH"
+        ],
+        "worker_monitor_complete": true,
+        "termios_restored": true,
+        "shell_exit": 0,
+        "remaining_pids": [],
+        "bash_before": {
+          "pid": 165595,
+          "start": 885326,
+          "cwd": "/tmp/cosh-inline-n_o1lxga"
+        },
+        "bash_after": {
+          "pid": 165595,
+          "start": 885326,
+          "cwd": "/tmp/cosh-inline-n_o1lxga"
+        }
+      },
+      "guest_ps1_unchanged": true
+    },
+    {
+      "case_id": "INL-PROD-DENY-001",
+      "scenario": "deny",
+      "canonical_run": "original-canonical-runs/20261017T135822Z-6d0dfaee",
+      "environment": "20261017T112139Z-2edc4099",
+      "backend": "container/native",
+      "architecture": "aarch64",
+      "execution": "PASS",
+      "integrity": "PASS",
+      "frozen_outcome_contract": "PASS",
+      "scope": "PR8042 installed Core deterministic HTTP loopback only",
+      "real_provider": false,
+      "guest_directory": "installed-five-cases/deny-evidence/guest",
+      "remote_guest_directory": "/var/lib/cosh-production-accept/evidence/inline-deny-166327",
+      "guest_transfer_sha256": "ce8532d946460ae2809f98349ec26eaaec9d0d83282239d1a9b68c9753d168a4",
+      "guest_transfer_run": "original-canonical-runs/20261017T135912Z-98d838c4",
+      "cleanup_readback_run": "original-canonical-runs/20261017T135925Z-5e971ce5",
+      "cleanup": {
+        "remaining_owned_pid_start": [],
+        "owned_home_exists": false
+      },
+      "binding_sha256": "fef82eb64445c3a609d155193fd4565b0e8f3669b447b4338e36ee9343852203",
+      "raw_guest_outcome_sha256": "ddae3e0865cf4bcc12aff61396e4302704f078058373ac857622a32d8190849b",
+      "media_semantics": "all canonical points mapped and visually checked",
+      "product_rerun": false,
+      "environment_released": false,
+      "selected_media_index": "installed-five-cases/deny-evidence/SELECTED-MEDIA-INDEX.json",
+      "selected_point_count": 5,
+      "selected_media_sha256": "368dbef29e5748899ed25d381c9dec5a757494fc0267154be2e517e273e7b95d",
+      "marker_export_script_sha256": "7febdd733421b64869beb3e5aa8581c2c56d9b19f2cf33aab38a68b93b056bf4",
+      "root_independent_review": "PASS: see ROOT-DENY-CASE-VERIFIED.json (ALLOW: RAW-OUTCOME and EXACT-MEDIA)",
+      "guest_mechanism_summary": {
+        "requests": 3,
+        "effect_lines": [],
+        "fresh_effect_lines": [
+          "INL_FRESH"
+        ],
+        "worker_monitor_complete": true,
+        "termios_restored": true,
+        "shell_exit": 0,
+        "remaining_pids": [],
+        "bash_before": {
+          "pid": 166361,
+          "start": 940228,
+          "cwd": "/tmp/cosh-inline-jjwwhfn0"
+        },
+        "bash_after": {
+          "pid": 166361,
+          "start": 940228,
+          "cwd": "/tmp/cosh-inline-jjwwhfn0"
+        }
+      },
+      "guest_ps1_unchanged": true
+    },
+    {
+      "case_id": "INL-PROD-CANCEL-001",
+      "scenario": "cancel",
+      "canonical_run": "original-canonical-runs/20261017T140152Z-30eb42c9",
+      "environment": "20261017T112139Z-2edc4099",
+      "backend": "container/native",
+      "architecture": "aarch64",
+      "execution": "PASS",
+      "integrity": "PASS",
+      "frozen_outcome_contract": "PASS",
+      "scope": "PR8042 installed Core deterministic HTTP loopback only",
+      "real_provider": false,
+      "guest_directory": "installed-five-cases/cancel-evidence/guest",
+      "remote_guest_directory": "/var/lib/cosh-production-accept/evidence/inline-cancel-166997",
+      "guest_transfer_sha256": "5fd465ae52139834223075eb6d099134f27fcce0309ebf4126ac06bee343e048",
+      "guest_transfer_run": "original-canonical-runs/20261017T140217Z-86f121e4",
+      "cleanup_readback_run": "original-canonical-runs/20261017T140225Z-d06d60ed",
+      "cleanup": {
+        "remaining_owned_pid_start": [],
+        "owned_home_exists": false
+      },
+      "binding_sha256": "fef82eb64445c3a609d155193fd4565b0e8f3669b447b4338e36ee9343852203",
+      "raw_guest_outcome_sha256": "1ac4cf94d20e1bce6f2db00dde0517b4bff0795abe7ce98a09ee8c992e030579",
+      "media_semantics": "all canonical points mapped and visually checked",
+      "product_rerun": false,
+      "environment_released": false,
+      "selected_media_index": "installed-five-cases/cancel-evidence/SELECTED-MEDIA-INDEX.json",
+      "selected_point_count": 5,
+      "selected_media_sha256": "9b4dbda7ff696deb46ab68496e7cd9a6646a165d2d31ebeb85f5ffbffc7cc572",
+      "marker_export_script_sha256": "7febdd733421b64869beb3e5aa8581c2c56d9b19f2cf33aab38a68b93b056bf4",
+      "root_independent_review": "PASS: see ROOT-CANCEL-CASE-VERIFIED.json (ALLOW: RAW-OUTCOME and EXACT-MEDIA)",
+      "guest_mechanism_summary": {
+        "requests": 3,
+        "effect_lines": [],
+        "fresh_effect_lines": [
+          "INL_FRESH"
+        ],
+        "worker_monitor_complete": true,
+        "termios_restored": true,
+        "shell_exit": 0,
+        "remaining_pids": [],
+        "bash_before": {
+          "pid": 167030,
+          "start": 961180,
+          "cwd": "/tmp/cosh-inline-rm5eeo4b"
+        },
+        "bash_after": {
+          "pid": 167030,
+          "start": 961180,
+          "cwd": "/tmp/cosh-inline-rm5eeo4b"
+        }
+      },
+      "guest_ps1_unchanged": true
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "scenario": "details",
+      "canonical_run": "original-canonical-runs/20261017T140248Z-66424e62",
+      "environment": "20261017T112139Z-2edc4099",
+      "backend": "container/native",
+      "architecture": "aarch64",
+      "execution": "PASS",
+      "integrity": "PASS",
+      "frozen_outcome_contract": "PASS",
+      "scope": "PR8042 installed Core deterministic HTTP loopback only",
+      "real_provider": false,
+      "guest_directory": "installed-five-cases/details-evidence/guest",
+      "remote_guest_directory": "/var/lib/cosh-production-accept/evidence/inline-details-167665",
+      "guest_transfer_sha256": "5e3841c95ca36218f6274b309756fe2b794da6ca4c78a225639f22df5158d0dd",
+      "guest_transfer_run": "original-canonical-runs/20261017T140309Z-bd7a0b49",
+      "cleanup_readback_run": "original-canonical-runs/20261017T140317Z-c67f9003",
+      "cleanup": {
+        "remaining_owned_pid_start": [],
+        "owned_home_exists": false
+      },
+      "binding_sha256": "fef82eb64445c3a609d155193fd4565b0e8f3669b447b4338e36ee9343852203",
+      "raw_guest_outcome_sha256": "2aa2b0c18883b8ab18cf0d2c076d84f0a71f40d3f34daa895275e9e7885cc30d",
+      "media_semantics": "all canonical points mapped and visually checked",
+      "product_rerun": false,
+      "environment_released": false,
+      "selected_media_index": "installed-five-cases/details-evidence/SELECTED-MEDIA-INDEX.json",
+      "selected_point_count": 6,
+      "selected_media_sha256": "4d2314a9821b71c928b5c4548c7ead39e1df5d679a644f88d6ccef70ca886cdf",
+      "marker_export_script_sha256": "7febdd733421b64869beb3e5aa8581c2c56d9b19f2cf33aab38a68b93b056bf4",
+      "root_independent_review": "PASS: see ROOT-DETAILS-CASE-VERIFIED.json (ALLOW: RAW-OUTCOME and EXACT-MEDIA)",
+      "guest_mechanism_summary": {
+        "requests": 3,
+        "effect_lines": [
+          "INL_EFFECT"
+        ],
+        "fresh_effect_lines": [
+          "INL_FRESH"
+        ],
+        "worker_monitor_complete": true,
+        "termios_restored": true,
+        "shell_exit": 0,
+        "remaining_pids": [],
+        "bash_before": {
+          "pid": 167699,
+          "start": 966741,
+          "cwd": "/tmp/cosh-inline-kl7ugde1"
+        },
+        "bash_after": {
+          "pid": 167699,
+          "start": 966741,
+          "cwd": "/tmp/cosh-inline-kl7ugde1"
+        }
+      },
+      "guest_ps1_unchanged": true
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "scenario": "route-card",
+      "canonical_run": "original-canonical-runs/20261017T140348Z-8e8142c7",
+      "environment": "20261017T112139Z-2edc4099",
+      "backend": "container/native",
+      "architecture": "aarch64",
+      "execution": "PASS",
+      "integrity": "PASS",
+      "frozen_outcome_contract": "PASS",
+      "scope": "PR8042 installed Core deterministic HTTP loopback only",
+      "real_provider": false,
+      "guest_directory": "installed-five-cases/route-card-evidence/guest",
+      "remote_guest_directory": "/var/lib/cosh-production-accept/evidence/inline-route-card-168441",
+      "guest_transfer_sha256": "e35c17fee712ba2e5818a5c9df01719209d384957b8191c2644c37f17c18e1f5",
+      "guest_transfer_run": "original-canonical-runs/20261017T140412Z-4fe91ec0",
+      "cleanup_readback_run": "original-canonical-runs/20261017T140419Z-d8c793ba",
+      "cleanup": {
+        "remaining_owned_pid_start": [],
+        "owned_home_exists": false
+      },
+      "binding_sha256": "fef82eb64445c3a609d155193fd4565b0e8f3669b447b4338e36ee9343852203",
+      "raw_guest_outcome_sha256": "8e17f7c9d6b262cdd5174d55b7be7b130c5e5701d06db1ae086f02e541728d0c",
+      "media_semantics": "all canonical points mapped and visually checked",
+      "product_rerun": false,
+      "environment_released": false,
+      "selected_media_index": "installed-five-cases/route-card-evidence/SELECTED-MEDIA-INDEX.json",
+      "selected_point_count": 7,
+      "selected_media_sha256": "facd8719491f18a825c2db344fed8e90835b25a5f9aba2c1e1bc41b3d5312559",
+      "marker_export_script_sha256": "7febdd733421b64869beb3e5aa8581c2c56d9b19f2cf33aab38a68b93b056bf4",
+      "root_independent_review": "PASS: see ROOT-ROUTE-CARD-CASE-VERIFIED.json (ALLOW: RAW-OUTCOME and EXACT-MEDIA)",
+      "guest_mechanism_summary": {
+        "requests": 3,
+        "effect_lines": [],
+        "fresh_effect_lines": [
+          "INL_FRESH"
+        ],
+        "worker_monitor_complete": true,
+        "termios_restored": true,
+        "shell_exit": 0,
+        "remaining_pids": [],
+        "bash_before": {
+          "pid": 168473,
+          "start": 972785,
+          "cwd": "/tmp/cosh-inline-elwhqvfz"
+        },
+        "bash_after": {
+          "pid": 168473,
+          "start": 972785,
+          "cwd": "/tmp/cosh-inline-elwhqvfz"
+        }
+      },
+      "guest_ps1_unchanged": true
+    }
+  ],
+  "selected_points": [
+    {
+      "case_id": "INL-PROD-ALLOW-001",
+      "point_id": "native-original",
+      "png": "installed-five-cases/allow-derived-marker-media-v2/native-original/screenshots/native-original.png",
+      "webm": "installed-five-cases/allow-derived-marker-media-v2/native-original/screens/native-original.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "1311466c82b1433f276c1fb54831b8351737938b5f738f2ea965a69cbc9bb4b1",
+      "webm_sha256": "9d2723b23ec5e8d525221e460c8d11f75c2d3cdcdebfe3f3a0775a3d81841029"
+    },
+    {
+      "case_id": "INL-PROD-ALLOW-001",
+      "point_id": "native-before-fresh",
+      "png": "installed-five-cases/allow-derived-marker-media-v2/native-before-fresh/screenshots/native-before-fresh.png",
+      "webm": "installed-five-cases/allow-derived-marker-media-v2/native-before-fresh/screens/native-before-fresh.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "3c6950103bab7b7e9726bd5f1806d73f40e277a9cc3ebfadc5395b1da1860f75",
+      "webm_sha256": "0d607ec7aa48dd5428c310d9c98a89ec752ff542aa4b32bf1624671861cf2d8d"
+    },
+    {
+      "case_id": "INL-PROD-ALLOW-001",
+      "point_id": "fresh-once",
+      "png": "installed-five-cases/allow-derived-marker-media-v2/fresh-once/screenshots/fresh-once.png",
+      "webm": "installed-five-cases/allow-derived-marker-media-v2/fresh-once/screens/fresh-once.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "9c3cbe5aa4f25c310852d2c29faf18e7a9218d3d32a7c9d00a3203ac751a0541",
+      "webm_sha256": "27461ad2b1fefc87c0a1283d2e66a30ebff8cf92a29aac10d3adfc672d6555cb"
+    },
+    {
+      "case_id": "INL-PROD-ALLOW-001",
+      "point_id": "second-request",
+      "png": "installed-five-cases/allow-derived-marker-media-v2/second-request/screenshots/second-request.png",
+      "webm": "installed-five-cases/allow-derived-marker-media-v2/second-request/screens/second-request.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "81fd453d2a0042bf7ae7b0fd105290efdd485f21f084c841f0a95afef9e853c5",
+      "webm_sha256": "3d000227462bb87d78c7746af9628ba9005ce8ced930c9ad6f4b1387fa304c55"
+    },
+    {
+      "case_id": "INL-PROD-ALLOW-001",
+      "point_id": "approval-card",
+      "png": "original-canonical-runs/20261017T134912Z-2cced2ab/screenshots/approval-card.png",
+      "webm": "original-canonical-runs/20261017T134912Z-2cced2ab/screens/approval-card.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "c5f6f2dcb574108ca433daefc2edd1537b3c108222e764c900fc41b58da524d3",
+      "webm_sha256": "0928ce0803c856419961ecbe85e076b92bc6a214c3aa1e8cfd6d75c420eeafb7"
+    },
+    {
+      "case_id": "INL-PROD-DENY-001",
+      "point_id": "native-original",
+      "png": "installed-five-cases/deny-derived-marker-media/native-original/screenshots/native-original.png",
+      "webm": "installed-five-cases/deny-derived-marker-media/native-original/screens/native-original.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "61fd9f2f2f8afc1039e96fc100612097d7bc862dee2a210cf217ad7e359681dc",
+      "webm_sha256": "ca055c7efa80bebc328476892bf7d032da79be624e81e4752439f3c7aaa8de0d"
+    },
+    {
+      "case_id": "INL-PROD-DENY-001",
+      "point_id": "native-before-fresh",
+      "png": "installed-five-cases/deny-derived-marker-media/native-before-fresh/screenshots/native-before-fresh.png",
+      "webm": "installed-five-cases/deny-derived-marker-media/native-before-fresh/screens/native-before-fresh.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "b146fedc38d5e8bf4d572ef77d53e7ad8dd1469f0456567c03e7de41bd8f3e04",
+      "webm_sha256": "06000b0356db3f359e9f151b86a486de39c0ad3b19f68f6417811f00414d57b9"
+    },
+    {
+      "case_id": "INL-PROD-DENY-001",
+      "point_id": "fresh-once",
+      "png": "installed-five-cases/deny-derived-marker-media/fresh-once/screenshots/fresh-once.png",
+      "webm": "installed-five-cases/deny-derived-marker-media/fresh-once/screens/fresh-once.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "0e4f0a34f5abd5b794381cd77dc2913dfe5c29e0ed12253458e58375203a4276",
+      "webm_sha256": "a7158adddf1e012064a38abd2844fe9a871853e3a90de70117e1a763c89cfc1c"
+    },
+    {
+      "case_id": "INL-PROD-DENY-001",
+      "point_id": "second-request",
+      "png": "installed-five-cases/deny-derived-marker-media/second-request/screenshots/second-request.png",
+      "webm": "installed-five-cases/deny-derived-marker-media/second-request/screens/second-request.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "9bb73af8a1b8fcde865d677f27e1e8e33ee875b1655318fc369107473aa4febc",
+      "webm_sha256": "c8666db7d8cf0666715710b4f2ce0acba42fa703afbc7932b4dbdac0d1ca028f"
+    },
+    {
+      "case_id": "INL-PROD-DENY-001",
+      "point_id": "approval-card",
+      "png": "installed-five-cases/deny-derived-card-media/screenshots/approval-card.png",
+      "webm": "installed-five-cases/deny-derived-card-media/screens/approval-card.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "a25dd3f91e86007a683244662482bd071e066e51a8fc4a4ae0457d4687669b3d",
+      "webm_sha256": "c18dee8e6ece3b639b0c8cdbfd21d7db20aacc7d95a18b85a959ded77aeb9fc7"
+    },
+    {
+      "case_id": "INL-PROD-CANCEL-001",
+      "point_id": "native-original",
+      "png": "installed-five-cases/cancel-derived-marker-media/native-original/screenshots/native-original.png",
+      "webm": "installed-five-cases/cancel-derived-marker-media/native-original/screens/native-original.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "7a8a074dafde0c9eaeaa1ca2b8d332424a79bd4575799ffb3dff33e620dc9c81",
+      "webm_sha256": "db9bee23ddfc5061013240577b3f360ced27bd00d28bb2c0e46f5d047670c31d"
+    },
+    {
+      "case_id": "INL-PROD-CANCEL-001",
+      "point_id": "native-before-fresh",
+      "png": "installed-five-cases/cancel-derived-marker-media/native-before-fresh/screenshots/native-before-fresh.png",
+      "webm": "installed-five-cases/cancel-derived-marker-media/native-before-fresh/screens/native-before-fresh.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "177d794e57ef8c3fa526ff9e799d732a9e37580f97f7981aa209a9db9aa99a37",
+      "webm_sha256": "0293f03045d7de54425dafebc2fdca067fd198b119b8c3176263408fff7c0d5c"
+    },
+    {
+      "case_id": "INL-PROD-CANCEL-001",
+      "point_id": "fresh-once",
+      "png": "installed-five-cases/cancel-derived-marker-media/fresh-once/screenshots/fresh-once.png",
+      "webm": "installed-five-cases/cancel-derived-marker-media/fresh-once/screens/fresh-once.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "0653ca9d9258bcf4407c9b3f99a7056ed8a4888d124991720a72323e04cab16c",
+      "webm_sha256": "6dc7f7f7a1f50fda666060f48aa98048fdfe98cfabd0ceeca282128048f39bc9"
+    },
+    {
+      "case_id": "INL-PROD-CANCEL-001",
+      "point_id": "second-request",
+      "png": "installed-five-cases/cancel-derived-marker-media/second-request/screenshots/second-request.png",
+      "webm": "installed-five-cases/cancel-derived-marker-media/second-request/screens/second-request.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "d798118806283ae63e5bca24fb4cf54875d0fc50b7334f34e40e72128ae6db4b",
+      "webm_sha256": "5c0307eff6d93a2020cf62c2f2858d1f8bfe996b69657fb0d2730440a79de1ec"
+    },
+    {
+      "case_id": "INL-PROD-CANCEL-001",
+      "point_id": "approval-card",
+      "png": "original-canonical-runs/20261017T140152Z-30eb42c9/screenshots/approval-card.png",
+      "webm": "original-canonical-runs/20261017T140152Z-30eb42c9/screens/approval-card.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "c3e0b03d43995367f1cbbf0f6c639bd5388cac15d694bc87b7a3e56c9d23f459",
+      "webm_sha256": "b165188637633fbe929dcadeb4645d57e3bcdc9205325ca3db070ca390b09fc7"
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "point_id": "native-original",
+      "png": "installed-five-cases/details-derived-marker-media/native-original/screenshots/native-original.png",
+      "webm": "installed-five-cases/details-derived-marker-media/native-original/screens/native-original.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "5935ba4920c5a4f5940f2ad4176feaf528ecef7ef3d75259ba48b78c1155a45a",
+      "webm_sha256": "1b844afa895e472679c9b92c61f03b632b20347d6ed271dbcad7b0534952a415"
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "point_id": "native-before-fresh",
+      "png": "installed-five-cases/details-derived-marker-media/native-before-fresh/screenshots/native-before-fresh.png",
+      "webm": "installed-five-cases/details-derived-marker-media/native-before-fresh/screens/native-before-fresh.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "e4e8d99c2afa60f82353e13a650598d5a733d9d723ff23534c544fb220041416",
+      "webm_sha256": "548e76c83026960a233349aeceec692debb32c5049eb363d4ce493732205cd09"
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "point_id": "fresh-once",
+      "png": "installed-five-cases/details-derived-marker-media/fresh-once/screenshots/fresh-once.png",
+      "webm": "installed-five-cases/details-derived-marker-media/fresh-once/screens/fresh-once.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "3ca0ec97b5f9717fea49aa4a097f7ea1a26bb9cbeb01568559e4cf67e77bc409",
+      "webm_sha256": "d9f839fc967dfc5ab0687513953cb9df26e63f21625ce0eb71aafcc3a6a5f01d"
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "point_id": "second-request",
+      "png": "installed-five-cases/details-derived-marker-media/second-request/screenshots/second-request.png",
+      "webm": "installed-five-cases/details-derived-marker-media/second-request/screens/second-request.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "ad4ea8f0b7168f79a31dc01f08db494b88ec0dc8de1d6d5ba4534a3644f9afe7",
+      "webm_sha256": "e578bc347c4bb11d8882374a05b0e8409c8f7107b0147f5da125336d53adb24a"
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "point_id": "details-expanded",
+      "png": "installed-five-cases/details-derived-marker-media/details-expanded/screenshots/details-expanded.png",
+      "webm": "installed-five-cases/details-derived-marker-media/details-expanded/screens/details-expanded.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "abdc4a110bff7f7f593e2af557d40164978b1e5291aa4525277da18597e72e26",
+      "webm_sha256": "54f74d2ee8765823fb721517fbbfbfcd4238b472c40321456a2da5f765ecef9a"
+    },
+    {
+      "case_id": "INL-PROD-DETAILS-001",
+      "point_id": "approval-card",
+      "png": "installed-five-cases/details-derived-card-media/screenshots/approval-card.png",
+      "webm": "installed-five-cases/details-derived-card-media/screens/approval-card.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "2d60a326f0407b60d14a9825d73a89f3e6ec0cf222d0275a7bd655df40ef6fd8",
+      "webm_sha256": "db75406d9a81c7c1218aa04f2a3ca908fc42fb16281ed88feab4934fe1f5280e"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "native-original",
+      "png": "installed-five-cases/route-card-derived-marker-media/native-original/screenshots/native-original.png",
+      "webm": "installed-five-cases/route-card-derived-marker-media/native-original/screens/native-original.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "8597ecfb391b2f8d3ccdd35b8ec529abeb2e92ff3e616d166ec9a319adc8267f",
+      "webm_sha256": "8228e94c86b0eb5fc1ffda4b90d7201441ba6d413fa595b73485e61894b834d7"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "native-before-fresh",
+      "png": "installed-five-cases/route-card-derived-marker-media/native-before-fresh/screenshots/native-before-fresh.png",
+      "webm": "installed-five-cases/route-card-derived-marker-media/native-before-fresh/screens/native-before-fresh.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "2895ba0e162e8e2355b3a44bac2009050c13963e7c183d19222f2346f8c99fe6",
+      "webm_sha256": "8b42cb5a5da579b98a18bbcb1e2731e6102a597c066d961d3784c3b1d5b40f4a"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "fresh-once",
+      "png": "installed-five-cases/route-card-derived-marker-media/fresh-once/screenshots/fresh-once.png",
+      "webm": "installed-five-cases/route-card-derived-marker-media/fresh-once/screens/fresh-once.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "913af8dfd57228c227ccc1fa97cd23ebd1ffc9ba08376f8295dda7bf696c2bcd",
+      "webm_sha256": "e8a788ffbe4d70cd165830f11c1c840ad7b0b9931133fec8e00a107359db416b"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "second-request",
+      "png": "installed-five-cases/route-card-derived-marker-media/second-request/screenshots/second-request.png",
+      "webm": "installed-five-cases/route-card-derived-marker-media/second-request/screens/second-request.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "757e0a94c218223215656340084365505fce3875be6f5a1bec193da1f1e2afa7",
+      "webm_sha256": "f4fb4a6242a169ce41798e5c783bb9d3798f4628a28852a175fca3ef731734e2"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "card-deny-focus",
+      "png": "installed-five-cases/route-card-derived-marker-media/card-deny-focus/screenshots/card-deny-focus.png",
+      "webm": "installed-five-cases/route-card-derived-marker-media/card-deny-focus/screens/card-deny-focus.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "d9421fed9ba5a31da631b3158a31a1a9abc203d21b629cc8501c1568471dd653",
+      "webm_sha256": "3623938fddac1ffff6744b62fbc13eae4cb371ecac456c9aa43e905a10d8e744"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "card-shift-focus",
+      "png": "installed-five-cases/route-card-derived-marker-media/card-shift-focus/screenshots/card-shift-focus.png",
+      "webm": "installed-five-cases/route-card-derived-marker-media/card-shift-focus/screens/card-shift-focus.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "571c6e08b42af43f3a8771eee32ede951a7e3845e782c8318e3d5f96179b1933",
+      "webm_sha256": "4c65d463d1613846575884983cbdea2a5516e2875c574cb30b9bbc21a5870b04"
+    },
+    {
+      "case_id": "INL-PROD-ROUTE-CARD-001",
+      "point_id": "approval-card",
+      "png": "original-canonical-runs/20261017T140348Z-8e8142c7/screenshots/approval-card.png",
+      "webm": "original-canonical-runs/20261017T140348Z-8e8142c7/screens/approval-card.webm",
+      "visual_qa": "PASS",
+      "new_execution": false,
+      "png_sha256": "985e98941489c4d07fee1d89b583d9e029b3772619008b625e3c5395c27fea02",
+      "webm_sha256": "392100347d661086a8924b7dc62d49ac19dd9f0258d503b533e0625eb126c351"
+    }
+  ],
+  "cases_run": 5,
+  "current_tool_case_passes": 5,
+  "selected_points_visual_qa_passed": 28,
+  "original_casts_and_images_and_videos_preserved": true,
+  "derived_media_is_new_execution": false,
+  "media_video_scope": "context replay from literal original cast prefixes; not independently recorded exact-time video",
+  "history_preserved": [
+    {
+      "tool": "e5f34a7",
+      "run": "20261017T131638Z-be79d560",
+      "status": "FAIL",
+      "cause": "external-session tcgetpgrp ENOTTY"
+    },
+    {
+      "tool": "411bf26",
+      "run": "20261017T133126Z-82e9fdb3",
+      "status": "FAIL",
+      "cause": "observer exit race after normal exit0"
+    }
+  ],
+  "correction_records": [
+    "../enotty-repair-20261017/FREEZE-RECEIPT.json",
+    "../lifecycle-repair-20261017/FREEZE-RECEIPT.json",
+    "MEDIA-BOUNDARY-ANALYSIS.json",
+    "ANCHOR-CORRECTION-v2.json",
+    "DENY-CARD-MEDIA-BOUNDARY.json"
+  ],
+  "remaining_scope": [
+    "Root independent review of four later case outcomes/media and asset publication",
+    "native Bash seven installed/six baseline cases not part of this five-case run",
+    "strict real provider not run",
+    "dual architecture/final RPM release acceptance not run",
+    "SSH/PAM/VM/rescue/N50/idle/8h gates not run under this PR media scope",
+    "original U02a/b/c not PASS; default enablement requires separate approval"
+  ],
+  "cleanup": {
+    "all_five_owned_pid_start_readbacks_remaining": 0,
+    "all_owned_homes_gone": true,
+    "environment_released": false,
+    "environment_owner": "Root; retained existing container for followup; no env down"
+  },
+  "root_final_scope_acceptance": "PENDING",
+  "release_gate": "No-Go",
+  "default_enable_approved": false,
+  "helper_script_sha256": {
+    "export_marker_prefix_media.py": "bd2f9890eaad4703f2febb09f8c413e88d804ab98a20f5d5257bcd2ef7aa7529",
+    "export_canonical_marker_media_v3.py": "7febdd733421b64869beb3e5aa8581c2c56d9b19f2cf33aab38a68b93b056bf4",
+    "run_pr_case.py": "f0a1c1dacec49f7fb4c86462da0129e6858881c9d13ca5b8dd561a3319743002",
+    "finalize_case_media.py": "a4cc4828d2a63018df5335113c46399875a8f99431f29ee20084ebafaae61012",
+    "export_complete_card_media.py": "a6b020b5909f6fb0bc32aa7b0be61ad7bbd73d00e7468263ef1d60841d83c4a5",
+    "export_marker_prefix_media_v2.py": "8b7159504b28f392aa5932fd52c9fcbd7918e35f9c52b18fbe392972327b7970",
+    "collect_success_case.py": "26346cb49216e70c83dbefb7f445d209da8cee2a73d671989b5a24b6b08f48aa"
+  }
+}

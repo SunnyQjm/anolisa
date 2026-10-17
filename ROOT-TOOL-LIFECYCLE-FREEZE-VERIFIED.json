@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-17T13:48:06.906270+00:00",
+  "commit": "84bbb552ef77805a0f4c56ebee5484d0e0a5309d",
+  "tree": "12c82589b83c9f8c27d70c46cf7e77948be62808",
+  "clean": true,
+  "archive_sha256": "5e10d18e1ab2c08e8b4f0d60fa38750c83ff35bafcd4a7e71d0c3722d20fbf98",
+  "manifest_sha256": "3012450dfff4d504b59a426f892a2ddbceaf8738807c50fbf8a2bf4422c09ef4",
+  "files": 112,
+  "all_Git_blob_archive_bytes_modes_verified": true,
+  "reviewed5code_test_files_exact": true,
+  "approved_design_exact": true,
+  "Linux112_exit0_verified": true,
+  "actualPTY_RED3_assertion_verified": true,
+  "changed_binding_fields": [
+    "fixture_sha256",
+    "native_fixture_sha256",
+    "new_archive_sha256",
+    "new_manifest_sha256",
+    "new_run_id",
+    "new_tool_commit",
+    "new_tool_tree",
+    "support_sha256"
+  ],
+  "candidate_RPM_source_unchanged": true,
+  "dependency10_SHA_verified": true,
+  "final_product_run": false,
+  "document_increment_review": "Root reviewed DESIGN.md16line appendix and exact approved20f094 design; no product acceptance or contract relaxation claim",
+  "final_exact_code_review_commit": "84bbb552ef77805a0f4c56ebee5484d0e0a5309d",
+  "final_exact_code_review_findings_count": 0
+}

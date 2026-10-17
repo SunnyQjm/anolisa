@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-17T11:40:22.440394+00:00",
+  "scope": "ordinary shared regression controls before withdrawal, not new candidate installed acceptance",
+  "rows": [
+    {
+      "case": "K1",
+      "normal_pass": true,
+      "compiled_old_algorithm_actual_failure": true,
+      "tests_unchanged": true,
+      "restored_source_SHA": "2de0f1c3a9c28896e9d215666d2ff7ce83c77a3ef68429dbf083a046476cae91",
+      "recompiled_restored_pass": true,
+      "stream_hashes_verified": [
+        "K1-list-mutant0.stdout",
+        "K1-list-mutant0.stderr",
+        "K1-list-mutant1.stdout",
+        "K1-list-mutant1.stderr",
+        "K1-run-mutant0.stdout",
+        "K1-run-mutant0.stderr",
+        "K1-run-restored0.stdout",
+        "K1-run-restored0.stderr"
+      ]
+    },
+    {
+      "case": "K2",
+      "normal_pass": true,
+      "compiled_old_algorithm_actual_failure": true,
+      "tests_unchanged": true,
+      "restored_source_SHA": "93d6041fc23ed32eb3439bc9eecce3099470ff89884a24184e1fefa67696455c",
+      "recompiled_restored_pass": true,
+      "stream_hashes_verified": [
+        "K2-list-mutant0.stdout",
+        "K2-list-mutant0.stderr",
+        "K2-list-mutant1.stdout",
+        "K2-list-mutant1.stderr",
+        "K2-run-mutant0.stdout",
+        "K2-run-mutant0.stderr",
+        "K2-run-restored0.stdout",
+        "K2-run-restored0.stderr"
+      ]
+    }
+  ],
+  "K3": "normal lock witness selected1 pass; consumer/producer final code and real input still to verify",
+  "T2_K1_K2_verdict": "EFFECTIVE_RED_GREEN_VERIFIED",
+  "release_gate": "No-Go"
+}

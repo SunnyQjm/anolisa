@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-17T12:02:45.957956+00:00",
+  "action": "Root focused evidence checker",
+  "first_exit": 1,
+  "cause": "checker incorrectly required source_after_differences on each focused record; schema supplies pre-focused identity and source metadata per case, post-source identity on build record",
+  "classification": "checker schema assumption, not product failure",
+  "corrected_checker": "verify_source_focused.py",
+  "correction": "validate actual pre-focused identity, base/cwd/count, all actual stdout/stderr hashes and exactly selected1/pass; explicitly leave post-full-run scan pending",
+  "product_or_owner_source_changed": false
+}

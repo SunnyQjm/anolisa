@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-17T13:51:18.099637+00:00",
+  "tool_commit": "84bbb552ef77805a0f4c56ebee5484d0e0a5309d",
+  "Linux112_pass0skip": true,
+  "actual_Linux_uploaded_test_archive_frozen_files": 112,
+  "all_tested_source_bytes_match_frozen_Git": true,
+  "controlled_compiling_assertion_mutants": 7,
+  "actualLinuxPTY_compiling_assertion_mutant": 1,
+  "all51_evidence_hashes_previously_verified": true,
+  "collector_first_failure": "Root initial suffix lookup treated distinct CASE-MATRIX paths as ambiguous; exact full archive paths used in corrected read-only verification. No source/test mutation or rerun.",
+  "distinct_paths": [
+    "CASE-MATRIX.json",
+    "historical/worker-and-takeback-ca52/CASE-MATRIX.json"
+  ],
+  "raw_result_SHA": {
+    "linux_all_corrected_invocation-result.json": "1541382ebaf09fc8dc90026028846b806e61e1c34898b4fd83077c956aef4f25",
+    "actual_pty_compiled_mutant.stdout": "4963b3c759797f60ae51e046ba5fc1502c34005f75aabd0b5c56dae51c313c81",
+    "actual_pty_red-result.json": "7607a36fcd97319e9b395ba8ff01f2c16f4dd0301126b30282b49087246c83b8",
+    "EVIDENCE-SHA256.json": "b4960f56078604bf51dcdc95511b3b19aa1f156cc495707de39fbbda40cc7762"
+  },
+  "product_case_scope": "separate new ALLOW PASS, exact media point under review"
+}

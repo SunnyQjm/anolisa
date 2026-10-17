@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-17T11:58:46.980414+00:00",
+  "reviewer": "review_7333_shared_fixes",
+  "scope": "T3 initial to after-fmt source delta only",
+  "snapshot": "ui/issue-8028-inline-first-release/validation/T3-final/after-fmt",
+  "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "archive_sha256": "56ae834666f4a067779045527b0ca2f120440eedd93bc7fb23b3632aaf2d1847",
+  "files": 1254,
+  "verdict": "no new real behavior difference or blocker",
+  "delta": "5 files only: formatting, same-owner clear_prompt_ghost_line relocation and exact import resolution",
+  "raw_relay_lines": 697,
+  "rules_thresholds_unchanged": true,
+  "K1_to_K5_not_regressed": true,
+  "final_HEAD_or_product_pass": false
+}

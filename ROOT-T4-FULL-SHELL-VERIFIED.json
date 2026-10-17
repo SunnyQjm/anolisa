@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-17T12:31:45.348708+00:00",
+  "scope": "full cosh-shell crate source test; all normal targets",
+  "source_patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-crate.json",
+  "report_sha256": "8615b753bf03b485d9fe535ac32add949bf2d458912ec1f3ebf29539f30409ef",
+  "native_exit": 0,
+  "raw_stream_sizes_sha_verified": true,
+  "source_after_differences": [],
+  "summaries": [
+    "test result: ok. 1552 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.62s",
+    "test result: ok. 2942 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 9.52s",
+    "test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.04s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 82 filtered out; finished in 0.02s",
+    "test result: ok. 83 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.72s",
+    "test result: ok. 596 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 536.66s",
+    "test result: ok. 219 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 206.28s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "original_infra_first_failure": "T4-full-crate.json preserved; no native result inferred; this result is distinct second run after quiescent-state verification",
+  "limits": "source dirty frozen snapshot only; final clean commit identity pending; no installed/real-provider/dualarch/release/8h claim",
+  "next": "remaining workspace, strict Clippy, release/doc and standard preflight"
+}

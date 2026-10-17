@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-17T14:04:57.791045+00:00",
+  "case_id": "INL-PROD-CANCEL-001",
+  "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T140152Z-30eb42c9",
+  "raw_outcome_sha256": "1ac4cf94d20e1bce6f2db00dde0517b4bff0795abe7ce98a09ee8c992e030579",
+  "exact_contract_binding_RPM_cleanup_verified": true,
+  "all_original_cast_prefixes_canonical_stages_media_bytes_verified": true,
+  "points": [
+    {
+      "point": "native-original",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/native-original/screenshots/native-original.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/native-original/screens/native-original.webm",
+      "image_sha256": "7a8a074dafde0c9eaeaa1ca2b8d332424a79bd4575799ffb3dff33e620dc9c81",
+      "video_sha256": "db9bee23ddfc5061013240577b3f360ced27bd00d28bb2c0e46f5d047670c31d"
+    },
+    {
+      "point": "native-before-fresh",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/native-before-fresh/screenshots/native-before-fresh.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/native-before-fresh/screens/native-before-fresh.webm",
+      "image_sha256": "177d794e57ef8c3fa526ff9e799d732a9e37580f97f7981aa209a9db9aa99a37",
+      "video_sha256": "0293f03045d7de54425dafebc2fdca067fd198b119b8c3176263408fff7c0d5c"
+    },
+    {
+      "point": "fresh-once",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/fresh-once/screenshots/fresh-once.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/fresh-once/screens/fresh-once.webm",
+      "image_sha256": "0653ca9d9258bcf4407c9b3f99a7056ed8a4888d124991720a72323e04cab16c",
+      "video_sha256": "6dc7f7f7a1f50fda666060f48aa98048fdfe98cfabd0ceeca282128048f39bc9"
+    },
+    {
+      "point": "second-request",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/second-request/screenshots/second-request.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/cancel-derived-marker-media/second-request/screens/second-request.webm",
+      "image_sha256": "d798118806283ae63e5bca24fb4cf54875d0fc50b7334f34e40e72128ae6db4b",
+      "video_sha256": "5c0307eff6d93a2020cf62c2f2858d1f8bfe996b69657fb0d2730440a79de1ec"
+    },
+    {
+      "point": "approval-card",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T140152Z-30eb42c9/screenshots/approval-card.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T140152Z-30eb42c9/screens/approval-card.webm",
+      "image_sha256": "c3e0b03d43995367f1cbbf0f6c639bd5388cac15d694bc87b7a3e56c9d23f459",
+      "video_sha256": "b165188637633fbe929dcadeb4645d57e3bcdc9205325ca3db070ca390b09fc7"
+    }
+  ],
+  "Root_visual_QA": "PASS: independent view_image all5: actual initial Allowcard, Cancelled result, green original prompt/caret before fresh and after followup",
+  "scope": "PR8042 ARM installed Core loopback only"
+}

@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-17T13:53:05.468780+00:00",
+  "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T134912Z-2cced2ab",
+  "case_execution_pass": true,
+  "original_case_result_preserved": true,
+  "raw_INL_result": {
+    "scenario": "allow",
+    "status": "PASS",
+    "evidence_class": "installed-inline-loopback"
+  },
+  "source_cast_sha256": "2d793a5af56a37a7a78af289f492880ffd5f90908c5d8fb36ace414df69703d0",
+  "media_semantics": "4OSC points exact prefix derived review pending; original beforefresh snapshot includes next echo due ceil-ms cutoff; no product failure rewrite",
+  "remaining4": "not run"
+}

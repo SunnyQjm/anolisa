@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-17T12:54:27.942252+00:00",
+  "audit": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/T4-workspace-coverage-audit.json",
+  "audit_sha256": "ea307b1aedeba0126ce68610d6c52daf2f4a66c1ec8cda8867f96d76c4eb2a0c",
+  "coverage": "all8 packages in partitions, not a single all-workspace green",
+  "Core_lib189_in_original_stream_verified": true,
+  "all_part_proofs_already_independently_verified": [
+    "full Shell",
+    "full1100 Core nonprivileged main",
+    "all13 Core integrations",
+    "remaining6 packages"
+  ],
+  "Core_doctest_and_Gateway_layout_raw_streams_verified": true,
+  "totals": {
+    "passed": 7849,
+    "failed": 0,
+    "ignored": 3
+  },
+  "source_patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "first_failed_root_round_preserved": true,
+  "nested_selfexec_counts_not_double_counted": true,
+  "not_product_release_acceptance": true
+}

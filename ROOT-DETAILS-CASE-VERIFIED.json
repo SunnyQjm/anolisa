@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-17T14:04:57.214819+00:00",
+  "case_id": "INL-PROD-DETAILS-001",
+  "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T140248Z-66424e62",
+  "raw_outcome_sha256": "2aa2b0c18883b8ab18cf0d2c076d84f0a71f40d3f34daa895275e9e7885cc30d",
+  "exact_contract_binding_RPM_cleanup_verified": true,
+  "all_original_cast_prefixes_canonical_stages_media_bytes_verified": true,
+  "points": [
+    {
+      "point": "native-original",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/native-original/screenshots/native-original.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/native-original/screens/native-original.webm",
+      "image_sha256": "5935ba4920c5a4f5940f2ad4176feaf528ecef7ef3d75259ba48b78c1155a45a",
+      "video_sha256": "1b844afa895e472679c9b92c61f03b632b20347d6ed271dbcad7b0534952a415"
+    },
+    {
+      "point": "native-before-fresh",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/native-before-fresh/screenshots/native-before-fresh.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/native-before-fresh/screens/native-before-fresh.webm",
+      "image_sha256": "e4e8d99c2afa60f82353e13a650598d5a733d9d723ff23534c544fb220041416",
+      "video_sha256": "548e76c83026960a233349aeceec692debb32c5049eb363d4ce493732205cd09"
+    },
+    {
+      "point": "fresh-once",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/fresh-once/screenshots/fresh-once.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/fresh-once/screens/fresh-once.webm",
+      "image_sha256": "3ca0ec97b5f9717fea49aa4a097f7ea1a26bb9cbeb01568559e4cf67e77bc409",
+      "video_sha256": "d9f839fc967dfc5ab0687513953cb9df26e63f21625ce0eb71aafcc3a6a5f01d"
+    },
+    {
+      "point": "second-request",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/second-request/screenshots/second-request.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/second-request/screens/second-request.webm",
+      "image_sha256": "ad4ea8f0b7168f79a31dc01f08db494b88ec0dc8de1d6d5ba4534a3644f9afe7",
+      "video_sha256": "e578bc347c4bb11d8882374a05b0e8409c8f7107b0147f5da125336d53adb24a"
+    },
+    {
+      "point": "details-expanded",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/details-expanded/screenshots/details-expanded.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-marker-media/details-expanded/screens/details-expanded.webm",
+      "image_sha256": "abdc4a110bff7f7f593e2af557d40164978b1e5291aa4525277da18597e72e26",
+      "video_sha256": "54f74d2ee8765823fb721517fbbfbfcd4238b472c40321456a2da5f765ecef9a"
+    },
+    {
+      "point": "approval-card",
+      "screenshot": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-card-media/screenshots/approval-card.png",
+      "video": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/details-derived-card-media/screens/approval-card.webm",
+      "image_sha256": "2d60a326f0407b60d14a9825d73a89f3e6ec0cf222d0275a7bd655df40ef6fd8",
+      "video_sha256": "db75406d9a81c7c1218aa04f2a3ca908fc42fb16281ed88feab4934fe1f5280e"
+    }
+  ],
+  "Root_visual_QA": "PASS: independent view_image all6: complete initial Allowcard; expanded Details focus/keys/policy visible; normal approved flow and green original prompt/caret",
+  "scope": "PR8042 ARM installed Core loopback only"
+}

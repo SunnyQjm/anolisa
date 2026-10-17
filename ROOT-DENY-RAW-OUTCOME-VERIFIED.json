@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-17T14:01:07.178616+00:00",
+  "case": "INL-PROD-DENY-001",
+  "run": "20261017T135822Z-6d0dfaee",
+  "Root_exact_frozen_contract_verified": true,
+  "raw_guest_result_sha256": "ddae3e0865cf4bcc12aff61396e4302704f078058373ac857622a32d8190849b",
+  "binding_source_RPM_matched": true,
+  "effect_lines": [],
+  "fresh_effect_lines": [
+    "INL_FRESH"
+  ],
+  "Core_tool_results": [
+    {
+      "role": "tool",
+      "content": "Tool call denied: User denied this operation",
+      "tool_call_id": "inline-tool-1"
+    }
+  ],
+  "requests": 3,
+  "same_Bash": true,
+  "PS1_raw_exact": true,
+  "termios_restored": true,
+  "shell_exit": 0,
+  "cleanup": {
+    "remaining_owned_pid_start": [],
+    "owned_home_exists": false
+  },
+  "media": "OSC4 derived and full-card record14 prefix QA pending"
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-17T11:50:16.712971+00:00",
+  "reviewer": "review_7333_shared_fixes",
+  "snapshot": "ui/issue-8028-inline-first-release/validation/T3-initial",
+  "patch_sha256": "206b2daad9170eb0946ade5cd068ddffd080d82280c75724e08b97069361b949",
+  "archive_sha256": "6ff04f3eead3d84260d703447c17085811e06945a308779cb6418c83403b1d18",
+  "file_count": 1254,
+  "file_manifest_all_hashes_verified": true,
+  "verdict": "no verifiable P0/P1/P2 findings in frozen first withdrawal snapshot",
+  "checks": [
+    "K1 full snapshot/base handoff chain",
+    "K2 same/different composer selection behavior",
+    "K3 producer locked batch and three locked consumer drain/observe/update sites",
+    "no recursive same mode lock",
+    "7489 RestorePrompt and exclusive TempDir",
+    "6787 byte-exact authorization and tests retained",
+    "7421 targets and Core build preserved",
+    "README inline fault boundary",
+    "44 retained source modifications and45 removed Cosh files inside original96",
+    "no lock/env/dependency change"
+  ],
+  "limits": [
+    "dirty snapshot only, not current tree/final HEAD",
+    "no compile/product experiment performed by reviewer",
+    "post-format/moved-helper/new-source diff requires incremental review",
+    "not installed release acceptance"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-17T13:32:22.788085+00:00",
+  "case": "INL-PROD-ALLOW-001",
+  "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T133126Z-82e9fdb3",
+  "status": "FAIL",
+  "tool": "411bf26b38f5f4c7244948f1e3c5eab0fbef2fbc",
+  "source": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "traceback": "consumer process identity changed after normal exit0 input and native Bash exit in raw transcript",
+  "no_PASS_claim": true,
+  "remaining_four": "not run",
+  "classification": "original acceptance owner investigating test-only consumer process-disappearance lifecycle race",
+  "raw_sha256": {
+    "transcript.txt": "996848a08d2de37cd3eba0ce8c0974318357cc81e6f08741c2d87f6fa45250e9",
+    "transcript.cast": "a2c9b9bd153e22f6fc6e158671ea182524b07fb5406275ce9675364111596cfa",
+    "result.json": "aaf3bf124af74fa6c591f735342cba0a6d7d0dd5c4d3de938f2fb1a002f1cfcc",
+    "cleanup.json": "282280348c69219273937b0b5237e86cae449a8e9ee1b5199f4c14375a764e32"
+  }
+}

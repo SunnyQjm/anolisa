@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-17T12:50:05.645141+00:00",
+  "scope": "remaining6 workspace packages, excluding fully tested Shell and separately completed Core",
+  "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-workspace-rest.json",
+  "report_sha256": "65b8e08ae4662924d40887f727fc75cb65089bb9dc72dbfa6c4540bd70ecde11",
+  "native_argv": [
+    "cargo",
+    "test",
+    "--workspace",
+    "--exclude",
+    "cosh-core",
+    "--exclude",
+    "cosh-shell",
+    "--locked"
+  ],
+  "native_exit": 0,
+  "streams_sizes_SHA_verified": true,
+  "source_after_differences": [],
+  "summaries": [
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+    "test result: ok. 85 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.03s",
+    "test result: ok. 441 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.88s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s",
+    "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+    "test result: ok. 58 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+    "test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s",
+    "test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+    "test result: ok. 346 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.48s",
+    "test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "remaining": "Core doctests, strict Clippy/doc/release/preflight and final committed identity; no installed release claim"
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-17T13:37:32.085294+00:00",
+  "design": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-411bf26-execution/CONSUMER-LIFECYCLE-DESIGN.md",
+  "design_sha256": "20f0947b0f26fe822da7fb8d78ca881296dfeb95184798b7f4d48a28e0f0ca69",
+  "reviewer": "/root/review_7333_shared_fixes",
+  "design_findings_P0_P1_P2": 0,
+  "Root_disposition": "approved existing-authorized bounded test-only implementation, no product/legacy scope expansion",
+  "required_integration": [
+    "native exe/path/hash inside same anchored sample before final stat",
+    "Details/card-ready branches must not emit new readiness with None/cached screen/enumeration alone",
+    "Do not delete valid past evidence; termination at incomplete phase still aggregate FAIL",
+    "None never synthesizes consumer/foreground/readiness",
+    "Own tool errors e.g. EBADF/parse/permission do not become termination bypass",
+    "current Bash identity/exe/SHA/cwd must originate in this verified sample, not stale enumerated row"
+  ],
+  "product_runs": "still stopped until exact reviewed newfreeze/rebinding",
+  "source_RPM_unchanged": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "reviewer_final_findings_count": 0,
+  "supplemental_review_sha256": "3dd88b8d47018002b760cd8b06217c2c08574cc6075e0769bc85f72869f3310d"
+}

@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-17T13:58:07.534294+00:00",
+  "case": "INL-PROD-ALLOW-001",
+  "run": "20261017T134912Z-2cced2ab",
+  "case_execution_and_exact_raw_contract_verified": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/inline-first-release-implementation-20261017/ROOT-ALLOW-RAW-OUTCOME-VERIFIED.json",
+  "source_cast_sha256": "2d793a5af56a37a7a78af289f492880ffd5f90908c5d8fb36ace414df69703d0",
+  "derived_script_sha256": "8b7159504b28f392aa5932fd52c9fcbd7918e35f9c52b18fbe392972327b7970",
+  "all4prefixes_exact_original_bytes_and_canonical_markers_verified": true,
+  "renderer_sources_equal_frozen84bbb55": true,
+  "all_png_and_context_webm_hashes_verified": true,
+  "Root_view_image_visual_QA": {
+    "native-original": "before-ready: ps1-before in history, current original green empty prompt/caret, no next query",
+    "approval-card": "original full approval card and Allow once focus visible",
+    "native-before-fresh": "completed tool and first Agent reply, current green empty original prompt/caret, no fresh input",
+    "fresh-once": "single fresh command history and current green empty prompt/caret",
+    "second-request": "second Agent reply and current green empty original prompt, no exit input"
+  },
+  "original_v1_wrong_startup_anchor_retained_not_used_as_canonical_point": true,
+  "original_artifacts_preserved": true,
+  "new_product_execution": false,
+  "context_videos": "cast prefix replay, not independent exact-time recording",
+  "selected_index": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/ALLOW-MEDIA-POINT-INDEX-v2.json",
+  "decision": "ALLOW PR source/media scope passed; remaining4 may proceed unchanged"
+}

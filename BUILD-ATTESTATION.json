@@ -1,0 +1,48 @@
+{
+  "purpose": "PR source RPM/media evidence only; not final dual-architecture delivery",
+  "source_commit": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "source_tree": "6bf348c21d80ea948cf616d43769cd34317ee55b",
+  "component_tree": "f98318e0539a67f628e0f4eca3bbbdc5e1bd64de",
+  "source_manifest_sha256": "a9324b0ba0ce4e6326cb17cef4c90f1ed4f9a722b8a87158a3470aa6dcbbe009",
+  "architecture": "aarch64",
+  "build_profile": "release",
+  "versions": {
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "rpm": "RPM version 4.18.2",
+    "rpmbuild": "RPM version 4.18.2"
+  },
+  "argv": [
+    "bash",
+    "scripts/rpm-build.sh",
+    "cosh-ng"
+  ],
+  "exit": 0,
+  "collector_exit": 1,
+  "collector_failure": "Original post-build assertion expected BUILD source still present; standard rpmbuild rmbuild removed it. Original failure retained, no rebuild/retry.",
+  "exit_evidence": "Original helper reached assertion guarded by result.returncode==0; full raw streams show successful RPM writes and standard rmbuild cleanup.",
+  "source_before_after_verified": true,
+  "RPM_build_copy_verified": true,
+  "build_copy_verification": "Actual Source0 tarball contains every exact component file; original unmodified spec/setup/build script and complete raw phases retained. BUILD cleanup precludes post-run directory comparison.",
+  "source0_sha256": "56efb8870875586ea79c9f6a089861959dc496665d9ed08fc09106a14c26f067",
+  "streams": {
+    "build.stdout": {
+      "bytes": 2294,
+      "sha256": "f8b4a0ea327113fe64bde79bb48042454c3cd6eee79b1ddd376b5739b47829b6"
+    },
+    "build.stderr": {
+      "bytes": 21968,
+      "sha256": "ffa3033b653612adb02d79cbbb824cdffe715f030be80edd412796862192bf87"
+    }
+  },
+  "build_environment": {
+    "RUSTUP_TOOLCHAIN": "1.97.1",
+    "CARGO_NET_OFFLINE": "true",
+    "CARGO_HOME": "/cache/cargo-home",
+    "RUSTUP_HOME": "/cache/rustup",
+    "CARGO_BUILD_JOBS": "2"
+  },
+  "original_helper_sha256": "d8a450bc468283bda517b983f11e728120f2d40f0f30354a1303d1b4d6f78203",
+  "collected_at": 1792242748.285373,
+  "original_start_time": "not recovered; no fabricated start/end timing"
+}

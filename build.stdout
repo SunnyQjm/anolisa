@@ -1,0 +1,26 @@
+setting SOURCE_DATE_EPOCH=1781568000
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.pcb8NH
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.j2SpBl
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.ub3kyP
+mangling shebang in /usr/bin/cosh-switch from /bin/bash to #!/usr/bin/bash
+Processing files: cosh-ng-0.27.0-2.alnx4.aarch64
+Provides: /usr/bin/cosh /usr/bin/cosh-cli /usr/libexec/anolisa/cosh-ng/cosh-gateway anolisa-component(cosh-ng) cosh-ng = 0.27.0-2.alnx4 cosh-ng(aarch-64) = 0.27.0-2.alnx4
+Requires(interp): /bin/sh /bin/sh /bin/sh
+Requires(rpmlib): rpmlib(BuiltinLuaScripts) <= 4.2.2-1 rpmlib(CompressedFileNames) <= 3.0.4-1 rpmlib(FileDigests) <= 4.6.0-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+Requires(post): lua
+Requires(preun): (/usr/bin/systemctl if systemd) /bin/sh /usr/bin/awk /usr/bin/getent
+Requires(postun): /bin/sh /usr/bin/awk /usr/bin/cat /usr/bin/cp /usr/bin/dirname /usr/bin/id /usr/bin/mkdir /usr/bin/mktemp /usr/bin/mv /usr/bin/readlink /usr/bin/rm /usr/bin/rmdir /usr/bin/stat
+Requires(posttrans): /bin/sh /usr/bin/cat /usr/bin/dirname /usr/bin/id /usr/bin/rm /usr/bin/rmdir /usr/bin/stat
+Requires: /usr/bin/bash ld-linux-aarch64.so.1()(64bit) ld-linux-aarch64.so.1(GLIBC_2.17)(64bit) libc.so.6()(64bit) libc.so.6(GLIBC_2.17)(64bit) libc.so.6(GLIBC_2.18)(64bit) libc.so.6(GLIBC_2.25)(64bit) libc.so.6(GLIBC_2.27)(64bit) libc.so.6(GLIBC_2.28)(64bit) libc.so.6(GLIBC_2.29)(64bit) libc.so.6(GLIBC_2.30)(64bit) libc.so.6(GLIBC_2.32)(64bit) libc.so.6(GLIBC_2.33)(64bit) libc.so.6(GLIBC_2.34)(64bit) libgcc_s.so.1()(64bit) libgcc_s.so.1(GCC_3.0)(64bit) libgcc_s.so.1(GCC_3.3)(64bit) libgcc_s.so.1(GCC_4.2.0)(64bit) libm.so.6()(64bit) libm.so.6(GLIBC_2.29)(64bit) rtld(GNU_HASH)
+Conflicts: copilot-shell
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /tmp/cosh-8028-pr-rpm-84db0a6/repo/scripts/rpmbuild/BUILDROOT/cosh-ng-0.27.0-2.alnx4.aarch64
+Wrote: /tmp/cosh-8028-pr-rpm-84db0a6/repo/scripts/rpmbuild/SRPMS/cosh-ng-0.27.0-2.alnx4.src.rpm
+Wrote: /tmp/cosh-8028-pr-rpm-84db0a6/repo/scripts/rpmbuild/RPMS/aarch64/cosh-ng-0.27.0-2.alnx4.aarch64.rpm
+Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.9MTjWQ
+Executing(rmbuild): /bin/sh -e /var/tmp/rpm-tmp.WN8Nse
+
+RPM build warnings:
+
+  cosh-ng-0.27.0-2.alnx4.aarch64.rpm  (11M)
+  cosh-ng-0.27.0-2.alnx4.src.rpm  (3.3M)
+

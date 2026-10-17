@@ -1,0 +1,87 @@
+{
+  "at": "2026-10-17T12:40:41.066243+00:00",
+  "record": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/T4-DAC-control.json",
+  "record_sha256": "9f3dfaeed32e6ccf4591d8c4edcd2d4831a17dc8d50793be0023e3aef25843d5",
+  "actual_native_exit": 0,
+  "root_vs_unprivileged_read_write_unlink_DAC_control_verified": true,
+  "facts": {
+    "root_uid": 0,
+    "root_read_succeeded": true,
+    "root_write_succeeded": true,
+    "root_unlink_succeeded": true,
+    "nonroot": {
+      "uid": 65534,
+      "euid": 65534,
+      "gid": 65534,
+      "caps": [
+        "CapPrm:\t0000000000000000",
+        "CapEff:\t0000000000000000"
+      ],
+      "read": {
+        "succeeded": false,
+        "errno": 13
+      },
+      "write": {
+        "succeeded": false,
+        "errno": 13
+      },
+      "unlink": {
+        "succeeded": false,
+        "errno": 13
+      }
+    },
+    "paths": {
+      "/cache": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/cache"
+      },
+      "/cache/cargo-home": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/cache/cargo-home"
+      },
+      "/cache/rustup": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/cache/rustup"
+      },
+      "/cache/cargo-target/8028-T3-initial": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/cache/cargo-target/8028-T3-initial"
+      },
+      "/cache/cargo-target/8028-T3-initial/debug/deps": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/cache/cargo-target/8028-T3-initial/debug/deps"
+      },
+      "/tmp/cosh-8028-T3-final": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/tmp/cosh-8028-T3-final"
+      },
+      "/tmp/cosh-8028-T3-final/src/cosh-ng/crates/cosh-core": {
+        "uid": 0,
+        "gid": 0,
+        "mode": "0o755",
+        "realpath": "/tmp/cosh-8028-T3-final/src/cosh-ng/crates/cosh-core"
+      }
+    },
+    "nobody": {
+      "name": "nobody",
+      "uid": 65534
+    },
+    "source_or_cache_ownership_changed": false,
+    "owned_DAC_fixture_removed": true
+  },
+  "hypothesis_status": "root DAC bypass corroborated by actual restricted directories; full Core nonprivileged target result still pending",
+  "product_source_changes": false,
+  "workspace_pass": false
+}

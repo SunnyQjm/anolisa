@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-17T12:13:16.479764+00:00",
+  "kind": "independent manual source security review",
+  "reviewer": "review_7333_shared_fixes",
+  "findings_count": 0,
+  "blocking_findings": [],
+  "source_patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "source_archive_sha256": "56ae834666f4a067779045527b0ca2f120440eedd93bc7fb23b3632aaf2d1847",
+  "source_dirty": true,
+  "coverage": [
+    "approval broker/byte-exact/Core baseline preserved",
+    "audit/dispatch/effect ordering and no Unknown replay added",
+    "K3 paired producer-consumer mode lock and K2 fresh composer selection",
+    "terminal controls helper unchanged; no PS1 rewrite",
+    "worker activation/IPC/surface removed without half authorization paths",
+    "early login fail-open eligible and pre-side-effect only",
+    "K1 bounded history, K4 build gates, K5 subsequent independent fixes",
+    "no env/lock/dependency/privileged writes/network/credential changes"
+  ],
+  "configured_L3_scanner": null,
+  "scanner_lookup_scope": [
+    "root/component AGENTS",
+    "component config",
+    "Cosh workflows",
+    "scripts",
+    "independent-review-guide"
+  ],
+  "external_scan_run": false,
+  "limits": "Manual source review only; no external L3 scan claim; final commit/reviewer/CI/installed product evidence remain required."
+}

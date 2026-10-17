@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-17T12:20:53.893438+00:00",
+  "reviewer": "review_7333_shared_fixes",
+  "findings_count": 0,
+  "source_patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "checks": {
+    "owner_and_dependency": "no new reverse edges; ghost helper remains same owner",
+    "crate_dependency_lock": "unchanged",
+    "public_api": "worker exports removed; no new broad pub or test-only production pub",
+    "large_files": {
+      "raw_relay": 697,
+      "input_events": 504,
+      "card_capture": 699,
+      "bootstrap": 697,
+      "state_before": 1003,
+      "state_after": 1002,
+      "approval_renderer_before": 975,
+      "approval_renderer_after": 963
+    },
+    "exceptions": "D13-D21 retained; D22 and exclusive test DTO references removed together",
+    "test_layers": "K1 K2 and lock witness private lightweight; no subprocess PTY tests newly placed in production src"
+  },
+  "mirror_byte_equal": false,
+  "mirror_difference": "baseline main has no standard.md/review.md; current rules in component AGENTS. Review mirror has old D22/inventory/architecture; dirty mirror not overwritten. Both applicable nonconflicting blocking checklists applied.",
+  "actual_gates": "layout and inventory independently passed; full source gates pending",
+  "final_commit_not_yet_bound": true
+}

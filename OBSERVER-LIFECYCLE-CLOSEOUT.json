@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-17T13:34:36.221481+00:00",
+  "source_PR": "8042 draft",
+  "source_HEAD": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "source_CI": "18success12skip0failure",
+  "fuse": "two observer-domain combinations: external-session ENOTTY then normal-exit identity disappearance",
+  "action": "stop point fixes; original owner unified test-only consumer lifecycle design, invariants/input matrix/aggregate contract, independent plan review before implementation",
+  "authority": "existing D1/D2/D3 source+test-only validation scope; no user permission repeated and no production scope expansion",
+  "preserve": [
+    "e5f34a7 and411bf26 tool freezes",
+    "ALLOW20261017T131638Z-be79d560 first fail",
+    "ALLOW20261017T133126Z-82e9fdb3 second fail",
+    "source/RPM/candidate byte identity unchanged"
+  ],
+  "next_root": [
+    "receive lifecycle design and reuse independent reviewer",
+    "verify new clean tool archive/manifest/controls; rebind exact fields retaining history",
+    "ALLOW once new justified tool, then4cases only if prior passes",
+    "independently receive cast/fullscreenshots/WebM/raw result and cleanup",
+    "download actual guest Source0 and SRPM before env cleanup",
+    "upload immutable assets and exact PR body; ready + request kongche-jbw once; readback",
+    "refresh all state/hash references"
+  ],
+  "no_final_release_acceptance": true
+}

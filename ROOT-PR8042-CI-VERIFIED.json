@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-17T13:24:00.554790+00:00",
+  "PR": 8042,
+  "head": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "CI_success": 18,
+  "CI_skipped": 12,
+  "failures": 0,
+  "raw_readback_sha256": "b106c5c5f599266635d4f18ba71d98adb2a55e72866939f60d0b2f2ecb5fcdb2",
+  "source": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/inline-first-release-implementation-20261017/PR-8042-ci-watch-4.json",
+  "formal_approval": false,
+  "source_PR_draft": true,
+  "installed_media": "firstfail tool ENOTTY preserved; owner fixing; no claim accepted"
+}

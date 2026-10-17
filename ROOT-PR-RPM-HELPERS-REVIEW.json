@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-17T12:59:50.559891+00:00",
+  "reviewer": "review_7333_shared_fixes",
+  "findings_count": 0,
+  "files": {
+    "prepare_pr_rpm_input.py": "48cac7bc884b429e94d23675a57c40dddeb86fb9fa30a1ee831dcdb5b9ee1e0d",
+    "build_pr_rpm.py": "d8a450bc468283bda517b983f11e728120f2d40f0f30354a1303d1b4d6f78203",
+    "collect_pr_rpm_identity.py": "f38e3d7e5294c2f14de6bfb64d92d4e53dcc1088f999dd46d9a077e8ff6a0383"
+  },
+  "checks": [
+    "clean exact HEAD and Git blob/mode/bytes/SHA export",
+    "standard original RPM script/spec release build fixedRust1.97.1",
+    "source and lock before-after plus actual rpmBUILD copy bytes",
+    "failure nonzero and no successful identity on assert",
+    "actual RPM5 payload extraction, digest/root0755/nativeELF/no worker",
+    "explicit PR media-only, not final dualarch delivery"
+  ],
+  "execution_status": "not executed; this is helper source review only",
+  "product_acceptance": false
+}

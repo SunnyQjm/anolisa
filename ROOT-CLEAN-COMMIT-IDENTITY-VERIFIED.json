@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-17T13:05:01.114662+00:00",
+  "commit": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "tree": "6bf348c21d80ea948cf616d43769cd34317ee55b",
+  "component_tree": "f98318e0539a67f628e0f4eca3bbbdc5e1bd64de",
+  "dirty": false,
+  "verified_tested_files": 1254,
+  "differences": [],
+  "source_test_evidence_inherited_by_exact_file_equality": true,
+  "final_commit_preflight": "pending owner receipt",
+  "RPM_build": "pending"
+}

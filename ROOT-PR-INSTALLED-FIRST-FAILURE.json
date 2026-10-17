@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-17T13:19:04.156528+00:00",
+  "run": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/runs/20261017T131638Z-be79d560",
+  "case": "INL-PROD-ALLOW-001",
+  "status": "FAIL",
+  "case_exit": 124,
+  "startup_ready": false,
+  "Traceback": "inline_support.py:73 consumer os.tcgetpgrp(descriptor) raised ENOTTY25",
+  "classification": "test fixture consumer observation failed before startup-ready; original owner root cause/cleanup pending; no product success/failure inference beyond shown trace",
+  "remaining_four_cases": "not run; first-failure stop",
+  "no_replay": true,
+  "source_unchanged": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "PR": "8042 draft, no review request yet",
+  "sha256": {
+    "result.json": "c8aab1b2e37db8f8d787a258a2c8dee32463213dbf105eb567c3c3241ca2f1ce",
+    "transcript.txt": "d7e6f19137de1e35ad0baee42ad1cddddbc31876597babccf730d1feb86256f0",
+    "transcript.cast": "0ccc3e47533baf27bb781434e54c7ab0123f78d7f517bc2dae01d3d78c1616de",
+    "cleanup.json": "282280348c69219273937b0b5237e86cae449a8e9ee1b5199f4c14375a764e32"
+  }
+}

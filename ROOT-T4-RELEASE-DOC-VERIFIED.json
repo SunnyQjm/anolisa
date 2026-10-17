@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-17T13:00:57.148998+00:00",
+  "source_patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "records": [
+    {
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-release.json",
+      "sha256": "a0b40e3c6710caf18ddaf1bd2de148991d73a2d20ad35048584a5acdfb08056d",
+      "argv": [
+        "cargo",
+        "build",
+        "--workspace",
+        "--release",
+        "--locked"
+      ],
+      "native_exit": 0,
+      "seconds": 324.44250106811523
+    },
+    {
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-doc.json",
+      "sha256": "07e07dd2bf827b3e2a3f75c097589e9bfd106f21a704f27e13717530e88e53ce",
+      "argv": [
+        "cargo",
+        "doc",
+        "--workspace",
+        "--no-deps",
+        "--locked"
+      ],
+      "native_exit": 0,
+      "seconds": 11.16095757484436
+    }
+  ],
+  "raw_streams_sizes_SHA_verified": true,
+  "source_after_differences": [],
+  "scope": "source build/doc only; not RPM packaging, install, final dualarch or default approval",
+  "remaining": "final clean commit and exact-head preflight"
+}

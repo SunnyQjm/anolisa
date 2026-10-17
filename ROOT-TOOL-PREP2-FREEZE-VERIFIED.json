@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-17T12:16:24.210632+00:00",
+  "verdict": "PASS_TOOL_FREEZE_IDENTITY_ONLY",
+  "commit": "e5f34a7b22e43a46887f91573d59443cfa464ea7",
+  "tree": "8fc32f4d8d7bf78dc71540c2cca074624c47f4ee",
+  "clean": true,
+  "files": 109,
+  "archive_all_bytes_modes_git_blobs_verified": true,
+  "raw_check_streams_verified": 12,
+  "tool_tests": 89,
+  "compiled_assertion_controls": 26,
+  "controls_with_additional_errors": [
+    {
+      "removed_guard": "cast begin metadata does not belong to result",
+      "compiled": true,
+      "tests_run": 32,
+      "detected": true,
+      "assertion_failures": 2,
+      "other_errors": 2
+    }
+  ],
+  "old_partial_archive_manifest_diff_unchanged": true,
+  "source_receipt": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/prep2-e5f34a7/FREEZE-RECEIPT.json",
+  "source_receipt_sha256": "e9321411b56519bccd3493442d9f28db9b16a9c3540ee256abb8cca54a4f7bac",
+  "semantic_review": "pending Root independent incremental review",
+  "product_execution": false,
+  "full_acceptance_ready": false,
+  "release_gate": "No-Go"
+}

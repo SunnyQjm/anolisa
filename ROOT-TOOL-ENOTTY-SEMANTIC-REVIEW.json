@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-17T13:28:12.168550+00:00",
+  "reviewer": "/root/review_7333_shared_fixes",
+  "tool_commit": "411bf26b38f5f4c7244948f1e3c5eab0fbef2fbc",
+  "tool_tree": "34ddbd70f9b43c32d36c7f5ef8e0dce44f778443",
+  "clean": true,
+  "findings_count": 0,
+  "scope": "test-only ENOTTY consumer increment; no test execution by reviewer",
+  "checks": [
+    "No ENOTTY bypass; actual target tty_nr/tpgid",
+    "PID/start checked before and after fd observation; session/pgrp/controltty stable",
+    "fd character device and actual device identity matched",
+    "foreground actual tpgid; background not promoted",
+    "stale start/nonTTY/identity mismatch fail closed",
+    "PS1/prompt/fresh-input/consumer requirements unchanged"
+  ],
+  "limit": "Point-in-time observation; not perpetual foreground guarantee or product acceptance",
+  "files": {
+    "fixtures/inline_support.py": "ca204a3e7043785b58b6890a8b494e4c7a97860dda1aa5c85f8e93e21e1e1ec7",
+    "tests/test_inline_consumer.py": "e80dab2deb28dfecb36dcd971b7f91fe9b31befbd3a2463b11bdcfd03738b31c"
+  }
+}

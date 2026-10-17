@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-17T14:08:20.714853+00:00",
+  "kind": "pre-existing UI policy copy mismatch, not introduced by PR8042",
+  "path": "src/cosh-ng/crates/cosh-shell/src/i18n/en/approval.rs",
+  "line": 64,
+  "baseline": "0eb4c5c7f63b14cd075fba07d0561f19f75e03e8",
+  "source": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "baseline_current_exact_copy_equal": true,
+  "file_diff": "Only worker-specific ApprovalPresentationInvalidatedNotice variant removed; the quoted policy copy line unchanged",
+  "copy": "Only approved read-only Bash/shell tool requests may run in this MVP.",
+  "observed_behavior": "Explicit high-risk approval executes controlled write-redirection once; deny/cancel effects0",
+  "disposition": "Record for review and first-release policy/copy reconciliation. This PR changes no execution policy; no read-only sandbox or default-enable assurance claimed.",
+  "initial_checker_note": "Whole file equality check was inappropriate because expected worker notice removal changes this file; compare the exact policy copy and actual source diff."
+}

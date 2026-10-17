@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-17T11:39:45.369503+00:00",
+  "action": "Root tool archive independent check",
+  "first_exit": 1,
+  "cause": "Root checker guessed old catalog path runtime/src/cosh_lab/cases; actual git ls-tree path specs/shell-e2e-validation/cases",
+  "classification": "checker path error, not product/tool contract failure",
+  "preserved_before_fix": true,
+  "correction": "use exact old commit git tree paths, no source/fixture changes"
+}

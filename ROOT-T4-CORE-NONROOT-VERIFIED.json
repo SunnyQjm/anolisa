@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-17T12:46:20.401851+00:00",
+  "scope": "full Core main1100 on same Cargo-resolved ELF under actual uid65534/no caps",
+  "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/nonroot-core/full.json",
+  "report_sha256": "93767f77fc248cf6dd61cb3726477c77bf657a2e32cf57dfa89af9e8e30fe8c7",
+  "native_exit": 0,
+  "inventory": 1100,
+  "four_original_failures_each_present_once_and_passed": true,
+  "all_raw_stream_sizes_SHA_and_actual_ELF_SHA_verified": true,
+  "ELF_sha256": "87a98c55403acd497b121112ebd1ad833c9d317ffe1d47f251cdb83306dd2a61",
+  "identity": {
+    "pid": 135537,
+    "start_ticks": "487793",
+    "uid": 65534,
+    "euid": 65534,
+    "gid": 65534,
+    "groups": [],
+    "caps": [
+      "CapPrm:\t0000000000000000",
+      "CapEff:\t0000000000000000"
+    ]
+  },
+  "source_differences": [],
+  "first_failure_preserved": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-workspace.json",
+  "classification": "actual root DAC bypass invalidated chmod premise; corrected identity changes environment only, no source/allow/skip/threshold edits",
+  "remaining": "13 Core integration targets and remaining workspace/full gates; this receipt does not declare full workspace passed",
+  "release_gate": "No-Go"
+}

@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-17T12:38:35.084750+00:00",
+  "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-workspace.json",
+  "report_sha256": "9357bccbfd84286a23d8114e8fc30048e885fffe42a0d97449bb71f9cbd24dbf",
+  "native_exit": 101,
+  "original_streams_sizes_sha_verified": true,
+  "source_after_differences": [],
+  "actual_core_main_result": "1096 pass,4 fail",
+  "failed_tests": [
+    "clear_keeps_scoped_history_when_legacy_removal_fails",
+    "legacy_cleanup_failure_is_reported_and_retried_after_migration",
+    "list_all_workspaces_skips_unreadable_workspace_directory",
+    "readonly_initial_legacy_is_counted_after_switching_roots_but_never_evicted"
+  ],
+  "root_cause_status": "unconfirmed hypothesis: root/DAC capability bypasses readonly-directory premise; UID/caps and actual unprivileged contrast pending",
+  "no_source_test_threshold_changes": true,
+  "workspace_pass": false,
+  "release_gate": "No-Go"
+}

@@ -1,0 +1,83 @@
+{
+  "tool_commit": "411bf26b38f5f4c7244948f1e3c5eab0fbef2fbc",
+  "files_verified": 110,
+  "binding_sha256": "98ff534cbf0e5c68b75e286b3ff6c2b638b9d92fdc95a8e95c06b962a40ed67f",
+  "candidate_sha256": "3516e7292bec7870726c28b9843ca66a841b6008bbfce987c00a2d5303c6deb3",
+  "old_tools_and_binding_preserved": true,
+  "installed_identity_exit": 0,
+  "installed_identity": {
+    "ELF": {
+      "/usr/bin/cosh-cli": {
+        "machine": 183,
+        "sha256": "0a6d5b1a92da7ad88235042408facc3e5101197943cb58bddf80025edf76d7cc"
+      },
+      "/usr/libexec/anolisa/cosh-ng/cosh-core": {
+        "machine": 183,
+        "sha256": "866e28cc643c6871fc4312a66f3dab79deb8376e8130d484f4a32019ed0056d5"
+      },
+      "/usr/libexec/anolisa/cosh-ng/cosh-gateway": {
+        "machine": 183,
+        "sha256": "9da4745b962b033306381165e51dd5798d79e755a406b50ba6f8900213437ff5"
+      },
+      "/usr/libexec/anolisa/cosh-ng/cosh-shell": {
+        "machine": 183,
+        "sha256": "d454968b4f00bc380275020f346f60c3e3f6ead6e605840e30876779369b7568"
+      }
+    },
+    "adapter_version": "cosh-shell 0.27.0",
+    "architecture": "aarch64",
+    "binary_origin": "installed-rpm",
+    "binary_sha256": "d454968b4f00bc380275020f346f60c3e3f6ead6e605840e30876779369b7568",
+    "candidate_sha256": "3516e7292bec7870726c28b9843ca66a841b6008bbfce987c00a2d5303c6deb3",
+    "delivery_mode": "inline-first",
+    "payload_sha256": {
+      "/usr/bin/cosh-cli": "0a6d5b1a92da7ad88235042408facc3e5101197943cb58bddf80025edf76d7cc",
+      "/usr/bin/cosh-switch": "3c644371efd1ebdef673164f1d0e3e49a515befd22fb341c19cb709793168e74",
+      "/usr/libexec/anolisa/cosh-ng/cosh-core": "866e28cc643c6871fc4312a66f3dab79deb8376e8130d484f4a32019ed0056d5",
+      "/usr/libexec/anolisa/cosh-ng/cosh-gateway": "9da4745b962b033306381165e51dd5798d79e755a406b50ba6f8900213437ff5",
+      "/usr/libexec/anolisa/cosh-ng/cosh-shell": "d454968b4f00bc380275020f346f60c3e3f6ead6e605840e30876779369b7568"
+    },
+    "resolved_path": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+    "rpm_nevra": "cosh-ng-0.27.0-2.alnx4.aarch64",
+    "rpm_sha256": "635f2db62de1fab60b1818ec4c3e1a6423618f3396571cf96f734def343b3e4f",
+    "source": {
+      "commit": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+      "component_tree": "f98318e0539a67f628e0f4eca3bbbdc5e1bd64de",
+      "dirty": false,
+      "tree": "6bf348c21d80ea948cf616d43769cd34317ee55b"
+    },
+    "tool_binding": {
+      "build_attestation_sha256": "a893802de6cca8296a172c8a5c505d60a44cb8ea3513e133799e241bbaf7b7a0",
+      "build_profile": "release",
+      "candidate_sha256": "3516e7292bec7870726c28b9843ca66a841b6008bbfce987c00a2d5303c6deb3",
+      "contract_sha256": "b372da63ab75788b329b609ed8d007ed6d3666204fbdda9086a7efc284c57787",
+      "delivery_mode": "inline-first",
+      "fixture_sha256": "31a3e32c24dfcb0643a0d963ab1a5ef0ab7a838ba28ec9830fb8e90db80e0ee4",
+      "identity_sha256": "b38d1ebe948cae5448ee41b2026fee012ef4808de77711fcffffd75f89b79e96",
+      "native_bash_nevra": "bash-5.2.15-2.alnx4.aarch64",
+      "native_bash_path": "/usr/bin/bash",
+      "native_bash_sha256": "a065ec1fb525917c96adc516677be31afbb25df5529c2da7df7ca3fb8d836cab",
+      "native_contract_sha256": "84bfc5f3e8f183001eda413132defe249ccb17274f6ef0417d936ede92a3b6ee",
+      "native_fixture_sha256": "c133ce8247326aabedfbdf5a0cc42724fa23a09ac37a2307a5940b45e156727c",
+      "native_input_protocol_sha256": "0694a353809c836f3b0f98bce1bb63f0ad669f4d9148c94c71491acb656cf9a7",
+      "new_archive_sha256": "1a3a8f776a5f2d49ba6f636bbc160ee9f40897950506f537873e47f76785e8dd",
+      "new_manifest_sha256": "79059448b47b31bc6fbe25b9355dd3ee4f19c221c22f34fe0f3c9d09a4c10e31",
+      "new_release_profile_sha256": "e919f0ee68a253cef7fc2a885cfa98a312d189d84750e811b4e93f89c77c9d8f",
+      "new_run_id": "pr8042-arm-observer-17211bd68514468a9a4a7b6f1d2ba11b",
+      "new_tool_commit": "411bf26b38f5f4c7244948f1e3c5eab0fbef2fbc",
+      "new_tool_tree": "34ddbd70f9b43c32d36c7f5ef8e0dce44f778443",
+      "real_bashrc_sha256": "ea4fb80c72c620101039fe51af71b45344a2567a206e1cb32cd032c3ee405783",
+      "real_contract_sha256": "7e566a7924cca747994f1f0bbce7836164471c7c2d60f4832aadd92d32c6a86f",
+      "real_observer_sha256": "0b827295c94360f9691a0b4e53c0aca7222f94caaa28a38714dcaa3f386d8296",
+      "replay_sha256": "2f3fc8fdee766618942b7f1f642bdc961dbdd44c61791aba0bfdeb8c0c26dc8b",
+      "runner_sha256": "3044629ff97d23ca6889855988cb7e7a097077fc8148a3080fbaedb90b6eef57",
+      "scope": "PR8042 ARM installed Core loopback only; not real provider or final release",
+      "source_commit": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+      "source_tree": "6bf348c21d80ea948cf616d43769cd34317ee55b",
+      "support_sha256": "ca204a3e7043785b58b6890a8b494e4c7a97860dda1aa5c85f8e93e21e1e1ec7"
+    }
+  },
+  "at": "2026-10-17T13:30:51.578583+00:00",
+  "raw_receipt": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/inline-first-release-implementation-20261017/pr-rpm-84db0a6/rebind-execution-v2.json",
+  "initial_stage_failure": "rebind-execution.json: redundant manifest archive_sha256 key assumption, failed before installed mutations; fixed collector with independently verified exact archive hash; no product input replay"
+}

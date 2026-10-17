@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-17T13:09:55.750118+00:00",
+  "run": "20261017T112139Z-2edc4099",
+  "stage": "/tmp/cosh-8028-pr-rpm-84db0a6",
+  "source": "84db0a65e5e7c590e95c8bee6d5a924c4cae9e84",
+  "purpose": "PR source/media only; not final dual-arch delivery",
+  "build_session": 15568,
+  "state": "active foreground fixed transport, no duplicate build",
+  "read_only_tail_attempt": "fixed CLI rejected concurrent command under ownership lock; did not bypass, no repeat",
+  "tools_install": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/inline-first-release-implementation-20261017/RPM-tools-install.json",
+  "dryrun": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/inline-first-release-implementation-20261017/RPM-tools-dryrun.json",
+  "archive_sha256": "cdda9313c5ac3f74c2f6c58873bde76526802fc1384030f3640815c9dac978ef"
+}

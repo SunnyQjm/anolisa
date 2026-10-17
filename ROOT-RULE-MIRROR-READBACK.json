@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-17T12:19:03.100482+00:00",
+  "source": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-8028-inline-first-release",
+  "mirror": "/Users/quejianming/vscode/anolisa-auto-review/rules/cosh-ng-code-organization",
+  "rows": [
+    {
+      "name": "standard.md",
+      "source_exists": false,
+      "mirror_exists": true,
+      "same": false,
+      "source_sha": null,
+      "mirror_sha": "80506e5e038cbccebf624a10a526d2ff0fb6f05095cfe09823f9a0f7f1844a76"
+    },
+    {
+      "name": "review.md",
+      "source_exists": false,
+      "mirror_exists": true,
+      "same": false,
+      "source_sha": null,
+      "mirror_sha": "1717bf588e8a05cfe7b86e9890011c0e0289e67838b2c442cf161191b93837a1"
+    },
+    {
+      "name": "decisions.md",
+      "source_exists": true,
+      "mirror_exists": true,
+      "same": false,
+      "source_sha": "f6e1c30a956bbacd94d36906f02f5defd2972971db8c239e96b7bd84f34926e6",
+      "mirror_sha": "f696e7aa766748f4eedc3b68efa84c0d9e9c331d222752286a98c4d3145627ce"
+    },
+    {
+      "name": "large-file-inventory.md",
+      "source_exists": true,
+      "mirror_exists": true,
+      "same": false,
+      "source_sha": "1fab7d2b75204ae59b8e1883c25404bedf3bdaf9ef7c45a91be063fdea904e0b",
+      "mirror_sha": "27b0cf73e287fea216c21fbd8b1bce0565ce5b198a86496d97fbfa1d35b5c493"
+    }
+  ]
+}

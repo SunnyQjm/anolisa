@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-17T12:48:09.323408+00:00",
+  "scope": "all13 actual Core integration targets",
+  "native_passed": 134,
+  "all_target_exits_zero": true,
+  "original_stream_sizes_sha_and_actual13_ELF_verified": true,
+  "targets": [
+    "cli_tools",
+    "compaction_activity",
+    "compaction_lifecycle",
+    "core_version",
+    "jsonl_protocol",
+    "oauth_mcp",
+    "project_config_hooks",
+    "registry_protocol",
+    "session_recovery",
+    "sigint",
+    "sls_integration",
+    "telemetry_upload",
+    "tool_approval"
+  ],
+  "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/core-integrations/progress.json",
+  "report_sha256": "84b0274a8b5bc43b7d6c0e38d71c0f53105af1b8648acc46f8424bb157da3c73",
+  "identity": "uid/euid0 for these targets; only full Core main correction ran uid65534",
+  "source_differences": [],
+  "remaining": "other6 workspace packages, Core doctests, strict Clippy/doc/release/preflight and final committed identity"
+}

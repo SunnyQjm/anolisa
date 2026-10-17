@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-17T13:28:48.283111+00:00",
+  "commit": "411bf26b38f5f4c7244948f1e3c5eab0fbef2fbc",
+  "tree": "34ddbd70f9b43c32d36c7f5ef8e0dce44f778443",
+  "files": 110,
+  "archive_sha256": "1a3a8f776a5f2d49ba6f636bbc160ee9f40897950506f537873e47f76785e8dd",
+  "manifest_sha256": "79059448b47b31bc6fbe25b9355dd3ee4f19c221c22f34fe0f3c9d09a4c10e31",
+  "git_blobs_bytes_modes_archive_verified": true,
+  "binding_changed_keys": [
+    "new_archive_sha256",
+    "new_manifest_sha256",
+    "new_run_id",
+    "new_tool_commit",
+    "new_tool_tree",
+    "support_sha256"
+  ],
+  "proposed_binding_sha256": "98ff534cbf0e5c68b75e286b3ff6c2b638b9d92fdc95a8e95c06b962a40ed67f",
+  "all10_actual_dependency_hashes_verified": true,
+  "source_candidate_RPM_unchanged": true
+}

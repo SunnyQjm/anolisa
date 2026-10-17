@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-17T13:54:19.401652+00:00",
+  "case": "INL-PROD-ALLOW-001",
+  "run": "20261017T134912Z-2cced2ab",
+  "raw_guest_result": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/production-worker-20261016/acceptance/inline-first-8028-evidence/pr-media-84bbb55-execution/allow-guest/result.json",
+  "raw_result_sha256": "77a25fb2358442f8cb4b882c95bbb17d6030cd8d8a769293e704205925020d0c",
+  "Root_independent_exact_frozen_contract_verify": true,
+  "actual_same_Bash_PS1_effect_fresh_Agent_receipt_termios_cleanup_verified": true,
+  "actual_RPM_source_tool_binding_matched": true,
+  "requests": 3,
+  "effect_lines": [
+    "INL_EFFECT"
+  ],
+  "fresh_effect_lines": [
+    "INL_FRESH"
+  ],
+  "remaining_pids": [],
+  "shell_exit": 0,
+  "termios_restored": true,
+  "media_precise_points": "pending derived prefix QA",
+  "scope": "ARM PR source/media loopback, not real provider/finaldualarch/defaultenable",
+  "collector_note": "Raw guest result has no status field by schema; Root initial extra status lookup failed after successful contract validation, corrected to actual error-null and immutable exact contract. No product replay."
+}

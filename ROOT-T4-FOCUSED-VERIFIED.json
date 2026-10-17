@@ -1,0 +1,147 @@
+{
+  "at": "2026-10-17T12:02:12.338727+00:00",
+  "scope": "post-withdrawal Linux source focused controls only",
+  "snapshot": "ui/issue-8028-inline-first-release/validation/T3-final/after-fmt",
+  "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "unit_selected_passed": 10,
+  "raw_PTY_selected_passed": 7,
+  "Core_build_exit": 0,
+  "source_identity": "1254-file pre-focused manifest, Core post-build no differences; individual case reports carry base/cwd/filecount; post-full-run source rescan pending",
+  "ELF_pre_focused": {
+    "/cache/cargo-target/8028-T3-initial/debug/deps/cosh_shell-c94dba2a735759b9": "4cbbb0afc0c8b3828cd19ae4dcc8f3ab4c96ebf6d098892e94c8d3f33b954a5a",
+    "/cache/cargo-target/8028-T3-initial/debug/deps/cosh_shell-f9a39553762a3cc0": "1d3a2ecd5f00ba3d3553de7160b83eb3e6ca578d6cc647f9ffd389a45baefb7b"
+  },
+  "Core_and_normal_ELF": {
+    "/cache/cargo-target/8028-T3-initial/debug/cosh-shell": "97d286b4dce5ebe1c94928580cf3e668e2544c53986b15cdf6c000673bbc416d",
+    "/cache/cargo-target/8028-T3-initial/debug/cosh-core": "6ec76b763d1bc29f5cfeb0de2e3ed6903a30a52c183e3c4826ac6abe24eefae7"
+  },
+  "zsh": "installed in owned test container with recorded dry-run/version/package/transaction; early missing-zsh receipt retained separately, not counted as functional PASS",
+  "rows": [
+    {
+      "label": "focused-unit-1",
+      "case": "activity::runtime_tests::untracked_shell_handoff_closes_on_shell_ready_after_emit",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-2",
+      "case": "raw_input::card_capture::tests::composer_request_refresh_preserves_only_same_request_selection",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-3",
+      "case": "shell_host::raw_relay::tests::capture_batch_is_drained_under_mode_lock_before_observe",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-4",
+      "case": "raw_input::capture_bridge::tests::capture_snapshots_retry_and_event_batches_keep_mode_lock",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-5",
+      "case": "runtime::controller::tests::pending_shell_handoff_timeout_interrupts_before_preexec_without_notice",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-6",
+      "case": "runtime::controller::tests::shell_handoff_timeout_notice_is_deferred_until_foreground_is_idle",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-7",
+      "case": "runtime::controller::tests::deferred_handoff_timeout_notice_restores_native_prompt_without_input",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-8",
+      "case": "runtime::controller::tests::completed_agent_run_restores_prompt_through_the_pty_owner",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-9",
+      "case": "shell_host::raw_relay::tests::prompt_restore_waits_through_passive_observer_cycles",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-unit-10",
+      "case": "shell_host::raw_relay::tests::prompt_fragment_after_restore_keeps_ghost_last_on_screen",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-1",
+      "case": "terminal_ownership::bash_prompt_geometry_survives_control_transitions_without_status_rows",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-2",
+      "case": "terminal_ownership::zsh_prompt_geometry_survives_control_transitions_without_status_rows",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-3",
+      "case": "terminal_ownership::bash_status_rows_preserve_geometry_across_control_transitions",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-4",
+      "case": "terminal_ownership::zsh_status_rows_preserve_geometry_across_control_transitions",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-5",
+      "case": "prompt_replay::raw_cli_bash_recalled_ordinary_command_remains_exact_without_prompt_run_on",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-6",
+      "case": "prompt_replay::raw_cli_bash_typeahead_empty_enter_during_failing_command_survives_prompt_restore",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    },
+    {
+      "label": "focused-raw-7",
+      "case": "prompt_replay::raw_cli_bash_slow_prompt_command_does_not_write_off_queued_enter",
+      "actual_selected_passed": 1,
+      "exit": 0,
+      "streams_verified": true
+    }
+  ],
+  "verdict": "FOCUSED_ONLY_PASS",
+  "not_claimed": [
+    "full raw/protocol/logic/shell-host/workspace/preflight/release",
+    "installed nativeRPM/provider/final U02/8h",
+    "newly frozen clean source commit"
+  ],
+  "release_gate": "No-Go"
+}

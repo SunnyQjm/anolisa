@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-17T12:56:26.051537+00:00",
+  "scope": "standard preflight on uncommitted frozen source, four actual native Linux mappings",
+  "top_outer_and_data_ok": true,
+  "records": [
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "native_exit": 0,
+      "native_seconds": 115.86989188194275,
+      "binding": {
+        "host_cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-8028-inline-first-release/src/cosh-ng",
+        "base": "0eb4c5c7f63b14cd075fba07d0561f19f75e03e8",
+        "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+        "source_tree": null,
+        "guest_manifest_sha256": "4b0e456b2631042c50c610c7414aac91868607d27a63e79d8570644eb475b8fc",
+        "original_argv": [
+          "cargo",
+          "clippy",
+          "--workspace",
+          "--all-targets",
+          "--",
+          "-D",
+          "warnings"
+        ]
+      },
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/T4-preflight/native/58b22a97ba9a4964a2ec2171588413ef/native.json"
+    },
+    {
+      "argv": [
+        "bash",
+        "-c",
+        "scripts/check-test-inventory.sh"
+      ],
+      "native_exit": 0,
+      "native_seconds": 5.846510410308838,
+      "binding": {
+        "host_cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-8028-inline-first-release/src/cosh-ng",
+        "base": "0eb4c5c7f63b14cd075fba07d0561f19f75e03e8",
+        "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+        "source_tree": null,
+        "guest_manifest_sha256": "4b0e456b2631042c50c610c7414aac91868607d27a63e79d8570644eb475b8fc",
+        "original_argv": [
+          "bash",
+          "-c",
+          "scripts/check-test-inventory.sh"
+        ]
+      },
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/T4-preflight/native/d9d8227f15dc47a4bc094783af3c179c/native.json"
+    },
+    {
+      "argv": [
+        "cargo",
+        "fmt",
+        "--check"
+      ],
+      "native_exit": 0,
+      "native_seconds": 2.8164830207824707,
+      "binding": {
+        "host_cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-8028-inline-first-release/src/cosh-ng",
+        "base": "0eb4c5c7f63b14cd075fba07d0561f19f75e03e8",
+        "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+        "source_tree": null,
+        "guest_manifest_sha256": "4b0e456b2631042c50c610c7414aac91868607d27a63e79d8570644eb475b8fc",
+        "original_argv": [
+          "cargo",
+          "fmt",
+          "--check"
+        ]
+      },
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/T4-preflight/native/86fa8ef451d74a5593b8783e08c2fcba/native.json"
+    },
+    {
+      "argv": [
+        "bash",
+        "-c",
+        "crates/cosh-shell/scripts/check-layout.sh"
+      ],
+      "native_exit": 0,
+      "native_seconds": 1.6619727611541748,
+      "binding": {
+        "host_cwd": "/Users/quejianming/vscode/cosh-shell-dev/anolisa/.worktrees/cosh-8028-inline-first-release/src/cosh-ng",
+        "base": "0eb4c5c7f63b14cd075fba07d0561f19f75e03e8",
+        "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+        "source_tree": null,
+        "guest_manifest_sha256": "4b0e456b2631042c50c610c7414aac91868607d27a63e79d8570644eb475b8fc",
+        "original_argv": [
+          "bash",
+          "-c",
+          "crates/cosh-shell/scripts/check-layout.sh"
+        ]
+      },
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/T4-preflight/native/8ffbfc513c864aa9ab487ee7729b4f87/native.json"
+    }
+  ],
+  "all_streams_sizes_SHA_verified": true,
+  "commitlint": "not covered; base..HEAD empty before product commit; final exact commit preflight still required",
+  "tests": "separate full workspace partition proof; preflight does not execute tests",
+  "remaining": "release/doc build, final commit and current-head preflight; no RPM/installed/release approval claim"
+}

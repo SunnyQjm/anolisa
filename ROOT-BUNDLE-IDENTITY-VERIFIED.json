@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-17T11:31:06.710532+00:00",
+  "scope": "document/plan bundle exact identity only; no product or committee acceptance",
+  "verdict": "PASS",
+  "committee_files": 81,
+  "manifest_entries": 80,
+  "all_zip_bytes_match": true,
+  "plan_manifest_matches": true,
+  "zip_sha256": "04cfe9757eb0ae5f660bb30f58028a3e0b99e2c67064347299579c839576cdbc",
+  "product_release_gate": "No-Go"
+}

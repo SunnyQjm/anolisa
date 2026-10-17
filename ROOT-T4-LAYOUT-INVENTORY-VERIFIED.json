@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-17T12:11:34.081259+00:00",
+  "patch_sha256": "1f725b9b2ec983cf2bc7eab1d47a8a2aceb5c9f2770f20c48a87b706af741b80",
+  "checks": [
+    {
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-layout.json",
+      "report_sha256": "877ed18e1e85482109fe13f80a2d8f7b21936870e680de662773b5eb434f306c",
+      "exit": 0,
+      "streams_verified": true,
+      "native_list_counts": []
+    },
+    {
+      "report": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-T3-final-evidence/gate-inventory.json",
+      "report_sha256": "2320c6d6d3d9f4428f9b15fa86aa2d0c464cc607cf88f1534e298f94248473f2",
+      "exit": 0,
+      "streams_verified": true,
+      "native_list_counts": [
+        1552,
+        1100,
+        2943,
+        189
+      ]
+    }
+  ],
+  "full_tests_preflight_release": "pending",
+  "release_gate": "No-Go"
+}

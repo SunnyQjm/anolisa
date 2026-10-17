@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-17T11:32:34.705256+00:00",
+  "scope": "independent ordinary K1/T2 checkpoint only, no installed or withdrawn source acceptance",
+  "normal_controls": {
+    "K1": "selected1/pass; lib/bin zero-target summaries not counted",
+    "K2": "selected1/pass; lib/bin zero-target summaries not counted",
+    "K3": "selected1/pass; lib/bin zero-target summaries not counted"
+  },
+  "K1_old_algorithm": "compiled/list exit0 selected1; actual behavior exit101/assert lost handoff-1",
+  "K1_changed_files": "one ordinary handoff source only; all test bytes unchanged per bound source manifest",
+  "K1_restoration": "source SHA matches exact original; post-restoration behavior not yet received",
+  "stream_hashes_reverified": [
+    "K1-list-mutant0.stdout",
+    "K1-list-mutant0.stderr",
+    "K1-list-mutant1.stdout",
+    "K1-list-mutant1.stderr",
+    "K1-run-mutant0.stdout",
+    "K1-run-mutant0.stderr"
+  ],
+  "K2_old_algorithm": "pending",
+  "K3_old_algorithm": "pending",
+  "T3": "not started/verified",
+  "gate": "not final Go",
+  "raw_dir": "/Users/quejianming/vscode/cosh-shell-dev/outputs/codex-takeover-20261013/ui/issue-8028-inline-first-release/validation/cache/8028-evidence"
+}

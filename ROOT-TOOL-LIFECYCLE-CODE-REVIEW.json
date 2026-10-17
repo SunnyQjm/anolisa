@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-17T13:45:59.022838+00:00",
+  "reviewer": "/root/review_7333_shared_fixes",
+  "findings_count": 0,
+  "binding": "exact current dirty bytes; final freeze equality still required",
+  "files": {
+    "fixtures/inline_fixture.py": "5fce9a17a0bde960ce12bfec31e48c6ec7d7e59bb9d2d626c82a28fdee0d70ce",
+    "fixtures/inline_native_fixture.py": "5a2d8570bbe326f52c723a522d00d2b97bc55404ad73e9c3158044076bf1a4bc",
+    "fixtures/inline_support.py": "f1a86201c649060aba30a938bc2d25e53791cb7df7eb37e0ee0ecca4e01d0e0a",
+    "tests/test_inline_consumer.py": "690086d47a4613036dc5c4b818938ea93fd41cabc5b2b15479a5e0d8346131ef",
+    "tests/test_inline_consumer_lifecycle.py": "16d322c5c5196e642c468f710ac61167b89735c775772d3830d496171438072e"
+  },
+  "invariants": [
+    "Strict kernel stat; anchoredproc-dir; bounded identity/tty/fd/path/cwd and nativeexe/SHA sample",
+    "Only ENOENT/ESRCH may use one strict retirement check; live/reuse/EACCES/EIO/EBADF/parse do not become None",
+    "all descriptor/stream success/exception/None paths close",
+    "both stage guards require current actual foreground consumer; None records no new identity/readiness",
+    "no early monitor stop after exit-ready; aggregatecase/termios/cleanup still mandatory",
+    "13 phase mock boundaries labelled; actualLinuxPTY separate",
+    "legacy takeback unchanged"
+  ],
+  "tests_executed_by_reviewer": false,
+  "reviewed_design_sha256": "20f0947b0f26fe822da7fb8d78ca881296dfeb95184798b7f4d48a28e0f0ca69",
+  "documents_not_yet_bound": [
+    "DESIGN.md",
+    "CONSUMER-LIFECYCLE-DESIGN.md"
+  ],
+  "product_runs": "not repeated; prior2 failures remain FAIL"
+}

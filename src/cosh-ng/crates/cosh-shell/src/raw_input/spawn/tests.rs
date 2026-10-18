@@ -609,4 +609,75 @@ fn held_remainder_resolves_pending_submits_once_gate_rises() {
     assert_eq!(deferred_pending(&delivered), 0);
     assert!(state.deferred_prompt_hold_since.is_none());
     assert!(state.deferred_prompt_poll.is_none());
+    assert!(state.deferred_prompt_hold_candidate.is_none());
+}
+
+#[test]
+fn main_prompt_gate_tracks_whether_it_ever_rose() {
+    let gate = MainPromptGate::default();
+    assert!(!gate.has_ever_been_ready());
+
+    gate.set_at_prompt(true);
+    assert!(gate.has_ever_been_ready());
+
+    // Falling back while a submission runs must not forget that this session
+    // raises its gate: held remainders stay releaseable.
+    gate.set_at_prompt(false);
+    assert!(gate.has_ever_been_ready());
+
+    // The startup latch counts as a risen gate too.
+    let seeded = MainPromptGate::default();
+    seeded.seed_initial_prompt();
+    assert!(seeded.has_ever_been_ready());
+}
+
+#[test]
+fn gateless_session_delivers_deferred_path_prompt_immediately() {
+    let base = tempfile::tempdir().expect("temp dir");
+    let cwd = base
+        .path()
+        .canonicalize()
+        .expect("canonical temp dir")
+        .to_string_lossy()
+        .into_owned();
+    let classifier = InputClassifier::default();
+    classifier.prompt_cwd().set(Some(cwd));
+
+    // A session that never showed a prompt can never re-raise the gate, so
+    // holding would only burn the wait cap: the remainder delivers at once
+    // (pre-#7897 behavior) instead of parking for 2 s.
+    let mut state = RawInputRelayState::default();
+    assert!(!state.main_prompt_gate.has_ever_been_ready());
+    state.deferred_input = Some(deferred_read(
+        "打开./nonexistent-cosh-2913/SKILL.md\n".as_bytes(),
+        1,
+    ));
+    let (sender, receiver) = mpsc::sync_channel(1);
+    let input = receive_input(&receiver, &mut state, &classifier)
+        .expect("gateless session delivers without parking");
+    assert_eq!(deferred_pending(&input), 1);
+    assert!(state.deferred_prompt_hold_since.is_none());
+    assert!(state.deferred_prompt_poll.is_none());
+    drop(sender);
+
+    // A marker session (gate already rose once) parks the same remainder
+    // while the gate is down, and the poll re-checks only the gate.
+    let mut state = RawInputRelayState::default();
+    state.main_prompt_gate.set_at_prompt(true);
+    state.main_prompt_gate.set_at_prompt(false);
+    assert!(state.main_prompt_gate.has_ever_been_ready());
+    state.deferred_input = Some(deferred_read(
+        "打开./nonexistent-cosh-2913/SKILL.md\n".as_bytes(),
+        1,
+    ));
+    let (sender, receiver) = mpsc::sync_channel(1);
+    let parked = receive_input(&receiver, &mut state, &classifier);
+    assert!(
+        matches!(parked, Err(RecvTimeoutError::Timeout)),
+        "marker session parks the remainder for the gate"
+    );
+    assert!(state.deferred_input.is_some());
+    assert!(state.deferred_prompt_hold_since.is_some());
+    assert_eq!(state.deferred_prompt_hold_candidate, Some(true));
+    drop(sender);
 }

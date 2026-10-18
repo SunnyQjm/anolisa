@@ -87,15 +87,22 @@ pub(super) fn flush_pending_deadlines(
 /// line executes raw in the shell. Hold such a remainder until the shell is
 /// back at its prompt, then resolve the completed submissions so the
 /// path-prompt route re-evaluates cleanly (#7897).
-const PATH_PROMPT_GATE_POLL: Duration = Duration::from_millis(10);
+///
+/// The poll only has to re-check the gate, so it stays coarse: the hold
+/// verdict itself is computed once per parked remainder (see
+/// `deferred_is_hold_candidate`) and the wait cap dwarfs the poll interval.
+const PATH_PROMPT_GATE_POLL: Duration = Duration::from_millis(25);
 const PATH_PROMPT_GATE_WAIT_CAP: Duration = Duration::from_secs(2);
 
 /// Whether this deferred remainder is a missing-path natural-language
 /// submission that must wait for the gate: exactly one trailing submission,
 /// no other control bytes, and `classify_missing_path_submission` matching
 /// the current mirror. Shell commands and deferred slash controls keep
-/// today's immediate delivery.
-pub(super) fn deferred_waits_for_shell_prompt(
+/// today's immediate delivery. The verdict is independent of the live gate
+/// state, so it stays valid for as long as the remainder is parked and the
+/// classify/redact regex work only runs once per remainder, not once per
+/// poll (#7897 follow-up).
+fn deferred_is_hold_candidate(
     input: &InputRead,
     state: &RawInputRelayState,
     input_classifier: &InputClassifier,
@@ -108,7 +115,7 @@ pub(super) fn deferred_waits_for_shell_prompt(
     else {
         return false;
     };
-    if *pending_shell_submits == 0 || state.main_prompt_gate.is_path_prompt_ready() {
+    if *pending_shell_submits == 0 {
         return false;
     }
     // Slash candidate batches keep today's shell-owned delivery
@@ -148,6 +155,17 @@ pub(super) fn deferred_waits_for_shell_prompt(
     !crate::evidence::redact_sensitive_text(&candidate).1
 }
 
+/// Whether a parked deferred remainder must wait for the main prompt gate:
+/// it is a hold candidate and the gate is currently down.
+pub(super) fn deferred_waits_for_shell_prompt(
+    input: &InputRead,
+    state: &RawInputRelayState,
+    input_classifier: &InputClassifier,
+) -> bool {
+    deferred_is_hold_candidate(input, state, input_classifier)
+        && !state.main_prompt_gate.is_path_prompt_ready()
+}
+
 /// Delivers a deferred remainder, resolving submissions the gate already
 /// completed: a held remainder delivered after the gate rose re-evaluates
 /// routing with `pending_shell_submits` cleared, since those submissions
@@ -168,6 +186,7 @@ pub(super) fn resolve_held_delivery(
             }
         }
     }
+    state.deferred_prompt_hold_candidate = None;
     input
 }
 
@@ -177,7 +196,27 @@ pub(super) fn receive_input(
     input_classifier: &InputClassifier,
 ) -> Result<InputRead, RecvTimeoutError> {
     if let Some(input) = state.deferred_input.take() {
-        if deferred_waits_for_shell_prompt(&input, state, input_classifier) {
+        // Decide once per parked remainder whether it is hold-worthy at all
+        // (shape, classification, sensitivity, and a gate that can actually
+        // rise again); the poll loop then only re-checks the gate. Eof/Error
+        // never hold, and any cached verdict computed for an overwritten
+        // remainder is dropped with it.
+        let hold_candidate = match (&input, state.deferred_prompt_hold_candidate) {
+            (InputRead::Bytes { .. }, Some(hold_candidate)) => hold_candidate,
+            (InputRead::Bytes { .. }, None) => {
+                let hold_candidate = deferred_is_hold_candidate(&input, state, input_classifier)
+                    && state.main_prompt_gate.has_ever_been_ready();
+                state.deferred_prompt_hold_candidate = Some(hold_candidate);
+                hold_candidate
+            }
+            _ => {
+                state.deferred_prompt_hold_candidate = None;
+                state.deferred_prompt_hold_since = None;
+                state.deferred_prompt_poll = None;
+                false
+            }
+        };
+        if hold_candidate && !state.main_prompt_gate.is_path_prompt_ready() {
             let now = Instant::now();
             let held_since = state.deferred_prompt_hold_since.unwrap_or(now);
             if now.duration_since(held_since) < PATH_PROMPT_GATE_WAIT_CAP {
@@ -188,6 +227,7 @@ pub(super) fn receive_input(
                 // The gate never rose; resume the previous immediate delivery.
                 state.deferred_prompt_hold_since = None;
                 state.deferred_prompt_poll = None;
+                state.deferred_prompt_hold_candidate = None;
                 return Ok(input);
             }
         } else {

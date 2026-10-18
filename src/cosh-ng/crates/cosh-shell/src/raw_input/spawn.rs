@@ -173,6 +173,9 @@ where
                         // shell-owned delivery instead of waiting for a
                         // route (#7897).
                         state.deferred_split_slash_bearing = bytes.first() == Some(&b'/');
+                        // A new remainder replaces the parked one; its hold
+                        // verdict must be decided fresh (#7897 follow-up).
+                        state.deferred_prompt_hold_candidate = None;
                         state.deferred_input = Some(InputRead::Bytes {
                             bytes: remainder,
                             received_at,

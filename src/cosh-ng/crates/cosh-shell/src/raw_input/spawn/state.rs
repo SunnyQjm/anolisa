@@ -129,6 +129,13 @@ pub(in super::super) struct RawInputRelayState {
     pub(super) deferred_prompt_poll: Option<std::time::Instant>,
     /// When the gate-held deferred remainder was first parked (wait cap).
     pub(super) deferred_prompt_hold_since: Option<std::time::Instant>,
+    /// Cached hold verdict for the parked `deferred_input` remainder (#7897):
+    /// shape, classification, sensitivity, and whether the gate can rise in
+    /// this session. Independent of the live gate state, so the poll loop
+    /// re-checks only the gate instead of rerunning the classify/redact
+    /// regexes every 25 ms; `None` once the remainder is delivered or
+    /// replaced by a new split.
+    pub(super) deferred_prompt_hold_candidate: Option<bool>,
     /// Deadline for a bare ESC held inside the draft card (#1721): on
     /// expiry the relay injects a second ESC which resolves to a cancel.
     pub(super) pending_draft_escape_deadline: Option<std::time::Instant>,

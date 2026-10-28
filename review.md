@@ -1,0 +1,52 @@
+# Approval exposure 实现独立复审
+
+范围：9103-exposure-green-v1相对已审4fba/combined-review3-source-v1的完整exposure增量，私有Core生命周期、7项headless组件回归（正常决定12个内部组合）与2项真实Core交付后未读回执KILL恢复。冻结1449文件SHA逐项匹配，manifest SHA=e1af20f548bc39ea6ad53b19b4895c60f4242ac0896311a2c588c112ba8994b2。未运行测试、编译、环境、Git或GitHub操作，未修改产品。
+
+## 当前阻断：只读本地bypass重试成功错误清除Host未知
+
+**P1，core.rs:1842–1851。** final块把exposure存在且!known_unexecuted也作为成功clear的准入；bypass Allowed在:1785无条件executing并在:1806把side_effect_approved置true，却仍执行原tc.name。实际可达反例：ReadOnly list_directory的PreToolUse Ask收到host_executed_shell，Host已经写effect而Core归Unconfirmed；failure-hook发bypass，第二次bareallow，本地retry调用list_directory({command:...})，生产tool忽略command且默认path='.'并成功。最终side_effect_failed=false、side_effect_approved=true，清memory=false，persist又清marker；下一Auto写可覆写未知Host效果。runtime_context同样忽略params并成功。不是需要虚构customtool的反例，也不是已运行复现；代码因果已即时报告root/worker。
+
+新bypass组件只覆盖第二次deny，不能证明bareallow+真实readonly成功的组合。worker正在冻结v1生产+真实list_directory RED，旧v1其他测试即使通过也不能消除此阻断。
+
+## 完整clear资格收敛（避免再次局部点修）
+
+- snapshot恢复只用于整条Host交付链都返回严格plain决定，且没有实际本地sideeffect。新bareallow/deny可恢复本次exposure，但必须保留原memory与checkpoint拆分；先前unknown不能因后面安全决定被冲掉。
+- 本地成功clear必须属于实际side_effecting_tool执行，并有显式批准；readonly本地retry成功不满足。主Allowed与bypass Allowed两处local assignment都应明确side_effect_approved=side_effecting_call；bypass executing也应与main一致仅针对实际local sideeffect，不能把readonly执行当不确定Host执行。
+- 对全plain readonly deny→bypass allow→readonly成功，本来没有Host执行/实际副作用；应保持known_unexecuted并精确恢复baseline，不能仅在final加requestedkind条件却永远保留新guard。
+- 对先前Unconfirmed→同readonly retry成功，observe的单调false保留unknown，不能restore或successclear。
+- 已校验匹配Host shell/typed成功是实际外部效果，仍保留原Host分支approved=true及末尾成功/commit清除合同；不能为了修readonly本地错误而用原requestedkind禁止所有Host成功。
+- 真正本地副作用（例如后续显式批准write或retry）成功，可以按既有全局reapproval合同恢复自动许可；它证明新的显式批准成功，不宣称早先未知效果已撤销。只读/Prompt批准本身不能取代该实际效果条件。
+
+以上区分已有side_effect_approved的归属即可，不新增通用状态机、parser分支或持久schema。全部false赋值/restore与local/Host/typed approved赋值需一并核对。
+
+## 其余完整生命周期核对
+
+三handoff都在checked emit前begin；local Allow的旧sideeffect预arm与RequireApproval新exposure arm已分流，未把临时true误当baseline。mandatory标志使用begin前旧flag计算。begin保存memory_before/checkpoint_before两bool，后续bypass get_or_insert复用最初baseline，beforewait/known位使unknown不能被单独deny覆盖。每次begin仍验证/rearm旧FD，写/身份失败在Host交付前返回；没有新后台owner或公共API。
+
+Prompt begin→wait observe→audit?→restore顺序对unknown/timeout/cancel早退保pending；正常bareallow/deny精确恢复，timeout文案已改unknown。工具主/bypass也在任何等待后audit之前拥有memory pending；恢复推迟到posthook及全部bypass之后。无审批readonly不变，本地readonly普通失败本身不新增pending。现有commit后清marker、retainedbind/Shutdown、fresh不可恢复/auto_persist=false resume规则没有本轮产品漂移。
+
+组件正常对照分别检查(false,false)/(true,true)/(false,true)，覆盖合法split；arm失败两新owner在输出无can_use_tool且无读取Host effect。真实integration在读到can_use_tool后直接作为Host写文件、不给回执并KILL，再真实resume/deny写入，准确覆盖读取前窗口；Core子进程RunningCore RAII、stdout reader随child关闭结束，HTTP fixture有超时并在正常路径join。没有新增父env修改；Prompt ask-once marker为绝对TempDir路径且只传Hook child env。此类测试归既有Core私有SessionRuntime或session_recovery owner合理，未扩大Shell测试/API规则。
+
+当前结论：v1仍有上述确定P1，不能推送为最终GREEN或解除Draft；待有效新RED、窄修及冻结后增量复审。本报告不代替root执行结果。
+
+## exposure-green-v2 最终增量复审
+
+v1→v2全树冻结manifest差集仅core.rs与headless/approval_exposure_tests.rs。已逐项核对v2快照与当前worktree全部1449文件SHA，无差异；manifest SHA=ea8ea8caf502707ed2cfb1f53af73443ea92c0d4bdaa3a98d74f5714ae918d70。root提供exposure-bypass-red.json确认v1生产list_directory重试后的实际覆写RED；本代理没有执行该用例。
+
+产品最窄修复三处：主local Allowed与bypass local Allowed的side_effect_approved均归side_effecting_call，bypass的executing与main一致仅对真实local sideeffect置位。没有新增flag或requestedkind笼统过滤全部Host成功。全部5个approved赋值已核：两个local有实际副作用条件，main HostShell、main typedCheckpoint、bypass HostShell保持经唯一parser/tool/profile验证后的true；唯一最终false清除仍要求已批准的实际效果成功，错误/unknown不能借readonly本地成功取得资格。
+
+恢复归属也已核：全plain readonly deny→bypass allow→listdir成功，known_unexecuted保持true、精确恢复最初memory/checkpoint；首帧Unconfirmed后同样重试成功，observe单调false、restore不生效且approved=false，保留pending。旧memory=true与memory=false/checkpoint=true split不被只读成功清除。真正显式批准的本地sideeffect或已验证Host/typed成功仍可按原全局重新批准合同在末尾/commit边界清除，不声称早先未知效果被回滚。主/bypass/Prompt其它交付、audit早退、timeout/cancel、prearm失败与读取前KILL保护继承上节已审实现。
+
+新反向/正向共用生产list_directory而非假只读tool，分别断言下一实际Auto write不能覆盖Host效果、以及全plain无新不确定性时正常Auto write可继续；它们独立命名不以单一if掩盖缺口。Prompt正常对照fixture补GenerateEvent::MessageEnd修复空MockProvider setup，原12状态断言未改。合计9项headless与2项真实KILL集成，未把内部12组合误写成24或顶层测试数。测试owner/RAII、无父env改变与既有恢复fixture边界保持。双语spec将actualeffect成功与plain非副作用snapshot恢复区分，与修复后实现一致。
+
+**exposure v2最终源码行为/简洁性/组织/安全复审未发现阻塞问题。此结论supersede本报告v1的readonly bypass成功清除P1阻断，旧finding与RED保留。** 未运行测试、编译、环境、Git或GitHub；root的strict/focused/full Core结果须绑定v2manifest，不以源码名green或本报告代替执行GREEN，不批准合并。
+
+## exposure-green-v3：真实KILL fixture合同修正复审
+
+v2→v3全部冻结文件比较仅tests/session_recovery/approval_exposure.rs变化，产品字节零变化；v3全部1449文件与快照/当前worktree SHA逐项匹配，manifest SHA=01ac3f5266325d017f44e954ea8b1679f52e56aaaf78cd29abd8b1c0b98d5d26。未执行测试、环境、Git或GitHub。
+
+已对照config.rs PartialHooksConfig的Serde rename：配置键必须为UserPromptSubmit/PreToolUse。旧v2 fixture使用snake_case，hook被忽略，两个KILL用例未到Host；此前只读审查虽认可其窗口意图，但遗漏了实际配置合同，这两次失败不能列作有效KILL验收或产品RED。v3只把fixture键改为真实配置合同，不改变产品或保护状态断言。
+
+Host到达仍要求10秒内收到真实can_use_tool；没有放宽到任意输出或零匹配。失约时主动kill并wait，再join stdout reader与stderr reader，输出status/全部已读frame/stderr后明确panic，不吞错误。正常路径仍在Host交付后实际写effect、不给回执并KILL，再真实resume要求审批且Host文件不被覆写；新增stderr无panic断言属于额外严格诊断。RunningCore既有Drop负责异常分支kill/wait；reader持有管道随child关闭退出，有限Hook命令与原有provider超时/正常join不新增无限后台owner。
+
+**v3该单文件fixture增量未发现阻塞问题，v2产品无阻断结论保持。** 原v2测试失约记录保留；v3精准KILL及后续full Core执行结果由root绑定本清单确认，本代理不代其宣称GREEN。

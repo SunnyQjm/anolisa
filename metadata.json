@@ -1,0 +1,280 @@
+{
+  "source_head": "e8deca3f6882f406c61a63992c50655c8393e06c",
+  "binary_sha256": "2a93ac623768e86f1cb7629758f6331993f164db1ba7deea956ed73fca865091",
+  "backend": "ALinux4 ARM64 container",
+  "agent": "deterministic; no real-model claim",
+  "cases": [
+    {
+      "id": "VISUAL-LOGIN-NORMAL",
+      "title": "登录资源正常",
+      "description": "资源来自当前 ALinux4 容器。",
+      "run_id": "20261111T190330Z-12cac0a4",
+      "points": [
+        {
+          "id": "login-banner",
+          "label": "登录首屏",
+          "png": "visual-login-normal-login-banner.png",
+          "webm": "visual-login-normal-login-banner.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-LOGIN-WARNING",
+      "title": "资源告警 · English",
+      "description": "固定异常样本，由实际 Cosh 渲染。",
+      "run_id": "20261111T190332Z-d874a0d2",
+      "points": [
+        {
+          "id": "login-banner",
+          "label": "登录首屏",
+          "png": "visual-login-warning-login-banner.png",
+          "webm": "visual-login-warning-login-banner.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-LOGIN-WARNING-ZH",
+      "title": "资源告警 · 中文",
+      "description": "同一检查与渲染基座，保留可复制的分析命令。",
+      "run_id": "20261111T190340Z-c5c76b15",
+      "points": [
+        {
+          "id": "login-banner",
+          "label": "登录首屏",
+          "png": "visual-login-warning-zh-login-banner.png",
+          "webm": "visual-login-warning-zh-login-banner.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-LOGIN-OOM",
+      "title": "近期 OOM · English",
+      "description": "固定 OOM 事件样本，检查严重事件主题与有界摘要。",
+      "run_id": "20261111T190334Z-dcaa2240",
+      "points": [
+        {
+          "id": "login-banner",
+          "label": "登录首屏",
+          "png": "visual-login-oom-login-banner.png",
+          "webm": "visual-login-oom-login-banner.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-LOGIN-OOM-ZH",
+      "title": "近期 OOM · 中文",
+      "description": "固定事件样本；没有在机器上制造真实 OOM。",
+      "run_id": "20261111T190342Z-f3ee3fa0",
+      "points": [
+        {
+          "id": "login-banner",
+          "label": "登录首屏",
+          "png": "visual-login-oom-zh-login-banner.png",
+          "webm": "visual-login-oom-zh-login-banner.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-COSH-ORDINARY",
+      "title": "直接进入 Cosh · English",
+      "description": "普通入口显示 Logo、欢迎与健康信息；退出返回 Bash。",
+      "run_id": "20261111T190336Z-9d3731cb",
+      "points": [
+        {
+          "id": "cosh-welcome",
+          "label": "Cosh 欢迎区",
+          "png": "visual-cosh-ordinary-cosh-welcome.png",
+          "webm": "visual-cosh-ordinary-cosh-welcome.webm"
+        },
+        {
+          "id": "return-bash",
+          "label": "返回 Bash",
+          "png": "visual-cosh-ordinary-return-bash.png",
+          "webm": "visual-cosh-ordinary-return-bash.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-COSH-ORDINARY-ZH",
+      "title": "直接进入 Cosh · 中文",
+      "description": "与英文采用相同结构和强调样式。",
+      "run_id": "20261111T190344Z-ce0b3437",
+      "points": [
+        {
+          "id": "cosh-welcome",
+          "label": "Cosh 欢迎区",
+          "png": "visual-cosh-ordinary-zh-cosh-welcome.png",
+          "webm": "visual-cosh-ordinary-zh-cosh-welcome.webm"
+        },
+        {
+          "id": "return-bash",
+          "label": "返回 Bash",
+          "png": "visual-cosh-ordinary-zh-return-bash.png",
+          "webm": "visual-cosh-ordinary-zh-return-bash.webm"
+        }
+      ]
+    },
+    {
+      "id": "VISUAL-HEALTH-ASK",
+      "title": "资源建议 → --ask → 返回 Bash",
+      "description": "显式提交问题；精简入口，不重复健康卡。",
+      "run_id": "20261111T190347Z-4b408118",
+      "points": [
+        {
+          "id": "banner-action",
+          "label": "资源建议",
+          "png": "visual-health-ask-banner-action.png",
+          "webm": "visual-health-ask-banner-action.webm"
+        },
+        {
+          "id": "ask-answer",
+          "label": "进入 Cosh 并回答",
+          "png": "visual-health-ask-ask-answer.png",
+          "webm": "visual-health-ask-ask-answer.webm"
+        },
+        {
+          "id": "return-bash",
+          "label": "返回 Bash",
+          "png": "visual-health-ask-return-bash.png",
+          "webm": "visual-health-ask-return-bash.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-ASK",
+      "title": "编译失败 → --ask → 返回原 Bash",
+      "description": "精确事件引用、原问题与同一父 Bash。",
+      "run_id": "20261111T190312Z-fd0f8ca8",
+      "points": [
+        {
+          "id": "failure-invitation",
+          "label": "失败邀请",
+          "png": "runtime-admission-ask-failure-invitation.png",
+          "webm": "runtime-admission-ask-failure-invitation.webm"
+        },
+        {
+          "id": "ask-answer",
+          "label": "进入 Cosh 并回答",
+          "png": "runtime-admission-ask-ask-answer.png",
+          "webm": "runtime-admission-ask-ask-answer.webm"
+        },
+        {
+          "id": "same-bash",
+          "label": "返回同一父 Bash",
+          "png": "runtime-admission-ask-same-bash.png",
+          "webm": "runtime-admission-ask-same-bash.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-EN-US-80",
+      "title": "失败邀请 · English 80 列",
+      "description": "实际 Cargo 编译错误；保留退出码。",
+      "run_id": "20261111T190304Z-af700312",
+      "points": [
+        {
+          "id": "failure-invitation",
+          "label": "失败邀请",
+          "png": "runtime-admission-en-us-80-failure-invitation.png",
+          "webm": "runtime-admission-en-us-80-failure-invitation.webm"
+        },
+        {
+          "id": "bash-preserved",
+          "label": "退出状态保持",
+          "png": "runtime-admission-en-us-80-bash-preserved.png",
+          "webm": "runtime-admission-en-us-80-bash-preserved.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-ZH-CN-40",
+      "title": "失败邀请 · 中文 40 列",
+      "description": "完整命令由终端自然折行。",
+      "run_id": "20261111T190308Z-2b6fdaa9",
+      "points": [
+        {
+          "id": "failure-invitation",
+          "label": "失败邀请",
+          "png": "runtime-admission-zh-cn-40-failure-invitation.png",
+          "webm": "runtime-admission-zh-cn-40-failure-invitation.webm"
+        },
+        {
+          "id": "bash-preserved",
+          "label": "退出状态保持",
+          "png": "runtime-admission-zh-cn-40-bash-preserved.png",
+          "webm": "runtime-admission-zh-cn-40-bash-preserved.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-USER-TRAP",
+      "title": "用户已有 ERR Hook",
+      "description": "用户配置优先；首屏资源展示独立生效。",
+      "run_id": "20261111T190320Z-b1acf36a",
+      "points": [
+        {
+          "id": "user-trap",
+          "label": "已有用户 trap",
+          "png": "runtime-admission-user-trap-user-trap.png",
+          "webm": "runtime-admission-user-trap-user-trap.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-USER-PROMPT",
+      "title": "用户占用提示符回调",
+      "description": "保留用户的数组槽位与回调。",
+      "run_id": "20261111T190322Z-f58b3d77",
+      "points": [
+        {
+          "id": "user-prompt",
+          "label": "用户提示符优先",
+          "png": "runtime-admission-user-prompt-user-prompt.png",
+          "webm": "runtime-admission-user-prompt-user-prompt.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-LATE-TRAP",
+      "title": "用户后续修改 Hook",
+      "description": "增强退让，保留用户 trap 与命令状态。",
+      "run_id": "20261111T190324Z-16047cbb",
+      "points": [
+        {
+          "id": "late-trap",
+          "label": "后续配置退让",
+          "png": "runtime-admission-late-trap-late-trap.png",
+          "webm": "runtime-admission-late-trap-late-trap.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-GUIDE-OFF",
+      "title": "关闭当前 Bash 引导",
+      "description": "真实执行 cosh guide off。",
+      "run_id": "20261111T190326Z-55eef872",
+      "points": [
+        {
+          "id": "guide-off",
+          "label": "立即关闭",
+          "png": "runtime-admission-guide-off-guide-off.png",
+          "webm": "runtime-admission-guide-off-guide-off.webm"
+        }
+      ]
+    },
+    {
+      "id": "RUNTIME-ADMISSION-PERSISTENT-OFF",
+      "title": "新登录仍保持关闭",
+      "description": "持久开关生效；重新开启偏好不抢装当前 Hook。",
+      "run_id": "20261111T190328Z-18881158",
+      "points": [
+        {
+          "id": "persistent-off",
+          "label": "跨登录关闭",
+          "png": "runtime-admission-persistent-off-persistent-off.png",
+          "webm": "runtime-admission-persistent-off-persistent-off.webm"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,621 @@
+{
+  "source_base": "f08f10ac4d2ef1aee4d665b78650e4e651d94e79",
+  "source_patch_sha256": "f3b748ab3e332b167bd08a4a60b44cec0a9a389426998e6334f0270368f01c7d",
+  "platform": "macOS arm64",
+  "rust": "1.96.0",
+  "exact_regressions": 4,
+  "environment_scenarios": 27,
+  "runs": [
+    {
+      "name": "fixed-model",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "config::tests::ecs_identity_model_is_fixed_without_changing_other_providers",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "project-persistence",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "registry::auth::trial_tests::ecs_builtin_project_model_cannot_become_a_persistent_user_choice",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "resume-cli-model",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_normalizes_legacy_session_and_cli_models_to_auto",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "switch-clean",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "switch-text-COSH_AI_PROVIDER",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_AI_PROVIDER",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-OPENAI_BASE_URL",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "OPENAI_BASE_URL",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-COSH_SYSOM_ENDPOINT",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_SYSOM_ENDPOINT",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-COSH_SYSOM_VPC_PROXY_HOST",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_SYSOM_VPC_PROXY_HOST",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-DASHSCOPE_API_KEY",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "DASHSCOPE_API_KEY",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-OPENAI_API_KEY",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "OPENAI_API_KEY",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-text-ALIBABA_CLOUD_SECURITY_TOKEN",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_SECURITY_TOKEN",
+      "value_kind": "text"
+    },
+    {
+      "name": "switch-empty-COSH_AI_PROVIDER",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_AI_PROVIDER",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-OPENAI_BASE_URL",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "OPENAI_BASE_URL",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-COSH_SYSOM_ENDPOINT",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_SYSOM_ENDPOINT",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-COSH_SYSOM_VPC_PROXY_HOST",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_SYSOM_VPC_PROXY_HOST",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-DASHSCOPE_API_KEY",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "DASHSCOPE_API_KEY",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-OPENAI_API_KEY",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "OPENAI_API_KEY",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-empty-ALIBABA_CLOUD_SECURITY_TOKEN",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_SECURITY_TOKEN",
+      "value_kind": "empty"
+    },
+    {
+      "name": "switch-nonunicode-COSH_AI_PROVIDER",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_AI_PROVIDER",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-OPENAI_BASE_URL",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "OPENAI_BASE_URL",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-COSH_SYSOM_ENDPOINT",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_SYSOM_ENDPOINT",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-COSH_SYSOM_VPC_PROXY_HOST",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "COSH_SYSOM_VPC_PROXY_HOST",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-DASHSCOPE_API_KEY",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "DASHSCOPE_API_KEY",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-OPENAI_API_KEY",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "OPENAI_API_KEY",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_ACCESS_KEY_ID",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_ACCESS_KEY_SECRET",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "switch-nonunicode-ALIBABA_CLOUD_SECURITY_TOKEN",
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "headless::trial::tests::trial_model_switch_cannot_change_automatic_access",
+        "--",
+        "--exact"
+      ],
+      "exit_code": 0,
+      "environment_key": "ALIBABA_CLOUD_SECURITY_TOKEN",
+      "value_kind": "nonunicode"
+    },
+    {
+      "name": "fmt",
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy-core",
+      "argv": [
+        "cargo",
+        "clippy",
+        "--locked",
+        "--offline",
+        "-p",
+        "cosh-core",
+        "--bin",
+        "cosh-core",
+        "--tests",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "note": "Scoped local checks only; not a Linux workspace or live model-answer acceptance."
+}

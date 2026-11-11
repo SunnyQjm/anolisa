@@ -1,0 +1,42 @@
+{
+  "fmt": {
+    "command": "cargo fmt --check",
+    "detail": null,
+    "ok": true
+  },
+  "tests": {
+    "command": "cargo test --locked --offline -p cosh-core --bin cosh-core headless::trial::tests::",
+    "detail": null,
+    "ok": true
+  },
+  "gates": [
+    {
+      "command": "bash -c scripts/check-source-layout.sh",
+      "detail": "scripts/check-source-layout.sh: line 18: declare: -A: invalid option\ndeclare: usage: declare [-afFirtx] [-p] [name[=value] ...]",
+      "ok": false
+    },
+    {
+      "command": "bash -c crates/cosh-shell/scripts/check-layout.sh",
+      "detail": null,
+      "ok": true
+    },
+    {
+      "command": "bash -c scripts/check-test-inventory.sh",
+      "detail": null,
+      "ok": true
+    }
+  ],
+  "commit_lint": [],
+  "upstream_drift": [],
+  "ok": false,
+  "clippy": {
+    "command": "cargo clippy --workspace --all-targets -- -D warnings",
+    "ok": false,
+    "reason": "macOS compile error E0425 in unchanged cosh-platform/src/checkpoint.rs:2056; spawn_silent_daemon is Linux-cfg only."
+  },
+  "workspace_tests": {
+    "command": "cargo test --workspace --locked --offline",
+    "ok": false,
+    "reason": "macOS compile error E0425 in unchanged cosh-platform/src/checkpoint.rs:2056; no full-workspace test pass."
+  }
+}

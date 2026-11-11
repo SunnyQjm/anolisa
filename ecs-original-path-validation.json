@@ -1,0 +1,523 @@
+{
+  "candidate_sha": "328a9fdd7b96e9592f9172f822fe6d7bdd9e13dd",
+  "source_archive_sha256": "39ab3eb6e0cec48861af5eb88d7c253d5cbf1c0884801be8433139cdd71f1d84",
+  "original_issue": "https://github.com/agentic-os-org/ANOLISA/issues/9840",
+  "scope": "Final-candidate real ECS activation, user-config persistence, neutral-directory registry reload and actual engine initialization",
+  "verdict": "Passed: 9/9 first-run complete chains",
+  "date_utc": "2026-11-11",
+  "backend": "ECS",
+  "os": "Alibaba Cloud Linux 4.0.7",
+  "arch": "x86_64",
+  "rust": "1.93.1",
+  "build_command": "cargo build --locked -p cosh-core -p cosh-shell --bins -j 6",
+  "build_exit_code": 0,
+  "lockfile_unchanged": true,
+  "binary_core": {
+    "sha256": "6da23422eb7be56dd856f60776438784cf7e81c1a2d8b907769f3a3c0d56eb87",
+    "size": 89015424
+  },
+  "core_loaded_processes": 27,
+  "loaded_inode_device_size_hash_match": true,
+  "core_start_end_identity_unchanged": true,
+  "fresh_home_per_case": true,
+  "model_sentinel": "qwen3.9-probe is copied from the original issue reproduction as a project-config test marker, not used for inference",
+  "cases": [
+    {
+      "scenario": "original-project",
+      "round": 1,
+      "project_config": "[ai]\nactive_model = \"qwen3.9-probe\"\nactive_provider = \"should-be-ignored\"\n\n[ai.providers.should-be-ignored]\ntype = \"dashscope\"\nmodel = \"should-be-ignored\"\n",
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": true,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "70383696d1ec995a55b2b88416651205e995122a6366ff1891f2c35e5f1452ed"
+      }
+    },
+    {
+      "scenario": "original-project",
+      "round": 2,
+      "project_config": "[ai]\nactive_model = \"qwen3.9-probe\"\nactive_provider = \"should-be-ignored\"\n\n[ai.providers.should-be-ignored]\ntype = \"dashscope\"\nmodel = \"should-be-ignored\"\n",
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": true,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "0ea3c8ffd09d16b7fe2ee2d726fad8836a23727a0d819e50e286c6491306cd8f"
+      }
+    },
+    {
+      "scenario": "original-project",
+      "round": 3,
+      "project_config": "[ai]\nactive_model = \"qwen3.9-probe\"\nactive_provider = \"should-be-ignored\"\n\n[ai.providers.should-be-ignored]\ntype = \"dashscope\"\nmodel = \"should-be-ignored\"\n",
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": true,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "299d65b13352201700df2a197c72a53e190c6ccc0a5847cd366bb5b381f1d809"
+      }
+    },
+    {
+      "scenario": "neutral-control",
+      "round": 1,
+      "project_config": null,
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": false,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "7043c5068e2a4efc2c17bb86973e23e8deb7d37b1442046806d14e4042fb011b"
+      }
+    },
+    {
+      "scenario": "neutral-control",
+      "round": 2,
+      "project_config": null,
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": false,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "d6b3f8d2f77542738557290e0275961b8ae04c0f0dbc04e57cc0d261682428d1"
+      }
+    },
+    {
+      "scenario": "neutral-control",
+      "round": 3,
+      "project_config": null,
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": false,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "0d84dda30fc5e0fa3d25dd02449a00f481fd4d5c21911a7c4ecc1b7a9068318f"
+      }
+    },
+    {
+      "scenario": "project-model-only",
+      "round": 1,
+      "project_config": "[ai]\nactive_model = \"qwen3.9-probe\"\n",
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": false,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "8e7f4e582231673324bed8c1086c8f361d610deea3e6e399ee3366c40cc62d39"
+      }
+    },
+    {
+      "scenario": "project-model-only",
+      "round": 2,
+      "project_config": "[ai]\nactive_model = \"qwen3.9-probe\"\n",
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": false,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "6eb3b870acdc25189db875aae09ac5a4ba16f5a70efb74e5add3e2841ff8ec3c"
+      }
+    },
+    {
+      "scenario": "project-model-only",
+      "round": 3,
+      "project_config": "[ai]\nactive_model = \"qwen3.9-probe\"\n",
+      "activation_payload": {
+        "type": "registry_request",
+        "request_id": "r1",
+        "domain": "auth",
+        "action": "activate_trial",
+        "params": null
+      },
+      "activation_response": {
+        "type": "registry_response",
+        "request_id": "r1",
+        "success": true,
+        "data": {
+          "active_provider": "ecs-free-trial",
+          "model": "auto",
+          "trial_preferences": {
+            "auto_use": true
+          }
+        }
+      },
+      "saved_user_config": "[ai]\nactive_provider = \"ecs-free-trial\"\nactive_model = \"auto\"\n\n[ai.providers.ecs-free-trial]\ntype = \"aliyun\"\nauth_source = \"ecs_identity\"\nmodel = \"auto\"\n\n",
+      "saved_config_sha256": "70d281cbb3334f3593820035aa23158a52ef3da00a67d66ca8776a8bc5823a82",
+      "models": {
+        "activation_returned": "auto",
+        "user_active_model": "auto",
+        "user_provider_model": "auto",
+        "neutral_reload_reported_provider_model": "auto",
+        "neutral_initialized_engine_model": "auto"
+      },
+      "neutral_reload_source": "user",
+      "neutral_project_config_absent": true,
+      "user_config_unchanged_after_both_reload_processes": true,
+      "loaded_core_matches_frozen": true,
+      "all_process_exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "only_env_names": [
+        "HOME",
+        "PATH"
+      ],
+      "project_provider_warnings_observed": false,
+      "raw_stdout_sha256": {
+        "activation": "056ff03aca193136d623fa89bb68d5439f3d4f1e236d125dba27d65ce5b14820",
+        "registry_reload": "b6f48a94f50f3cb607521c0e4a39b341efb69fe1959642f4d8778acb0d174a68",
+        "engine_reload": "ef99878d38eb433ce9e6461133142c5f1b6636ecee1eafff10cc96cb5c07ca56"
+      }
+    }
+  ],
+  "real_provider_request_started": 0,
+  "real_provider_request_completed": 0,
+  "headless_control_inputs": [
+    "initialize with fire_session_start=false",
+    "shutdown"
+  ],
+  "headless_bare_flag": false,
+  "real_auth_tui_test": false,
+  "transport": "User-authorized Cloud Assistant scheduling an ECS-local real PTY",
+  "driver_sha256": "d9cee5e3fc63469c3f6f3f4c4f9f325bfe5c3be35bb3c3c3ec173073c2cb8418",
+  "pty_dimensions": {
+    "rows": 36,
+    "columns": 110
+  },
+  "pty_child_exit_code": 0,
+  "visual_review": "All nine results and full Core hash visible, 1075x828 complete screenshot; CLI rendered original sanitized cast",
+  "cleanup": {
+    "status": "cleaned",
+    "remaining_instances": 0,
+    "independent_status": "Absent"
+  },
+  "native_canonical_aggregate": "Not claimed: manual registry-path verification, with an external render-only wrapper; no canonical YAML added to source",
+  "excluded": [
+    "Full workspace tests rerun",
+    "New model inference",
+    "Current-candidate /auth TUI rerun",
+    "RPM/release qualification",
+    "ARM64 qualification"
+  ]
+}

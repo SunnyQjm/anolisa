@@ -1,0 +1,68 @@
+{
+  "candidate_sha": "328a9fdd7b96e9592f9172f822fe6d7bdd9e13dd",
+  "source_archive_sha256": "39ab3eb6e0cec48861af5eb88d7c253d5cbf1c0884801be8433139cdd71f1d84",
+  "date_utc": "2026-11-11",
+  "backend": "ECS",
+  "os": "Alibaba Cloud Linux 4.0.7",
+  "architecture": "x86_64",
+  "rust": "1.93.1",
+  "build_command": "cargo build --locked -p cosh-core -p cosh-shell --bins -j 6",
+  "lock_unchanged": true,
+  "manual_real_answer": "passed",
+  "fresh_home_and_neutral_directory": true,
+  "user_project_system_config_absent_before": true,
+  "provider_model_endpoint_credential_env_absent": true,
+  "auth_command_used": false,
+  "real_user_question_submissions": 1,
+  "provider": {
+    "provider": "aliyun",
+    "model": "auto",
+    "duration_ms": 1956,
+    "input_tokens": 3264,
+    "output_tokens": 18,
+    "finish_category": "completed"
+  },
+  "assistant_exact_nonce": true,
+  "nonce": "ISSUE9840_AUTO_GRAY_dba8ae5b157c",
+  "binaries": {
+    "shell": {
+      "sha256": "64f9dede21b28ee3a50f275523e67eabe7dc53472b446731173c972b78ac87b3",
+      "size": 32742416
+    },
+    "core": {
+      "sha256": "790f75cd7e45742239f9ab815384c5545bd575d466a839c507331ca076dc5906",
+      "size": 89003136
+    }
+  },
+  "loaded_inode_device_size_hash_match": true,
+  "start_end_binary_identity_unchanged": true,
+  "transport": "User-authorized Cloud Assistant scheduling an ECS-local real PTY",
+  "dimensions": {
+    "columns": 110,
+    "rows": 30
+  },
+  "cast_sha256": "5f8b2ebfa428c26e314106c8a282e0bae600ae158f3e1abd4530f94f6dcc20ee",
+  "screenshot_sha256": "a797291c7215ab4ec59e6b3980dffa0ef856293365fe45d4d829bb941774ddd5",
+  "webm_sha256": "0a550bd3e62e4cbb911afe136ff0731f28fa5d819eb46eb9b74fc95b48abafea",
+  "response_offset_ms": 2142,
+  "visual_inspection": "Full terminal, question and actual Agent nonce visible; no clipping or credentials",
+  "cleanup": {
+    "state": "cleaned",
+    "remaining_instances": 0,
+    "independent_status": "Absent"
+  },
+  "collector_gap": {
+    "original_request_terminal": false,
+    "original_wait_status": 15,
+    "reason": "Driver read *.jsonl but live audit used *.jsonl.active; the one provider request completed successfully at 1.956 seconds. A read-only supplementary audit collection proved completion without replay. The driver later reached its 360-second watchdog. Original result is preserved."
+  },
+  "native_canonical_aggregate": "Blocked: no canonical case/registry proof for this flow; manual real-service functional evidence is separate. Render-only wrapper is not a native acceptance run.",
+  "auth_source_evidence": "Inferred from absent explicit provider configuration/environment, live IMDSv2 and role checks, and current source identity path; provider audit has no auth_source field.",
+  "excluded": [
+    "RPM/release acceptance",
+    "Complete ARM64 validation",
+    "Current-candidate /auth other-provider PTY rerun",
+    "Full workspace test rerun",
+    "Exact request-to-gray-Pod attribution"
+  ]
+}

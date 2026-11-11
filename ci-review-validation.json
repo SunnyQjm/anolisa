@@ -1,0 +1,50 @@
+{
+  "head": "328a9fdd7b96e9592f9172f822fe6d7bdd9e13dd",
+  "code_changes_in_review_handling": false,
+  "review": {
+    "login": "kongche-jbw",
+    "state": "APPROVED",
+    "actionable_inline_findings": 0,
+    "corrected_reported_environment": "Linux aarch64, Rust/Cargo 1.97.1",
+    "reported_core_checks": 37,
+    "reported_readonly_shell_checks": 18,
+    "source": "https://github.com/agentic-os-org/ANOLISA/pull/9885#pullrequestreview-5855146039"
+  },
+  "verified_ci": {
+    "platform": "Linux x86_64",
+    "fast_checks": "SUCCESS",
+    "workspace_clippy": "SUCCESS",
+    "process_integration": "SUCCESS",
+    "shell_host_integration": "SUCCESS",
+    "release_workspace_build": "SUCCESS",
+    "release_rust": "1.88.0",
+    "raw_cli_initial": {
+      "passed": 644,
+      "failed": 1,
+      "ignored": 1,
+      "test": "evidence_request::raw_cli_fallback_debug_session_reports_fenced_request_access",
+      "symptom": "/debug session executed by Bash; process exit 127",
+      "url": "https://github.com/agentic-os-org/ANOLISA/actions/runs/42977201419/job/130379565514"
+    },
+    "raw_cli_retry": {
+      "status": "SUCCESS",
+      "url": "https://github.com/agentic-os-org/ANOLISA/actions/runs/42977201419/job/130385312695",
+      "code_changed": false,
+      "passed": 645,
+      "failed": 0,
+      "ignored": 1
+    },
+    "all_current_checks_completed_without_failure": true,
+    "classification": "Initial failure retained; unchanged-head retry passed. Exact cause remains unproven; not classified as proven flaky."
+  },
+  "local_baseline_comparison": {
+    "platform": "macOS arm64",
+    "baseline": "5474d8af4947461411c7360ecf10da2d5bc683cc",
+    "rebuilt_baseline_manifest_verified": true,
+    "pr_exact_exit_code": 101,
+    "baseline_exact_exit_code": 101,
+    "symptom": "missing evidence access header",
+    "limit": "Different failure manifestation from Linux CI; not proof of a shared root cause or a completed fix."
+  },
+  "remaining_acceptance": "Final-candidate ECS default auto real-answer acceptance remains unresolved."
+}

@@ -1,0 +1,187 @@
+{
+  "execution": "deterministic",
+  "binary": "/tmp/cosh-linux-preflight/diagnostics-v2/cosh-shell",
+  "binary_sha256": "93b72246933fc681a4d4d1c2d1fcca8c82ae688f859aad6fa96559ddf9689888",
+  "journalctl_restored": true,
+  "df_restored": true,
+  "oom": [
+    {
+      "case": "signals",
+      "passed": true,
+      "kernel_facts": {
+        "kernel.oom_latest_age_seconds": 30,
+        "kernel.oom_killed_process": "worker",
+        "kernel.oom_latest_pid": 123,
+        "kernel.oom_latest_constraint": "CONSTRAINT_MEMCG",
+        "kernel.oom_latest_scope_label_id": "memcg",
+        "kernel.oom_latest_task_cgroup": "/test",
+        "kernel.oom_latest_oom_cgroup": "/test",
+        "kernel.oom_event_count_last_1h": 1,
+        "kernel.oom_event_count_last_24h": 1,
+        "kernel.oom_latest_source_line_count": 2,
+        "kernel.oom_latest_confidence": "high",
+        "kernel.panic_recent": true,
+        "kernel.log_source": "journalctl"
+      },
+      "unavailable": [],
+      "checks_done": [
+        "config",
+        "cpu",
+        "disk",
+        "hooks",
+        "host",
+        "kernel_signal",
+        "memory",
+        "permissions",
+        "provider",
+        "pty",
+        "swap"
+      ]
+    },
+    {
+      "case": "empty",
+      "passed": true,
+      "kernel_facts": {
+        "kernel.panic_recent": false,
+        "kernel.log_source": "journalctl"
+      },
+      "unavailable": [],
+      "checks_done": [
+        "config",
+        "cpu",
+        "disk",
+        "hooks",
+        "host",
+        "kernel_signal",
+        "memory",
+        "permissions",
+        "provider",
+        "pty",
+        "swap"
+      ]
+    },
+    {
+      "case": "oversized",
+      "passed": true,
+      "kernel_facts": {},
+      "unavailable": [
+        {
+          "collector": "kernel_signal",
+          "elapsed_ms": 13,
+          "reason": "parse_error",
+          "severity": "unavailable"
+        }
+      ],
+      "checks_done": [
+        "config",
+        "cpu",
+        "disk",
+        "hooks",
+        "host",
+        "memory",
+        "permissions",
+        "provider",
+        "pty",
+        "swap"
+      ]
+    },
+    {
+      "case": "failure",
+      "passed": true,
+      "kernel_facts": {},
+      "unavailable": [
+        {
+          "collector": "kernel_signal",
+          "elapsed_ms": 10,
+          "reason": "permission_denied",
+          "severity": "unavailable"
+        }
+      ],
+      "checks_done": [
+        "config",
+        "cpu",
+        "disk",
+        "hooks",
+        "host",
+        "memory",
+        "permissions",
+        "provider",
+        "pty",
+        "swap"
+      ]
+    }
+  ],
+  "filesystem": [
+    {
+      "case": "low-small",
+      "passed": true,
+      "findings": []
+    },
+    {
+      "case": "high-efi",
+      "passed": true,
+      "findings": [
+        {
+          "category": "anomaly",
+          "detail_args": {
+            "mount": "/boot/efi"
+          },
+          "evidence_fact_ids": [
+            "filesystem.mount./boot/efi.path",
+            "filesystem.mount./boot/efi.used_ratio",
+            "filesystem.mount./boot/efi.available_gib"
+          ],
+          "id": "J09:/boot/efi",
+          "severity": "critical",
+          "suggested_try_ids": [
+            "T04:J09:/boot/efi"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "critical-efi",
+      "passed": true,
+      "findings": [
+        {
+          "category": "anomaly",
+          "detail_args": {
+            "mount": "/boot/efi"
+          },
+          "evidence_fact_ids": [
+            "filesystem.mount./boot/efi.path",
+            "filesystem.mount./boot/efi.used_ratio",
+            "filesystem.mount./boot/efi.available_gib"
+          ],
+          "id": "J09:/boot/efi",
+          "severity": "critical",
+          "suggested_try_ids": [
+            "T04:J09:/boot/efi"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "root-custom",
+      "passed": true,
+      "findings": [
+        {
+          "category": "anomaly",
+          "detail_args": {
+            "mount": "/"
+          },
+          "evidence_fact_ids": [
+            "filesystem.mount./.path",
+            "filesystem.mount./.used_ratio",
+            "filesystem.mount./.available_gib"
+          ],
+          "id": "J09",
+          "severity": "critical",
+          "suggested_try_ids": [
+            "T04:J09"
+          ]
+        }
+      ]
+    }
+  ]
+}

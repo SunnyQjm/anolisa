@@ -1,0 +1,9 @@
+{"version":2,"width":104,"height":26,"timestamp":1794498161}
+[0.274054,"o","\u001b[?25l\u001b[?25h"]
+[0.364686,"o","\u001b[?25l\u001b[?25h"]
+[0.437191,"o","\u001b[?2004hUI_READY> "]
+[0.437792,"o","printf '\\033[2J\\033[H'; env COSH_9978_DISPOSABLE_CONTAINER=1 python3 /tmp/diagnostics-replay.py /tmp/cosh-diagnostics-after-canonical; printf '\\x44IAG_DONE\\n'\r\r\n\u001b[?2004l\r\u001b[2J\u001b[H"]
+[0.947054,"o","Current binary: 93b72246933fc681a4d4d1c2d1fcca8c82ae688f859aad6fa96559ddf9689888\r\r\nDeterministic replay; no real OOM injection\r\r\nOOM signals: PASS\r\r\nOOM empty: PASS\r\r\nOOM oversized: PASS\r\r\nOOM failure: PASS\r\r\nFilesystem low-small: PASS\r\r\nFilesystem high-efi: PASS\r\r\nFilesystem critical-efi: PASS\r\r\nFilesystem root-custom: PASS\r\r\njournalctl/df restored and SHA256 verified\r\r\n8 deterministic cases passed\r\r\n"]
+[0.950392,"o","DIAG_DONE\r\r\n\u001b[?2004hUI_READY> "]
+[1.35942,"o","exit\r\r\n\u001b[?2004l\rexit\r\r\n"]
+[1.367538,"o","\u001b[?25l\u001b[?25h"]

@@ -1,0 +1,11 @@
+{
+  "pr_head": "be55f8e3e3d8d578093dcea68936a7288ff66c99",
+  "component_tree": "0c7f006577d47e1175dc80bd88386d03b7dc0482",
+  "rpm_sha256": "788e41b04da8b82e965557b144ac2d6b3bcb7c8c4358d22c39b33ce8ecac82fd",
+  "scope": "Combined candidate includes PRs 9998,9999,10000,10001. Diagnostics kernel/rules files match PR9999. Native PR-only preflight and combined collector 24 are separate evidence.",
+  "real_oom_injections": 1,
+  "event_count_1h": 1,
+  "event_count_24h": 1,
+  "pid": 105618,
+  "includes_provider_acceptance": false
+}

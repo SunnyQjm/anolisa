@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "suite": "diagnostics-current-binary",
+  "defaults": {
+    "execution": "ci",
+    "adapter": "cosh-core",
+    "real_provider": false,
+    "shell": "bash",
+    "shell_mode": "isolated",
+    "render": "terminal",
+    "timeout_ms": 180000,
+    "terminal_cols": 104,
+    "terminal_rows": 26,
+    "command": [
+      "bash",
+      "-lc",
+      "task_home=$(mktemp -d /tmp/cosh-ui-home.XXXXXX); trap 'rm -rf \"$task_home\"' EXIT; mkdir -m 700 \"$task_home/runtime\"; env HOME=\"$task_home\" XDG_RUNTIME_DIR=\"$task_home/runtime\" PS1=\"UI_READY> \" TERM=xterm-256color LANG=C.UTF-8 LC_ALL=C.UTF-8 bash --noprofile --norc -i"
+    ]
+  },
+  "cases": [
+    {
+      "id": "HEALTH-DIAGNOSTICS-DETERMINISTIC",
+      "title": "Current binary preserves bounded OOM evidence and filesystem pressure boundaries",
+      "tags": [
+        "health",
+        "issue-9978",
+        "issue-9981",
+        "deterministic"
+      ],
+      "input": [
+        {
+          "type": "wait_for",
+          "text": "UI_READY> ",
+          "timeout_ms": 10000
+        },
+        {
+          "type": "line",
+          "text": "printf '\\033[2J\\033[H'; env COSH_9978_DISPOSABLE_CONTAINER=1 python3 /tmp/diagnostics-replay.py /tmp/cosh-diagnostics-after-canonical; printf '\\x44IAG_DONE\\n'"
+        },
+        {
+          "type": "wait_for",
+          "text": "DIAG_DONE",
+          "timeout_ms": 150000
+        },
+        {
+          "id": "results",
+          "type": "wait_quiet",
+          "quiet_ms": 400,
+          "timeout_ms": 3000
+        },
+        {
+          "type": "line",
+          "text": "exit"
+        }
+      ],
+      "expect": {
+        "status": 0,
+        "contains": [
+          "Deterministic replay; no real OOM injection",
+          "8 deterministic cases passed",
+          "journalctl/df restored and SHA256 verified",
+          "DIAG_DONE"
+        ]
+      },
+      "evidence": {
+        "points": [
+          {
+            "id": "results",
+            "trigger_event": "results",
+            "layout_sensitive": true,
+            "required_types": [
+              "screenshot"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

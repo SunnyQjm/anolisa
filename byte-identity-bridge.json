@@ -1,0 +1,10 @@
+{
+  "current_source_head": "79435af43753138e494c9e95102df2dbd82b5197",
+  "current_source_patch_sha256": "fae2e93cc8695b879c8943dae573c9711954348df2ee965d870757db87e2f242",
+  "fresh_unique_target": "/tmp/cosh-linux-preflight/diagnostics-target-1.93",
+  "fresh_shipping_build_command": "cargo build --locked --package cosh-shell --bin cosh-shell",
+  "fresh_binary_sha256": "93b72246933fc681a4d4d1c2d1fcca8c82ae688f859aad6fa96559ddf9689888",
+  "observed_eight_case_binary_sha256": "93b72246933fc681a4d4d1c2d1fcca8c82ae688f859aad6fa96559ddf9689888",
+  "byte_identical": true,
+  "note": "Fresh unique-target build establishes provenance for the identical bytes previously exercised by the eight deterministic cases and scripted PTY. A second replay is pending environment recovery; it is not claimed run."
+}

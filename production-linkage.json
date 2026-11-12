@@ -1,0 +1,19 @@
+{
+  "binary_sha256": "93b72246933fc681a4d4d1c2d1fcca8c82ae688f859aad6fa96559ddf9689888",
+  "base": "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+  "note": "Only private test organization changed after the evidenced build; all changed production blobs match that build tree.",
+  "production_blobs": [
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/collectors/kernel.rs",
+      "binary_build_tree_blob": "a7fa290511ecfea49f1befa59dd6d54e8027eaa6",
+      "current_blob": "a7fa290511ecfea49f1befa59dd6d54e8027eaa6",
+      "identical": true
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/rules.rs",
+      "binary_build_tree_blob": "ab40dc8132217df42d4aaaed1179ed34e904fefd",
+      "current_blob": "ab40dc8132217df42d4aaaed1179ed34e904fefd",
+      "identical": true
+    }
+  ]
+}

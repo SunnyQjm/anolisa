@@ -1,0 +1,9 @@
+# Health diagnostic evidence — isolated-build correction
+
+Earlier shared-target final-green/source-provenance claims were withdrawn when cross-worktree cache contamination was found. Those raw records remain preserved. Final revalidation now uses a fresh unique Cargo target and explicitly builds the production cosh-shell binary from the exact PR source snapshot, pinned in isolated-build-receipt.json. Strict Rust 1.93.0 preflight, full unit/logic, and inventory all passed; overlap is 693 with zero new duplicate test registrations.
+
+The fresh shipping binary SHA256 is 93b72246933fc681a4d4d1c2d1fcca8c82ae688f859aad6fa96559ddf9689888. It is byte-identical to the actual binary previously recorded in after-manifest.json and in the real PTY screenshot. This establishes a cryptographic identity bridge between the independently rebuilt current source and the previously observed eight deterministic cases; see byte-identity-bridge.json. An additional replay against the new path was prepared but is not claimed executed while the guest filesystem is read-only after host ENOSPC.
+
+Before screenshots/casts are actual ALinux4 x86_64 cosh-ng 0.29.1-1.alnx4. After is ALinux4 arm64 deterministic black-box process and scripted PTY evidence, not a real OOM injection, provider acceptance or released-image qualification. The eight cases cover noisy kernel signals, empty results, oversized logs, permission errors, low-use small mounts, high-use EFI, explicitly critical EFI and root with customized critical mounts. System command fixtures were restored and independently read back before the later filesystem incident.
+
+Original screenshot and WebM were derived from the sanitized actual PTY cast. Fixture inputs and full case facts are included. No asset or temporary canonical file is committed to the product branch.

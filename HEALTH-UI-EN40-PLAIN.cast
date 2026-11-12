@@ -1,0 +1,10 @@
+{"version":2,"width":44,"height":22,"timestamp":1794496927}
+[1.177433,"o","\u001b[?25l\u001b[?25h"]
+[1.594683,"o","\u001b[?25l\u001b[?25h"]
+[2.022624,"o","\u001b[?2004hUI_READY> "]
+[2.023577,"o","printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=en-US COSH_SHELL_WIDTH=40 NO_COLOR=1 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_PLAIN\\n'\r\r\n\u001b[?2004l\r\u001b[2J\u001b[H"]
+[2.037218,"o","Health check\r\r\n  some checks incomplete\r\r\n  Load  1m 0.1 / 5 cores (0.0x)\r\r\n  Memory  used 2%\r\r\n          11.6 GiB available / 11.8\r\r\n          GiB\r\r\n  Disk  / used 1%\r\r\n        501.8 GiB available\r\r\n  Type cosh to ask AI\r\r\n  Type cosh guide for help\r\r\n\r\r\n"]
+[2.039184,"o","UI_DONE_PLAIN\r\r\n\u001b[?2004hUI_READY> "]
+[2.476167,"o","exit\r\r\n\u001b[?2004l\r"]
+[2.476882,"o","exit\r\r\n"]
+[2.493325,"o","\u001b[?25l\u001b[?25h"]

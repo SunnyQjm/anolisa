@@ -1,0 +1,9 @@
+{"version":2,"width":44,"height":22,"timestamp":1794496930}
+[1.145998,"o","\u001b[?25l\u001b[?25h"]
+[1.559046,"o","\u001b[?25l\u001b[?25h"]
+[1.992346,"o","\u001b[?2004hUI_READY> "]
+[1.994428,"o","printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=zh-CN COSH_SHELL_WIDTH=40 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_COLOR\\n'\r\r\n\u001b[?2004l\r\u001b[2J\u001b[H"]
+[2.006518,"o","\u001b[0;37m╭\u001b[0;1m─ 健康检查: \u001b[0;1;37m部分检查未完成 \u001b[0;37m───────────╮\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1m负载  \u001b[0m1分钟 0.1 / 5核（0.0倍）       \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1m内存  \u001b[0m已用 2%                        \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m       可用 11.6 GiB / 11.8 GiB       \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1m磁盘  \u001b[0m/ 已用 1% (可用 501.8 GiB)     \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;37m输入 \u001b[0;1;36mcosh\u001b[0;37m 开始 AI 问答\u001b[0m               \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;37m输入 \u001b[0;1;36mcosh guide\u001b[0;37m 查看用法\u001b[0m             \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m╰──────────────────────────────────────╯\u001b[0m\r\r\n\r\r\n"]
+[2.009892,"o","UI_DONE_COLOR\r\r\n\u001b[?2004hUI_READY> "]
+[2.457245,"o","exit\r\r\n\u001b[?2004l\rexit\r\r\n"]
+[2.472553,"o","\u001b[?25l\u001b[?25h"]

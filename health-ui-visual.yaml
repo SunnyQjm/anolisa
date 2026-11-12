@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "suite": "health-ui-visual",
+  "defaults": {
+    "execution": "ci",
+    "adapter": "cosh-core",
+    "real_provider": false,
+    "shell": "bash",
+    "shell_mode": "isolated",
+    "render": "terminal",
+    "timeout_ms": 30000,
+    "terminal_cols": 44,
+    "terminal_rows": 22,
+    "command": [
+      "bash",
+      "-lc",
+      "task_home=$(mktemp -d /tmp/cosh-ui-home.XXXXXX); trap 'rm -rf \"$task_home\"' EXIT; mkdir -m 700 \"$task_home/runtime\"; env HOME=\"$task_home\" XDG_RUNTIME_DIR=\"$task_home/runtime\" PS1=\"UI_READY> \" TERM=xterm-256color LANG=C.UTF-8 LC_ALL=C.UTF-8 bash --noprofile --norc -i"
+    ]
+  },
+  "cases": [
+    {
+      "id": "HEALTH-UI-EN40-COLOR",
+      "title": "en-US health banner at 40 columns with and without color",
+      "tags": [
+        "health",
+        "visual",
+        "issue-9980",
+        "issue-9984"
+      ],
+      "input": [
+        {
+          "type": "wait_for",
+          "text": "UI_READY> ",
+          "timeout_ms": 10000
+        },
+        {
+          "type": "line",
+          "text": "printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=en-US COSH_SHELL_WIDTH=40 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_COLOR\\n'"
+        },
+        {
+          "type": "wait_for",
+          "text": "UI_DONE_COLOR",
+          "timeout_ms": 10000
+        },
+        {
+          "id": "color",
+          "type": "wait_quiet",
+          "quiet_ms": 400,
+          "timeout_ms": 3000
+        },
+        {
+          "type": "line",
+          "text": "exit"
+        }
+      ],
+      "expect": {
+        "status": 0,
+        "contains": [
+          "Health check",
+          "UI_DONE_COLOR",
+          "some checks incomplete",
+          "Memory",
+          "Disk"
+        ]
+      },
+      "evidence": {
+        "points": [
+          {
+            "id": "color",
+            "trigger_event": "color",
+            "layout_sensitive": true,
+            "required_types": [
+              "screenshot"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HEALTH-UI-EN40-PLAIN",
+      "title": "en-US health banner at 40 columns with and without color",
+      "tags": [
+        "health",
+        "visual",
+        "issue-9980",
+        "issue-9984"
+      ],
+      "input": [
+        {
+          "type": "wait_for",
+          "text": "UI_READY> ",
+          "timeout_ms": 10000
+        },
+        {
+          "type": "line",
+          "text": "printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=en-US COSH_SHELL_WIDTH=40 NO_COLOR=1 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_PLAIN\\n'"
+        },
+        {
+          "type": "wait_for",
+          "text": "UI_DONE_PLAIN",
+          "timeout_ms": 10000
+        },
+        {
+          "id": "plain",
+          "type": "wait_quiet",
+          "quiet_ms": 400,
+          "timeout_ms": 3000
+        },
+        {
+          "type": "line",
+          "text": "exit"
+        }
+      ],
+      "expect": {
+        "status": 0,
+        "contains": [
+          "Health check",
+          "UI_DONE_PLAIN",
+          "some checks incomplete",
+          "Memory",
+          "Disk"
+        ]
+      },
+      "evidence": {
+        "points": [
+          {
+            "id": "plain",
+            "trigger_event": "plain",
+            "layout_sensitive": true,
+            "required_types": [
+              "screenshot"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HEALTH-UI-ZH40-COLOR",
+      "title": "zh-CN health banner at 40 columns with and without color",
+      "tags": [
+        "health",
+        "visual",
+        "issue-9980",
+        "issue-9984"
+      ],
+      "input": [
+        {
+          "type": "wait_for",
+          "text": "UI_READY> ",
+          "timeout_ms": 10000
+        },
+        {
+          "type": "line",
+          "text": "printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=zh-CN COSH_SHELL_WIDTH=40 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_COLOR\\n'"
+        },
+        {
+          "type": "wait_for",
+          "text": "UI_DONE_COLOR",
+          "timeout_ms": 10000
+        },
+        {
+          "id": "color",
+          "type": "wait_quiet",
+          "quiet_ms": 400,
+          "timeout_ms": 3000
+        },
+        {
+          "type": "line",
+          "text": "exit"
+        }
+      ],
+      "expect": {
+        "status": 0,
+        "contains": [
+          "健康检查",
+          "UI_DONE_COLOR",
+          "部分检查未完成",
+          "内存",
+          "磁盘"
+        ]
+      },
+      "evidence": {
+        "points": [
+          {
+            "id": "color",
+            "trigger_event": "color",
+            "layout_sensitive": true,
+            "required_types": [
+              "screenshot"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HEALTH-UI-ZH40-PLAIN",
+      "title": "zh-CN health banner at 40 columns with and without color",
+      "tags": [
+        "health",
+        "visual",
+        "issue-9980",
+        "issue-9984"
+      ],
+      "input": [
+        {
+          "type": "wait_for",
+          "text": "UI_READY> ",
+          "timeout_ms": 10000
+        },
+        {
+          "type": "line",
+          "text": "printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=zh-CN COSH_SHELL_WIDTH=40 NO_COLOR=1 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_PLAIN\\n'"
+        },
+        {
+          "type": "wait_for",
+          "text": "UI_DONE_PLAIN",
+          "timeout_ms": 10000
+        },
+        {
+          "id": "plain",
+          "type": "wait_quiet",
+          "quiet_ms": 400,
+          "timeout_ms": 3000
+        },
+        {
+          "type": "line",
+          "text": "exit"
+        }
+      ],
+      "expect": {
+        "status": 0,
+        "contains": [
+          "健康检查",
+          "UI_DONE_PLAIN",
+          "部分检查未完成",
+          "内存",
+          "磁盘"
+        ]
+      },
+      "evidence": {
+        "points": [
+          {
+            "id": "plain",
+            "trigger_event": "plain",
+            "layout_sensitive": true,
+            "required_types": [
+              "screenshot"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

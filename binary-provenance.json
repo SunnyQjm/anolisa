@@ -1,0 +1,21 @@
+{
+  "base": "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+  "patch_sha256": "901bd0683aee11768e5061e3e60cfff815459d79a3bc42881f9e2142cd663c87",
+  "binary_sha256": "5b4e3ed75040a329f4c6bafee26572e77c0881bdf263459fe4713f08bfa73697",
+  "backend": "container",
+  "os": "Alibaba Cloud Linux 4",
+  "architecture": "aarch64",
+  "render_width": 40,
+  "pty_columns": 44,
+  "pty_rows": 22,
+  "claim": "scripted-pty development UI acceptance; no provider or release claim",
+  "source_hashes": {
+    "health.rs": "5dfcbd16e7fecd3017d7153c99ac2b19f2b8e15143cc8cbbcb759d1145906bec",
+    "health/layout.rs": "bbcc26728fae4a3bf16a6c738d24fa9c8b343c54494d3cbdef9756a77726110e",
+    "health/tests.rs": "17428cc596fceafe00122aee652f75a4d6943d9ab1f8e7a96896e5393e32e469"
+  },
+  "source_commit": "ecb53aed5a4107da9adce1951c03f4d897335a05",
+  "production_equivalent_head": "13f7a5079807b3185946943cca7b0905ffba9f2d",
+  "post_capture_change": "Only cfg(test) health/tests.rs registration grouping changed; all production files remain byte-identical to the captured source.",
+  "current_test_source_sha256": "29058bcebc3a963783a389a92dfe9e5b878a386fa1380cb120851f22092aaf22"
+}

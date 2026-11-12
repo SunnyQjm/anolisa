@@ -1,0 +1,115 @@
+{
+  "environment_run_id": "20261112T124442Z-595ed794",
+  "backend": "ALinux4 arm64 container",
+  "rust_toolchain": "1.93.0",
+  "cargo_target_dir": "/tmp/cosh-linux-preflight/ui-target-1.93",
+  "unique_target": true,
+  "source_repo": "/tmp/cosh-linux-preflight/ui/baseline-cabcfe2",
+  "base": "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+  "host_commit": "13f7a5079807b3185946943cca7b0905ffba9f2d",
+  "full_index_patch_sha256": "89c9db257e7725e886e71a723e507bb93ee31a449a343c209f0360fce28ff466",
+  "snapshot_matches_host": true,
+  "shipping_build_command": "cargo build --locked --package cosh-shell --bin cosh-shell",
+  "build_preflight_data_ok": true,
+  "binary_sha256": "a4e7c3c193b80460b34b0f6d3d0df5f2f889a1e4605216100180bac877d2506b",
+  "results": {
+    "health": {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--lib",
+        "--bins",
+        "ui::agent_render::health::",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "test_results": [
+        "test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 1857 filtered out; finished in 0.02s",
+        "test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 3289 filtered out; finished in 0.03s"
+      ]
+    },
+    "logic": {
+      "command": [
+        "cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "logic",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "test_results": [
+        "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.14s"
+      ]
+    }
+  },
+  "test_elf_helpers": {
+    "binaries": [
+      {
+        "binary": "/tmp/cosh-linux-preflight/ui-target-1.93/debug/deps/cosh_shell-121288f5e11a0436",
+        "binary_sha256": "7f7b5aa1553f883e9851df0c81236a1e3fbe96dfaa0488d0d0587b21b50198cb",
+        "nm_exit_code": 0,
+        "defined_helpers": {
+          "assert_health_card_status_appears_once_at_compact_and_wide_widths": [
+            "00000000005e1370 t cosh_shell::ui::agent_render::health::tests::assert_health_card_status_appears_once_at_compact_and_wide_widths",
+            "000000000092fb6c t cosh_shell::ui::agent_render::health::tests::assert_health_card_status_appears_once_at_compact_and_wide_widths::{{closure}}"
+          ],
+          "assert_plain_health_card_status_appears_once_at_compact_and_wide_widths": [
+            "00000000005e36b8 t cosh_shell::ui::agent_render::health::tests::assert_plain_health_card_status_appears_once_at_compact_and_wide_widths",
+            "000000000092fcd4 t cosh_shell::ui::agent_render::health::tests::assert_plain_health_card_status_appears_once_at_compact_and_wide_widths::{{closure}}"
+          ],
+          "assert_health_card_keeps_status_for_findings_with_and_without_resource_facts": [
+            "00000000005e53b0 t cosh_shell::ui::agent_render::health::tests::assert_health_card_keeps_status_for_findings_with_and_without_resource_facts"
+          ]
+        },
+        "all_helpers_defined": true
+      },
+      {
+        "binary": "/tmp/cosh-linux-preflight/ui-target-1.93/debug/deps/cosh_shell-bbe6f879e3a59204",
+        "binary_sha256": "c3c648a71ad5aa18878bfb427066a21b2b7627669a64aef61b595c4e4eeac05a",
+        "nm_exit_code": 0,
+        "defined_helpers": {
+          "assert_health_card_status_appears_once_at_compact_and_wide_widths": [
+            "000000000102bcd4 t cosh_shell::ui::agent_render::health::tests::assert_health_card_status_appears_once_at_compact_and_wide_widths",
+            "000000000149ffb4 t cosh_shell::ui::agent_render::health::tests::assert_health_card_status_appears_once_at_compact_and_wide_widths::{{closure}}"
+          ],
+          "assert_plain_health_card_status_appears_once_at_compact_and_wide_widths": [
+            "000000000102e01c t cosh_shell::ui::agent_render::health::tests::assert_plain_health_card_status_appears_once_at_compact_and_wide_widths",
+            "00000000014a011c t cosh_shell::ui::agent_render::health::tests::assert_plain_health_card_status_appears_once_at_compact_and_wide_widths::{{closure}}"
+          ],
+          "assert_health_card_keeps_status_for_findings_with_and_without_resource_facts": [
+            "000000000102fd14 t cosh_shell::ui::agent_render::health::tests::assert_health_card_keeps_status_for_findings_with_and_without_resource_facts"
+          ]
+        },
+        "all_helpers_defined": true
+      }
+    ],
+    "passed": true
+  },
+  "inventory_exit": 0,
+  "inventory_overlap": 693,
+  "contention": {
+    "busy_processes": [],
+    "contended": false,
+    "cpu_count": 5,
+    "load_1m": 0.6806640625
+  },
+  "final_per_pr_source_proof": true,
+  "unrun_scopes": [
+    "complete unfiltered unit suite",
+    "raw-cli",
+    "shell-host",
+    "workspace tests",
+    "dual architecture",
+    "provider/release acceptance"
+  ],
+  "cleanup": "shared environment retained; parent owns cleanup",
+  "timing_claim": null
+}

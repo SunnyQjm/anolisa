@@ -1,0 +1,10 @@
+{"version":2,"width":44,"height":22,"timestamp":1794496923}
+[1.158554,"o","\u001b[?25l\u001b[?25h"]
+[1.590071,"o","\u001b[?25l\u001b[?25h"]
+[2.02278,"o","\u001b[?2004hUI_READY> "]
+[2.023201,"o","printf '\\033[2J\\033[H'; env COSH_SHELL_LANG=en-US COSH_SHELL_WIDTH=40 /tmp/cosh-ui-target/debug/cosh-shell health banner; printf '\\x55I_DONE_COLOR\\n'\r\r\n\u001b[?2004l\r"]
+[2.024191,"o","\u001b[2J\u001b[H"]
+[2.034955,"o","\u001b[0;37m╭\u001b[0;1m─ Health check \u001b[0;37m───────────────────────╮\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1;37msome checks incomplete\u001b[0m               \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1mLoad  \u001b[0m1m 0.1 / 5 cores (0.0x)        \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1mMemory  \u001b[0mused 2%                      \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m         11.6 GiB available / 11.8    \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m         GiB                          \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;1mDisk  \u001b[0m/ used 1%                      \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m       501.8 GiB available            \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;37mType \u001b[0;1;36mcosh\u001b[0;37m to ask AI\u001b[0m                  \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m│\u001b[0m \u001b[0;37mType \u001b[0;1;36mcosh guide\u001b[0;37m for help\u001b[0m             \u001b[0;37m│\u001b[0m\r\r\n\u001b[0;37m╰──────────────────────────────────────╯\u001b[0m\r\r\n\r\r\n"]
+[2.036494,"o","UI_DONE_COLOR\r\r\n\u001b[?2004hUI_READY> "]
+[2.470564,"o","exit\r\r\n\u001b[?2004l\rexit\r\r\n"]
+[2.475266,"o","\u001b[?25l\u001b[?25h"]

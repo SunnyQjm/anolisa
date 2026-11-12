@@ -1,0 +1,1467 @@
+{
+  "scope": "Real compatible auxiliary to natural-default candidate upgrade, posttrans exec checkpoint versus installed current Set",
+  "failures": [],
+  "trace_events": [
+    {
+      "pid": 89448,
+      "kind": "initial",
+      "value": 0,
+      "status": 1407
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89448,
+        "state": "t",
+        "ppid": 89219,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446922",
+        "uid": 0,
+        "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+        "argv": [
+          "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+          "--__cosh-login-lifecycle-v1",
+          "replace",
+          "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+        ]
+      }
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 2,
+      "status": 132479
+    },
+    {
+      "pid": 89449,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89449,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89449,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446923",
+        "uid": 0,
+        "exe": "/usr/bin/rpm",
+        "argv": [
+          "/usr/bin/rpm",
+          "-qp",
+          "--qf",
+          "%{NAME}\n%{VERSION}\n[%{PROVIDENAME}\n]",
+          "--",
+          "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+        ]
+      }
+    },
+    {
+      "pid": 89449,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89448,
+        "state": "t",
+        "ppid": 89219,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446922",
+        "uid": 0,
+        "exe": "/usr/bin/python3.11",
+        "argv": [
+          "/usr/bin/python3",
+          "/usr/bin/dnf-3",
+          "install",
+          "--allowerasing",
+          "--",
+          "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+        ]
+      }
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89450,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89450,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89450,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446980",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.EN33ll",
+          "2"
+        ]
+      }
+    },
+    {
+      "pid": 89450,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89451,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89451,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89451,
+        "state": "t",
+        "ppid": 89450,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446982",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/usr/bin/sh",
+          "/usr/libexec/cosh/login-preflight",
+          "check-protocol",
+          "1",
+          "--record-version",
+          "1",
+          "--entry",
+          "/usr/bin/cosh"
+        ]
+      }
+    },
+    {
+      "pid": 89451,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89451,
+        "state": "t",
+        "ppid": 89450,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446982",
+        "uid": 0,
+        "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+        "argv": [
+          "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+          "--__cosh-login-lifecycle-v1",
+          "check-protocol",
+          "1",
+          "--record-version",
+          "1",
+          "--entry",
+          "/usr/bin/cosh"
+        ]
+      }
+    },
+    {
+      "pid": 89451,
+      "exit_status": 0
+    },
+    {
+      "pid": 89450,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89450,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89452,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89452,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89452,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447002",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.MwNE3z",
+          "1"
+        ]
+      }
+    },
+    {
+      "pid": 89452,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89453,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89453,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89453,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447004",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.MqRPd8",
+          "1"
+        ]
+      }
+    },
+    {
+      "pid": 89453,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89454,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89454,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89454,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447007",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.lACtMh",
+          "2"
+        ]
+      }
+    },
+    {
+      "pid": 89454,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89466,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89466,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89467,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89467,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89467,
+        "state": "t",
+        "ppid": 89466,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447025",
+        "uid": 0,
+        "exe": "/usr/bin/id",
+        "argv": [
+          "id",
+          "-u"
+        ]
+      }
+    },
+    {
+      "pid": 89467,
+      "exit_status": 0
+    },
+    {
+      "pid": 89466,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89466,
+      "exit_status": 0
+    },
+    {
+      "pid": 89454,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89454,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89468,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89468,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89468,
+        "state": "t",
+        "ppid": 89454,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447031",
+        "uid": 0,
+        "exe": "/usr/bin/rmdir",
+        "argv": [
+          "rmdir",
+          "--",
+          "/var/lib/rpm-state/cosh-ng"
+        ]
+      }
+    },
+    {
+      "pid": 89468,
+      "exit_status": 256
+    },
+    {
+      "pid": 89454,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89454,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89469,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89469,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89469,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447039",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.Q1lesI",
+          "0"
+        ]
+      }
+    },
+    {
+      "pid": 89469,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89470,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89470,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89470,
+        "state": "t",
+        "ppid": 89469,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447040",
+        "uid": 0,
+        "exe": "/usr/sbin/ldconfig",
+        "argv": [
+          "/sbin/ldconfig"
+        ]
+      }
+    },
+    {
+      "pid": 89470,
+      "exit_status": 0
+    },
+    {
+      "pid": 89469,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89469,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89471,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89471,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89471,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447046",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.foOdox",
+          "0"
+        ]
+      }
+    },
+    {
+      "pid": 89471,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89472,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89472,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89472,
+        "state": "t",
+        "ppid": 89471,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447047",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/usr/bin/bash",
+          "/usr/lib/systemd/systemd-update-helper",
+          "system-reload-restart"
+        ]
+      }
+    },
+    {
+      "pid": 89472,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89473,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89473,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89473,
+        "state": "t",
+        "ppid": 89472,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447049",
+        "uid": 0,
+        "exe": "/usr/bin/systemctl",
+        "argv": [
+          "systemctl",
+          "daemon-reload"
+        ]
+      }
+    },
+    {
+      "pid": 89473,
+      "exit_status": 0
+    },
+    {
+      "pid": 89472,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89472,
+      "kind": "event",
+      "value": 1,
+      "status": 66943
+    },
+    {
+      "pid": 89517,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89517,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89517,
+        "state": "t",
+        "ppid": 89472,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447065",
+        "uid": 0,
+        "exe": "/usr/bin/systemctl",
+        "argv": [
+          "systemctl",
+          "reload-or-restart",
+          "--marked"
+        ]
+      }
+    },
+    {
+      "pid": 89517,
+      "exit_status": 0
+    },
+    {
+      "pid": 89472,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89472,
+      "exit_status": 0
+    },
+    {
+      "pid": 89471,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89471,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89448,
+      "kind": "event",
+      "value": 2,
+      "status": 132479
+    },
+    {
+      "pid": 89518,
+      "kind": "newborn",
+      "value": 0,
+      "status": 4991
+    },
+    {
+      "pid": 89518,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89518,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447080",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "-c",
+          "[ -d /var/lib/update-motd/disabled ] || systemctl -q try-restart update-motd"
+        ]
+      }
+    },
+    {
+      "pid": 89518,
+      "kind": "event",
+      "value": 4,
+      "status": 263551,
+      "exec_actor": {
+        "pid": 89518,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447080",
+        "uid": 0,
+        "exe": "/usr/bin/systemctl",
+        "argv": [
+          "systemctl",
+          "-q",
+          "try-restart",
+          "update-motd"
+        ]
+      }
+    },
+    {
+      "pid": 89518,
+      "exit_status": 0
+    },
+    {
+      "pid": 89448,
+      "kind": "signal",
+      "value": 17,
+      "status": 4479
+    },
+    {
+      "pid": 89448,
+      "exit_status": 0
+    }
+  ],
+  "states": [
+    {
+      "stage": "reference-installed",
+      "nevra": "cosh-ng-0.29.1-0.1.alnx4.x86_64",
+      "native": {
+        "shells": [
+          "/bin/bash",
+          "/bin/bash"
+        ],
+        "records": {},
+        "files": {
+          "/etc/passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+          "/etc/profile": "07745581fc5ce388b6a85515817c688314c3f990f5e6e781cf0f6af737f48b36",
+          "/etc/bashrc": "f6b3fca4ccae04e1df17b59b3b09ff07cebd257daa8a36233ff3395e654cf17f"
+        }
+      }
+    },
+    {
+      "stage": "current-upgrade-complete",
+      "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64",
+      "native": {
+        "shells": [
+          "/bin/bash",
+          "/bin/bash"
+        ],
+        "records": {},
+        "files": {
+          "/etc/passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+          "/etc/profile": "07745581fc5ce388b6a85515817c688314c3f990f5e6e781cf0f6af737f48b36",
+          "/etc/bashrc": "f6b3fca4ccae04e1df17b59b3b09ff07cebd257daa8a36233ff3395e654cf17f"
+        }
+      }
+    },
+    {
+      "stage": "finally-current-and-Bash",
+      "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64",
+      "native": {
+        "shells": [
+          "/bin/bash",
+          "/bin/bash"
+        ],
+        "records": {
+          "19779.json": "3092045c8c145f99109448b992c7a909dd646edd84bf5009fd0dc8e3052b6af1"
+        },
+        "files": {
+          "/etc/passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+          "/etc/profile": "07745581fc5ce388b6a85515817c688314c3f990f5e6e781cf0f6af737f48b36",
+          "/etc/bashrc": "f6b3fca4ccae04e1df17b59b3b09ff07cebd257daa8a36233ff3395e654cf17f"
+        }
+      }
+    }
+  ],
+  "packages": [
+    {
+      "path": "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm",
+      "sha256": "5e56aff2b4423659a1eb8005b8550b0b480a1fe960fff9ffc2a2a9bfa1876c90",
+      "version": "0.29.1",
+      "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64",
+      "provides_v1": true
+    },
+    {
+      "path": "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-0.1.alnx4.x86_64.rpm",
+      "sha256": "1d4d86394c4e5928093fb4c58ffaf9254d18a6a2b4066099204c48b0eff646b8",
+      "version": "0.29.1",
+      "nevra": "cosh-ng-0.29.1-0.1.alnx4.x86_64",
+      "provides_v1": true
+    }
+  ],
+  "posttrans_sha256": "134d845447fc256adcfc640cac67027d60aca351b22f26dc34496e677c9216ff",
+  "posttrans_interpreter": {
+    "exe": "/usr/bin/bash",
+    "sha256": "7652d948965c7054662c916e62833d0c067e3d6c884940d82b2535666b7741db",
+    "file_signature": [
+      66307,
+      139173,
+      0,
+      33261,
+      1,
+      1105456,
+      1748725335000000000,
+      1793690884310001561
+    ]
+  },
+  "posttrans_argument": {
+    "installed_count_after": 1,
+    "is_update": 1,
+    "value": "2"
+  },
+  "dnf_identity": {
+    "argv": [
+      "/usr/bin/python3",
+      "/usr/bin/dnf-3",
+      "install",
+      "--allowerasing",
+      "--",
+      "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+    ],
+    "exe": "/usr/bin/python3.11",
+    "script_sha256": "0a53d05260ba7ed4573c485a076254e7ec64816e3ad49a2078c84836aeb7833e",
+    "interpreter_sha256": "522cb173d8693aa81642a56f30fd28fd71d529c56f5cc6912171cc78b8abb8b4",
+    "owner": "dnf-4.16.2-3.alnx4.noarch\npython3-dnf-4.16.2-3.alnx4.noarch",
+    "shebang": "#!/usr/bin/python3"
+  },
+  "script_candidates": [
+    {
+      "actor": {
+        "pid": 89450,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "446980",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.EN33ll",
+          "2"
+        ]
+      },
+      "script": {
+        "dev": 66307,
+        "ino": 785319,
+        "uid": 0,
+        "mode": "0o600",
+        "bytes": 1369
+      },
+      "sha256": "d856d7b34180bbc842dfdfe6f6cebcbc62882c7e6fc9c4d18cb94027b23dadc6"
+    },
+    {
+      "actor": {
+        "pid": 89454,
+        "state": "t",
+        "ppid": 89448,
+        "pgid": 89448,
+        "sid": 89448,
+        "start_ticks": "447007",
+        "uid": 0,
+        "exe": "/usr/bin/bash",
+        "argv": [
+          "/bin/sh",
+          "/var/tmp/rpm-tmp.lACtMh",
+          "2"
+        ]
+      },
+      "script": {
+        "dev": 66307,
+        "ino": 785319,
+        "uid": 0,
+        "mode": "0o600",
+        "bytes": 4982
+      },
+      "sha256": "134d845447fc256adcfc640cac67027d60aca351b22f26dc34496e677c9216ff"
+    }
+  ],
+  "checkpoint": {
+    "actor": {
+      "pid": 89454,
+      "state": "t",
+      "ppid": 89448,
+      "pgid": 89448,
+      "sid": 89448,
+      "start_ticks": "447007",
+      "uid": 0,
+      "exe": "/usr/bin/bash",
+      "argv": [
+        "/bin/sh",
+        "/var/tmp/rpm-tmp.lACtMh",
+        "2"
+      ]
+    },
+    "script": {
+      "dev": 66307,
+      "ino": 785319,
+      "uid": 0,
+      "mode": "0o600",
+      "bytes": 4982
+    },
+    "script_sha256": "134d845447fc256adcfc640cac67027d60aca351b22f26dc34496e677c9216ff",
+    "parent_chain": [
+      89454,
+      89448
+    ],
+    "dnf": {
+      "pid": 89448,
+      "state": "S",
+      "ppid": 89219,
+      "pgid": 89448,
+      "sid": 89448,
+      "start_ticks": "446922",
+      "uid": 0,
+      "exe": "/usr/bin/python3.11",
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/dnf-3",
+        "install",
+        "--allowerasing",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ]
+    },
+    "expected_dnf": {
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/dnf-3",
+        "install",
+        "--allowerasing",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "exe": "/usr/bin/python3.11",
+      "script_sha256": "0a53d05260ba7ed4573c485a076254e7ec64816e3ad49a2078c84836aeb7833e",
+      "interpreter_sha256": "522cb173d8693aa81642a56f30fd28fd71d529c56f5cc6912171cc78b8abb8b4",
+      "owner": "dnf-4.16.2-3.alnx4.noarch\npython3-dnf-4.16.2-3.alnx4.noarch",
+      "shebang": "#!/usr/bin/python3"
+    },
+    "leases": {
+      "Store": {
+        "fd": 4,
+        "dev": 66307,
+        "ino": 917316,
+        "fdinfo": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 89448 103:03:917316 0 EOF\n"
+      },
+      "native": {
+        "fd": 24,
+        "dev": 66307,
+        "ino": 130825,
+        "fdinfo": "pos:\t0\nflags:\t0100002\nmnt_id:\t64\nino:\t130825\nlock:\t1: POSIX  ADVISORY  WRITE 89448 103:03:130825 0 EOF\n"
+      }
+    },
+    "payload": {
+      "/usr/bin/cosh-cli": "bde65ceccabb474fa26685ed7de9257fc61fd2eae22425d6073ee77364f393a9",
+      "/usr/lib/systemd/system/cosh-gateway@.service": "a6904cce10119b9624124ece6ee64d8bd953fbfab3ce79c17ceeb1431d425669",
+      "/usr/libexec/anolisa/cosh-ng/cosh-core": "53afcc2d3d18acb6ed3dbd3f2aa36491a52bace3ac04933ec82205dbed75e5e5",
+      "/usr/libexec/anolisa/cosh-ng/cosh-gateway": "cf5bd3ee7a7f7989231b270deebb44333001d8fd300269c1fe1e1c94940b6dee",
+      "/usr/libexec/anolisa/cosh-ng/cosh-integration.bash": "741d823cae2e59aaeeb448219dd1a870c67099a0c44239971a441ae4f52e63ef",
+      "/usr/libexec/anolisa/cosh-ng/cosh-shell": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+      "/usr/libexec/anolisa/cosh-ng/resources.conf": "edc5abc9f04ed4721085df15f57cd83388fa0daf2e786a74927e5539d77a19bf",
+      "/usr/libexec/cosh/login-preflight": "a70596ab2e2feab99b7fee8cd23b20cf3a1d6d108e1d559160a4c09e2f0cca1c",
+      "/usr/share/anolisa/skills/manage-task-checkpoints/SKILL.md": "04ec8794d5b56e7e0528de169eb2c3b9d55d32e6fe0bab6bc8ce39a641751fa0",
+      "/usr/share/cosh/login-capability.json": "14a34a4cc2413f493e5c376d8d004cc793878b83451e00544e9c1c71980d003f",
+      "/usr/share/doc/cosh-ng/LICENSE": "31675326766352f6b82d34feec9f14f10b7fd3d1d8106de9a75bab299466a3f3",
+      "/usr/share/doc/cosh-ng/README.md": "816f03f6e71cad3f7c76d3da92028834223786ed5a613c4200b2f984321339f2"
+    },
+    "set_refusal_passed": true
+  },
+  "race_passed": true,
+  "final_owned_tracer_pids": [],
+  "cleanup_passed": true,
+  "status": "passed",
+  "events": [
+    {
+      "step": "rpm-header",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}\n%{VERSION}\n%{NEVRA}\n[%{PROVIDENAME}\n]",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng\n0.29.1\ncosh-ng-0.29.1-1.alnx4.x86_64\n/usr/bin/cosh\n/usr/bin/cosh-cli\n/usr/libexec/anolisa/cosh-ng/cosh-gateway\nanolisa-component(cosh-ng)\ncosh-login-lifecycle-v1\ncosh-ng\ncosh-ng(x86-64)\n",
+      "stdout_sha256": "01a4e03ffd1fa864e779717a2015d4e24ab64bc020f42afe67c1a1cfd27759bc",
+      "stdout_bytes": 194,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "rpm-header",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}\n%{VERSION}\n%{NEVRA}\n[%{PROVIDENAME}\n]",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-0.1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng\n0.29.1\ncosh-ng-0.29.1-0.1.alnx4.x86_64\n/usr/bin/cosh\n/usr/bin/cosh-cli\n/usr/libexec/anolisa/cosh-ng/cosh-gateway\nanolisa-component(cosh-ng)\ncosh-login-lifecycle-v1\ncosh-ng\ncosh-ng(x86-64)\n",
+      "stdout_sha256": "cb985838f228d746996e7cf3aa613782f14dd61ffb37dfc26361909e38631d1f",
+      "stdout_bytes": 196,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "actual-evr-order",
+      "argv": [
+        "/usr/bin/python3",
+        "-c",
+        "import rpm,sys; t=rpm.TransactionSet(); hs=[]\nfor p in sys.argv[1:]:\n with open(p,\"rb\") as f: hs.append(t.hdrFromFdno(f.fileno()))\nprint(rpm.labelCompare(*[tuple(str(h[k] or 0) for k in (\"epoch\",\"version\",\"release\")) for h in hs]))",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-0.1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "1\n",
+      "stdout_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stdout_bytes": 2,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "gateway-units",
+      "argv": [
+        "/usr/bin/systemctl",
+        "list-units",
+        "--all",
+        "--plain",
+        "--no-legend",
+        "cosh-gateway@*.service",
+        "cosh-gateway-acp@*.service"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "current-payload-digests",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--qf",
+        "%{FILEDIGESTALGO}\n[%{FILENAMES}\t%{FILEDIGESTS}\n]",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "8\n/usr/bin/cosh\t\n/usr/bin/cosh-cli\tbde65ceccabb474fa26685ed7de9257fc61fd2eae22425d6073ee77364f393a9\n/usr/lib/.build-id\t\n/usr/lib/.build-id/78\t\n/usr/lib/.build-id/78/4c33e6237f1adb6d4596d2b2fba0ffbec064d5\t\n/usr/lib/.build-id/d0\t\n/usr/lib/.build-id/d0/7c2b8a8c3a80ad41a117a85328f96c115d7688\t\n/usr/lib/.build-id/e7\t\n/usr/lib/.build-id/e7/a4711a30c6b1e71240a86e8c5bebbf5cd6e3f6\t\n/usr/lib/.build-id/fa\t\n/usr/lib/.build-id/fa/d39ab8ac8eba4c758aaf0dec0653bb3df613c3\t\n/usr/lib/systemd/system/cosh-gateway@.service\ta6904cce10119b9624124ece6ee64d8bd953fbfab3ce79c17ceeb1431d425669\n/usr/libexec/anolisa/cosh-ng\t\n/usr/libexec/anolisa/cosh-ng/cosh-core\t53afcc2d3d18acb6ed3dbd3f2aa36491a52bace3ac04933ec82205dbed75e5e5\n/usr/libexec/anolisa/cosh-ng/cosh-gateway\tcf5bd3ee7a7f7989231b270deebb44333001d8fd300269c1fe1e1c94940b6dee\n/usr/libexec/anolisa/cosh-ng/cosh-integration.bash\t741d823cae2e59aaeeb448219dd1a870c67099a0c44239971a441ae4f52e63ef\n/usr/libexec/anolisa/cosh-ng/cosh-shell\tb4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c\n/usr/libexec/anolisa/cosh-ng/resources.conf\tedc5abc9f04ed4721085df15f57cd83388fa0daf2e786a74927e5539d77a19bf\n/usr/libexec/cosh\t\n/usr/libexec/cosh/login-preflight\ta70596ab2e2feab99b7fee8cd23b20cf3a1d6d108e1d559160a4c09e2f0cca1c\n/usr/share/anolisa/skills/manage-task-checkpoints\t\n/usr/share/anolisa/skills/manage-task-checkpoints/SKILL.md\t04ec8794d5b56e7e0528de169eb2c3b9d55d32e6fe0bab6bc8ce39a641751fa0\n/usr/share/cosh\t\n/usr/share/cosh/login-capability.json\t14a34a4cc2413f493e5c376d8d004cc793878b83451e00544e9c1c71980d003f\n/usr/share/doc/cosh-ng/LICENSE\t31675326766352f6b82d34feec9f14f10b7fd3d1d8106de9a75bab299466a3f3\n/usr/share/doc/cosh-ng/README.md\t816f03f6e71cad3f7c76d3da92028834223786ed5a613c4200b2f984321339f2\n",
+      "stdout_sha256": "ccaefb26b88ff423fe88ba11c9a1627602d7e50ce31af1a2c9ce2eb45db64da0",
+      "stdout_bytes": 1749,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "current-rpm-verify",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "posttrans-program",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--qf",
+        "[%{POSTTRANSPROG}\n]",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "/bin/sh\n",
+      "stdout_sha256": "a769faefd4d6187be0b7f25439217860168d3c8cb5b6b9e09b5943bef9dca8ec",
+      "stdout_bytes": 8,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "posttrans-body",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--qf",
+        "%{POSTTRANS}",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "# Sweep any dead cosh-ng staging directory a prior aborted %postun left behind\n# (e.g. the scriptlet or its parent dnf was SIGKILL'd mid-rewrite). Stages are\n# found through the registry, not by scanning the current /etc/shells target,\n# so a residue is still reclaimed after the symlink was repointed.\n# BEGIN cosh-ng shells guard+reclaim (identical in %postun and %posttrans)\ncosh_uid=\"$(id -u 2>/dev/null)\" || cosh_uid=\"\"\ncosh_reg=\"/var/lib/rpm-state/cosh-ng\"\n# Succeeds when $1 and every ancestor are owned by root or this uid and carry\n# no group/other write bit (OpenSSH StrictModes; under rpm only root\n# qualifies), so no other user can swap entries underneath us.\ncosh_chain_safe() {\n  c_path=\"$1\"\n  [ -n \"$cosh_uid\" ] || return 1\n  while :; do\n    c_meta=\"$(stat -c '%u %A' -- \"$c_path\" 2>/dev/null)\" || return 1\n    case \"${c_meta#* }\" in ?????w*|????????w*) return 1 ;; esac\n    case \"${c_meta% *}\" in 0|\"$cosh_uid\") : ;; *) return 1 ;; esac\n    [ \"$c_path\" = / ] && return 0\n    c_path=\"$(dirname -- \"$c_path\")\"\n  done\n}\n# Every stage is registered here before it is created, so a stage stays\n# discoverable even after /etc/shells is repointed or left dangling.\ncosh_registry_ok() {\n  [ ! -L \"$cosh_reg\" ] && [ -d \"$cosh_reg\" ] \\\n    && [ \"$(stat -c '%u %a' -- \"$cosh_reg\" 2>/dev/null)\" = \"$cosh_uid 700\" ] \\\n    && cosh_chain_safe \"$cosh_reg\"\n}\n# Prints \"dead\", \"alive\", or \"unknown: <reason>\" for a recorded owner.\n# Only a provably exited owner is \"dead\"; anything that cannot be verified\n# (no /proc, unreadable stat, incomplete record) is \"unknown\" and kept.\ncosh_owner_state() {\n  o_boot=\"$1\"; o_pid=\"$2\"; o_start=\"$3\"\n  case \"$o_pid\" in ''|*[!0-9]*) echo \"unknown: owner record has no usable pid\"; return 0 ;; esac\n  o_cur=\"$(cat /proc/sys/kernel/random/boot_id 2>/dev/null)\" || o_cur=\"\"\n  [ -n \"$o_cur\" ] || { echo \"unknown: boot_id is unreadable\"; return 0; }\n  if [ -n \"$o_boot\" ] && [ \"$o_boot\" != \"$o_cur\" ]; then echo dead; return 0; fi\n  [ -e \"/proc/$o_pid\" ] || { echo dead; return 0; }\n  o_stat=\"$(cat \"/proc/$o_pid/stat\" 2>/dev/null)\" || {\n    echo \"unknown: /proc/$o_pid/stat is unreadable\"; return 0; }\n  # starttime is procfs field 22, i.e. $20 once pid and (comm) are stripped\n  o_stat=\"${o_stat##*) }\"\n  # shellcheck disable=SC2086  # split procfs stat fields on purpose\n  set -- $o_stat\n  case \"$1\" in Z|X) echo dead; return 0 ;; esac\n  if [ -n \"$o_start\" ] && [ \"$o_start\" != \"${20}\" ]; then echo dead; return 0; fi\n  if [ -n \"$o_boot\" ] && [ -n \"$o_start\" ]; then echo alive; return 0; fi\n  echo \"unknown: owner identity is incomplete\"\n}\nif cosh_registry_ok; then\n  for e in \"$cosh_reg\"/stage.??????????; do\n    [ -L \"$e\" ] && continue\n    [ -f \"$e\" ] || continue\n    s=\"\"\n    read -r s < \"$e\" || :\n    if [ -z \"$s\" ]; then\n      # registered, then killed before the stage path was recorded\n      rm -f -- \"$e\"\n      continue\n    fi\n    case \"$s\" in\n      /*/.cosh-ng-shells.\"${e##*.}\") : ;;\n      *)\n        echo \"warning: cosh-ng: kept unrecognised stage registry entry $e.\" >&2\n        continue\n        ;;\n    esac\n    if [ ! -e \"$s\" ] && [ ! -L \"$s\" ]; then\n      # killed before the stage was created, or it is already gone\n      rm -f -- \"$e\"\n      continue\n    fi\n    if ! cosh_chain_safe \"$(dirname -- \"$s\")\"; then\n      echo \"warning: cosh-ng: kept $s: its directory is not exclusively writable by root or uid $cosh_uid.\" >&2\n      continue\n    fi\n    [ -L \"$s\" ] && continue\n    [ -d \"$s\" ] || continue\n    [ \"$(stat -c '%u %a' -- \"$s\" 2>/dev/null)\" = \"$cosh_uid 700\" ] || continue\n    ok=1\n    for f in \"$s\"/* \"$s\"/.[!.]* \"$s\"/..?*; do\n      [ -e \"$f\" ] || [ -L \"$f\" ] || continue\n      case \"${f##*/}\" in owner|shells) : ;; *) ok=0; break ;; esac\n      [ -L \"$f\" ] && { ok=0; break; }\n      [ -f \"$f\" ] || { ok=0; break; }\n      [ \"$(stat -c '%h' -- \"$f\" 2>/dev/null)\" = 1 ] || { ok=0; break; }\n    done\n    [ \"$ok\" = 1 ] || continue\n    if [ -s \"$s/owner\" ]; then\n      read -r magic ver boot_kv pid_kv start_kv rest < \"$s/owner\" || continue\n      [ \"$magic $ver\" = \"cosh-ng-shells-stage v1\" ] || continue\n      [ -z \"$rest\" ] || continue\n      case \"$boot_kv $pid_kv $start_kv\" in \"boot=\"*\" pid=\"*\" start=\"*) : ;; *) continue ;; esac\n      state=\"$(cosh_owner_state \"${boot_kv#boot=}\" \"${pid_kv#pid=}\" \"${start_kv#start=}\")\"\n      case \"$state\" in\n        dead) : ;;\n        alive) continue ;;\n        *)\n          echo \"warning: cosh-ng: kept $s (${state#unknown: }); remove it by hand once no cosh-ng transaction is running.\" >&2\n          continue\n          ;;\n      esac\n    elif [ -e \"$s/shells\" ]; then\n      # cosh-ng writes the owner record before any shells content\n      continue\n    fi\n    # An owner-less stage holds no shells payload; a writer still filling it\n    # fails closed on its next step, so removing it cannot lose data.\n    rm -f -- \"$s/owner\" \"$s/shells\"\n    rmdir -- \"$s\" 2>/dev/null || :\n    [ -e \"$s\" ] || rm -f -- \"$e\"\n  done\nfi\n# END cosh-ng shells guard+reclaim\nrmdir -- \"$cosh_reg\" 2>/dev/null || :",
+      "stdout_sha256": "134d845447fc256adcfc640cac67027d60aca351b22f26dc34496e677c9216ff",
+      "stdout_bytes": 4982,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "prepare-compatible-lower-EVR",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "downgrade",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-0.1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "Last metadata expiration check: 0:44:45 ago on Fri Nov 13 01:31:12 2026.\nDependencies resolved.\n================================================================================\n Package        Architecture  Version                 Repository           Size\n================================================================================\nDowngrading:\n cosh-ng        x86_64        0.29.1-0.1.alnx4        @commandline         13 M\n\nTransaction Summary\n================================================================================\nDowngrade  1 Package\n\nTotal size: 13 M\nIs this ok [y/N]: Downloading Packages:\nRunning transaction check\nTransaction check succeeded.\nRunning transaction test\nTransaction test succeeded.\nRunning transaction\n  Preparing        :                                                        1/1 \n  Running scriptlet: cosh-ng-0.29.1-0.1.alnx4.x86_64                        1/2 \n  Downgrading      : cosh-ng-0.29.1-0.1.alnx4.x86_64                        1/2 \n  Running scriptlet: cosh-ng-0.29.1-0.1.alnx4.x86_64                        1/2 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          2/2 \n  Cleanup          : cosh-ng-0.29.1-1.alnx4.x86_64                          2/2 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          2/2 \n  Running scriptlet: cosh-ng-0.29.1-0.1.alnx4.x86_64                        2/2 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          2/2 \n  Verifying        : cosh-ng-0.29.1-0.1.alnx4.x86_64                        1/2 \n  Verifying        : cosh-ng-0.29.1-1.alnx4.x86_64                          2/2 \n\nDowngraded:\n  cosh-ng-0.29.1-0.1.alnx4.x86_64                                               \n\nComplete!\n",
+      "stdout_sha256": "a861aac986423bbcb80ccedefc5b8971e2e52bdf7c799dcfd3e102a9aef71365",
+      "stdout_bytes": 1736,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-0.1.alnx4.x86_64\n",
+      "stdout_sha256": "d4edbf525ca475c6413efd7d559061060431ce82287d1365f7e1c917c9d5c058",
+      "stdout_bytes": 32,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "reference-rpm-verify",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "dnf-native-owner",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qf",
+        "--qf",
+        "%{NEVRA}\n",
+        "/usr/bin/dnf",
+        "/usr/bin/dnf-3"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "dnf-4.16.2-3.alnx4.noarch\npython3-dnf-4.16.2-3.alnx4.noarch\n",
+      "stdout_sha256": "9803753df566ae8d25c2d389f44cee911c0c232dcda869f585dc1af8114dcd06",
+      "stdout_bytes": 60,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "current-rpm-verify",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "concurrent-current-public-set",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "set",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "rc": 1,
+      "interrupted": false,
+      "stdout": "User: cosh9979 (UID 19779): /bin/bash -> /usr/bin/cosh. New logins only.\n",
+      "stdout_sha256": "87cd18f135fc844be793a0dc981b1ede898a1b5592b34cc54ff7f0ca8d9f90f6",
+      "stdout_bytes": 73,
+      "stderr": "cosh login: native RPM transaction lease unavailable: Resource temporarily unavailable (os error 11)\n",
+      "stderr_sha256": "98dd9c89a00441d26afb6c7d2f0e1c595078ed06618a99ea337f6ef172f9f6cd",
+      "stderr_bytes": 101
+    },
+    {
+      "step": "actual-traced-upgrade",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "replace",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "stdout": "Last metadata expiration check: 0:44:46 ago on Fri Nov 13 01:31:12 2026.\nDependencies resolved.\n================================================================================\n Package        Architecture  Version                 Repository           Size\n================================================================================\nUpgrading:\n cosh-ng        x86_64        0.29.1-1.alnx4          @commandline         13 M\n\nTransaction Summary\n================================================================================\nUpgrade  1 Package\n\nTotal size: 13 M\nIs this ok [y/N]: Downloading Packages:\nRunning transaction check\nTransaction check succeeded.\nRunning transaction test\nTransaction test succeeded.\nRunning transaction\n  Preparing        :                                                        1/1 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          1/2 \n  Upgrading        : cosh-ng-0.29.1-1.alnx4.x86_64                          1/2 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          1/2 \n  Running scriptlet: cosh-ng-0.29.1-0.1.alnx4.x86_64                        2/2 \n  Cleanup          : cosh-ng-0.29.1-0.1.alnx4.x86_64                        2/2 \n  Running scriptlet: cosh-ng-0.29.1-0.1.alnx4.x86_64                        2/2 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          2/2 \n  Running scriptlet: cosh-ng-0.29.1-0.1.alnx4.x86_64                        2/2 \n  Verifying        : cosh-ng-0.29.1-1.alnx4.x86_64                          1/2 \n  Verifying        : cosh-ng-0.29.1-0.1.alnx4.x86_64                        2/2 \n\nUpgraded:\n  cosh-ng-0.29.1-1.alnx4.x86_64                                                 \n\nComplete!\n",
+      "stdout_sha256": "7e454b110fc2e68ea99e61dcd68c8a0fead62f3d68b09ad30b0666847119e7e1",
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "current-rpm-verify",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "post-upgrade-set",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "set",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "User: cosh9979 (UID 19779): /bin/bash -> /usr/bin/cosh. New logins only.\nLogin shell: /usr/bin/cosh. New logins only.\n",
+      "stdout_sha256": "834a83ab19c56f5c7055b8f3eb99b723a76c643837ced7c05105dd64c897b9b9",
+      "stdout_bytes": 118,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "post-upgrade-public-status",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "status",
+        "--user",
+        "cosh9979"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "User: cosh9979 (UID 19779)\nCurrent login shell: /usr/bin/cosh\nOriginal Bash: /bin/bash\nTransaction: applied\nManaged: yes\nChanges affect new logins only.\n",
+      "stdout_sha256": "0e33aca662b726107afef8a6a8b18bf8752964bf2b11d848b288c6db3397f430",
+      "stdout_bytes": 153,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "post-upgrade-restore",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "User: cosh9979 (UID 19779): /usr/bin/cosh -> /bin/bash. New logins only.\nLogin shell: /bin/bash. New logins only.\n",
+      "stdout_sha256": "40659c33fa2f1235b4da1fafb62030d052cb826568586bbbb81fc279784a4c1e",
+      "stdout_bytes": 114,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "current-rpm-verify",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    }
+  ],
+  "live_tracees": [],
+  "elapsed_seconds": 4.288195630999326
+}

@@ -1,0 +1,23 @@
+{
+  "instance": "i-bp187jnu6r3megvje57m",
+  "environment": "20261112T170115Z-f0594e8b",
+  "environment_cleanup": "cleaned",
+  "remaining": 0,
+  "task_user_sudoers_records_removed": true,
+  "sshd_original_restored": true,
+  "root_and_global_bash_unchanged": true,
+  "task_ssh_key_pair_removed": true,
+  "build_target_removed": true,
+  "retained_and_foreign_ecs_untouched": true,
+  "cleanup_run": "20261112T183847Z-50a87a43",
+  "feature_gate": "Go",
+  "feature_gate_scope": "3 registered installed PTY cases +69 login unit +2 shellhost +12 rawCLI + exact ECS cleanup; separate installed lifecycle matrix is in qualification-matrix.json",
+  "not_run": [
+    "full crate test execution",
+    "full workspace test execution",
+    "real provider calls; AI intentionally disabled"
+  ],
+  "native_toolchain": "Rust1.93.1 ALinux4 x86_64",
+  "current_github_ci_toolchain": "Rust1.97.1; current new-source CI owned by parent",
+  "pass": true
+}

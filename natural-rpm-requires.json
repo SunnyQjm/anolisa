@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "natural_rpm_sha256": "5e56aff2b4423659a1eb8005b8550b0b480a1fe960fff9ffc2a2a9bfa1876c90",
+  "sudo_is_preinstalled_in_official_image": true,
+  "sudo_required_by_rpm": false,
+  "events": [
+    {
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--requires",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "code": 0,
+      "stdout": "(/usr/bin/systemctl if systemd)\n/bin/sh\n/bin/sh\n/bin/sh\n/bin/sh\n/usr/bin/awk\n/usr/bin/awk\n/usr/bin/cat\n/usr/bin/cat\n/usr/bin/cp\n/usr/bin/dirname\n/usr/bin/dirname\n/usr/bin/getent\n/usr/bin/id\n/usr/bin/id\n/usr/bin/mkdir\n/usr/bin/mktemp\n/usr/bin/mv\n/usr/bin/readlink\n/usr/bin/rm\n/usr/bin/rm\n/usr/bin/rmdir\n/usr/bin/rmdir\n/usr/bin/sh\n/usr/bin/stat\n/usr/bin/stat\n/usr/bin/stat\nlibc.so.6()(64bit)\nlibc.so.6(GLIBC_2.10)(64bit)\nlibc.so.6(GLIBC_2.14)(64bit)\nlibc.so.6(GLIBC_2.15)(64bit)\nlibc.so.6(GLIBC_2.16)(64bit)\nlibc.so.6(GLIBC_2.17)(64bit)\nlibc.so.6(GLIBC_2.18)(64bit)\nlibc.so.6(GLIBC_2.2.5)(64bit)\nlibc.so.6(GLIBC_2.25)(64bit)\nlibc.so.6(GLIBC_2.27)(64bit)\nlibc.so.6(GLIBC_2.28)(64bit)\nlibc.so.6(GLIBC_2.29)(64bit)\nlibc.so.6(GLIBC_2.3)(64bit)\nlibc.so.6(GLIBC_2.3.2)(64bit)\nlibc.so.6(GLIBC_2.3.4)(64bit)\nlibc.so.6(GLIBC_2.30)(64bit)\nlibc.so.6(GLIBC_2.32)(64bit)\nlibc.so.6(GLIBC_2.33)(64bit)\nlibc.so.6(GLIBC_2.34)(64bit)\nlibc.so.6(GLIBC_2.4)(64bit)\nlibc.so.6(GLIBC_2.5)(64bit)\nlibc.so.6(GLIBC_2.6)(64bit)\nlibc.so.6(GLIBC_2.7)(64bit)\nlibc.so.6(GLIBC_2.8)(64bit)\nlibc.so.6(GLIBC_2.9)(64bit)\nlibgcc_s.so.1()(64bit)\nlibgcc_s.so.1(GCC_3.0)(64bit)\nlibgcc_s.so.1(GCC_3.3)(64bit)\nlibgcc_s.so.1(GCC_4.2.0)(64bit)\nlibm.so.6()(64bit)\nlibm.so.6(GLIBC_2.29)(64bit)\nlua\nrpmlib(BuiltinLuaScripts) <= 4.2.2-1\nrpmlib(CompressedFileNames) <= 3.0.4-1\nrpmlib(FileDigests) <= 4.6.0-1\nrpmlib(PayloadFilesHavePrefix) <= 4.0-1\nrpmlib(PayloadIsZstd) <= 5.4.18-1\nrpmlib(RichDependencies) <= 4.12.0-1\nrtld(GNU_HASH)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--provides",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "code": 0,
+      "stdout": "/usr/bin/cosh\n/usr/bin/cosh-cli\n/usr/libexec/anolisa/cosh-ng/cosh-gateway\nanolisa-component(cosh-ng)\ncosh-login-lifecycle-v1\ncosh-ng = 0.29.1-1.alnx4\ncosh-ng(x86-64) = 0.29.1-1.alnx4\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/rpm",
+        "-qf",
+        "/usr/bin/sudo"
+      ],
+      "code": 0,
+      "stdout": "sudo-1.9.15p5-6.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/stat",
+        "-c",
+        "%n %a %U:%G",
+        "/usr/bin/sudo"
+      ],
+      "code": 0,
+      "stdout": "/usr/bin/sudo 4111 root:root\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "rpm",
+        "rpm-libs",
+        "shadow"
+      ],
+      "code": 0,
+      "stdout": "rpm-4.18.2-6.alnx4.x86_64\nrpm-libs-4.18.2-6.alnx4.x86_64\nshadow-4.14.3-2.alnx4.x86_64\n",
+      "stderr": ""
+    }
+  ]
+}

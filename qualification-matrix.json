@@ -1,0 +1,146 @@
+{
+  "status": "Go for named qualified ALinux4 x86_64 target",
+  "instance": "i-bp187jnu6r3megvje57m",
+  "environment_run": "20261112T170115Z-f0594e8b",
+  "ttl_utc": "2026-11-12T23:01:00Z",
+  "source_archive_sha256": "b66dca494e498678e712e9f31a6165f2bf43f705b14ce5e6e6fbbfab7ab3bc53",
+  "natural_rpm_sha256": "5e56aff2b4423659a1eb8005b8550b0b480a1fe960fff9ffc2a2a9bfa1876c90",
+  "rows": [
+    {
+      "case": "natural-default-rpmbuild",
+      "status": "PASS",
+      "scope": "rpmbuild -ba --noclean without with/without/nodeps; proof + exact Provide; native qualified rpm/rpm-libs/shadow",
+      "receipt": "build-natural.json"
+    },
+    {
+      "case": "basic",
+      "status": "PASS",
+      "scope": "Admin specified-user Set/status/Restore, managed and completed record erase refusal",
+      "receipt": "installed-receipts/cosh-9979/full-default/basic-result.json"
+    },
+    {
+      "case": "alias",
+      "status": "PASS",
+      "scope": "Four installed-binary aliases, exact legacy guard refusal for check/direct/frontdoor erase; no forged record",
+      "receipt": "installed-receipts/cosh-9979/full-default/alias-result.json"
+    },
+    {
+      "case": "install-impact",
+      "status": "PASS",
+      "scope": "Clean default install preserves NSS/passwd/global Bash profiles; only appends own /etc/shells line",
+      "receipt": "installed-receipts/cosh-9979/full-default/install-impact-result.json"
+    },
+    {
+      "case": "noninteractive",
+      "status": "PASS",
+      "scope": "Five Bash/Cosh stdout/stderr/exit parity cases including stdin, script, quoting and BASH_ENV",
+      "receipt": "installed-receipts/cosh-9979/full-default/noninteractive-result.json"
+    },
+    {
+      "case": "transactions",
+      "status": "PASS",
+      "scope": "Applied records survive compatible downgrade/upgrade; unknown target refused while managed; Restore before unknown rollback and reinstall",
+      "receipt": "installed-receipts/cosh-9979/full-default/transactions-result.json"
+    },
+    {
+      "case": "current-user-old-session",
+      "status": "PASS",
+      "scope": "sudo4111 Set/status/Restore, same old Bash PID remains, true PAM child login Cosh then Bash",
+      "receipt": "runs/20261112T174132Z-a89e8c6a"
+    },
+    {
+      "case": "ssh-command-parity",
+      "status": "PASS",
+      "scope": "Actual SSH -c same command before Set and after Set, stdout/stderr/exit exact incl identical client warning",
+      "receipt": "ssh-noninteractive-parity.json"
+    },
+    {
+      "case": "sshd-default-entry",
+      "status": "PASS",
+      "scope": "New SSH connection with PTY and no remote command: passwd directly -cosh; Restore new SSH -bash; scoped AI-off SSHD fixture removed",
+      "receipt": "sshd-default-entry-provenance.json"
+    },
+    {
+      "case": "set-held-parent-exit-concurrent-restore",
+      "status": "PASS",
+      "scope": "Real editor exit0/pre-rename hold; kill management parent; vipw inherited RPM/Store leases; real native RPM writer EAGAIN and Restore Store-busy; resume true commit then Restored/original-passwd",
+      "receipt": "parent-exit-v2-result.json"
+    },
+    {
+      "case": "rpm-held-set",
+      "status": "PASS",
+      "scope": "Actual compatible upgrade native RPM POSIX WRITE .rpm.lock + Store lock witnessed; Set exact native lease EAGAIN and state/payload unchanged; resume success",
+      "receipt": "installed-receipts/cosh-9979-compatible-race/result.json"
+    },
+    {
+      "case": "interruption-managed-erase",
+      "status": "PASS",
+      "scope": "Installed managed direct RPM/DNF erase refuses unchanged",
+      "receipt": "installed-receipts/cosh-9979-interruption/result.json#cases.A"
+    },
+    {
+      "case": "interruption-sigint",
+      "status": "PASS",
+      "scope": "Actual frontdoor DNF group SIGINT during real stop-post barrier; DNF1 but package actually erased; Bash and records safe; no rollback claim",
+      "receipt": "installed-receipts/cosh-9979-interruption/result.json#cases.B1"
+    },
+    {
+      "case": "stop-post-failure",
+      "status": "OBSERVED",
+      "scope": "Old harness FAIL preserved; actual stop job succeeded and Gateway fully stopped despite posthook77, permitted erase under documented contract; root and independentreview accepted. True stop-job rejection tested separately.",
+      "receipt": "installed-receipts/cosh-9979-interruption/result.json"
+    },
+    {
+      "case": "strict-native-gates",
+      "status": "PASS",
+      "scope": "Native Rust1.93.1 strictfmt/workspaceclippy alltargets/layout/inventory/2originalpackagingscripts; freshshippingbuild;69loginunit+2exactShellHost+12exactRawCLI=83PASS;1451sourcefiles unchanged;overlap693/696 registry7310",
+      "receipt": "final-receipts/cosh-9979/full-default/native-gates/verification-manifest.json"
+    },
+    {
+      "case": "true-stop-job-refusal",
+      "status": "PASS",
+      "scope": "Actual task-only RefuseManualStop job refusal, installedpreunrc1 exacterror; sameGatewayPID active and state unchanged; clearfixture/normalstop/cgroupempty/controlled erase allPASS",
+      "receipt": "final-receipts/cosh-9979-stop-job-refusal/result.json"
+    },
+    {
+      "case": "unrecorded-alias-restore",
+      "status": "PASS",
+      "scope": "Four literal aliases, exact RecoveryMissing or StateConflict publicerror perbranch; rc1/stdoutempty/state unchanged; explicitadmin Bash recovery; ownuser/link removed",
+      "receipt": "final-receipts/cosh-9979/full-default/alias-no-record-v3-result.json"
+    },
+    {
+      "case": "final-environment-cleanup",
+      "status": "PASS",
+      "scope": "Exact owned ECS instance and run-tag absent in repeated native readbacks; own users/sudoers/records/services/keypair removed; SSHD/global Bash/shells restored; sole build target removed",
+      "receipt": "cleanup-final.json"
+    }
+  ],
+  "preserved_failures": [
+    "runs/20261112T173719Z-7962a35a: ambiguous fixture prompt; replaced unique counter and explicit parent marker",
+    "runs/20261112T175233Z-aefd2cdc: driver post-checkpoint fork bookkeeping timeout; owned identity recovery, new unified event dispatcher, actual rerun passed",
+    "runs/20261112T181738Z-6f6a0fb0: stop-post failure expectation did not hold, not greened",
+    "runs/20261112T183219Z-a214930a: fixture expected internal error text instead of public CLI translation; actual safe refusal preserved",
+    "runs/20261112T183343Z-d144237c: fixture expected RecoveryMissing for noncanonical alias that correctly returned StateConflict before record handling; actual safe refusal preserved",
+    "runs/20261112T183812Z-8a6d448a: extra metadata probe incorrectly assumed Requires sudo; actual official-image preinstalled sudo4111 confirmed and package Requires read back separately",
+    "release-profile-attempt-rejected.json: focused-scope list is invalid for full release profile; skill feature aggregate used, full crate/workspace execution not claimed"
+  ],
+  "toolchains": {
+    "native": "Rust 1.93.1 ALinux4 x86_64",
+    "actual_github_ci": "Rust 1.97.1; parent owns current CI evidence"
+  },
+  "notes": [
+    "Old historical verdicts not reused",
+    "Native strict scope is not full workspace test execution",
+    "No provider calls required, AI disabled for PTY cases",
+    "Retained and foreign ECS untouched",
+    "Scoped SSHD fixture restored original hash and reloaded",
+    "Native vipw cache-helper children exit127 recorded; actual vipw exited0 and real account commit verified, not every helper success",
+    "All final installed windows and strict source bridge independently reviewed; reviewed native Rust1.93.1 is separate from actual current GitHub CI1.97.1"
+  ],
+  "feature_gate": "named-feature-gate.json",
+  "not_run": [
+    "full crate test execution",
+    "full workspace test execution",
+    "real provider calls; AI intentionally disabled"
+  ]
+}

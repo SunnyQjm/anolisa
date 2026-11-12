@@ -1,0 +1,2735 @@
+{
+  "events": [
+    {
+      "label": "installed-before",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "exec",
+      "pid": 88785,
+      "starttime": "398990",
+      "ppid": 88647,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "argv": [
+        "cosh",
+        "login",
+        "set",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/opt/cosh-9979/full-default/parent-exit-v2-result.child.log",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t64\nino:\t431473\n"
+        },
+        "2": {
+          "target": "/opt/cosh-9979/full-default/parent-exit-v2-result.child.log",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t64\nino:\t431473\n"
+        }
+      },
+      "old_tid": 88785
+    },
+    {
+      "label": "exec",
+      "pid": 88786,
+      "starttime": "398993",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/bin/bash"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185574]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185574\n"
+        },
+        "2": {
+          "target": "pipe:[185575]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185575\n"
+        }
+      },
+      "old_tid": 88786
+    },
+    {
+      "label": "exec",
+      "pid": 88787,
+      "starttime": "399001",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/bin/bash"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185576]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185576\n"
+        },
+        "2": {
+          "target": "pipe:[185577]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185577\n"
+        }
+      },
+      "old_tid": 88787
+    },
+    {
+      "label": "exec",
+      "pid": 88788,
+      "starttime": "399009",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/bin/cosh"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185244]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185244\n"
+        },
+        "2": {
+          "target": "pipe:[185245]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185245\n"
+        }
+      },
+      "old_tid": 88788
+    },
+    {
+      "label": "exec",
+      "pid": 88789,
+      "starttime": "399017",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/libexec/anolisa/cosh-ng/cosh-shell"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[183143]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183143\n"
+        },
+        "2": {
+          "target": "pipe:[183144]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183144\n"
+        }
+      },
+      "old_tid": 88789
+    },
+    {
+      "label": "exec",
+      "pid": 88790,
+      "starttime": "399025",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/libexec/cosh/login-preflight"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[183145]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183145\n"
+        },
+        "2": {
+          "target": "pipe:[183146]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183146\n"
+        }
+      },
+      "old_tid": 88790
+    },
+    {
+      "label": "exec",
+      "pid": 88791,
+      "starttime": "399033",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/libexec/cosh/login-preflight"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[183150]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183150\n"
+        },
+        "2": {
+          "target": "pipe:[183151]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183151\n"
+        }
+      },
+      "old_tid": 88791
+    },
+    {
+      "label": "exec",
+      "pid": 88792,
+      "starttime": "399040",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/bash",
+      "argv": [
+        "/usr/bin/sh",
+        "/usr/libexec/cosh/login-preflight",
+        "--verify-installed",
+        "--entry",
+        "/usr/bin/cosh",
+        "--record-version",
+        "1"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88792
+    },
+    {
+      "label": "exec",
+      "pid": 88792,
+      "starttime": "399040",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "argv": [
+        "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+        "--__cosh-login-lifecycle-v1",
+        "--verify-installed",
+        "--entry",
+        "/usr/bin/cosh",
+        "--record-version",
+        "1"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88792
+    },
+    {
+      "label": "exec",
+      "pid": 88793,
+      "starttime": "399050",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "--eval",
+        "%{_rpmlock_path}"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[183154]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183154\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88793
+    },
+    {
+      "label": "exec",
+      "pid": 88794,
+      "starttime": "399057",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "--eval",
+        "%{_rpmlock_path}"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185651]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185651\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88794
+    },
+    {
+      "label": "exec",
+      "pid": 88795,
+      "starttime": "399065",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{VERSION}-%{RELEASE}.%{ARCH}\n",
+        "rpm",
+        "rpm-libs"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185253]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185253\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88795
+    },
+    {
+      "label": "exec",
+      "pid": 88796,
+      "starttime": "399073",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/bin/bash"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185254]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185254\n"
+        },
+        "2": {
+          "target": "pipe:[185255]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185255\n"
+        }
+      },
+      "old_tid": 88796
+    },
+    {
+      "label": "exec",
+      "pid": 88797,
+      "starttime": "399081",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/bin/bash"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185655]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185655\n"
+        },
+        "2": {
+          "target": "pipe:[185656]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185656\n"
+        }
+      },
+      "old_tid": 88797
+    },
+    {
+      "label": "exec",
+      "pid": 88798,
+      "starttime": "399088",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/bin/cosh"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185660]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185660\n"
+        },
+        "2": {
+          "target": "pipe:[185661]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185661\n"
+        }
+      },
+      "old_tid": 88798
+    },
+    {
+      "label": "exec",
+      "pid": 88799,
+      "starttime": "399096",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/libexec/anolisa/cosh-ng/cosh-shell"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185662]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185662\n"
+        },
+        "2": {
+          "target": "pipe:[185663]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185663\n"
+        }
+      },
+      "old_tid": 88799
+    },
+    {
+      "label": "exec",
+      "pid": 88800,
+      "starttime": "399103",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/libexec/cosh/login-preflight"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185664]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185664\n"
+        },
+        "2": {
+          "target": "pipe:[185665]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185665\n"
+        }
+      },
+      "old_tid": 88800
+    },
+    {
+      "label": "exec",
+      "pid": 88801,
+      "starttime": "399111",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME}\n",
+        "-f",
+        "/usr/libexec/cosh/login-preflight"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185666]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185666\n"
+        },
+        "2": {
+          "target": "pipe:[185667]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185667\n"
+        }
+      },
+      "old_tid": 88801
+    },
+    {
+      "label": "exec",
+      "pid": 88802,
+      "starttime": "399119",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/bash",
+      "argv": [
+        "/usr/bin/sh",
+        "/usr/libexec/cosh/login-preflight",
+        "--verify-installed",
+        "--entry",
+        "/usr/bin/cosh",
+        "--record-version",
+        "1"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88802
+    },
+    {
+      "label": "exec",
+      "pid": 88802,
+      "starttime": "399119",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "argv": [
+        "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+        "--__cosh-login-lifecycle-v1",
+        "--verify-installed",
+        "--entry",
+        "/usr/bin/cosh",
+        "--record-version",
+        "1"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        }
+      },
+      "old_tid": 88802
+    },
+    {
+      "label": "exec",
+      "pid": 88803,
+      "starttime": "399128",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME} %{VERSION}-%{RELEASE} %{ARCH}\n",
+        "-f",
+        "/usr/sbin/vipw"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185669]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185669\n"
+        },
+        "2": {
+          "target": "pipe:[185670]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185670\n"
+        }
+      },
+      "old_tid": 88803
+    },
+    {
+      "label": "exec",
+      "pid": 88804,
+      "starttime": "399136",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME} %{VERSION}-%{RELEASE} %{ARCH}\n",
+        "-f",
+        "/usr/sbin/vipw"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[183180]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183180\n"
+        },
+        "2": {
+          "target": "pipe:[183181]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183181\n"
+        }
+      },
+      "old_tid": 88804
+    },
+    {
+      "label": "exec",
+      "pid": 88805,
+      "starttime": "399144",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME} %{VERSION}-%{RELEASE} %{ARCH}\n",
+        "-f",
+        "/usr/sbin/usermod"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[185293]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185293\n"
+        },
+        "2": {
+          "target": "pipe:[185294]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t185294\n"
+        }
+      },
+      "old_tid": 88805
+    },
+    {
+      "label": "exec",
+      "pid": 88806,
+      "starttime": "399152",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/rpm",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NAME} %{VERSION}-%{RELEASE} %{ARCH}\n",
+        "-f",
+        "/usr/sbin/usermod"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "pipe:[183183]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183183\n"
+        },
+        "2": {
+          "target": "pipe:[183184]",
+          "info": "pos:\t0\nflags:\t01\nmnt_id:\t15\nino:\t183184\n"
+        }
+      },
+      "old_tid": 88806
+    },
+    {
+      "label": "exec",
+      "pid": 88807,
+      "starttime": "399160",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/sbin/vipw",
+      "argv": [
+        "/usr/sbin/vipw",
+        "-q",
+        "-p"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "3": {
+          "target": "pipe:[183189]",
+          "info": "pos:\t0\nflags:\t04000\nmnt_id:\t15\nino:\t183189\n"
+        },
+        "4": {
+          "target": "/usr/lib/sysimage/rpm/.rpm.lock",
+          "info": "pos:\t0\nflags:\t0504000\nmnt_id:\t64\nino:\t130825\nlock:\t1: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n"
+        },
+        "7": {
+          "target": "/var/lib/cosh/login/.lock",
+          "info": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n"
+        }
+      },
+      "old_tid": 88807
+    },
+    {
+      "label": "exec",
+      "pid": 88809,
+      "starttime": "399166",
+      "ppid": 88808,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/bin/bash",
+      "argv": [
+        "sh",
+        "-c",
+        "--",
+        "/proc/88785/exe --__cosh-login-editor-v1 3 /etc/passwd.edit"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "3": {
+          "target": "pipe:[183189]",
+          "info": "pos:\t0\nflags:\t04000\nmnt_id:\t15\nino:\t183189\n"
+        },
+        "4": {
+          "target": "/usr/lib/sysimage/rpm/.rpm.lock",
+          "info": "pos:\t0\nflags:\t0504000\nmnt_id:\t64\nino:\t130825\nlock:\t1: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n"
+        },
+        "7": {
+          "target": "/var/lib/cosh/login/.lock",
+          "info": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n"
+        }
+      },
+      "old_tid": 88809
+    },
+    {
+      "label": "exec",
+      "pid": 88809,
+      "starttime": "399166",
+      "ppid": 88808,
+      "state": "t",
+      "tracer": 88647,
+      "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "argv": [
+        "/proc/88785/exe",
+        "--__cosh-login-editor-v1",
+        "3",
+        "/etc/passwd.edit"
+      ],
+      "fds": {
+        "0": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+        },
+        "1": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "2": {
+          "target": "/dev/null",
+          "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+        },
+        "3": {
+          "target": "pipe:[183189]",
+          "info": "pos:\t0\nflags:\t04000\nmnt_id:\t15\nino:\t183189\n"
+        },
+        "4": {
+          "target": "/usr/lib/sysimage/rpm/.rpm.lock",
+          "info": "pos:\t0\nflags:\t0504000\nmnt_id:\t64\nino:\t130825\nlock:\t1: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n"
+        },
+        "7": {
+          "target": "/var/lib/cosh/login/.lock",
+          "info": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n"
+        }
+      },
+      "old_tid": 88809
+    },
+    {
+      "label": "editor-finished-before-vipw-rename",
+      "editor": {
+        "pid": 88809,
+        "starttime": "399166",
+        "ppid": 88808,
+        "state": "t",
+        "tracer": 88647,
+        "exe": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+        "argv": [
+          "/proc/88785/exe",
+          "--__cosh-login-editor-v1",
+          "3",
+          "/etc/passwd.edit"
+        ],
+        "fds": {
+          "0": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+          },
+          "1": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+          },
+          "2": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+          },
+          "3": {
+            "target": "pipe:[183189]",
+            "info": "pos:\t0\nflags:\t04000\nmnt_id:\t15\nino:\t183189\n"
+          },
+          "4": {
+            "target": "/usr/lib/sysimage/rpm/.rpm.lock",
+            "info": "pos:\t0\nflags:\t0504000\nmnt_id:\t64\nino:\t130825\nlock:\t1: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n"
+          },
+          "7": {
+            "target": "/var/lib/cosh/login/.lock",
+            "info": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n"
+          }
+        }
+      },
+      "vipw": {
+        "pid": 88807,
+        "starttime": "399160",
+        "ppid": 88785,
+        "state": "S",
+        "tracer": 88647,
+        "exe": "/usr/sbin/vipw",
+        "argv": [
+          "/usr/sbin/vipw",
+          "-q",
+          "-p"
+        ],
+        "fds": {
+          "0": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+          },
+          "1": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+          },
+          "2": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+          },
+          "3": {
+            "target": "pipe:[183189]",
+            "info": "pos:\t0\nflags:\t04000\nmnt_id:\t15\nino:\t183189\n"
+          },
+          "4": {
+            "target": "/usr/lib/sysimage/rpm/.rpm.lock",
+            "info": "pos:\t0\nflags:\t0504000\nmnt_id:\t64\nino:\t130825\nlock:\t1: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n"
+          },
+          "5": {
+            "target": "/etc/.pwd.lock",
+            "info": "pos:\t0\nflags:\t02100001\nmnt_id:\t64\nino:\t915870\nlock:\t1: POSIX  ADVISORY  WRITE 88807 103:03:915870 0 EOF\n"
+          },
+          "7": {
+            "target": "/var/lib/cosh/login/.lock",
+            "info": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n"
+          }
+        }
+      },
+      "exit_status": 0
+    },
+    {
+      "label": "checkpoint-nevra-before",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "concurrent-restore-before-orphan-rename",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "code": 1,
+      "stdout": "User: cosh9979 (UID 19779): /bin/bash -> /bin/bash. New logins only.\n",
+      "stderr": "cosh login: login transaction lock unavailable: LockBusy\n"
+    },
+    {
+      "label": "rpm-during-inherited-set-lease",
+      "argv": [
+        "/usr/bin/rpm",
+        "-U",
+        "--replacepkgs",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "error: can't create transaction lock on /usr/lib/sysimage/rpm/.rpm.lock (Resource temporarily unavailable)\n"
+    },
+    {
+      "label": "checkpoint-nevra-after",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "inherited-lock-witness",
+      "vipw": {
+        "pid": 88807,
+        "starttime": "399160",
+        "ppid": 88647,
+        "state": "S",
+        "tracer": 88647,
+        "exe": "/usr/sbin/vipw",
+        "argv": [
+          "/usr/sbin/vipw",
+          "-q",
+          "-p"
+        ],
+        "fds": {
+          "0": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100000\nmnt_id:\t32\nino:\t4\n"
+          },
+          "1": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+          },
+          "2": {
+            "target": "/dev/null",
+            "info": "pos:\t0\nflags:\t0100001\nmnt_id:\t32\nino:\t4\n"
+          },
+          "3": {
+            "target": "pipe:[183189]",
+            "info": "pos:\t0\nflags:\t04000\nmnt_id:\t15\nino:\t183189\n"
+          },
+          "4": {
+            "target": "/usr/lib/sysimage/rpm/.rpm.lock",
+            "info": "pos:\t0\nflags:\t0504000\nmnt_id:\t64\nino:\t130825\nlock:\t1: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n"
+          },
+          "5": {
+            "target": "/etc/.pwd.lock",
+            "info": "pos:\t0\nflags:\t02100001\nmnt_id:\t64\nino:\t915870\nlock:\t1: POSIX  ADVISORY  WRITE 88807 103:03:915870 0 EOF\n"
+          },
+          "7": {
+            "target": "/var/lib/cosh/login/.lock",
+            "info": "pos:\t0\nflags:\t0504002\nmnt_id:\t64\nino:\t917316\nlock:\t1: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n"
+          }
+        }
+      },
+      "locks": "1: POSIX  ADVISORY  WRITE 88509 103:03:784986 0 EOF\n2: POSIX  ADVISORY  WRITE 88509 103:03:784985 0 EOF\n3: POSIX  ADVISORY  WRITE 88509 103:03:784984 0 EOF\n4: FLOCK  ADVISORY  WRITE 44166 103:03:917304 0 EOF\n5: FLOCK  ADVISORY  WRITE 88785 103:03:917316 0 EOF\n6: OFDLCK ADVISORY  READ -1 103:03:130825 0 EOF\n7: FLOCK  ADVISORY  WRITE 44165 103:03:393197 0 EOF\n8: FLOCK  ADVISORY  WRITE 44165 103:03:393195 0 EOF\n9: FLOCK  ADVISORY  WRITE 37477 103:03:393176 0 EOF\n10: FLOCK  ADVISORY  WRITE 8219 103:03:300532 0 EOF\n11: FLOCK  ADVISORY  WRITE 1258 00:18:1092 0 EOF\n12: FLOCK  ADVISORY  WRITE 86461 103:03:524892 0 EOF\n13: FLOCK  ADVISORY  WRITE 4657 103:03:300361 0 EOF\n14: POSIX  ADVISORY  WRITE 88807 103:03:915870 0 EOF\n15: FLOCK  ADVISORY  WRITE 86440 103:03:524870 0 EOF\n16: POSIX  ADVISORY  WRITE 1233 00:21:20 0 EOF\n",
+      "record": "{\"schema\":1,\"username\":\"cosh9979\",\"uid\":19779,\"original_shell\":\"/bin/bash\",\"cosh_shell\":\"/usr/bin/cosh\",\"original_sha256\":\"7652d948965c7054662c916e62833d0c067e3d6c884940d82b2535666b7741db\",\"phase\":\"prepared\"}"
+    },
+    {
+      "label": "restore-after-orphan-rename",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "code": 0,
+      "stdout": "User: cosh9979 (UID 19779): /usr/bin/cosh -> /bin/bash. New logins only.\nLogin shell: /bin/bash. New logins only.\n",
+      "stderr": ""
+    },
+    {
+      "label": "verify-installed-after",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "finally-public-restore",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "cosh9979",
+        "--yes"
+      ],
+      "code": 0,
+      "stdout": "User: cosh9979 (UID 19779): /bin/bash -> /bin/bash. New logins only.\nLogin shell: /bin/bash. New logins only.\n",
+      "stderr": ""
+    }
+  ],
+  "trace_events": [
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88785
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88786
+    },
+    {
+      "kind": "stop",
+      "pid": 88786,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88786,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88786
+    },
+    {
+      "kind": "stop",
+      "pid": 88786,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88786,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88786,
+        "starttime": "398993",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88787
+    },
+    {
+      "kind": "stop",
+      "pid": 88787,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88787,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88787
+    },
+    {
+      "kind": "stop",
+      "pid": 88787,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88787,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88787,
+        "starttime": "399001",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88788
+    },
+    {
+      "kind": "stop",
+      "pid": 88788,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88788,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88788
+    },
+    {
+      "kind": "stop",
+      "pid": 88788,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88788,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88788,
+        "starttime": "399009",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88789
+    },
+    {
+      "kind": "stop",
+      "pid": 88789,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88789,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88789
+    },
+    {
+      "kind": "stop",
+      "pid": 88789,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88789,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88789,
+        "starttime": "399017",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88790
+    },
+    {
+      "kind": "stop",
+      "pid": 88790,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88790,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88790
+    },
+    {
+      "kind": "stop",
+      "pid": 88790,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88790,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88790,
+        "starttime": "399025",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88791
+    },
+    {
+      "kind": "stop",
+      "pid": 88791,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88791,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88791
+    },
+    {
+      "kind": "stop",
+      "pid": 88791,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88791,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88791,
+        "starttime": "399033",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88792
+    },
+    {
+      "kind": "stop",
+      "pid": 88792,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88792,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88792
+    },
+    {
+      "kind": "stop",
+      "pid": 88792,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88792
+    },
+    {
+      "kind": "stop",
+      "pid": 88792,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88792,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88792,
+        "starttime": "399040",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88793
+    },
+    {
+      "kind": "stop",
+      "pid": 88793,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88793,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88793
+    },
+    {
+      "kind": "stop",
+      "pid": 88793,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88793,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88793,
+        "starttime": "399050",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88794
+    },
+    {
+      "kind": "stop",
+      "pid": 88794,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88794,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88794
+    },
+    {
+      "kind": "stop",
+      "pid": 88794,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88794,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88794,
+        "starttime": "399057",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88795
+    },
+    {
+      "kind": "stop",
+      "pid": 88795,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88795,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88795
+    },
+    {
+      "kind": "stop",
+      "pid": 88795,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88795,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88795,
+        "starttime": "399065",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88796
+    },
+    {
+      "kind": "stop",
+      "pid": 88796,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88796,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88796
+    },
+    {
+      "kind": "stop",
+      "pid": 88796,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88796,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88796,
+        "starttime": "399073",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88797
+    },
+    {
+      "kind": "stop",
+      "pid": 88797,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88797,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88797
+    },
+    {
+      "kind": "stop",
+      "pid": 88797,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88797,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88797,
+        "starttime": "399081",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88798
+    },
+    {
+      "kind": "stop",
+      "pid": 88798,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88798,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88798
+    },
+    {
+      "kind": "stop",
+      "pid": 88798,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88798,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88798,
+        "starttime": "399088",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88799
+    },
+    {
+      "kind": "stop",
+      "pid": 88799,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88799,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88799
+    },
+    {
+      "kind": "stop",
+      "pid": 88799,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88799,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88799,
+        "starttime": "399096",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88800
+    },
+    {
+      "kind": "stop",
+      "pid": 88800,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88800,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88800
+    },
+    {
+      "kind": "stop",
+      "pid": 88800,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88800,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88800,
+        "starttime": "399103",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88801
+    },
+    {
+      "kind": "stop",
+      "pid": 88801,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88801,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88801
+    },
+    {
+      "kind": "stop",
+      "pid": 88801,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88801,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88801,
+        "starttime": "399111",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88802
+    },
+    {
+      "kind": "stop",
+      "pid": 88802,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88802,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88802
+    },
+    {
+      "kind": "stop",
+      "pid": 88802,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88802
+    },
+    {
+      "kind": "stop",
+      "pid": 88802,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88802,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88802,
+        "starttime": "399119",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88803
+    },
+    {
+      "kind": "stop",
+      "pid": 88803,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88803,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88803
+    },
+    {
+      "kind": "stop",
+      "pid": 88803,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88803,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88803,
+        "starttime": "399128",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88804
+    },
+    {
+      "kind": "stop",
+      "pid": 88804,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88804,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88804
+    },
+    {
+      "kind": "stop",
+      "pid": 88804,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88804,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88804,
+        "starttime": "399136",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88805
+    },
+    {
+      "kind": "stop",
+      "pid": 88805,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88805,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88805
+    },
+    {
+      "kind": "stop",
+      "pid": 88805,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88805,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88805,
+        "starttime": "399144",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88806
+    },
+    {
+      "kind": "stop",
+      "pid": 88806,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88806,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88806
+    },
+    {
+      "kind": "stop",
+      "pid": 88806,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88806,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88806,
+        "starttime": "399152",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 1,
+      "inject": 0,
+      "message": 88807
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88807
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 5,
+      "event": 1,
+      "inject": 0,
+      "message": 88808
+    },
+    {
+      "kind": "stop",
+      "pid": 88808,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88808,
+      "signal": 5,
+      "event": 2,
+      "inject": 0,
+      "message": 88809
+    },
+    {
+      "kind": "stop",
+      "pid": 88809,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88809,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88809
+    },
+    {
+      "kind": "stop",
+      "pid": 88809,
+      "signal": 5,
+      "event": 4,
+      "inject": 0,
+      "message": 88809
+    },
+    {
+      "kind": "stop",
+      "pid": 88809,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88785,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 9
+    },
+    {
+      "pid": 88785,
+      "kind": "exit",
+      "code": -9,
+      "identity": {
+        "pid": 88785,
+        "starttime": "398990",
+        "ppid": 88647,
+        "state": "R",
+        "tracer": 0
+      }
+    },
+    {
+      "pid": 88809,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88809,
+        "starttime": "399166",
+        "ppid": 88808,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88808,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88808,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88808,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88808,
+        "starttime": "399164",
+        "ppid": 88807,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 5,
+      "event": 1,
+      "inject": 0,
+      "message": 88816
+    },
+    {
+      "kind": "stop",
+      "pid": 88816,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88816,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 32512
+    },
+    {
+      "pid": 88816,
+      "kind": "exit",
+      "code": 127,
+      "identity": {
+        "pid": 88816,
+        "starttime": "399191",
+        "ppid": 88807,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 5,
+      "event": 1,
+      "inject": 0,
+      "message": 88817
+    },
+    {
+      "kind": "stop",
+      "pid": 88817,
+      "signal": 19,
+      "event": 0,
+      "inject": 0
+    },
+    {
+      "kind": "stop",
+      "pid": 88817,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 32512
+    },
+    {
+      "pid": 88817,
+      "kind": "exit",
+      "code": 127,
+      "identity": {
+        "pid": 88817,
+        "starttime": "399198",
+        "ppid": 88807,
+        "state": "t",
+        "tracer": 88647
+      }
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 17,
+      "event": 0,
+      "inject": 17
+    },
+    {
+      "kind": "stop",
+      "pid": 88807,
+      "signal": 5,
+      "event": 6,
+      "inject": 0,
+      "message": 0
+    },
+    {
+      "pid": 88807,
+      "kind": "exit",
+      "code": 0,
+      "identity": {
+        "pid": 88807,
+        "starttime": "399160",
+        "ppid": 88785,
+        "state": "t",
+        "tracer": 88647
+      }
+    }
+  ],
+  "owned_identities": [
+    {
+      "pid": 88785,
+      "starttime": "398990",
+      "ppid": 88647,
+      "state": "R",
+      "tracer": 0,
+      "ancestor": 88647
+    },
+    {
+      "pid": 88786,
+      "starttime": "398993",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88787,
+      "starttime": "399001",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88788,
+      "starttime": "399009",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88789,
+      "starttime": "399017",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88790,
+      "starttime": "399025",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88791,
+      "starttime": "399033",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88792,
+      "starttime": "399040",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88793,
+      "starttime": "399050",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88794,
+      "starttime": "399057",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88795,
+      "starttime": "399065",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88796,
+      "starttime": "399073",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88797,
+      "starttime": "399081",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88798,
+      "starttime": "399088",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88799,
+      "starttime": "399096",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88800,
+      "starttime": "399103",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88801,
+      "starttime": "399111",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88802,
+      "starttime": "399119",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88803,
+      "starttime": "399128",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88804,
+      "starttime": "399136",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88805,
+      "starttime": "399144",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88806,
+      "starttime": "399152",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88807,
+      "starttime": "399160",
+      "ppid": 88785,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88785
+    },
+    {
+      "pid": 88808,
+      "starttime": "399164",
+      "ppid": 88807,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88807
+    },
+    {
+      "pid": 88809,
+      "starttime": "399166",
+      "ppid": 88808,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88808
+    },
+    {
+      "pid": 88816,
+      "starttime": "399191",
+      "ppid": 88807,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88807
+    },
+    {
+      "pid": 88817,
+      "starttime": "399198",
+      "ppid": 88807,
+      "state": "t",
+      "tracer": 88647,
+      "ancestor": 88807
+    }
+  ],
+  "failures": [],
+  "pass": true,
+  "editor_hold": {
+    "pid": 88809,
+    "starttime": "399166",
+    "event": "PTRACE_EVENT_EXIT",
+    "released": true
+  },
+  "checkpoint_hashes_before": {
+    "passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+    "record": "6ce3dcca1f9cc4d8765bfcf32e3f2ae90e9ac95fb038b44723e7bed2bb1aa01a",
+    "payload": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+    "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n"
+  },
+  "checkpoint_hashes_after": {
+    "passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+    "record": "6ce3dcca1f9cc4d8765bfcf32e3f2ae90e9ac95fb038b44723e7bed2bb1aa01a",
+    "payload": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+    "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n"
+  },
+  "orphan_commit": {
+    "shell": "/usr/bin/cosh",
+    "record": {
+      "schema": 1,
+      "username": "cosh9979",
+      "uid": 19779,
+      "original_shell": "/bin/bash",
+      "cosh_shell": "/usr/bin/cosh",
+      "original_sha256": "7652d948965c7054662c916e62833d0c067e3d6c884940d82b2535666b7741db",
+      "phase": "prepared"
+    },
+    "vipw_exit": 0,
+    "natural_completion": true
+  },
+  "actual_remaining_tracees": [],
+  "final_readback": {
+    "shell": "/bin/bash",
+    "root_shell": "/bin/bash",
+    "passwd_sha256": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+    "record": {
+      "schema": 1,
+      "username": "cosh9979",
+      "uid": 19779,
+      "original_shell": "/bin/bash",
+      "cosh_shell": "/usr/bin/cosh",
+      "original_sha256": "7652d948965c7054662c916e62833d0c067e3d6c884940d82b2535666b7741db",
+      "phase": "restored"
+    }
+  },
+  "task_started": true,
+  "remaining_owned_tracees": [],
+  "ptrace_options": 1048670,
+  "exitkill_enabled": true
+}

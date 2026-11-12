@@ -1,0 +1,72 @@
+{
+  "archive": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/delivery-artifacts.tar.gz",
+  "sha256": "4de3c5e48212bc7604d235d563752dd42c8373859eb4bc4955e1b9bf28dfec13",
+  "public_asset_policy": "Do not upload RPM/SRPM or this archive to PR assets; only small receipts and true PTY visuals",
+  "files": [
+    {
+      "name": "rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-0.0.alnx4.x86_64.rpm",
+      "bytes": 13146646,
+      "sha256": "c5fef052f4a3e7f41d3d9bb48430d7a8ceb5680199e77586498dfbdb79b09281"
+    },
+    {
+      "name": "rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-0.1.alnx4.x86_64.rpm",
+      "bytes": 13149183,
+      "sha256": "1d4d86394c4e5928093fb4c58ffaf9254d18a6a2b4066099204c48b0eff646b8"
+    },
+    {
+      "name": "rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm",
+      "bytes": 13146828,
+      "sha256": "5e56aff2b4423659a1eb8005b8550b0b480a1fe960fff9ffc2a2a9bfa1876c90"
+    },
+    {
+      "name": "rpmbuild/SRPMS/cosh-ng-0.29.1-0.0.alnx4.src.rpm",
+      "bytes": 3799637,
+      "sha256": "7a3cd1f0b39145a1aa2cf1634d711d5fd19618bc310352ee28182a3e4a94819f"
+    },
+    {
+      "name": "rpmbuild/SRPMS/cosh-ng-0.29.1-0.1.alnx4.src.rpm",
+      "bytes": 3799876,
+      "sha256": "0720e04615b990bf3afc2418c0914269b347feb39f19c41bcf5e055721e33d4e"
+    },
+    {
+      "name": "rpmbuild/SRPMS/cosh-ng-0.29.1-1.alnx4.src.rpm",
+      "bytes": 3800022,
+      "sha256": "3b78c5d3119d49d33afb6123e3131de885a183433b6acf863c30acd7abe3c57d"
+    },
+    {
+      "name": "rpmbuild/build-compatible.json",
+      "bytes": 782,
+      "sha256": "e2289c1bfe680ffa08463470784a48e7962253787df1caa80d751699ec831bd2"
+    },
+    {
+      "name": "rpmbuild/build-natural.json",
+      "bytes": 609,
+      "sha256": "f3809160ea0cb71a0ea3e70b0b6463d03bfbc93a6b6f0591cb0a27c7628974d5"
+    },
+    {
+      "name": "rpmbuild/build-unknown.json",
+      "bytes": 977,
+      "sha256": "2ffb4184190e08f206a4657ef9ac7b182ebd298d2dc082617feebddc4d1faa6a"
+    },
+    {
+      "name": "rpmbuild/build-compatible.log",
+      "bytes": 10740,
+      "sha256": "07f0e446d4cdc987875f70b14fb63ed9be3feced4ba1fc84a16fd42d5709bc3f"
+    },
+    {
+      "name": "rpmbuild/build-natural.log",
+      "bytes": 22682,
+      "sha256": "e49d44279061328ab5f41f680f4786ae9a8b44e263a74832f5e4a30df73d5817"
+    },
+    {
+      "name": "rpmbuild/build-unknown.log",
+      "bytes": 10544,
+      "sha256": "e76bac7c85357c190adceeec9d8c51f8842e316569f595f3d2325e66e2151361"
+    },
+    {
+      "name": "default-source.tar.gz",
+      "bytes": 3764548,
+      "sha256": "b66dca494e498678e712e9f31a6165f2bf43f705b14ce5e6e6fbbfab7ab3bc53"
+    }
+  ]
+}

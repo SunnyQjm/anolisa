@@ -1,0 +1,785 @@
+{
+  "pass": true,
+  "events": [
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "create-alias-user",
+      "argv": [
+        "/usr/sbin/useradd",
+        "--uid",
+        "19780",
+        "--no-create-home",
+        "--shell",
+        "/bin/bash",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": "Creating mailbox file: File exists\n"
+    },
+    {
+      "label": "set-unrecorded-known-alias",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/usr/bin/cosh",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-without-record-refused",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "coshalias9979",
+        "--yes"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh login: No trusted login recovery record; no account change made.\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "preflight-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "check-erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "direct-rpm-alias-erase",
+      "argv": [
+        "/usr/bin/rpm",
+        "-e",
+        "cosh-ng"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\nerror: cannot uninstall cosh-ng: use login-preflight erase after restoring login accounts and resolving record conflicts.\nerror: %preun(cosh-ng-0.29.1-1.alnx4.x86_64) scriptlet failed, exit status 1\nerror: cosh-ng-0.29.1-1.alnx4.x86_64: erase failed\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "frontdoor-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "payload-verification",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-fixture-bash",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/bash",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "set-unrecorded-known-alias",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/cosh",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-without-record-refused",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "coshalias9979",
+        "--yes"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh login: Account shell or login record conflicts; administrator review is required.\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "preflight-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "check-erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "direct-rpm-alias-erase",
+      "argv": [
+        "/usr/bin/rpm",
+        "-e",
+        "cosh-ng"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\nerror: cannot uninstall cosh-ng: use login-preflight erase after restoring login accounts and resolving record conflicts.\nerror: %preun(cosh-ng-0.29.1-1.alnx4.x86_64) scriptlet failed, exit status 1\nerror: cosh-ng-0.29.1-1.alnx4.x86_64: erase failed\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "frontdoor-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "payload-verification",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-fixture-bash",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/bash",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "set-unrecorded-known-alias",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/usr/bin/cosh-login",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-without-record-refused",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "coshalias9979",
+        "--yes"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh login: Account shell or login record conflicts; administrator review is required.\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "preflight-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "check-erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "direct-rpm-alias-erase",
+      "argv": [
+        "/usr/bin/rpm",
+        "-e",
+        "cosh-ng"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\nerror: cannot uninstall cosh-ng: use login-preflight erase after restoring login accounts and resolving record conflicts.\nerror: %preun(cosh-ng-0.29.1-1.alnx4.x86_64) scriptlet failed, exit status 1\nerror: cosh-ng-0.29.1-1.alnx4.x86_64: erase failed\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "frontdoor-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "payload-verification",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-fixture-bash",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/bash",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "set-unrecorded-known-alias",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/cosh-login",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-without-record-refused",
+      "argv": [
+        "/usr/bin/cosh",
+        "login",
+        "restore",
+        "--user",
+        "coshalias9979",
+        "--yes"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh login: Account shell or login record conflicts; administrator review is required.\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "preflight-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "check-erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "direct-rpm-alias-erase",
+      "argv": [
+        "/usr/bin/rpm",
+        "-e",
+        "cosh-ng"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\nerror: cannot uninstall cosh-ng: use login-preflight erase after restoring login accounts and resolving record conflicts.\nerror: %preun(cosh-ng-0.29.1-1.alnx4.x86_64) scriptlet failed, exit status 1\nerror: cosh-ng-0.29.1-1.alnx4.x86_64: erase failed\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "frontdoor-alias-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "erase"
+      ],
+      "code": 1,
+      "stdout": "",
+      "stderr": "cosh package: restore accounts still using cosh or cosh-login before removing this package\n"
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "payload-verification",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "package-identity",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "code": 0,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stderr": ""
+    },
+    {
+      "label": "restore-fixture-bash",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/bash",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "finally-fixture-bash",
+      "argv": [
+        "/usr/sbin/usermod",
+        "--shell",
+        "/bin/bash",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "usermod: no changes\n",
+      "stderr": ""
+    },
+    {
+      "label": "finally-user-delete",
+      "argv": [
+        "/usr/sbin/userdel",
+        "coshalias9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "label": "no-alias-readonly-erase-audit-permitted",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "check-erase"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "failures": [],
+  "alias_resolution": [
+    {
+      "alias": "/usr/bin/cosh",
+      "realpath": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "device": 66307,
+      "inode": 529712,
+      "sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c"
+    },
+    {
+      "alias": "/bin/cosh",
+      "realpath": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "device": 66307,
+      "inode": 529712,
+      "sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c"
+    },
+    {
+      "alias": "/usr/bin/cosh-login",
+      "realpath": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "device": 66307,
+      "inode": 529712,
+      "sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c"
+    },
+    {
+      "alias": "/bin/cosh-login",
+      "realpath": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+      "device": 66307,
+      "inode": 529712,
+      "sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c"
+    }
+  ],
+  "alias_snapshots": [
+    {
+      "alias": "/usr/bin/cosh",
+      "before": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "5e7ec92f3a0d9a3827a70e473ade308e916aae1a8b1ebc16878a7ffd2c662c32"
+      },
+      "after": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "5e7ec92f3a0d9a3827a70e473ade308e916aae1a8b1ebc16878a7ffd2c662c32"
+      }
+    },
+    {
+      "alias": "/bin/cosh",
+      "before": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "8dd03407dfbc4fbb450ef651400adcf3ea97a19fbac2406a660742d1737f1c16"
+      },
+      "after": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "8dd03407dfbc4fbb450ef651400adcf3ea97a19fbac2406a660742d1737f1c16"
+      }
+    },
+    {
+      "alias": "/usr/bin/cosh-login",
+      "before": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "3411bfa86fda77e6de8b39c368a50bd737411a814e5981d5b095fa404cd0a273"
+      },
+      "after": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "3411bfa86fda77e6de8b39c368a50bd737411a814e5981d5b095fa404cd0a273"
+      }
+    },
+    {
+      "alias": "/bin/cosh-login",
+      "before": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "d9e2f470a30714751a35aa8f07d68a9f02c82faae9a019aba35600d9e0d7e6c1"
+      },
+      "after": {
+        "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+        "entry_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+        "passwd_sha256": "d9e2f470a30714751a35aa8f07d68a9f02c82faae9a019aba35600d9e0d7e6c1"
+      }
+    }
+  ],
+  "root_shell": "/bin/bash",
+  "temporary_user_present": false,
+  "legacy_alias_present": false
+}

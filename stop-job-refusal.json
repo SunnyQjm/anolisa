@@ -1,0 +1,521 @@
+{
+  "pass": true,
+  "failures": [],
+  "scope": "Installed native RPM preun refuses actual systemd stop job rejection via task-only RefuseManualStop; no fake command or product test API",
+  "fixture": {
+    "MainPID": "108560",
+    "ControlGroup": "/system.slice/system-cosh\\x2dgateway.slice/cosh-gateway@cosh9979.service",
+    "ActiveState": "active",
+    "RefuseManualStop": "yes"
+  },
+  "before": {
+    "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64",
+    "shell": "/bin/bash",
+    "record_sha256": null,
+    "entry": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+    "payload_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+    "native": {
+      "/etc/passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+      "/etc/profile": "07745581fc5ce388b6a85515817c688314c3f990f5e6e781cf0f6af737f48b36",
+      "/etc/bashrc": "f6b3fca4ccae04e1df17b59b3b09ff07cebd257daa8a36233ff3395e654cf17f"
+    }
+  },
+  "after": {
+    "nevra": "cosh-ng-0.29.1-1.alnx4.x86_64",
+    "shell": "/bin/bash",
+    "record_sha256": null,
+    "entry": "/usr/libexec/anolisa/cosh-ng/cosh-shell",
+    "payload_sha256": "b4cd8726df0f2c78875dcca314c5a3125157a4312a0d980a5d4aae5690620d2c",
+    "native": {
+      "/etc/passwd": "58843c0125d4d002234a2e7c20946c8d2f86c7630dce70cadf10c39eb4951d54",
+      "/etc/profile": "07745581fc5ce388b6a85515817c688314c3f990f5e6e781cf0f6af737f48b36",
+      "/etc/bashrc": "f6b3fca4ccae04e1df17b59b3b09ff07cebd257daa8a36233ff3395e654cf17f"
+    }
+  },
+  "native_stop_refusal": {
+    "code": 1,
+    "message_matched": true,
+    "live_unit_after": {
+      "Type": "exec",
+      "Restart": "on-failure",
+      "TimeoutStopUSec": "15s",
+      "MainPID": "108560",
+      "NRestarts": "0",
+      "ControlGroup": "/system.slice/system-cosh\\x2dgateway.slice/cosh-gateway@cosh9979.service",
+      "Delegate": "no",
+      "Environment": "COSH_GATEWAY_ACP_ARG= COSH_GATEWAY_CHECKPOINT_ARG= COSH_GATEWAY_SECURITY_AUDIT_ARG= HOME=/var/lib/cosh-gateway-cosh9979/core-home COSH_GATEWAY_WORKSPACE=/home/cosh9979/p9-focused-workspace",
+      "KillMode": "control-group",
+      "FinalKillSignal": "9",
+      "SendSIGKILL": "yes",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "FragmentPath": "/usr/lib/systemd/system/cosh-gateway@.service",
+      "DropInPaths": "/etc/systemd/system/cosh-gateway@cosh9979.service.d/90-focused-lifecycle.conf"
+    }
+  },
+  "case_pass": true,
+  "stopped_before_cleanup": {
+    "MainPID": "0",
+    "ControlPID": "0",
+    "ControlGroup": "",
+    "ActiveState": "inactive",
+    "SubState": "dead"
+  },
+  "final": {
+    "nevra": null,
+    "root_shell": "/bin/bash",
+    "user_shell": "/bin/bash",
+    "record_absent": true,
+    "resources_absent": true,
+    "native_files_unchanged": true
+  },
+  "events": [
+    {
+      "step": "rpm-header",
+      "argv": [
+        "/usr/bin/rpm",
+        "-qp",
+        "--qf",
+        "%{NAME}\n%{VERSION}\n%{NEVRA}\n[%{PROVIDENAME}\n]",
+        "--",
+        "/opt/cosh-9979/full-default/rpmbuild/RPMS/x86_64/cosh-ng-0.29.1-1.alnx4.x86_64.rpm"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng\n0.29.1\ncosh-ng-0.29.1-1.alnx4.x86_64\n/usr/bin/cosh\n/usr/bin/cosh-cli\n/usr/libexec/anolisa/cosh-ng/cosh-gateway\nanolisa-component(cosh-ng)\ncosh-login-lifecycle-v1\ncosh-ng\ncosh-ng(x86-64)\n",
+      "stdout_sha256": "01a4e03ffd1fa864e779717a2015d4e24ab64bc020f42afe67c1a1cfd27759bc",
+      "stdout_bytes": 194,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "gateway-units",
+      "argv": [
+        "/usr/bin/systemctl",
+        "list-units",
+        "--all",
+        "--plain",
+        "--no-legend",
+        "cosh-gateway@*.service",
+        "cosh-gateway-acp@*.service"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-gateway-acp@cosh9979.service not-found inactive dead   cosh-gateway-acp@cosh9979.service\ncosh-gateway@cosh9979.service     loaded    failed   failed COSH Gateway daemon (cosh9979)\n",
+      "stdout_sha256": "61da0cc3a5ad5992da374bfd837fc9ccddd964418171b8e134d6b579efbb644b",
+      "stdout_bytes": 185,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "initial-payload",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "reload-owned-dropin",
+      "argv": [
+        "/usr/bin/systemctl",
+        "daemon-reload"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "start-B3",
+      "argv": [
+        "/usr/bin/systemctl",
+        "start",
+        "cosh-gateway@cosh9979.service"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "unit-show",
+      "argv": [
+        "/usr/bin/systemctl",
+        "show",
+        "--all",
+        "cosh-gateway@cosh9979.service",
+        "--property=LoadState,ActiveState,MainPID,ControlGroup,Type,KillMode,SendSIGKILL,FinalKillSignal,TimeoutStopUSec,Delegate,Restart,NRestarts,FragmentPath,DropInPaths,Environment"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "Type=exec\nRestart=on-failure\nTimeoutStopUSec=15s\nMainPID=108560\nNRestarts=0\nControlGroup=/system.slice/system-cosh\\x2dgateway.slice/cosh-gateway@cosh9979.service\nDelegate=no\nEnvironment=COSH_GATEWAY_ACP_ARG= COSH_GATEWAY_CHECKPOINT_ARG= COSH_GATEWAY_SECURITY_AUDIT_ARG= HOME=/var/lib/cosh-gateway-cosh9979/core-home COSH_GATEWAY_WORKSPACE=/home/cosh9979/p9-focused-workspace\nKillMode=control-group\nFinalKillSignal=9\nSendSIGKILL=yes\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/cosh-gateway@.service\nDropInPaths=/etc/systemd/system/cosh-gateway@cosh9979.service.d/90-focused-lifecycle.conf\n",
+      "stdout_sha256": "1189ec77d1c144a5ed333e370f946c5557ac0c5e5d83bafa5db9368ad9a4b889",
+      "stdout_bytes": 617,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "dbus-get-unit",
+      "argv": [
+        "/usr/bin/busctl",
+        "call",
+        "org.freedesktop.systemd1",
+        "/org/freedesktop/systemd1",
+        "org.freedesktop.systemd1.Manager",
+        "GetUnit",
+        "s",
+        "cosh-gateway@cosh9979.service"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "o \"/org/freedesktop/systemd1/unit/cosh_2dgateway_40cosh9979_2eservice\"\n",
+      "stdout_sha256": "e7641287c03e7e68056af560f80ee642d4b0fbb347e8821940f39a34ca38e7a8",
+      "stdout_bytes": 71,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "dbus-environment-files",
+      "argv": [
+        "/usr/bin/busctl",
+        "get-property",
+        "org.freedesktop.systemd1",
+        "/org/freedesktop/systemd1/unit/cosh_2dgateway_40cosh9979_2eservice",
+        "org.freedesktop.systemd1.Service",
+        "EnvironmentFiles"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "a(sb) 0\n",
+      "stdout_sha256": "867fc7a7ad6c641956b72f2ce73f85a8e66bba5f29644685d87246463744d30b",
+      "stdout_bytes": 8,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "zero-tasks-B3",
+      "argv": [
+        "/usr/libexec/anolisa/cosh-ng/cosh-gateway",
+        "task",
+        "--socket",
+        "/run/cosh-gateway-cosh9979/gateway.sock",
+        "--output",
+        "jsonl",
+        "list"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "{\"event\":\"tasks\",\"tasks\":[]}\n",
+      "stdout_sha256": "8e3ce62e34cf51997ef2c0cb1a8cefad78edd90926ab86649b957ad6a10e2403",
+      "stdout_bytes": 29,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "reload-owned-dropin",
+      "argv": [
+        "/usr/bin/systemctl",
+        "daemon-reload"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "reload-refuse-manual-stop",
+      "argv": [
+        "/usr/bin/systemctl",
+        "daemon-reload"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "effective-refusal",
+      "argv": [
+        "/usr/bin/systemctl",
+        "show",
+        "cosh-gateway@cosh9979.service",
+        "--property=RefuseManualStop,MainPID,ActiveState,ControlGroup"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "MainPID=108560\nControlGroup=/system.slice/system-cosh\\x2dgateway.slice/cosh-gateway@cosh9979.service\nActiveState=active\nRefuseManualStop=yes\n",
+      "stdout_sha256": "f0519bc354c11950e0685e42b47066739423f7d9f9b73ecc7ec3f97647120933",
+      "stdout_bytes": 141,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "controlled-erase-stop-refused",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "erase"
+      ],
+      "rc": 1,
+      "interrupted": false,
+      "stdout": "Dependencies resolved.\n================================================================================\n Package         Architecture   Version                  Repository        Size\n================================================================================\nRemoving:\n cosh-ng         x86_64         0.29.1-1.alnx4           @@System          36 M\n\nTransaction Summary\n================================================================================\nRemove  1 Package\n\nFreed space: 36 M\nIs this ok [y/N]: Running transaction check\nTransaction check succeeded.\nRunning transaction test\nTransaction test succeeded.\nRunning transaction\n  Preparing        :                                                        1/1 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          1/1 \nFailed to stop cosh-gateway@cosh9979.service: Operation refused, unit cosh-gateway@cosh9979.service may be requested by dependency only (it is configured to refuse manual start/stop).\nSee system logs and 'systemctl status cosh-gateway@cosh9979.service' for details.\nerror: cannot uninstall cosh-ng: failed to stop running Gateway instances.\nerror: %preun(cosh-ng-0.29.1-1.alnx4.x86_64) scriptlet failed, exit status 1\n\n  Verifying        : cosh-ng-0.29.1-1.alnx4.x86_64                          1/1 \n\nFailed:\n  cosh-ng-0.29.1-1.alnx4.x86_64                                                 \n\n",
+      "stdout_sha256": "7f24f6a0fa7bfc1b31d3937a47506ebebe6f9f0dae56d3eb79d8c6daf1209478",
+      "stdout_bytes": 1393,
+      "stderr": "Error in PREUN scriptlet in rpm package cosh-ng\nError: Transaction failed\n",
+      "stderr_sha256": "5f2c5588b8319ab045ffb7705e0aba821624db28e4cd65a256e8e422d55687ba",
+      "stderr_bytes": 74
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "refused-payload-unchanged",
+      "argv": [
+        "/usr/bin/rpm",
+        "-V",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "unit-show",
+      "argv": [
+        "/usr/bin/systemctl",
+        "show",
+        "--all",
+        "cosh-gateway@cosh9979.service",
+        "--property=LoadState,ActiveState,MainPID,ControlGroup,Type,KillMode,SendSIGKILL,FinalKillSignal,TimeoutStopUSec,Delegate,Restart,NRestarts,FragmentPath,DropInPaths,Environment"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "Type=exec\nRestart=on-failure\nTimeoutStopUSec=15s\nMainPID=108560\nNRestarts=0\nControlGroup=/system.slice/system-cosh\\x2dgateway.slice/cosh-gateway@cosh9979.service\nDelegate=no\nEnvironment=COSH_GATEWAY_ACP_ARG= COSH_GATEWAY_CHECKPOINT_ARG= COSH_GATEWAY_SECURITY_AUDIT_ARG= HOME=/var/lib/cosh-gateway-cosh9979/core-home COSH_GATEWAY_WORKSPACE=/home/cosh9979/p9-focused-workspace\nKillMode=control-group\nFinalKillSignal=9\nSendSIGKILL=yes\nLoadState=loaded\nActiveState=active\nFragmentPath=/usr/lib/systemd/system/cosh-gateway@.service\nDropInPaths=/etc/systemd/system/cosh-gateway@cosh9979.service.d/90-focused-lifecycle.conf\n",
+      "stdout_sha256": "1189ec77d1c144a5ed333e370f946c5557ac0c5e5d83bafa5db9368ad9a4b889",
+      "stdout_bytes": 617,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "reload-owned-dropin",
+      "argv": [
+        "/usr/bin/systemctl",
+        "daemon-reload"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "finally-normal-stop",
+      "argv": [
+        "/usr/bin/systemctl",
+        "stop",
+        "cosh-gateway@cosh9979.service"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "barrier-unit-state",
+      "argv": [
+        "/usr/bin/systemctl",
+        "show",
+        "--all",
+        "cosh-gateway@cosh9979.service",
+        "--property=MainPID,ControlPID,ActiveState,SubState,ControlGroup,ExecStopPost"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "MainPID=0\nControlPID=0\nControlGroup=\nActiveState=inactive\nSubState=dead\n",
+      "stdout_sha256": "9e7d1a30d090fd24225673de60f683e274f340f95f8a86743e5a08489e2f39ff",
+      "stdout_bytes": 72,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "cosh-ng-0.29.1-1.alnx4.x86_64\n",
+      "stdout_sha256": "c07f22d624331f42d30ffe49c0760f45256ffb140515fbc508ccb0997d2c779c",
+      "stdout_bytes": 30,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "finally-erase",
+      "argv": [
+        "/usr/libexec/cosh/login-preflight",
+        "erase"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "Dependencies resolved.\n================================================================================\n Package         Architecture   Version                  Repository        Size\n================================================================================\nRemoving:\n cosh-ng         x86_64         0.29.1-1.alnx4           @@System          36 M\n\nTransaction Summary\n================================================================================\nRemove  1 Package\n\nFreed space: 36 M\nIs this ok [y/N]: Running transaction check\nTransaction check succeeded.\nRunning transaction test\nTransaction test succeeded.\nRunning transaction\n  Preparing        :                                                        1/1 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          1/1 \nFailed to stop cosh-gateway@.service: Unit name cosh-gateway@.service is missing the instance name.\nSee system logs and 'systemctl status cosh-gateway@.service' for details.\n\n  Erasing          : cosh-ng-0.29.1-1.alnx4.x86_64                          1/1 \n  Running scriptlet: cosh-ng-0.29.1-1.alnx4.x86_64                          1/1 \n  Verifying        : cosh-ng-0.29.1-1.alnx4.x86_64                          1/1 \n\nRemoved:\n  cosh-ng-0.29.1-1.alnx4.x86_64                                                 \n\nComplete!\n",
+      "stdout_sha256": "24458b33061faeef3371ec74b9a4620121060c913e810ed56d8fdd0903622431",
+      "stdout_bytes": 1322,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "finally-reload",
+      "argv": [
+        "/usr/bin/systemctl",
+        "daemon-reload"
+      ],
+      "rc": 0,
+      "interrupted": false,
+      "stdout": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    },
+    {
+      "step": "installed-nevra",
+      "argv": [
+        "/usr/bin/rpm",
+        "-q",
+        "--qf",
+        "%{NEVRA}\n",
+        "cosh-ng"
+      ],
+      "rc": 1,
+      "interrupted": false,
+      "stdout": "package cosh-ng is not installed\n",
+      "stdout_sha256": "e94c1c646e921dd98acc3fc7e73e0c2bf37a84ceee4d347cfbcdc49c1b220491",
+      "stdout_bytes": 33,
+      "stderr": "",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0
+    }
+  ]
+}

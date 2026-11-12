@@ -1,0 +1,52 @@
+{
+  "pass": true,
+  "runs": [
+    {
+      "accept_run": "20261112T181147Z-f6fbac99",
+      "env_shell_run": "20261112T181148Z-ce943041",
+      "ssh_argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "IdentityFile=/Users/quejianming/.cache/cosh-9979-default-login/ssh-key",
+        "-o",
+        "IdentitiesOnly=yes",
+        "-o",
+        "UserKnownHostsFile=/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/known_hosts",
+        "cosh9979@47.111.16.157"
+      ],
+      "remote_command_absent": true,
+      "ssh_exit": 0,
+      "actual_new_connection": true
+    },
+    {
+      "accept_run": "20261112T181334Z-d4c5f12d",
+      "env_shell_run": "20261112T181335Z-93390a1d",
+      "ssh_argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "IdentityFile=/Users/quejianming/.cache/cosh-9979-default-login/ssh-key",
+        "-o",
+        "IdentitiesOnly=yes",
+        "-o",
+        "UserKnownHostsFile=/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/known_hosts",
+        "cosh9979@47.111.16.157"
+      ],
+      "remote_command_absent": true,
+      "ssh_exit": 0,
+      "actual_new_connection": true
+    }
+  ],
+  "visual_review": "both complete PNGs inspected; actual -cosh installed ELF before Restore, new -bash after Restore; no runuser or remote command in SSH argv"
+}

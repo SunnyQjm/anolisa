@@ -1,0 +1,820 @@
+{
+  "ok": true,
+  "steps": [
+    {
+      "label": "preflight",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "pr",
+        "preflight",
+        "--base",
+        "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+        "--cargo-root",
+        "src/cosh-ng",
+        "--target-root",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2",
+        "--gate",
+        "set -o pipefail; crates/cosh-shell/scripts/check-layout.sh 2>&1 | tee /opt/cosh-9979/full-default/native-gates/layout.log",
+        "--gate",
+        "set -o pipefail; scripts/check-test-inventory.sh 2>&1 | tee /opt/cosh-9979/full-default/native-gates/inventory.log",
+        "--gate",
+        "set -o pipefail; bash tests/test-package-rpm.sh 2>&1 | tee /opt/cosh-9979/full-default/native-gates/package-scriptlet.log",
+        "--gate",
+        "set -o pipefail; python3 tests/test_rpm_split.py -v 2>&1 | tee /opt/cosh-9979/full-default/native-gates/package-split.log",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 420.1543016650003
+    },
+    {
+      "label": "shipping-build",
+      "argv": [
+        "/usr/bin/cargo",
+        "build",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--bin",
+        "cosh-shell",
+        "--manifest-path",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng/Cargo.toml"
+      ],
+      "code": 0,
+      "elapsed_seconds": 42.100151603000086
+    },
+    {
+      "label": "login-unit",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "unit",
+        "--filter",
+        "runtime::login",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.27809495400015294
+    },
+    {
+      "label": "login-shell-lock",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "shell-host",
+        "--filter",
+        "login_lifecycle::missing_old_backend_allows_only_absent_empty_or_safe_lock_state",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 7.7922768450007425
+    },
+    {
+      "label": "login-shell-assets",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "shell-host",
+        "--filter",
+        "login_lifecycle::packaged_shell_assets_parse_and_noninteractive_loader_is_silent",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.26444424699911906
+    },
+    {
+      "label": "raw-login-1",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_remote_bashrc_startup_counts_match_native_bash",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 7.907933357000729
+    },
+    {
+      "label": "raw-login-2",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_dash_c_passthrough_executes_without_agent_ui",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.33446716599974025
+    },
+    {
+      "label": "raw-login-3",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_dash_c_passthrough_preserves_exit_status",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.2867425100002947
+    },
+    {
+      "label": "raw-login-4",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_argv0_dash_c_passthrough_executes_without_agent_ui",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.27190358099960577
+    },
+    {
+      "label": "raw-login-5",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_argv0_dash_c_passthrough_preserves_exit_status",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.2721114169999055
+    },
+    {
+      "label": "raw-login-6",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_argv0_stdin_passthrough_preserves_exit_status_without_agent_ui",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.26848340000015014
+    },
+    {
+      "label": "raw-login-7",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_cosh_entry_combined_login_flags_reach_bash_with_arg0",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.28412414499962324
+    },
+    {
+      "label": "raw-login-8",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_cosh_entry_login_argv0_reaches_inner_shell_dollar_zero",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.26661740300005476
+    },
+    {
+      "label": "raw-login-9",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_owned_namespace_rejects_bad_usage_before_configuration_or_tui",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.2747476930007906
+    },
+    {
+      "label": "raw-login-10",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_status_uses_effective_uid_and_ignores_shell_and_sudo_user_environment",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.2648043970002618
+    },
+    {
+      "label": "raw-login-11",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_messages_follow_environment_language_without_opening_config",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 1.4911159270004646
+    },
+    {
+      "label": "raw-login-12",
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "cosh_lab",
+        "test",
+        "run",
+        "--on",
+        "host",
+        "--scope",
+        "raw-cli",
+        "--filter",
+        "passthrough::raw_cli_login_private_management_handlers_dispatch_without_startup_state",
+        "--jobs",
+        "4",
+        "--workdir",
+        "/opt/cosh-9979/preflight/baseline-cabcfe2/src/cosh-ng",
+        "--cargo",
+        "/usr/bin/cargo",
+        "--artifact-root",
+        "/opt/cosh-9979/full-default/native-gates/runs",
+        "--output",
+        "json"
+      ],
+      "code": 0,
+      "elapsed_seconds": 0.27559171600023546
+    }
+  ],
+  "failures": [],
+  "source_archive_sha256": "b66dca494e498678e712e9f31a6165f2bf43f705b14ce5e6e6fbbfab7ab3bc53",
+  "base": "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+  "full_pr_patch_sha256": "2a6b89f94e8eae398b02346ce80e46ca57bee7c8ee1b7b4514ca2ee49682a8b4",
+  "source_before": {
+    "compared_files": 1451,
+    "mismatches": [],
+    "full_patch_sha256": "2a6b89f94e8eae398b02346ce80e46ca57bee7c8ee1b7b4514ca2ee49682a8b4"
+  },
+  "disk_before": {
+    "total": 41882943488,
+    "used": 6736846848,
+    "free": 33210359808
+  },
+  "delivery_archive": {
+    "path": "/opt/cosh-9979/full-default/delivery-artifacts.tar.gz",
+    "sha256": "4de3c5e48212bc7604d235d563752dd42c8373859eb4bc4955e1b9bf28dfec13",
+    "bytes": 54459944,
+    "contains_debug_elf": false
+  },
+  "target_before": "1041839082\t/opt/cosh-9979/full-default/rpmbuild/BUILD/cosh-ng-0.29.1/target",
+  "cargo_target_dir": "/opt/cosh-9979/full-default/rpmbuild/BUILD/cosh-ng-0.29.1/target",
+  "target_empty_before_fresh_gate": true,
+  "origin_policy": "release target removed after artifact archive; all gate binaries freshly rebuilt from real-git mirror with 1451 identical component inputs",
+  "tool_versions": {
+    "rustc": "rustc 1.93.1 (01f6ddf75 2026-02-11) (1.93.1-1.alnx4)",
+    "cargo": "cargo 1.93.1 (083ac5135 2025-12-15) (1.93.1-1.alnx4)",
+    "clippy": "clippy 0.1.93",
+    "rustfmt": "rustfmt 1.8.0",
+    "rg": "ripgrep 15.2.0 (rev e89fff89ac)\n\nfeatures:+pcre2\nsimd(compile):+SSE2,-SSSE3,-AVX2\nsimd(runtime):+SSE2,+SSSE3,+AVX2\n\nPCRE2 10.45 is available (JIT is available)"
+  },
+  "strict_preflight_ok": true,
+  "debug_shipping_binary": {
+    "path": "/opt/cosh-9979/full-default/rpmbuild/BUILD/cosh-ng-0.29.1/target/debug/cosh-shell",
+    "sha256": "7a9fad70086bad42427fef4c9a827c3f849dbf90c78876eb06ea57e52d701400",
+    "bytes": 156402872,
+    "contains_current_alias_guard": true,
+    "downloaded": false
+  },
+  "test_results": {
+    "login-unit": {
+      "passed": 69,
+      "summaries": [
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1873 filtered out; finished in 0.00s",
+        "test result: ok. 69 passed; 0 failed; 0 ignored; 0 measured; 3236 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--lib",
+        "--bins",
+        "runtime::login",
+        "--",
+        "--test-threads=4"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183110Z-c5c46f9e"
+    },
+    "login-shell-lock": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 260 filtered out; finished in 0.05s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "login_lifecycle::missing_old_backend_allows_only_absent_empty_or_safe_lock_state",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183110Z-08f39dc4"
+    },
+    "login-shell-assets": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 260 filtered out; finished in 0.00s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "shell_host",
+        "login_lifecycle::packaged_shell_assets_parse_and_noninteractive_loader_is_silent",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183118Z-2e92c319"
+    },
+    "raw-login-1": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_remote_bashrc_startup_counts_match_native_bash",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183118Z-00cc974d"
+    },
+    "raw-login-2": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.07s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_dash_c_passthrough_executes_without_agent_ui",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183126Z-c80757f1"
+    },
+    "raw-login-3": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.02s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_dash_c_passthrough_preserves_exit_status",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183126Z-8b3de3f5"
+    },
+    "raw-login-4": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_argv0_dash_c_passthrough_executes_without_agent_ui",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183126Z-4db7198c"
+    },
+    "raw-login-5": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_argv0_dash_c_passthrough_preserves_exit_status",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183127Z-0527a31e"
+    },
+    "raw-login-6": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_argv0_stdin_passthrough_preserves_exit_status_without_agent_ui",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183127Z-e6df41d5"
+    },
+    "raw-login-7": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.02s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_cosh_entry_combined_login_flags_reach_bash_with_arg0",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183127Z-a7612fd3"
+    },
+    "raw-login-8": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_cosh_entry_login_argv0_reaches_inner_shell_dollar_zero",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183128Z-3c946cea"
+    },
+    "raw-login-9": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_owned_namespace_rejects_bad_usage_before_configuration_or_tui",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183128Z-804968b2"
+    },
+    "raw-login-10": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_status_uses_effective_uid_and_ignores_shell_and_sudo_user_environment",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183128Z-d055d1da"
+    },
+    "raw-login-11": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 1.23s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_messages_follow_environment_language_without_opening_config",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183128Z-81c813d1"
+    },
+    "raw-login-12": {
+      "passed": 1,
+      "summaries": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 673 filtered out; finished in 0.01s"
+      ],
+      "command": [
+        "/usr/bin/cargo",
+        "test",
+        "--locked",
+        "--package",
+        "cosh-shell",
+        "--test",
+        "raw_cli",
+        "passthrough::raw_cli_login_private_management_handlers_dispatch_without_startup_state",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "run_dir": "/opt/cosh-9979/full-default/native-gates/runs/20261112T183130Z-7fda1adc"
+    }
+  },
+  "source_after": {
+    "compared_files": 1451,
+    "mismatches": [],
+    "full_patch_sha256": "2a6b89f94e8eae398b02346ce80e46ca57bee7c8ee1b7b4514ca2ee49682a8b4"
+  },
+  "disk_after": {
+    "total": 41882943488,
+    "used": 13450289152,
+    "free": 26496917504
+  }
+}

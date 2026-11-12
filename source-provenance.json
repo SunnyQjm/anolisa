@@ -1,0 +1,11 @@
+{
+  "source_archive_sha256": "b66dca494e498678e712e9f31a6165f2bf43f705b14ce5e6e6fbbfab7ab3bc53",
+  "source_archive_bytes": 3764548,
+  "source_file_count": 1451,
+  "parent_head": "30aed4d06424d49bb1f4ffbef0e5fbc1799b6a48",
+  "uncommitted_patch_sha256": "16af77104fc5c067772932987d36f86089a0531655a1f0aaae53899128a16884",
+  "manifest_sha256": "8e89f6285ceace4c3046eef9101e6f50fc60547d80d90ae86a96486e5c3d369b",
+  "packaging_contract": "same component source inclusion as scripts/rpm-build.sh; git-tracked component inputs; excludes target/.git/node_modules/.env; natural spec unchanged except @VERSION@ substitution",
+  "product_default": "%bcond_without login_lifecycle",
+  "single_target": "/opt/cosh-9979/full-default/rpmbuild/BUILD/cosh-ng-0.29.1/target"
+}

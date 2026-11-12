@@ -1,0 +1,9 @@
+{
+  "pr": 10001,
+  "head": "90f68baf6aaad8a26ba1d12c436868ca63c56179",
+  "base": "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+  "full_pr_patch_sha256": "2a6b89f94e8eae398b02346ce80e46ca57bee7c8ee1b7b4514ca2ee49682a8b4",
+  "source_archive_sha256": "b66dca494e498678e712e9f31a6165f2bf43f705b14ce5e6e6fbbfab7ab3bc53",
+  "natural_rpm_sha256": "5e56aff2b4423659a1eb8005b8550b0b480a1fe960fff9ffc2a2a9bfa1876c90",
+  "same_validated_tree": true
+}

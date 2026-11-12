@@ -1,0 +1,31 @@
+{
+  "pass": true,
+  "before_run": "20261112T171144Z-d026a39d",
+  "set_run": "20261112T174748Z-4b8b2b42",
+  "managed_ssh_run": "20261112T174805Z-936b45ab",
+  "compared_fields": [
+    "command",
+    "exit_code",
+    "stdout",
+    "stderr"
+  ],
+  "before": {
+    "command": [
+      "/usr/bin/printf",
+      "SSH_NONINTERACTIVE_OK\\n"
+    ],
+    "exit_code": 0,
+    "stdout": "SSH_NONINTERACTIVE_OK\n",
+    "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n"
+  },
+  "after": {
+    "command": [
+      "/usr/bin/printf",
+      "SSH_NONINTERACTIVE_OK\\n"
+    ],
+    "exit_code": 0,
+    "stdout": "SSH_NONINTERACTIVE_OK\n",
+    "stderr": "** WARNING: connection is not using a post-quantum key exchange algorithm.\n** This session may be vulnerable to \"store now, decrypt later\" attacks.\n** The server may need to be upgraded. See https://openssh.com/pq.html\n"
+  },
+  "note": "Both real SSH connections; managed NSS shell /usr/bin/cosh confirmed before post-Set SSH; fixed OpenSSH client PQ warning retained byte-for-byte"
+}

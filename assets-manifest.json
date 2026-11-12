@@ -1,0 +1,204 @@
+{
+  "scope": "Small receipts/provenance and genuine PTY visuals only; no RPM/SRPM/vendor/debugELF/private keys",
+  "visual_review": "All nine complete PNGs inspected from real PTY captures; these are not re-rendered cloud-assistant transcripts",
+  "files": [
+    {
+      "path": "qualification-matrix.json",
+      "sha256": "c2ed9f340ea95508804e49a46f09806ae1672edec18ebaf449ac26458f0e659a",
+      "bytes": 7817,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/qualification-matrix.json"
+    },
+    {
+      "path": "cleanup-final.json",
+      "sha256": "a5f07ca709ee4641a8288b3b3654b3d8b89abcc1808a8521fa16d840a3b9919f",
+      "bytes": 933,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/cleanup-final.json"
+    },
+    {
+      "path": "task-cleanup-result.json",
+      "sha256": "c6d5332f801e8ccc6c3992aa7b82ee16790aef568de2a687ae4a9657af6f2dc3",
+      "bytes": 5534,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/task-cleanup-result.json"
+    },
+    {
+      "path": "feature-gate.json",
+      "sha256": "2d8c30d3c482d59ac0b7315d765cbb3eab74c9b1547701b1502897593c850d7c",
+      "bytes": 938,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/named-feature-gate.json"
+    },
+    {
+      "path": "source-provenance.json",
+      "sha256": "240c39a491036af2c281b2021a266006bf10cb79c5f90088417801dff18b3645",
+      "bytes": 759,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/source-manifest.json"
+    },
+    {
+      "path": "artifact-provenance.json",
+      "sha256": "83c3e03719ec9629a825d038c9bdf139c99763e9e1888b1d329b541a06d239eb",
+      "bytes": 2673,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/delivery-artifacts-provenance.json"
+    },
+    {
+      "path": "native-verification-manifest.json",
+      "sha256": "228102ee990e7d489bff8b2d919b9f087bf41919be31feebe7d4008d9a054a42",
+      "bytes": 22836,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/final-receipts/cosh-9979/full-default/native-gates/verification-manifest.json"
+    },
+    {
+      "path": "stop-job-refusal.json",
+      "sha256": "ad38719393a037250c0f5c20a3a2444664dd980d7be2599bc400d62172fabd5a",
+      "bytes": 21121,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/final-receipts/cosh-9979-stop-job-refusal/result.json"
+    },
+    {
+      "path": "alias-no-record.json",
+      "sha256": "e5f7fe2fd31c454f2eaaf5f4a73cd4aea6232bb20811c62d20016bd2c945c0ef",
+      "bytes": 19212,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/final-receipts/cosh-9979/full-default/alias-no-record-v3-result.json"
+    },
+    {
+      "path": "parent-exit-v2.json",
+      "sha256": "351a95dc67aa2e665f61d43ec0be369785e97fdb4fd9d0c112d0ebd46b5d0208",
+      "bytes": 59031,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/parent-exit-v2-result.json"
+    },
+    {
+      "path": "rpm-first.json",
+      "sha256": "123a90cbe648776cabf8fac5a97dc4c8b3073dec69cb9c638fab9a713f5f933e",
+      "bytes": 47975,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/installed-receipts/cosh-9979-compatible-race/result.json"
+    },
+    {
+      "path": "ssh-default-entry.json",
+      "sha256": "e38c2ca4740af68acd44e1e538d03ae844c11ecf0fc2790cedf268019da41e3d",
+      "bytes": 1700,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/sshd-default-entry-provenance.json"
+    },
+    {
+      "path": "ssh-command-parity.json",
+      "sha256": "05948b09f388a7e154faf5d4ac5996ffce81608387aaafb6ea507fb270b4e17e",
+      "bytes": 1206,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/ssh-noninteractive-parity.json"
+    },
+    {
+      "path": "natural-rpm-requires.json",
+      "sha256": "8ce85e935f36ab03bce613a48cca34bf5e170c08ee41c30559775a27fe233797",
+      "bytes": 3116,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/natural-rpm-requires-readback.json"
+    },
+    {
+      "path": "QUALIFICATION.md",
+      "sha256": "dc635916a118312e06c6565a85dda78a119e3c49566ae8143195297b112b3e5f",
+      "bytes": 2438,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/QUALIFICATION.md",
+      "original_local_report_sha256": "9dd6e464d6747f3ea71d101f6539cd0178a311f4049e7c5058019e87858d9216",
+      "derived_index_with_asset_local_links": true
+    },
+    {
+      "path": "images/old-bash-before.png",
+      "sha256": "facd3fa4e335046b479075ed4682195a76b19a8a9e994d75ccb615fdf136c1a9",
+      "bytes": 39161,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/old-bash-before.png"
+    },
+    {
+      "path": "images/fresh-bash-proof.png",
+      "sha256": "77fa5888442131d1b1b6db42dcf6e6eeb73d0f8e043a7519b3986e0fe779a70f",
+      "bytes": 112266,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/fresh-bash-proof.png"
+    },
+    {
+      "path": "images/old-bash-after-restore.png",
+      "sha256": "7cf65faa3809a4243ff262f4ae3189403446641675038bea25da2445c9d6e39d",
+      "bytes": 100108,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/old-bash-after-restore.png"
+    },
+    {
+      "path": "images/current-restore.png",
+      "sha256": "90c0ad6122c3df0e3d86cd5978a5e9f2a05379a501468195073239ae43ac2c6b",
+      "bytes": 91179,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/current-restore.png"
+    },
+    {
+      "path": "images/old-bash-after-set.png",
+      "sha256": "093c4c2632452e2af7c9ca35a240552d404173d51f67b03c5df774041873eca5",
+      "bytes": 74266,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/old-bash-after-set.png"
+    },
+    {
+      "path": "images/current-set.png",
+      "sha256": "1ef284036872b01868db356ae99dd7d9f5b0e6fce26993fb855f2d4f468febbe",
+      "bytes": 57712,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/current-set.png"
+    },
+    {
+      "path": "images/fresh-cosh-proof.png",
+      "sha256": "653b0b2a990e157ad35905a3a760b9ec58f315dc967bb97770c0052ca2e875e6",
+      "bytes": 91690,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screenshots/fresh-cosh-proof.png"
+    },
+    {
+      "path": "recordings/fresh-bash-proof.webm",
+      "sha256": "0239405736f227dba6bd37f2c5048d0ec9725239b17e16d1174c8fd67c9118e3",
+      "bytes": 323534,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screens/fresh-bash-proof.webm"
+    },
+    {
+      "path": "recordings/fresh-cosh-proof.webm",
+      "sha256": "c01e1243131550e21ad219a4ebfbe6c3a8bdc6c269a9dc189b5126b3c9003615",
+      "bytes": 323534,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/screens/fresh-cosh-proof.webm"
+    },
+    {
+      "path": "recordings/20261112T174132Z-a89e8c6a.cast",
+      "sha256": "26cd435ebb43447398bd4d852f71217b003ba5604b5f12ba879e5cd965357376",
+      "bytes": 7974,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T174132Z-a89e8c6a/transcript.cast"
+    },
+    {
+      "path": "images/sshd-default-entry-cosh.png",
+      "sha256": "4165de1250319cefb59f9eea6fb540431c6b4cf9cceb23053d9d7cc58141baa0",
+      "bytes": 98587,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T181147Z-f6fbac99/screenshots/sshd-default-entry-cosh.png"
+    },
+    {
+      "path": "recordings/sshd-default-entry-cosh.webm",
+      "sha256": "fb865036535a4f8add6ebfe7fe1f122374c5c3af6fc1d9402025c5141b0f9840",
+      "bytes": 119952,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T181147Z-f6fbac99/screens/sshd-default-entry-cosh.webm"
+    },
+    {
+      "path": "recordings/20261112T181147Z-f6fbac99.cast",
+      "sha256": "36c158914e1ef6a220585dab8f5d27905a3087b1ba6ee8d9ef1f9aa9219052cc",
+      "bytes": 3064,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T181147Z-f6fbac99/transcript.cast"
+    },
+    {
+      "path": "images/sshd-default-entry-bash.png",
+      "sha256": "7f588155e19d981c644f0605a3b5e6c8a119aa6f452f59f7188e3bf61f86c880",
+      "bytes": 66157,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T181334Z-d4c5f12d/screenshots/sshd-default-entry-bash.png"
+    },
+    {
+      "path": "recordings/sshd-default-entry-bash.webm",
+      "sha256": "0a7095700e3336224aaa965f87275f39b461910edfd022b9489b61af0ebbccc9",
+      "bytes": 88858,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T181334Z-d4c5f12d/screens/sshd-default-entry-bash.webm"
+    },
+    {
+      "path": "recordings/20261112T181334Z-d4c5f12d.cast",
+      "sha256": "f0ddddfdec0214a486460cd76b017655568dc430e1385b449616820c7afeb6ae",
+      "bytes": 2459,
+      "source": "/Users/quejianming/.codex/worktrees/cosh-9979-login-delivery/anolisa/outputs/alinux4-image-fixes-20261112/login-qualification/full-default/runs/20261112T181334Z-d4c5f12d/transcript.cast"
+    },
+    {
+      "path": "native-preflight.json",
+      "sha256": "52955a6a0ba7d4e44b10667540faf1b9361078dda47bbb016783419fe4c2d9ab",
+      "bytes": 1475
+    },
+    {
+      "path": "pr-revision.json",
+      "sha256": "75e0472bff55d6c0875e046a2409cb96669d06259af419c17f45ed451a7a43e4",
+      "bytes": 438
+    }
+  ]
+}

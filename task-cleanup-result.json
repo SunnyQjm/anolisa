@@ -1,0 +1,179 @@
+{
+  "pass": true,
+  "events": [
+    {
+      "command": [
+        "/usr/sbin/sshd",
+        "-t"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/sbin/visudo",
+        "-cf",
+        "/etc/sudoers"
+      ],
+      "code": 0,
+      "stdout": "/etc/sudoers: parsed OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/sbin/userdel",
+        "--remove",
+        "cosh9979"
+      ],
+      "code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "sudoers_removed_sha256": "64713ef215c0863b7808bc377ee049536fbc19426909750857731424a4948c72",
+  "passwd_after_sha256": "1e1e15203461e27e37011b6a9d1b9fc68507f44426e2c7196fbbcfe5c5d9fba1",
+  "global_profiles_unchanged": {
+    "/etc/profile": {
+      "sha256": "07745581fc5ce388b6a85515817c688314c3f990f5e6e781cf0f6af737f48b36",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/bashrc": {
+      "sha256": "f6b3fca4ccae04e1df17b59b3b09ff07cebd257daa8a36233ff3395e654cf17f",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/bash_completion.sh": {
+      "sha256": "0aefd1d6da5bd2ebe7481a88c8033d0ef2641625e3ffc14c9a895ab0944465dc",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorgrep.csh": {
+      "sha256": "74d270fe4476fdcba60df7d00c808e11681ac918f335c951cba4f118532a4b8c",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorgrep.sh": {
+      "sha256": "89008d115c5bbd783b985d8cab18e935978c83e362043ffc981063ffed74e1c7",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorls.csh": {
+      "sha256": "54531289c329f4b1e5ba4d593811a66594ec2cba6334c3d58b62e3f1f13a8ad6",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorls.sh": {
+      "sha256": "1b8a47e0b3d9e9b811da968e4b024538ea9371b1b333df75b1885a3215c60164",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorsysstat.csh": {
+      "sha256": "b45c5765de1f69b020101fc3d91dd88e6ed50affc39ee0807c3907a55be6e6e9",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorsysstat.sh": {
+      "sha256": "9a78d6fc761c3a35e258e857986f323694b4144bb89b2ba64a270d0fb2a332c5",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorxzgrep.csh": {
+      "sha256": "67e78cc79449a9eacb0be5bfe833f443508bc5602ce81af1847f20f0be1de25a",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorxzgrep.sh": {
+      "sha256": "0446ca350ab8205a36deeab4c39413a87ea8b61588fe8385658c1083aad8fa3f",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorzgrep.csh": {
+      "sha256": "61da8a541c165502ac1258589686fd072a3f08e50838c45616e4d014fa9153ba",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/colorzgrep.sh": {
+      "sha256": "873ff1677c3430a2d90fa6257ddd5b511cc480cf7098b1cfbb246b5af9044a82",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/csh.local": {
+      "sha256": "07a2a80f1386c89941b3da4cda68790afe19f7425a14e01acdc2fbddb73b5508",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/debuginfod.csh": {
+      "sha256": "f2786235fae19c7387bb47ca88127d6bdb9781f86724b0e200578d2f1071fc38",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/debuginfod.sh": {
+      "sha256": "20bcd1cd06454a6f6c4d77486289e51a5238bf4af19fbc57061f4a8f38a64025",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/gawk.csh": {
+      "sha256": "9ba2af9853121df6dd5edff9254a2946e39eab8dc6513348fea28f739ee96648",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/gawk.sh": {
+      "sha256": "70621a3b586d3d523b020e76977633b444a70013ba50e1ea901a3a07a676f15f",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/lang.csh": {
+      "sha256": "5486ae2358f54ba086017a5a7d89fc71855e4071c06fe1866a278838b465b161",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/lang.sh": {
+      "sha256": "58bf8b07428754b273560c5ea4040c672440b2bb04709842cf94163e15dc144f",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/less.csh": {
+      "sha256": "fff918253993c0abac774adc20eb65e953171b428a07da7d849c47ed0a2b6741",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/less.sh": {
+      "sha256": "8f2aee5d8fd155934bcbf0e444e55e6208980d3c4fd88a1fb423c768c186763b",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/sh.local": {
+      "sha256": "3c5de252d65ae8c40e54c21be09dc574ca3641d036d7b44174939a7e64863920",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/sm3sum.csh": {
+      "sha256": "90537a88d62c5798305434d82c2c20bbc05d9ab77779f17c3a828e0b027400e9",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/sm3sum.sh": {
+      "sha256": "589e2fcebbac35fde401eefd84c142f60679633435376664b7a5402ceda84e6a",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/which2.csh": {
+      "sha256": "221bba387a72034809035fb1929740eae081cc5b7b17323faf6b8238248b1a48",
+      "mode": "0o644",
+      "symlink": null
+    },
+    "/etc/profile.d/which2.sh": {
+      "sha256": "2710c5f1f35c6c275e29661f1e456fc104ee044620288914583214fd9ef0044e",
+      "mode": "0o644",
+      "symlink": null
+    }
+  },
+  "shells_restored": true,
+  "sshd_restored": true,
+  "task_users_absent": true,
+  "task_sudoers_absent": true,
+  "package_absent": true,
+  "records_absent": true
+}

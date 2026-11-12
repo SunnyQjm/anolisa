@@ -1,0 +1,13 @@
+{"version": 2, "width": 110, "height": 25, "env": {"TERM": "xterm-256color"}, "title": "9981-efi-critical"}
+[0.000738, "o", "\u001b[?2004hEVIDENCE> "]
+[0.000775, "o", "clear\r\n"]
+[0.00078, "o", "\u001b[?2004l\r"]
+[0.001198, "o", "\u001b[H\u001b[2J\u001b[3J"]
+[0.001262, "o", "\u001b[?2004hEVIDENCE> "]
+[0.001313, "o", "df -h /boot/efi /sys/firmware/efi/efivars\r\n\u001b[?2004l\r"]
+[0.001747, "o", "Filesystem      Size  Used Avail Use% Mounted on\r\n/dev/nvme0n1p2  200M  6.3M  194M   4% /boot/efi\r\nefivarfs        256K  6.1K  245K   3% /sys/firmware/efi/efivars\r\n"]
+[0.001814, "o", "\u001b[?2004hEVIDENCE> "]
+[0.001881, "o", "python3 health-summary.py diagnostic.json | tail -6\r\n\u001b[?2004l\r"]
+[0.014659, "o", "finding: J09:/boot/efi severity=critical\r\nfinding: J09:/sys/firmware/efi/efivars severity=critical\r\nfilesystem.mount./sys/firmware/efi/efivars.used_ratio = 0.03 \r\nfilesystem.mount./sys/firmware/efi/efivars.available_gib = 0.00023365020751953125 GiB\r\nfilesystem.mount./boot/efi.used_ratio = 0.04 \r\nfilesystem.mount./boot/efi.available_gib = 0.18900680541992188 GiB\r\n"]
+[0.014747, "o", "\u001b[?2004hEVIDENCE> "]
+[1.514754, "o", ""]

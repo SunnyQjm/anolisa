@@ -1,0 +1,7 @@
+# Hook real-helper After evidence
+
+2026-11-13 Asia/Shanghai; ALinux4 arm64 disposable container RUN 20261112T124442Z-595ed794. Canonical actual Bash PTY run 20261112T160703Z-31918749. Fresh uniquely built production cosh-shell SHA256 0683a6a05055cec94f32b0186afbd6965e4f84f7a6e4da0c7083e967f79dea6b; current installed module SHA256 54df03cb368f06f7e42f254e7a22fcff5543b6bbae82c265296b3f0ba61d50f8. No fake helper was used.
+
+The session uses bash --noprofile --norc -il and the original standard title PROMPT_COMMAND[0], sources the exact current product module at its trusted path, and confirms activation through the real production helper. After replacing the owned slot, a real false command preserves its original status 1; command/cwd event sentinels and the user's prompt entry remain unchanged. Session exit 1 is deliberately expected by the canonical case. Canonical failures=[] and evidence verify=true. The full PNG was inspected and has no cropped text.
+
+Only the disposable container's two trusted product paths and the guide preference directory were temporarily provisioned. Both files, original guide-state tree, and newly created parent directories were restored; an independent env exec readback verified hashes/tree/existence. The shared environment was returned to linux_preflight after approximately three minutes. The canonical and driver files are evidence assets, not product changes.

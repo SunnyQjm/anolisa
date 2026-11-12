@@ -1,0 +1,32 @@
+{
+  "environment_run_id": "20261112T124442Z-595ed794",
+  "backend": "ALinux4 arm64 container",
+  "rust_toolchain": "1.93.0",
+  "cargo_target_dir": "/tmp/cosh-linux-preflight/hook-target-1.93",
+  "unique_target": true,
+  "base": "cabcfe2f9ace2adb6f969ad83c5d1caae93fccbb",
+  "host_commit": "08cd18ebbea8e80657e33e9dc3ab05b278657c13",
+  "snapshot_matches_host": true,
+  "full_index_patch_sha256": "52f9f1ac2714d81c584b198291c782bcad0afaf28aea9016012ff5f1973d669d",
+  "build_preflight_data_ok": true,
+  "shipping_build_command": "cargo build --locked --package cosh-shell --bin cosh-shell",
+  "embedded_script": {
+    "binary_sha256": "0683a6a05055cec94f32b0186afbd6965e4f84f7a6e4da0c7083e967f79dea6b",
+    "script_sha256": "54df03cb368f06f7e42f254e7a22fcff5543b6bbae82c265296b3f0ba61d50f8",
+    "script_bytes": 15902,
+    "complete_script_embedded": true,
+    "target_dir": "/tmp/cosh-linux-preflight/hook-target-1.93"
+  },
+  "bash_integration_results": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1873 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3305 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 12 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 85 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 674 filtered out; finished in 0.00s",
+    "test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 238 filtered out; finished in 2.65s"
+  ],
+  "inventory_exit": 0,
+  "inventory_overlap": 693,
+  "cleanup": "shared environment retained; parent owns cleanup",
+  "final_per_pr_source_proof": true
+}

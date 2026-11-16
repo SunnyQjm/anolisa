@@ -1,0 +1,18 @@
+[
+ {
+  "frame": "01-home",
+  "note": "Wizard home"
+ },
+ {
+  "frame": "02-ai-page",
+  "note": "AI service page"
+ },
+ {
+  "frame": "03-after-enter",
+  "note": "Enter opened the finite management task inside the wizard"
+ },
+ {
+  "frame": "04-back-without-exit",
+  "note": "Back in the wizard directly, no exit needed"
+ }
+]

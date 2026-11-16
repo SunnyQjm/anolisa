@@ -1,0 +1,30 @@
+
+            AI service
+
+            Current AI service: Not configured
+            Zero-config auto use: on
+            Run /auth in a Cosh session to manage AI services. Configured is not connec…
+
+              Configure AI service (opens /auth)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ↑↓ select  Enter save  Esc back

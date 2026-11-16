@@ -1,0 +1,29 @@
+╭ Agent question ──────────────────────────────────────────────────────────────────────────────────╮
+│ 🔑  Provider Management — Select your AI provider:                                                │
+│ Select one:                                                                                      │
+│ > [1] * [active] 操 作 系 统 控 制 台 （ 免 配 置 接 入 ）  - auto                                             │
+│   [2] Add AI service                                                                             │
+│   [3] Finish and return                                                                          │
+│ Keys: Left/Right move | Enter send                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

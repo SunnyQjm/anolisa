@@ -1,0 +1,29 @@
+ to return to the wizard.
+cosh-shell: warning: cannot reopen stdout as blocking: No such device or address (os error 6); EAGAI
+N risk remains
+
+   ██████╗  ██████╗  ███████╗ ██╗  ██╗
+  ██╔════╝ ██╔═══██╗ ██╔════╝ ██║  ██║
+  ██║      ██║   ██║ ███████╗ ███████║
+  ██║      ██║   ██║ ╚════██║ ██╔══██║
+  ╚██████╗ ╚██████╔╝ ███████║ ██║  ██║
+   ╚═════╝  ╚═════╝  ╚══════╝ ╚═╝  ╚═╝
+
+╭ Cosh AI Shell ───────────────────────────────────────────────────────────────────────────────────╮
+│ AI is disabled; Shell commands remain available.                                                 │
+│ Shell: bash · approval: auto · cwd: /root                                                        │
+╰ Help: /help ─────────────────────────────────────────────────────────────────────────────────────╯
+
+╭─ Health check: no anomalies in checked items ────────────────────────────────────────────────────╮
+│ Load  1m 0.0 / 8 cores (0.0x)                                                                    │
+│ Memory  used 3% (29.7 GiB available / 30.6 GiB) ▕█░░░░░▏                                         │
+│ Disk  / used 30% (26.3 GiB available) ▕██░░░░▏                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+            ↑↓ select  Enter save  Esc back
+Switching model service…
+Selected OS Console model service. You can ask a question now.
+bash-5.2#
+
+
+
+

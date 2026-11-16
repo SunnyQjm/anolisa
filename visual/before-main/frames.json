@@ -1,0 +1,18 @@
+[
+ {
+  "frame": "01-home",
+  "note": "Wizard home"
+ },
+ {
+  "frame": "02-ai-page",
+  "note": "AI service page"
+ },
+ {
+  "frame": "03-after-enter",
+  "note": "Enter opened a NEW interactive Cosh session (shell prompt)"
+ },
+ {
+  "frame": "04-back-only-after-exit",
+  "note": "Wizard returns only after typing exit"
+ }
+]

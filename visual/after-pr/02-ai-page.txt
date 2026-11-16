@@ -1,0 +1,30 @@
+
+            AI service
+
+            Current AI service: Not configured
+            Zero-config auto use: on
+            Manage AI services inside the wizard; you return here when the task ends. Co
+            nfigured is not connected.
+
+              Configure AI service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ↑↓ select  Enter save  Esc back

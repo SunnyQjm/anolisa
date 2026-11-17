@@ -1,11 +1,12 @@
 
             AI service
 
-            Current AI service: Not configured
+            Current AI service: Zero-config automatic access; ask directly
             Zero-config auto use: on
-            Manage AI services inside the wizard; you return here when the task ends. Co
-            nfigured is not connected.
+            Ask directly, or manage AI services inside the wizard; you return here when
+            the task ends. Configured is not connected.
 
+            > Start asking questions
               Configure AI service
 
 
@@ -26,5 +27,4 @@
 
 
 
-
-            ↑↓ select  Enter save  Esc back
+            ↑↓ select  Enter open  Esc quit

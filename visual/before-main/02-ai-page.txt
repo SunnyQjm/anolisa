@@ -1,14 +1,12 @@
 
             AI service
 
-            Current AI service: Not configured
+            Current AI service: Zero-config automatic access; ask directly
             Zero-config auto use: on
-            Run /auth in a Cosh session to manage AI services. Configured is not connec…
+            Ask directly; access is checked on your first question.
 
-              Configure AI service (opens /auth)
-
-
-
+            > Start asking questions
+              Manage AI service (opens /auth)
 
 
 
@@ -27,4 +25,6 @@
 
 
 
-            ↑↓ select  Enter save  Esc back
+
+
+            ↑↓ select  Enter open  Esc quit

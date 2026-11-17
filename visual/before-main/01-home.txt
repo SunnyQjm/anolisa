@@ -1,14 +1,14 @@
 
             Cosh setup and getting started
 
-            > Language                                                           English
+              Language                                                           English
               AI service                                                        Loading…
               Tips and recommendations
               Login health summary                                                    on
               Default login shell                                            root · bash
 
+            > Start asking questions
               Getting started                              Commands, questions, and exit
-
 
 
 

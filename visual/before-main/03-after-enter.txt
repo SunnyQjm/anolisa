@@ -1,4 +1,4 @@
- to return to the wizard.
+ return to the wizard.
 cosh-shell: warning: cannot reopen stdout as blocking: No such device or address (os error 6); EAGAI
 N risk remains
 
@@ -11,15 +11,15 @@ N risk remains
 
 ╭ Cosh AI Shell ───────────────────────────────────────────────────────────────────────────────────╮
 │ AI is disabled; Shell commands remain available.                                                 │
-│ Shell: bash · approval: auto · cwd: /root                                                        │
+│ Shell: bash · approval: auto · cwd: /root/head/src/cosh-ng                                       │
 ╰ Help: /help ─────────────────────────────────────────────────────────────────────────────────────╯
 
 ╭─ Health check: no anomalies in checked items ────────────────────────────────────────────────────╮
 │ Load  1m 0.0 / 8 cores (0.0x)                                                                    │
-│ Memory  used 3% (29.7 GiB available / 30.6 GiB) ▕█░░░░░▏                                         │
-│ Disk  / used 30% (26.3 GiB available) ▕██░░░░▏                                                   │
+│ Memory  used 3% (29.6 GiB available / 30.6 GiB) ▕█░░░░░▏                                         │
+│ Disk  / used 45% (20.7 GiB available) ▕███░░░▏                                                   │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
-            ↑↓ select  Enter save  Esc back
+
 ╭ Agent question ──────────────────────────────────────────────────────────────────────────────────╮
 │ 🔑  Provider Management — Select your AI provider:                                                │
 │ Select one:                                                                                      │

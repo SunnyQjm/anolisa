@@ -1,0 +1,296 @@
+{
+  "commit": "9e092d16c4e10538747f429bf5d6454de012805c",
+  "base": "f571226499ea08006f14b2eb9b63d2050aab9e2f",
+  "files": [
+    {
+      "path": "docs/user-guide/en/cosh-ng/shell/bash-guidance.md",
+      "sha256": "678d8caaa1629ca90bfd5a6ebdf5bbfa9995c8cba2ea152a65e42e0851e7a8f1",
+      "mode": "0o644"
+    },
+    {
+      "path": "docs/user-guide/zh/cosh-ng/shell/bash-guidance.md",
+      "sha256": "1a9d96daea7de537c98df5b69170ac9f12b8b90f10153b9bbe596c212d53a247",
+      "mode": "0o644"
+    },
+    {
+      "path": "specs/shell-e2e-validation/cases/health-banner.yaml",
+      "sha256": "a9433280052aed4df9c97d45c6fdf81e23549643923cc0fd4bdd2d90f9bd5247",
+      "mode": "0o644"
+    },
+    {
+      "path": "specs/shell-test-organization/source-heavy-test-inventory.md",
+      "sha256": "052ab76675e62ff507c80c5cc766ba71af178297c43aadb0445b02fae90ab267",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-core/src/session/store/tests.rs",
+      "sha256": "793e19336b8a2231176b3a295f780ce6388bcaed7793b7a688c1ac810b859f1a",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-platform/src/checkpoint.rs",
+      "sha256": "94d0a0bb6542e995dd49dc0189ed7b91ffed1cc411a2fd8f6712ae0aee76c16c",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/config/guide.rs",
+      "sha256": "84c4ba8e4772eea95301a7d6d761c44b60070c8ce8c3908db921597abbd454e0",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/config/guide/context.rs",
+      "sha256": "9a894fc35bf8d59ff200d82192975d9948e238a1e96bfcee5f84f261ef1015ed",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/config/guide/health_exposure.rs",
+      "sha256": "c88e58a18994d100eeaaa3d244ac946d1990e4cf14ba796874e7f51066d6d6cb",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/config/guide/health_version_tests.rs",
+      "sha256": "8213059aac28279235d6d678495681f28f5d5538f9fb85483eb3f2f72449abea",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/config/guide/tests.rs",
+      "sha256": "4d4b59f9ab5882fa7f238824bedb7c7256ca6de865b40f3c63b4eac218f02d7f",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/banner_policy.rs",
+      "sha256": "5dbec19c36641c24f3c8842a10f450f38a4342084721ad827631aaabfe5c44f3",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/builder.rs",
+      "sha256": "738cf95baccdf92347fd4f9b4c1454f9e882c79003ec661ee416ca49bf79fcc7",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/collectors/command.rs",
+      "sha256": "3881f1e0bc4dd48e78af59c3fa8b5e1893b03596109ba942fc5879092f2cc33c",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/collectors/command/tests.rs",
+      "sha256": "a381bb782de070a41d2c4c2bb582eb1d26c527435de5897915a2a417cecbfd77",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/collectors/kernel.rs",
+      "sha256": "e49164282d2d730011a30eeaf8f5c6561715aff4ef4f1a775a43785a0d27e69b",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/collectors/kernel/identity_tests.rs",
+      "sha256": "494ffcd0074d453e8cfbeba7a8174278e4ffbf396f26a16dbdae7c6894af2306",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/collectors/kernel/oom.rs",
+      "sha256": "376f7216331b744e3898df8d75eb5746f5caaa02e39315841f1784ede3f545f2",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/mod.rs",
+      "sha256": "09191dde7068830804f0a1e2ed9723b15ddcf1fe97508be4090fc0076afa600f",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/plan.rs",
+      "sha256": "06eb2a39ed9b5dc7e178d1f88bb083cf4c22524585b3286286b3ab96e7f1b15e",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/prompt_selection.rs",
+      "sha256": "21206f04ba9bdfadf0b79b194d55141bf189db2167a72af904cce18825b73c43",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/recommendation.rs",
+      "sha256": "3b02bc41d5c75422d36740ebb3b4493c1595f1045ea979597840be6ece5aef9e",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/recommendation/tests.rs",
+      "sha256": "b52fd7e3b673751166b300a335a40feade174e52d18b8b49107e0326234874c1",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime.rs",
+      "sha256": "5398ec410ab72dc714661582bde50fb99ad791cc1d290a3dafcaad21ea6a7667",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/acceptance_tests.rs",
+      "sha256": "5124b30d3edaaee7ab59b4978899518ec13e7645669eba5d56a42cf17bbc9436",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/cleanup.rs",
+      "sha256": "2a2e097e9232eeacc9e68c20d87b3bf79baa84a67a4d4ee84eaa882d3f0f76aa",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/clock.rs",
+      "sha256": "09b5cbb066c943d75e5599ff8910db83f7f94434ade55329df1aee501ec384d0",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/fixtures.rs",
+      "sha256": "f8b3582adb194f138ea542ab37b0c329ef00e7db1e241d3c7616f9e462b106b2",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/job/tests.rs",
+      "sha256": "11a375d362042e2533cb31963c554ccdfbf6a16c303ec03a7a6d0e652e0ece7a",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/plan.rs",
+      "sha256": "aca7c48817f549d9fed2d98ff05048d28a285f4d8f235b8dba6fe70d6be19d69",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/protocol.rs",
+      "sha256": "1f7f566695dc9aac563d1959421b93537954676a83a1b3fcd948dabb710bf3bd",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/protocol/tests.rs",
+      "sha256": "806f9289fe361d03ec3d657b23f386b9aca8df5f4775efe140e1cb7ebe84dc68",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/scan.rs",
+      "sha256": "78cbf6bcd4aeeb513b5b29c1c81d7a06d8c769d244c4da97df0b2057f49b6bee",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/scan/dispatch.rs",
+      "sha256": "23773f20387aa2edd641d52c5ec384a5e8f05d6e7202544056b1a59329678e20",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/scan/sources.rs",
+      "sha256": "f7c50f1604a5205d88f328cdf8bb78003fa7683c961660221ab838c3e36c37e0",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/scan/tests.rs",
+      "sha256": "e0534b39145cd9cb00e62164fc202aa136f7f1b2797140884a0b3365aad7bc0c",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/worker.rs",
+      "sha256": "c25fced0a8a06a61e262b95166d922d3d2df679b24c1ee1ac5334a9dd0b9e1d4",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/diagnostics/health/runtime/worker/tests.rs",
+      "sha256": "e98d9f36ab6e5732b3f09d6eeb8f9c77a8b6d27e17160df6aa38cdd56ed1aa95",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/process/job.rs",
+      "sha256": "be5aa39b5cb83a09041bf0f2eaa8af6073452256ecf33645f4a6db59fc8aaef5",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/runtime/health_banner.rs",
+      "sha256": "698873c404281bd6fe90df5475885a651bd6d4eaf84097609eec77600481add1",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/runtime/health_banner/cli.rs",
+      "sha256": "2d8e4edbeb5d80ffbbcab8938e40052535e9ab2ddb7ea2178f4799673e65a7b6",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/runtime/health_banner/presentation.rs",
+      "sha256": "80a345df358f0e4b712f70b60418d1f82cf7d3d936086b9b1be931e19d4d5352",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/runtime/health_banner/tests.rs",
+      "sha256": "95ad7857b8c7976b11b6b41d6708eabb307208827e42d7e9586670c9dcecc7e8",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/runtime/startup/recommendations/health.rs",
+      "sha256": "0a601b3441da7b44b3f08d816c4aa3588aa438e326eba8940fc616264dcf1c5d",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/ui/agent_render/health.rs",
+      "sha256": "286301fb1ee104957b157244dde11671a9a3bf19c16329e0dbf86921c5fab9e0",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/ui/guidance.rs",
+      "sha256": "1ad631b8745a989ca00e4bb850bec6226399702b4bae14d1f4887ce82d54a780",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/ui/guidance/suggestions.rs",
+      "sha256": "987706c69afccabf3ed80b0d679f8f57f21dae6ccfa523bd532ff2e1ad4e16c8",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/src/ui/guidance/tests.rs",
+      "sha256": "3dd047dac1e8603ed6c7c358ddb7d2f34f556aa2f12d62d85c75162fc8112571",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/tests/raw_cli/cosh_core/evidence.rs",
+      "sha256": "193569a326b47847e1d32cd17ce62de426b6867f920581c8544cd16690262646",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/tests/raw_cli/health_banner.rs",
+      "sha256": "2126e8456cabf54b7757446e35f4b4ee09eca1068b9dc5f3fdbb6bf963fe3b3b",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/tests/raw_cli/passthrough.rs",
+      "sha256": "2886aeb8e95794996324b602b2a18b8bef6428386bc6ca29bbd1162047ec38c7",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/crates/cosh-shell/tests/raw_cli/startup.rs",
+      "sha256": "602927688e2b8d07f4053a1c532d32e94bdcff691010544eab6fb3e95f40a0b8",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/packaging/system-integration/profile.d/cosh.sh",
+      "sha256": "5e46cf6e3ff067c867974286c3cbde9c6ec452d987f306e6cdc37196bddab15c",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/scripts/check-test-inventory.sh",
+      "sha256": "d8d882fb2539a4949395753516f1d73ba00de2b650da3d2969f0355c2346578a",
+      "mode": "0o755"
+    },
+    {
+      "path": "src/cosh-ng/scripts/check_test_necessity.py",
+      "sha256": "28c9f0d094c448b11fa607c51d71c06e3adf3a399c7ee4d01d7d2ceca49809de",
+      "mode": "0o755"
+    },
+    {
+      "path": "src/cosh-ng/scripts/run-test-gates.sh",
+      "sha256": "766e93c289654cfb4ff41e82a903e4e8102eadbe091fc3a2d69ee111844ff838",
+      "mode": "0o755"
+    },
+    {
+      "path": "src/cosh-ng/scripts/test-necessity-registry.tsv",
+      "sha256": "a17b7ee645da3fb11b5137772b3907673e9b1e3b63a55befec877c254b58e9df",
+      "mode": "0o644"
+    },
+    {
+      "path": "src/cosh-ng/tests/test-test-gates.sh",
+      "sha256": "bdfebf7e1d09e11d0a4c470c7a6d09ece786fc7797c528177554b1b3b7437b85",
+      "mode": "0o755"
+    }
+  ]
+}

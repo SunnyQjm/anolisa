@@ -1,0 +1,7 @@
+{"version":2,"width":80,"height":40,"timestamp":1794961778}
+[0.003744,"o","\u001b[?2004hHEALTH_READY>"]
+[0.004011,"o","\u001b[?2004l\r\r\n"]
+[0.020636,"o","\r\nHealth check: critical\r\n  Load  1m 0.1 / 4 cores (0.0x)\r\n  Memory  used 7% (14.0 GiB available / 15.1 GiB)\r\n  Disk  / used 99% (0.0 GiB available)\r\n  Needs attention ────────────────────────────────────────────────────────────\r\n  • disk usage is high on this mount\r\n    Disk / used 99%; 0.0 GiB available\r\n  Type cosh guide for help\r\n  Cosh AI · Investigate · Copy and run\r\n  cosh --ask $'/: Check current disk usage and major consumers; suggest next steps.'\r\n\r\n"]
+[0.023563,"o","\r\nHEALTH_BANNER_DONE\r\n\u001b[?2004hHEALTH_READY>"]
+[0.624431,"o","\u001b[?2004l\r\r\n"]
+[0.624505,"o","exit\r\n"]

@@ -1,0 +1,76 @@
+{
+  "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+  "preflight": "passed",
+  "matrices": {
+    "bash52-publish-final": {
+      "passed": 9348,
+      "failed": 0,
+      "ignored": 14,
+      "result_groups": 45,
+      "test_executables": 39,
+      "doc_targets": 6,
+      "nested_filtered_helper_summaries": 7,
+      "nested_filtered_helper_passes": 7,
+      "gates": 13,
+      "foreign_uid_cases": 4,
+      "bash": "5.2.15",
+      "final_event_regressions": 17
+    },
+    "bash51-publish-final": {
+      "passed": 9348,
+      "failed": 0,
+      "ignored": 14,
+      "result_groups": 45,
+      "test_executables": 39,
+      "doc_targets": 6,
+      "nested_filtered_helper_summaries": 7,
+      "nested_filtered_helper_passes": 7,
+      "gates": 13,
+      "foreign_uid_cases": 4,
+      "bash": "5.1.16",
+      "final_event_regressions": 17
+    }
+  },
+  "current-bash52": {
+    "canonical_cases": 6,
+    "native_evidence_verify": 6
+  },
+  "current-bash51": {
+    "canonical_cases": 6,
+    "native_evidence_verify": 6
+  },
+  "normal_sampling": {
+    "private_reports": 200,
+    "joint_complete": 200,
+    "private_max_us": 27942,
+    "release_entries": 200,
+    "release_max_us": 28791,
+    "over_300ms": 0,
+    "residual_samples": 0
+  },
+  "login_sampling": {
+    "bash52": {
+      "enabled": 200,
+      "disabled": 200,
+      "enabled_max_us": 50949,
+      "all_exit_success": true
+    },
+    "bash51": {
+      "enabled": 200,
+      "disabled": 200,
+      "enabled_max_us": 52172,
+      "all_exit_success": true
+    }
+  },
+  "scripted_v2_interop": {
+    "stages": 7,
+    "input": "scripted journal and df text on an isolated ALinux4 instance; no real OOM, disk filling or provider",
+    "counterpart": "7cefbf36e263c30b9bd0ea3408ff4a4ee9870ef1",
+    "old_v2_entries_preserved": true,
+    "programs_restored": true
+  },
+  "transferred_evidence_verified": 19,
+  "current_screenshots_visually_checked": 17,
+  "task_ecs_remaining": 0,
+  "normal_scope": "No injected faults; real build-disk warning retained."
+}

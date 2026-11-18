@@ -1,0 +1,7 @@
+{"version":2,"width":80,"height":40,"timestamp":1794961781}
+[0.003672,"o","\u001b[?2004hHEALTH_READY>"]
+[0.003966,"o","\u001b[?2004l\r\r\n"]
+[0.018393,"o","\r\nHealth check: critical\r\n  Load  1m 0.1 / 4 cores (0.0x)\r\n  Memory  used 7% (14.1 GiB available / 15.1 GiB)\r\n  Disk  / used 90% (3.9 GiB available)\r\n  Swap  used 0%\r\n  Needs attention ────────────────────────────────────────────────────────────\r\n  • Recent OOM event\r\n    OOM 19s ago · worker (PID 41004) · host memory pressure · 1h OOM: at least\r\n    1 in the read window\r\n  • disk usage is high on this mount\r\n    Disk / used 90%; 3.9 GiB available\r\n  Type cosh guide for help\r\n\r\n"]
+[0.021383,"o","\r\nHEALTH_BANNER_DONE\r\n\u001b[?2004hHEALTH_READY>"]
+[0.622322,"o","\u001b[?2004l\r\r\n"]
+[0.622394,"o","exit\r\n"]

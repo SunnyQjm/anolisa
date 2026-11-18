@@ -1,0 +1,317 @@
+{
+  "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+  "assets": [
+    {
+      "file": "bash52-health-banner-nocolor-80-en.cast",
+      "sha256": "7dc1ee77a7e2217c25d6193ba0bb06bc26e77de9a91580eb4bf27bcbf4ac2bf6",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-NOCOLOR-80-EN"
+    },
+    {
+      "file": "bash52-health-banner-nocolor-80-en.png",
+      "sha256": "0c28b1744fd944e19fff321724fae1350919e1fb9703e5f6584f21984952b689",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-NOCOLOR-80-EN"
+    },
+    {
+      "file": "bash52-health-banner-nocolor-80-en.webm",
+      "sha256": "1a5a48175ff083527dea7f3af78dc21402a4524613bb494464fa7e42563acc4c",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-NOCOLOR-80-EN"
+    },
+    {
+      "file": "bash52-health-banner-plain-40-en.cast",
+      "sha256": "21a426d6f405f4c67a5150308689b6dfaddee8b68ad63013a96c0790037d89cd",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-PLAIN-40-EN"
+    },
+    {
+      "file": "bash52-health-banner-plain-40-en.png",
+      "sha256": "1d55daee6ca82b57dcefe2961c43f73b680c0f46a5a2b628026dd43c0a8daf4d",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-PLAIN-40-EN"
+    },
+    {
+      "file": "bash52-health-banner-plain-40-en.webm",
+      "sha256": "e292fc3bedf645146d0504c34e53b6089d8f8a7b5b114cc78be0d5694332f092",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-PLAIN-40-EN"
+    },
+    {
+      "file": "bash52-health-banner-styled-120-zh.cast",
+      "sha256": "4b85d43f0aeb07bab96345d4ca02219ca0369522a3eae6599f22be6addfb238c",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-STYLED-120-ZH"
+    },
+    {
+      "file": "bash52-health-banner-styled-120-zh.png",
+      "sha256": "fd682451eae707527cbe43cb8d3d47463a1d65d3186c3e9238bc079e57cffe52",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-STYLED-120-ZH"
+    },
+    {
+      "file": "bash52-health-banner-styled-120-zh.webm",
+      "sha256": "617acb694ebb5ddc179675d3555a82cf123da23ad607ed0b057d536d126ca9c8",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-STYLED-120-ZH"
+    },
+    {
+      "file": "bash52-health-login-120-en.cast",
+      "sha256": "cd69dc5865abfaf5ad1c950bdfacb368905bdaf61f0c0ac5cd846b9349561721",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-120-EN"
+    },
+    {
+      "file": "bash52-health-login-120-en.png",
+      "sha256": "df51a29c73eb63c389f814403aec640667b1ff164bcfc030ee73556bad582caf",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-120-EN"
+    },
+    {
+      "file": "bash52-health-login-120-en.webm",
+      "sha256": "f121b54733878f920f7f5be50db31f80727ce1cb14732f838c33e338d3ffc99d",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-120-EN"
+    },
+    {
+      "file": "bash52-health-login-40-en.cast",
+      "sha256": "1aa53ecee58841a38f89be8c6a12d99dd356f89e6c22723dc683ae26e4d80eb1",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-40-EN"
+    },
+    {
+      "file": "bash52-health-login-40-en.png",
+      "sha256": "204873ba809cd80460bf1a094fbe8cf4c4fde881efb799cb0b724c529da0c617",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-40-EN"
+    },
+    {
+      "file": "bash52-health-login-40-en.webm",
+      "sha256": "971c4ab79f3423b1c5a24c8a1419e5f2d82c3ce72e9038a7f10e6547c3d5f968",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-40-EN"
+    },
+    {
+      "file": "bash52-health-login-80-zh.cast",
+      "sha256": "48e62e52f8dd3e7312cb536c15e8c976c5c59588e9c15e977d9d9877a1686f26",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-80-ZH"
+    },
+    {
+      "file": "bash52-health-login-80-zh.png",
+      "sha256": "30de3fc8baa176f9f5d24e8c3aadc9381233f7b912c7be73270023dbf3b4885e",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-80-ZH"
+    },
+    {
+      "file": "bash52-health-login-80-zh.webm",
+      "sha256": "9c6229afc06971728eeeaa1df6d9ffd4527e23e68ae7c9d340168a5c32dbfd98",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-80-ZH"
+    },
+    {
+      "file": "bash51-health-banner-nocolor-80-en.cast",
+      "sha256": "e1ed3ad20bad69d1de6a1ba64a10c93c26f51ac667b44e4af98fecc9e653e3ee",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-NOCOLOR-80-EN"
+    },
+    {
+      "file": "bash51-health-banner-nocolor-80-en.png",
+      "sha256": "63a16541a0d1b9f7e5ed97ac8ae0448678fb2ff07bc1364a0de67b5a0a86e3e6",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-NOCOLOR-80-EN"
+    },
+    {
+      "file": "bash51-health-banner-nocolor-80-en.webm",
+      "sha256": "a1f8ba4458d6b5018fbac5eecb698b82adfb3d6007a2e331c8b0717fe7b8e1e7",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-NOCOLOR-80-EN"
+    },
+    {
+      "file": "bash51-health-banner-plain-40-en.cast",
+      "sha256": "c3f29b1ec4cd3c7fca32c8a2c279a33a9b884421efaba8b7b34b37387c7fef1e",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-PLAIN-40-EN"
+    },
+    {
+      "file": "bash51-health-banner-plain-40-en.png",
+      "sha256": "3914eaed3d48a8e2b6299b1bb22b3e7f22aa3e772de2326cf15c0e9d2a1b841f",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-PLAIN-40-EN"
+    },
+    {
+      "file": "bash51-health-banner-plain-40-en.webm",
+      "sha256": "96fc9dcb90462a64c7658278e158619150c7cc22b1e0d68920ce37b0dad915c5",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-PLAIN-40-EN"
+    },
+    {
+      "file": "bash51-health-banner-styled-120-zh.cast",
+      "sha256": "06bca5cf199d134f9e8aab2d81ce9f675d693a4c0d23ec5289c661a86097cd15",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-STYLED-120-ZH"
+    },
+    {
+      "file": "bash51-health-banner-styled-120-zh.png",
+      "sha256": "ab857df9173e011587fd38bdaecb314c1f2558dfdf9715810e9b62318279b36f",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-STYLED-120-ZH"
+    },
+    {
+      "file": "bash51-health-banner-styled-120-zh.webm",
+      "sha256": "5977a7470067f477cde158c5de65fc0d0cdbfd8e66eabcc766ca90d89ebc042f",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-BANNER-STYLED-120-ZH"
+    },
+    {
+      "file": "bash51-health-login-120-en.cast",
+      "sha256": "572887d340b2a757ba8150f785e91168cfc661b8dd5f26d100f917f4194d788c",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-120-EN"
+    },
+    {
+      "file": "bash51-health-login-120-en.png",
+      "sha256": "fe1ae6dfbe67f4b7b209fcfaf80c9fc60f49cdf7b28952c1bd30da81123ff6f6",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-120-EN"
+    },
+    {
+      "file": "bash51-health-login-120-en.webm",
+      "sha256": "cb4770de67fa851424c4ff5be52b6f7b9172f3db755203c80344506714a6bf66",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-120-EN"
+    },
+    {
+      "file": "bash51-health-login-40-en.cast",
+      "sha256": "ffe4ae3cbe11727b6d759eeabd7a418a11b1ea03e73733140d76e8241553a2d5",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-40-EN"
+    },
+    {
+      "file": "bash51-health-login-40-en.png",
+      "sha256": "119556b17d2ea78d5b09869cf35327b4f68cc0d97c5e3e9171ccc22429702851",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-40-EN"
+    },
+    {
+      "file": "bash51-health-login-40-en.webm",
+      "sha256": "f102f61e29ca9412de727ee0037ed5fbcdf9669817bde469a53c3c41f94500d3",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-40-EN"
+    },
+    {
+      "file": "bash51-health-login-80-zh.cast",
+      "sha256": "a821295da14aa13425c5eed9c29dd6cfd1cc8e32479b0b526e9766e855b9bc7b",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-80-ZH"
+    },
+    {
+      "file": "bash51-health-login-80-zh.png",
+      "sha256": "8a7f5fbc411eca9b22b6bbd95617469348e6edd289c50d2f1955dddb35e7eafe",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-80-ZH"
+    },
+    {
+      "file": "bash51-health-login-80-zh.webm",
+      "sha256": "3694344ad662c1148ce6e7bf165950b39413b243709e07cb8c560f983fabe002",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "HEALTH-LOGIN-80-ZH"
+    },
+    {
+      "file": "scripted-01-current-first-kill.cast",
+      "sha256": "b680266dae68e2ba560d79a00e26e3fee86ed44dcc948a693489ad9f7f1d66e6",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-01-current-first-kill.png",
+      "sha256": "8f1201085d8e783624f998a3e170ba46e2e54e07fb9ebdcb49cb765d6ae5b83d",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-01-current-first-kill.webm",
+      "sha256": "ae17c01d79bc76d9ddf4d65c794f75b8fc12cb12d5d60813b5f9659bd9da15be",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-02-current-orphan.cast",
+      "sha256": "68af7c8d3d7ac9811feda142ce0b65da05a218a33a8974e0a8d1ebd9acd9ab8b",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-02-current-orphan.png",
+      "sha256": "60088bc5ed82a4f0fcc96df45f626a25ce2575bab23a81a44e5a3f3a2a6057cc",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-02-current-orphan.webm",
+      "sha256": "f2c93f9e8a381e2c8cd167348d5a2c09aeb4fdd38393b2a6cb3070d419ad2a03",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-04-current-old-v2-window.cast",
+      "sha256": "1db72e6137f7791849be850b529f234a0fa1ca186ed1cf87ffd48faa3feb30a6",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-04-current-old-v2-window.png",
+      "sha256": "6cc0c749b46c16a89ba8561274653a8a5c850350fbea6d53e47a29b2ed53825a",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-04-current-old-v2-window.webm",
+      "sha256": "bdcb947be00d031488e63aea3852e926c5e22b4d86f5be066a14710dc10ae860",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-05-current-unrelated-disk.cast",
+      "sha256": "d19bb73aaa9fb338f07a21667f00aa9711e1362f48572d78b27e697bccd083db",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-05-current-unrelated-disk.png",
+      "sha256": "a13722d5acbe2bf08d8ce75c073b20d747a18b390fbfc154fa1b1d1dda9a7c8b",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-05-current-unrelated-disk.webm",
+      "sha256": "6da14a553f3a3eb685c60817ebb680d53c8654f5fab91bbee518058eec7aa094",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-07-current-old-v2-window.cast",
+      "sha256": "2dbf3d764268b8edda78338218c5cdbc6c4c571d16c540381dce75b9f6aed161",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-07-current-old-v2-window.png",
+      "sha256": "d0e6a74e2051e744851e581b64eec0b781dd40de379556abe15c29818e3e8934",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    },
+    {
+      "file": "scripted-07-current-old-v2-window.webm",
+      "sha256": "89bfc857e41fcd58cf90a24360d8e90694869add1fc3ad096e16147d7c8d0eed",
+      "candidate": "9e092d16c4e10538747f429bf5d6454de012805c",
+      "scenario": "scripted-journal-and-df-9e-final"
+    }
+  ],
+  "text_privacy_scan": "passed; screenshots require separate visual inspection",
+  "visual_inspection": {
+    "current_screenshots": 17,
+    "complete_panels_and_widths": true,
+    "no_personal_identifiers_observed": true
+  }
+}

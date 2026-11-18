@@ -1,0 +1,50 @@
+{
+  "historical_source_sha256": "7f6ebccd1b7ef0a2339d679391bbae25fcb3e8ac3d7bcd47219bbcada682e0cb",
+  "note": "Original reports are retained; normalized top-level counts exclude filtered nested helper summaries.",
+  "rows": [
+    {
+      "path": "artifacts-arm-final/evidence/bash51-v12-final/workspace.log",
+      "raw_summaries": 52,
+      "raw_passed_executions": 9321,
+      "top_level_groups": 45,
+      "top_level_passed": 9314,
+      "failed": 0,
+      "ignored": 14,
+      "nested_filtered_helper_summaries": 7,
+      "nested_filtered_helper_passes": 7
+    },
+    {
+      "path": "artifacts-arm-final/evidence/bash52-v12-final/workspace.log",
+      "raw_summaries": 52,
+      "raw_passed_executions": 9321,
+      "top_level_groups": 45,
+      "top_level_passed": 9314,
+      "failed": 0,
+      "ignored": 14,
+      "nested_filtered_helper_summaries": 7,
+      "nested_filtered_helper_passes": 7
+    },
+    {
+      "path": "artifacts-x64-final/evidence/bash51-v12-final/workspace.log",
+      "raw_summaries": 52,
+      "raw_passed_executions": 9321,
+      "top_level_groups": 45,
+      "top_level_passed": 9314,
+      "failed": 0,
+      "ignored": 14,
+      "nested_filtered_helper_summaries": 7,
+      "nested_filtered_helper_passes": 7
+    },
+    {
+      "path": "artifacts-x64-final/evidence/bash52-v12-final/workspace.log",
+      "raw_summaries": 52,
+      "raw_passed_executions": 9321,
+      "top_level_groups": 45,
+      "top_level_passed": 9314,
+      "failed": 0,
+      "ignored": 14,
+      "nested_filtered_helper_summaries": 7,
+      "nested_filtered_helper_passes": 7
+    }
+  ]
+}

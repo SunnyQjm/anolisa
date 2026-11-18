@@ -1,0 +1,7 @@
+{"version":2,"width":80,"height":40,"timestamp":1794961772}
+[0.004019,"o","\u001b[?2004hHEALTH_READY>"]
+[0.004286,"o","\u001b[?2004l\r\r\n"]
+[0.020869,"o","\r\nHealth check: critical\r\n  Load  1m 0.0 / 4 cores (0.0x)\r\n  Memory  used 6% (14.2 GiB available / 15.1 GiB)\r\n  Disk  / used 90% (3.9 GiB available)\r\n  Swap  used 0%\r\n  Needs attention ────────────────────────────────────────────────────────────\r\n  • Recent OOM event\r\n    OOM 11s ago · worker (PID 41001) · host memory pressure · 1h OOM: at least\r\n    1 in the read window\r\n  • disk usage is high on this mount\r\n    Disk / used 90%; 3.9 GiB available\r\n  Type cosh guide for help\r\n  Cosh AI · Investigate · Copy and run\r\n  cosh --ask $'Check recent OOM timing, scope, affected processes and memory limits.'\r\n\r\n"]
+[0.024188,"o","\r\nHEALTH_BANNER_DONE\r\n\u001b[?2004hHEALTH_READY>"]
+[0.625088,"o","\u001b[?2004l\r\r\n"]
+[0.625161,"o","exit\r\n"]

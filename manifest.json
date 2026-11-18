@@ -1,0 +1,53 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "7c265cedde08d58997739f7a580133502f80a1d41c2e50afad51be42ee15fdc0",
+ "item_count": 2,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "before-ok.png",
+   "kind": "image",
+   "media": {
+    "path": "before-ok.png",
+    "sha256": "ad5c78864b479c51d90a149463b1ab624c372acd744155f3461464c1450c2bb8",
+    "bytes": 37103
+   },
+   "source_ref": {
+    "sha256": "11f4d6d3e6763f9c36886c6c92c8a99aed13cee2c406780da4017aeb5aa62fdc"
+   },
+   "processing_note": "tmux pane capture (cosh-shell raw fake --shell bash, 100x30) -> single-frame v3 cast with CRLF -> cosh-dev recording export PNG (headless Chrome, bundled xterm/CJK fonts). No pixel edits.",
+   "review": {
+    "reviewer": "Codex agent visual check, authorized by SunnyQjm",
+    "reviewed_at": "2026-11-18T09:19:25Z",
+    "scope": "CJK glyph rendering, box-drawing integrity, before/after routing content; benign Chinese prompts only, no credentials or sensitive data",
+    "conclusion": "approved",
+    "media_sha256": "ad5c78864b479c51d90a149463b1ab624c372acd744155f3461464c1450c2bb8"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "after-ok.png",
+   "kind": "image",
+   "media": {
+    "path": "after-ok.png",
+    "sha256": "45171375e3b071385ff48f8ac9c393676296105cb6b267bd9df877f2871c1b3a",
+    "bytes": 72416
+   },
+   "source_ref": {
+    "sha256": "b12a64db7e49a6a0daf4e77e8ceb2607d0152453cc4c69f1b5b4b2217aea9f95"
+   },
+   "processing_note": "tmux pane capture (cosh-shell raw fake --shell bash, 100x30) -> single-frame v3 cast with CRLF -> cosh-dev recording export PNG (headless Chrome, bundled xterm/CJK fonts). No pixel edits.",
+   "review": {
+    "reviewer": "Codex agent visual check, authorized by SunnyQjm",
+    "reviewed_at": "2026-11-18T09:19:25Z",
+    "scope": "CJK glyph rendering, box-drawing integrity, before/after routing content; benign Chinese prompts only, no credentials or sensitive data",
+    "conclusion": "approved",
+    "media_sha256": "45171375e3b071385ff48f8ac9c393676296105cb6b267bd9df877f2871c1b3a"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

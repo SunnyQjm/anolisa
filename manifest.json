@@ -1,0 +1,116 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "ad78282b16f88d75d919019026e5b7a65004006d1fc23678dcbb1158ae50a133",
+ "item_count": 5,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "rr-before-card.png",
+   "kind": "image",
+   "media": {
+    "path": "rr-before-card.png",
+    "sha256": "8c1ab9ce1ec2868f4ed1061f325114ac63763797e712aa76f9e515778716b50d",
+    "bytes": 99758
+   },
+   "source_ref": {
+    "sha256": "db8013d6b34e71c38dd775bd84f481bb69886391210740c9448e5618b0390e90"
+   },
+   "processing_note": "Final static frame after complete Agent-card redraw: 130s silence tolerated, full answer, no error surface. CJK intact, full 120x32 grid.",
+   "review": {
+    "reviewer": "codex-agent visual inspection (view_image)",
+    "reviewed_at": "2026-11-19T06:10:00Z",
+    "scope": "full-frame render: card completeness, CJK glyph integrity, grid size 1188x768, no truncation",
+    "conclusion": "approved",
+    "media_sha256": "8c1ab9ce1ec2868f4ed1061f325114ac63763797e712aa76f9e515778716b50d"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "rr-after-card.png",
+   "kind": "image",
+   "media": {
+    "path": "rr-after-card.png",
+    "sha256": "216cfda6063fdbd5c8f687bb33f86b3c4d4d2e5b235eee578194bb4399c97bec",
+    "bytes": 80403
+   },
+   "source_ref": {
+    "sha256": "91634e93c21e72ef9bb33d6eaa01efc7a54504bd2d49ecddaa35d498ef70b7b5"
+   },
+   "processing_note": "Final static frame after complete Governance-card redraw: read-inactivity timeout surfaced at 120s, partial output preserved. CJK intact, full 120x32 grid.",
+   "review": {
+    "reviewer": "codex-agent visual inspection (view_image)",
+    "reviewed_at": "2026-11-19T06:10:00Z",
+    "scope": "full-frame render: card completeness, CJK glyph integrity, grid size 1188x768, no truncation",
+    "conclusion": "approved",
+    "media_sha256": "216cfda6063fdbd5c8f687bb33f86b3c4d4d2e5b235eee578194bb4399c97bec"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "rr-t60-card.png",
+   "kind": "image",
+   "media": {
+    "path": "rr-t60-card.png",
+    "sha256": "767b44934c35c439d32086fa4ea6a5b58322ef355e89f0ed2f7c37a21c5f9ddb",
+    "bytes": 70403
+   },
+   "source_ref": {
+    "sha256": "91772a03df25d9044c94262bd65f27aa774611a79dfeb694ca62820c442c2c48"
+   },
+   "processing_note": "Final static frame after complete Agent-card redraw: 60s silence tolerated, full answer, no error. CJK intact, full 120x32 grid.",
+   "review": {
+    "reviewer": "codex-agent visual inspection (view_image)",
+    "reviewed_at": "2026-11-19T06:10:00Z",
+    "scope": "full-frame render: card completeness, CJK glyph integrity, grid size 1188x768, no truncation",
+    "conclusion": "approved",
+    "media_sha256": "767b44934c35c439d32086fa4ea6a5b58322ef355e89f0ed2f7c37a21c5f9ddb"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "rr-before-12x.gif",
+   "kind": "image",
+   "media": {
+    "path": "rr-before-12x.gif",
+    "sha256": "dc7eeb524fad55d0fcdf338d70b74fb8e9d44813bf000b92ee3c2f12a7130c43",
+    "bytes": 922561
+   },
+   "source_ref": {
+    "sha256": "d59d3d8e9986e8695b111f5c174d364a4730f49a17fe42069f6d17d0a451ff0b"
+   },
+   "processing_note": "12x accelerated playback of the before-fix run (prompt to completed answer); timestamps scaled uniformly, content unmodified.",
+   "review": {
+    "reviewer": "codex-agent visual inspection (view_image)",
+    "reviewed_at": "2026-11-19T06:10:00Z",
+    "scope": "full-frame render: card completeness, CJK glyph integrity, grid size 1188x768, no truncation",
+    "conclusion": "approved",
+    "media_sha256": "dc7eeb524fad55d0fcdf338d70b74fb8e9d44813bf000b92ee3c2f12a7130c43"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "rr-after-12x.gif",
+   "kind": "image",
+   "media": {
+    "path": "rr-after-12x.gif",
+    "sha256": "4dc0a9f3f7a3ae0605606fdd544b4745bc51141bdea094756565a0dc0b99d2e5",
+    "bytes": 862049
+   },
+   "source_ref": {
+    "sha256": "83e6d967d9b37e4c2dc0e8bab94f73916ac161a3a9305c3d3f6347e2732fa509"
+   },
+   "processing_note": "12x accelerated playback of the after-fix run (prompt to timeout card); timestamps scaled uniformly, content unmodified.",
+   "review": {
+    "reviewer": "codex-agent visual inspection (view_image)",
+    "reviewed_at": "2026-11-19T06:10:00Z",
+    "scope": "full-frame render: card completeness, CJK glyph integrity, grid size 1188x768, no truncation",
+    "conclusion": "approved",
+    "media_sha256": "4dc0a9f3f7a3ae0605606fdd544b4745bc51141bdea094756565a0dc0b99d2e5"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

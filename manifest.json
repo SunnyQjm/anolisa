@@ -1,0 +1,137 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "258932de18ce626228adc55db5dd767199e803f3a3c071e8e6bfacb4827fe933",
+ "item_count": 6,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "c1-before-guide-only.png",
+   "kind": "image",
+   "media": {
+    "path": "c1-before-guide-only.png",
+    "sha256": "fb32e5574467f1aa5af6f9394a74a09ef032846fadfee0d87f6d2d69315c1d93",
+    "bytes": 91737
+   },
+   "source_ref": {
+    "sha256": "35ea4d0c862e4f06577291c2b07c185c08de73dd575be6258e0d627d7406d090"
+   },
+   "processing_note": "Rendered from the recorded cast at 3.0s with cosh-dev recording export; no pixel edits. Review finding: guide-only hint on all three logins; no identifiers. Checked every frame for host identifiers: no instance id, no public IP, no host name, no local user path, no credential. The only account name shown is the synthetic test account coshtest. Glyphs render correctly, the card borders are complete, and the frame is the full 80x24 grid.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:04:57Z",
+    "scope": "login banner x3, released 0.29.1",
+    "conclusion": "approved",
+    "media_sha256": "fb32e5574467f1aa5af6f9394a74a09ef032846fadfee0d87f6d2d69315c1d93"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "c1-after-full-entry.png",
+   "kind": "image",
+   "media": {
+    "path": "c1-after-full-entry.png",
+    "sha256": "b16c92075cd8444907bc214950a79fa91156280dc401ca005725a3b36b9462f8",
+    "bytes": 99295
+   },
+   "source_ref": {
+    "sha256": "a11f31aa724fdf0a65358ceb0ebc2001ccd74251267c71e0d2ce389fc1999091"
+   },
+   "processing_note": "Rendered from the recorded cast at 3.0s with cosh-dev recording export; no pixel edits. Review finding: full entry line on all three logins; no identifiers. Checked every frame for host identifiers: no instance id, no public IP, no host name, no local user path, no credential. The only account name shown is the synthetic test account coshtest. Glyphs render correctly, the card borders are complete, and the frame is the full 80x24 grid.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:04:57Z",
+    "scope": "login banner x3, this branch",
+    "conclusion": "approved",
+    "media_sha256": "b16c92075cd8444907bc214950a79fa91156280dc401ca005725a3b36b9462f8"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "a1-before-leftover-on-bash.png",
+   "kind": "image",
+   "media": {
+    "path": "a1-before-leftover-on-bash.png",
+    "sha256": "9472729fed69b782b1cbf1c0ff82de302bffcea761e99acdce7120123174f2ff",
+    "bytes": 12425
+   },
+   "source_ref": {
+    "sha256": "961df49c466ac35feca429a5fa3a39b5c326b671193a8e7c3a67734973b8ee28"
+   },
+   "processing_note": "Rendered from the recorded cast after the wizard exited; no pixel edits. Review finding: handoff notice and sudo prompt left on Bash; no identifiers. Checked every frame for host identifiers: no instance id, no public IP, no host name, no local user path, no credential. The only account name shown is the synthetic test account coshtest. Glyphs render correctly, the card borders are complete, and the frame is the full 80x24 grid.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:04:57Z",
+    "scope": "Bash screen after handoff, released 0.29.1",
+    "conclusion": "approved",
+    "media_sha256": "9472729fed69b782b1cbf1c0ff82de302bffcea761e99acdce7120123174f2ff"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "a1-after-clean-bash.png",
+   "kind": "image",
+   "media": {
+    "path": "a1-after-clean-bash.png",
+    "sha256": "cafe064aa970717ab6ea8fcd2af797b6ea8e513123f09392777b4d80d980a851",
+    "bytes": 2769
+   },
+   "source_ref": {
+    "sha256": "39d3b160b39163f477f7e58f79da09f6e2e63f42c035b88ccbe9da082d550d4e"
+   },
+   "processing_note": "Rendered from the recorded cast after the wizard exited; no pixel edits. Review finding: nothing left behind, cursor only; no identifiers. Checked every frame for host identifiers: no instance id, no public IP, no host name, no local user path, no credential. The only account name shown is the synthetic test account coshtest. Glyphs render correctly, the card borders are complete, and the frame is the full 80x24 grid.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:04:57Z",
+    "scope": "Bash screen after handoff, this branch",
+    "conclusion": "approved",
+    "media_sha256": "cafe064aa970717ab6ea8fcd2af797b6ea8e513123f09392777b4d80d980a851"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "a1-before-replay.gif",
+   "kind": "image",
+   "media": {
+    "path": "a1-before-replay.gif",
+    "sha256": "34a59aa8cbcda8b79a20c45d6e9bbf92b5553080d677d375056675ea174d0393",
+    "bytes": 3053120
+   },
+   "source_ref": {
+    "sha256": "961df49c466ac35feca429a5fa3a39b5c326b671193a8e7c3a67734973b8ee28"
+   },
+   "processing_note": "Full-session replay rendered from the recorded cast with cosh-dev recording export; no pixel edits. Review finding: screen torn down and re-entered at prompt; no identifiers. Checked every frame for host identifiers: no instance id, no public IP, no host name, no local user path, no credential. The only account name shown is the synthetic test account coshtest. Glyphs render correctly, the card borders are complete, and the frame is the full 80x24 grid.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:04:57Z",
+    "scope": "handoff replay, released 0.29.1",
+    "conclusion": "approved",
+    "media_sha256": "34a59aa8cbcda8b79a20c45d6e9bbf92b5553080d677d375056675ea174d0393"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "a1-after-replay.gif",
+   "kind": "image",
+   "media": {
+    "path": "a1-after-replay.gif",
+    "sha256": "0ed91c2cd20315ce7dd176e06cd91196ed2c5b02b8cfb58a17a41a8b9be0a0f0",
+    "bytes": 4141153
+   },
+   "source_ref": {
+    "sha256": "39d3b160b39163f477f7e58f79da09f6e2e63f42c035b88ccbe9da082d550d4e"
+   },
+   "processing_note": "Full-session replay rendered from the recorded cast with cosh-dev recording export; no pixel edits. Review finding: one alternate screen throughout; no identifiers. Checked every frame for host identifiers: no instance id, no public IP, no host name, no local user path, no credential. The only account name shown is the synthetic test account coshtest. Glyphs render correctly, the card borders are complete, and the frame is the full 80x24 grid.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:04:57Z",
+    "scope": "handoff replay, this branch",
+    "conclusion": "approved",
+    "media_sha256": "0ed91c2cd20315ce7dd176e06cd91196ed2c5b02b8cfb58a17a41a8b9be0a0f0"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

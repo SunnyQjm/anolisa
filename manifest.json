@@ -1,0 +1,53 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "96c0c9a7ec0c00fd4690d83e02dda883e9ee216bdb75b6e6b6d8681250d5f2f7",
+ "item_count": 2,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "shot-100kb-fixed-final.png",
+   "kind": "image",
+   "media": {
+    "path": "shot-100kb-fixed-final.png",
+    "sha256": "9e98fed776806d0ab7f8629af227003c203205db46bfa2ee1a1ff4bdd7c598b9",
+    "bytes": 75424
+   },
+   "source_ref": {
+    "sha256": "10b3427544eb41af2b911d3485db1b3558ea834abf4f10ca60d81810cb997e69"
+   },
+   "processing_note": "Fixed product: 100KiB single-line paste, probe submitted and prompt returned (~350ms). Rendered from product PTY cast via recording export png; no pixel edits.",
+   "review": {
+    "reviewer": "SunnyQjm",
+    "reviewed_at": "2026-11-19T17:48:00+08:00",
+    "scope": "PR 10348 giant-paste freeze evidence; reviewed terminal frame content (paste echo, command-not-found, prompt); no credentials or private paths",
+    "conclusion": "approved",
+    "media_sha256": "9e98fed776806d0ab7f8629af227003c203205db46bfa2ee1a1ff4bdd7c598b9"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "shot-40kb-before.png",
+   "kind": "image",
+   "media": {
+    "path": "shot-40kb-before.png",
+    "sha256": "f084d70edc1f70fd07cee59c0318dee93324658ef9433b6e4a146045216232bf",
+    "bytes": 64199
+   },
+   "source_ref": {
+    "sha256": "d7de911c92d12cfa55f3889bfa282f20746f8d217be26dc58ee7ecc48c27e52c"
+   },
+   "processing_note": "Pre-fix product: 40KiB single-line paste at 8s, giant line command-not-found printed but probe not yet submitted (delayed input path). Rendered from product PTY cast via recording export png; no pixel edits.",
+   "review": {
+    "reviewer": "SunnyQjm",
+    "reviewed_at": "2026-11-19T17:48:00+08:00",
+    "scope": "PR 10348 giant-paste freeze evidence; reviewed terminal frame content (paste echo, command-not-found, stalled prompt); no credentials or private paths",
+    "conclusion": "approved",
+    "media_sha256": "f084d70edc1f70fd07cee59c0318dee93324658ef9433b6e4a146045216232bf"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

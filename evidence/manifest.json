@@ -1,0 +1,116 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "473a6c1ed530f5302fa56ac53f172b68fcd71b7b29381afa172f1adfaff8d841",
+ "item_count": 5,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "base-midpaste.png",
+   "kind": "image",
+   "media": {
+    "path": "base-midpaste.png",
+    "sha256": "a31af1b3eac612d39460c11b2105dbf1021a923d7dfed2c97df97363433868b8",
+    "bytes": 30391
+   },
+   "source_ref": {
+    "sha256": "dda5eae73706f337f25b3bb649af539cfbc074376f6ca6b677f874c408f01b5f"
+   },
+   "processing_note": "recording export cast->png at cast event boundary; 80x24 PTY; no pixel transformation; derived from preserved private recording (base: r3 rec-246887927c3956ba51ae58a6; fixed: r6 rec-64c87ff03f50325e1d3d3a90)",
+   "review": {
+    "reviewer": "Qoder agent (author-side pixel review via view_image, for SunnyQjm)",
+    "reviewed_at": "2026-11-19T08:50:15Z",
+    "scope": "PR #10340 evidence, author-side pixel review via view_image: no credentials or secrets; internal container paths and health telemetry only; ASCII payload, no CJK rendering risk; 80x24 frames at cast event boundaries; no pixel transformation",
+    "conclusion": "approved",
+    "media_sha256": "a31af1b3eac612d39460c11b2105dbf1021a923d7dfed2c97df97363433868b8"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "base-final.png",
+   "kind": "image",
+   "media": {
+    "path": "base-final.png",
+    "sha256": "328e800eb52fb2fe65dcdaabc46dfe14f341975af42e4f8957d50de9f69f245e",
+    "bytes": 42373
+   },
+   "source_ref": {
+    "sha256": "dda5eae73706f337f25b3bb649af539cfbc074376f6ca6b677f874c408f01b5f"
+   },
+   "processing_note": "recording export cast->png at cast event boundary; 80x24 PTY; no pixel transformation; derived from preserved private recording (base: r3 rec-246887927c3956ba51ae58a6; fixed: r6 rec-64c87ff03f50325e1d3d3a90)",
+   "review": {
+    "reviewer": "Qoder agent (author-side pixel review via view_image, for SunnyQjm)",
+    "reviewed_at": "2026-11-19T08:50:15Z",
+    "scope": "PR #10340 evidence, author-side pixel review via view_image: no credentials or secrets; internal container paths and health telemetry only; ASCII payload, no CJK rendering risk; 80x24 frames at cast event boundaries; no pixel transformation",
+    "conclusion": "approved",
+    "media_sha256": "328e800eb52fb2fe65dcdaabc46dfe14f341975af42e4f8957d50de9f69f245e"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "fixed-midpaste.png",
+   "kind": "image",
+   "media": {
+    "path": "fixed-midpaste.png",
+    "sha256": "743025a80d8159ea6099d81b5ff2e395b4284eeb16fb6648b1c5af315062eb4f",
+    "bytes": 92523
+   },
+   "source_ref": {
+    "sha256": "52cc7b1d0fa1a46972df7464de2d0bf74a562b82bfe2c1a24917098474955cea"
+   },
+   "processing_note": "recording export cast->png at cast event boundary; 80x24 PTY; no pixel transformation; derived from preserved private recording (base: r3 rec-246887927c3956ba51ae58a6; fixed: r6 rec-64c87ff03f50325e1d3d3a90)",
+   "review": {
+    "reviewer": "Qoder agent (author-side pixel review via view_image, for SunnyQjm)",
+    "reviewed_at": "2026-11-19T08:50:15Z",
+    "scope": "PR #10340 evidence, author-side pixel review via view_image: no credentials or secrets; internal container paths and health telemetry only; ASCII payload, no CJK rendering risk; 80x24 frames at cast event boundaries; no pixel transformation",
+    "conclusion": "approved",
+    "media_sha256": "743025a80d8159ea6099d81b5ff2e395b4284eeb16fb6648b1c5af315062eb4f"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "fixed-close.png",
+   "kind": "image",
+   "media": {
+    "path": "fixed-close.png",
+    "sha256": "ea3c18b9e075e82a939e7825adc2bf813fc930c8cdc8bb711902d881db64e044",
+    "bytes": 30344
+   },
+   "source_ref": {
+    "sha256": "52cc7b1d0fa1a46972df7464de2d0bf74a562b82bfe2c1a24917098474955cea"
+   },
+   "processing_note": "recording export cast->png at cast event boundary; 80x24 PTY; no pixel transformation; derived from preserved private recording (base: r3 rec-246887927c3956ba51ae58a6; fixed: r6 rec-64c87ff03f50325e1d3d3a90)",
+   "review": {
+    "reviewer": "Qoder agent (author-side pixel review via view_image, for SunnyQjm)",
+    "reviewed_at": "2026-11-19T08:50:15Z",
+    "scope": "PR #10340 evidence, author-side pixel review via view_image: no credentials or secrets; internal container paths and health telemetry only; ASCII payload, no CJK rendering risk; 80x24 frames at cast event boundaries; no pixel transformation",
+    "conclusion": "approved",
+    "media_sha256": "ea3c18b9e075e82a939e7825adc2bf813fc930c8cdc8bb711902d881db64e044"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "fixed-final.png",
+   "kind": "image",
+   "media": {
+    "path": "fixed-final.png",
+    "sha256": "b36ef0d1cdf32ce26d27a9d108303a79c7edb2fc87ddca131d6d5de687b70201",
+    "bytes": 31536
+   },
+   "source_ref": {
+    "sha256": "52cc7b1d0fa1a46972df7464de2d0bf74a562b82bfe2c1a24917098474955cea"
+   },
+   "processing_note": "recording export cast->png at cast event boundary; 80x24 PTY; no pixel transformation; derived from preserved private recording (base: r3 rec-246887927c3956ba51ae58a6; fixed: r6 rec-64c87ff03f50325e1d3d3a90)",
+   "review": {
+    "reviewer": "Qoder agent (author-side pixel review via view_image, for SunnyQjm)",
+    "reviewed_at": "2026-11-19T08:50:15Z",
+    "scope": "PR #10340 evidence, author-side pixel review via view_image: no credentials or secrets; internal container paths and health telemetry only; ASCII payload, no CJK rendering risk; 80x24 frames at cast event boundaries; no pixel transformation",
+    "conclusion": "approved",
+    "media_sha256": "b36ef0d1cdf32ce26d27a9d108303a79c7edb2fc87ddca131d6d5de687b70201"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "f1d3c478ac93a0386c8afd2684869def792b0bb13e79f62a5f009ae5864a7e5c",
+ "item_count": 2,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "template-before-unbounded.png",
+   "kind": "image",
+   "media": {
+    "path": "template-before-unbounded.png",
+    "sha256": "e45f0d4e808bd087c26d2e9685fe6762e4ad4f6c5ccddcce3a918b49afac447b",
+    "bytes": 23401
+   },
+   "source_ref": {
+    "sha256": "682ba8813ff0f87f10a80bda7ff94a651aec61c533812acc5502788cd0da249a"
+   },
+   "processing_note": "Pre-fix template page at 40x16, rendered from the recorded byte segment (single event, no timing). Rendered with cosh-dev recording export; no pixel edits. Checked for host identifiers, glyph integrity (CJK included) and complete borders.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:30:27Z",
+    "scope": "40x16 provider template page",
+    "conclusion": "approved",
+    "media_sha256": "e45f0d4e808bd087c26d2e9685fe6762e4ad4f6c5ccddcce3a918b49afac447b"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "template-after-fits.png",
+   "kind": "image",
+   "media": {
+    "path": "template-after-fits.png",
+    "sha256": "202510b2b155026f2e10f5264224f4170c4a8a2c8a19be5492cc0b00b6d24fe1",
+    "bytes": 38684
+   },
+   "source_ref": {
+    "sha256": "4fc7a92b267815826b7cf8bfb2a838b3fd5fb83e062ae0a632fa68c9916530ab"
+   },
+   "processing_note": "Current head template page at 40x16, full timestamped session recorded locally with the real product binaries. Rendered with cosh-dev recording export; no pixel edits. Checked for host identifiers, glyph integrity (CJK included) and complete borders.",
+   "review": {
+    "reviewer": "SunnyQjm (author self-review, performed by the Codex agent)",
+    "reviewed_at": "2026-11-19T06:30:27Z",
+    "scope": "40x16 provider template page",
+    "conclusion": "approved",
+    "media_sha256": "202510b2b155026f2e10f5264224f4170c4a8a2c8a19be5492cc0b00b6d24fe1"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

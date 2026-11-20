@@ -58,6 +58,32 @@ automatically after confirmation, and `shell.readonly` overrides and
 `shell.readonly_disabled` continue to control read-only eligibility (see
 [Configuration](../configuration.md)).
 
+### Git commands in auto mode
+
+Most git subcommands require an approval card in `auto` mode, including
+`git status`, `git diff`, and `git log`. Git reads `.git/config` and
+`.gitattributes` from the repository it runs in, and those files can name
+programs that git executes on its own: `core.fsmonitor` on index refresh,
+`diff.<driver>.textconv` when generating patches, `gpg.program` when
+verifying signatures, and the remote transport (`core.sshCommand`,
+credential helpers) when a partial clone lazily fetches a missing object.
+The read-only classifier cannot see repository configuration, so these
+forms ask first instead of running automatically.
+
+Still auto-approved are forms that read local config or count objects
+without touching history, signature fields, or object contents:
+
+- `git remote` (bare), `git remote -v`/`--verbose`, and
+  `git remote get-url <name>`
+- `git count-objects`
+- `git config --get <key>` / `git config --get-all <key>` with a single
+  literal key, and bare `git config --list`/`-l`
+
+Config queries with source selectors (`--blob`, `--file`), scope flags,
+other options, or shell-expansion syntax in the key require approval.
+Use trust mode or `shell.readonly` overrides to widen auto-approval
+deliberately.
+
 Enable trust mode with a second confirmation:
 
 ```text

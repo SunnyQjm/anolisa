@@ -1,0 +1,53 @@
+{
+ "schema": "derived-set/1",
+ "schema_version": 1,
+ "allowlist_sha256": "aa404da30a6a1cff0ab7fe800e4eccd3bb8beb30f81d49f9b6cc1a3a70fa4da5",
+ "item_count": 2,
+ "privacy": "reviewed-media-only",
+ "published": false,
+ "independent_privacy_review": false,
+ "items": [
+  {
+   "name": "cosh-public-headless-demo.gif",
+   "kind": "image",
+   "media": {
+    "path": "cosh-public-headless-demo.gif",
+    "sha256": "fcab8027714f51685707e396a7feba87258a097221f41b89c716983f83427bf7",
+    "bytes": 511524
+   },
+   "source_ref": {
+    "sha256": "84c401203006e8f23bb3c9fa0d2860168ee8c8428c8a1646cf710b082754e3e3"
+   },
+   "processing_note": "External PTY recording of the public cosh --headless entry point on ALinux4 x86_64 with candidate RPM 0.30.2-5 and real DashScope. The exported GIF was downsampled to 10 fps and 800 px width; the 33.4-second real-time repair sequence is preserved.",
+   "review": {
+    "reviewer": "Qoder visual inspection (author-side; not independent human approval)",
+    "reviewed_at": "2026-11-25T04:27:04Z",
+    "scope": "Inspected the final PNG and GIF frames at 0, 4, 8, 12, 20, 28, and 33 seconds, and scanned the complete terminal transcript. No credentials, private keys, public IP addresses, host usernames, or local private paths are visible.",
+    "conclusion": "approved",
+    "media_sha256": "fcab8027714f51685707e396a7feba87258a097221f41b89c716983f83427bf7"
+   },
+   "review_status": "author-claimed-approved"
+  },
+  {
+   "name": "cosh-public-headless-final.png",
+   "kind": "image",
+   "media": {
+    "path": "cosh-public-headless-final.png",
+    "sha256": "d4ff2da22a5bcc415093b837b970d86cf2db958e188b3cd96a125ebf2458a269",
+    "bytes": 102058
+   },
+   "source_ref": {
+    "sha256": "84c401203006e8f23bb3c9fa0d2860168ee8c8428c8a1646cf710b082754e3e3"
+   },
+   "processing_note": "Final frame at 30 seconds from the same external ALinux4 x86_64 PTY recording, showing the failing test context, completed public Headless result, corrected implementation, and independent passing retest.",
+   "review": {
+    "reviewer": "Qoder visual inspection (author-side; not independent human approval)",
+    "reviewed_at": "2026-11-25T04:27:04Z",
+    "scope": "Inspected the complete 995x722 final frame and the matching GIF frame. The failing and passing states are legible; no credentials, private keys, public IP addresses, host usernames, or local private paths are visible.",
+    "conclusion": "approved",
+    "media_sha256": "d4ff2da22a5bcc415093b837b970d86cf2db958e188b3cd96a125ebf2458a269"
+   },
+   "review_status": "author-claimed-approved"
+  }
+ ]
+}

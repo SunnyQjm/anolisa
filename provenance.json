@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "pull_request": "https://github.com/agentic-os-org/ANOLISA/pull/10637",
+  "feature_head": "ee70ff215ad8b0b888b2d8405a7018ab96af4aa9",
+  "shell_implementation_commit": "cebf216d8fc86040e8d48e46ed2a8125d8bd26bf",
+  "captured_source": "parent e79d28c96 plus three shell UI/dispatch fixes later folded into cebf216d8; formatting-only differences after capture",
+  "scene": "cosh-oauth-menu",
+  "recipe": "cosh-ng-0.30-shell-core-debug-v1",
+  "artifact_id": "c7a0915ff6fb5832906c9f6f",
+  "tool_manifest_sha256": "dc310940cf6d11ae80b00671544fb94dd9df96e0ef56612341693b03fa075912",
+  "runner_digest": "sha256:8bb98fc7dca670ac4ed0aacaa3ad83031e21affba06a4ad9d2a0df44981ebe96",
+  "capture_request": "oauth-flow-capture4-20261125",
+  "capture_status": "passed",
+  "viewport": {
+    "cols": 100,
+    "rows": 30
+  },
+  "source_cast_sha256": "9c17d362a01d10e8fc6989a0f1bab9e92dda0b1cd388ed54a6aee9ed1e709bf4",
+  "animation_scope": "actual Cosh container shell + its internal PTY, authentication/model fixed protocol fixture, no live OAuth/inference in animation",
+  "browser_scope": "separate live Chrome authorization return screenshot; not consent-page interaction",
+  "privacy_review": "author-side visual review, not independent human approval",
+  "assets": [
+    {
+      "path": "oauth-container-full.gif",
+      "sha256": "5185505f49444024bdc3a51ff9c66137e20f2eb659d090da0866e0fe764ea568",
+      "bytes": 79832
+    },
+    {
+      "path": "oauth-login-success.png",
+      "sha256": "cbbb6780e7562c8b26558431c308552bbc3631ad3e22eda0fa84fd84f3311218",
+      "bytes": 35418
+    },
+    {
+      "path": "oauth-model-reply.png",
+      "sha256": "9fc47babdbee734e334bf4e572c05e2a0f35706ba7f63963e7c4cc429298ed54",
+      "bytes": 24664
+    },
+    {
+      "path": "oauth-logout.png",
+      "sha256": "14c6090be656784afb92acb85f93dedd8d70684a08ba29da845be381d1861182",
+      "bytes": 49912
+    },
+    {
+      "path": "chrome-oauth-callback.png",
+      "sha256": "dc759051990e79620f00a2232e93a6793dd82860620db58b1ea31b29372f9b3d",
+      "bytes": 8035
+    }
+  ]
+}
